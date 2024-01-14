@@ -42,8 +42,6 @@ void AMShooterEnemy::BeginPlay()
 	BoxCollision->SetRelativeLocation(FVector(0.f, 0.f, 50.f));
 	HealthWidget->SetRelativeLocation(FVector(0.f, 0.f, 150.f));
 
-	TakeDamage(50.f);
-
 }
 
 // Called every frame

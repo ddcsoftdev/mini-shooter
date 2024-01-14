@@ -32,3 +32,8 @@ void UMShooterShootingComponent::TickComponent(float DeltaTime, ELevelTick TickT
 	// ...
 }
 
+void UMShooterShootingComponent::TriggerShot()
+{
+	//PAM
+}
+
