@@ -51,5 +51,10 @@ public:
 	*/
 	float GetHealth() { return Health; };
 
+	/**
+	* Getter for Max Health
+	*/
+	float GetMaxHealth() { return MaxHealth; };
+
 		
 };

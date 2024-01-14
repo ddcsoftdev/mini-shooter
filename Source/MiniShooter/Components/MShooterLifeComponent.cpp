@@ -19,7 +19,8 @@ void UMShooterLifeComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
-	
+	//Jumpstart Health
+	Health = MaxHealth;
 }
 
 
@@ -40,7 +41,6 @@ void UMShooterLifeComponent::SetHealth(float NewHealth)
 	}
 	else if (FinalHealth <= 0)
 	{
-		//DIE
 		Health = 0;
 		KillOwner();
 	}
