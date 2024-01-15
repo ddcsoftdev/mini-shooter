@@ -7,6 +7,7 @@
 #include <Components/StaticMeshComponent.h>
 
 #include "../Enemy/MShooterEnemy.h"
+#include "../Enemy/MShooterTarget.h"
 
 // Sets default values
 AMShooterProjectile::AMShooterProjectile()
@@ -77,6 +78,10 @@ void AMShooterProjectile::NotifyActorBeginOverlap(AActor* OtherActor)
 	if (OtherActor->GetClass()->GetSuperClass() == AMShooterEnemy::StaticClass())
 	{
 		Cast<AMShooterEnemy>(OtherActor)->TakeDamageAmount(ProjectileDamage);
+	}
+	else if (OtherActor->GetClass()->GetSuperClass() == AMShooterTarget::StaticClass())
+	{
+		Cast<AMShooterTarget>(OtherActor)->TakeDamageAmount(ProjectileDamage);
 	}
 	RequestProjectileDestroy();
 }

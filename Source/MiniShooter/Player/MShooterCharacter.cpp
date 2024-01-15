@@ -44,16 +44,15 @@ void AMShooterCharacter::Shoot(bool bStart)
 	{
 		return;
 	}
+
 	if (bStart)
 	{
 		ShootingComponent->StartShooting();
-
 		GetWorld()->GetTimerManager().ClearTimer(StopAimingTimeHandle);
 	}
 	else
 	{
 		ShootingComponent->StopShooting();
-
 		//Give some time to Stop Aiming so you can start aiming before shooting
 		GetWorld()->GetTimerManager().SetTimer(StopAimingTimeHandle, [&]() {ShootingComponent->StopAiming(); }, 1.f, false);
 	}

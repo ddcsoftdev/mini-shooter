@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "MShooterEnemyInterface.h"
 #include "MShooterEnemy.generated.h"
 
 class UStaticMeshComponent;
@@ -15,7 +16,7 @@ class UMShooterLifeComponent;
 class UMShooterShootingComponent;
 
 UCLASS()
-class MINISHOOTER_API AMShooterEnemy : public AActor
+class MINISHOOTER_API AMShooterEnemy : public AActor, public IMShooterEnemyBasics
 {
 	GENERATED_BODY()
 	
@@ -62,13 +63,15 @@ protected:
 	* Internal update health bar widget
 	* It uses Health and MaxHealth Attributes from class
 	*/
-	void UpdateHealthBarWidget(float MaxHealth, float CurrentHealth);
+	UFUNCTION()
+	virtual void UpdateHealthBarWidget(float MaxHealth, float CurrentHealth) override;
 
 
 	/**
 	* Rotate Healthbar
 	*/
-	void SetHealthWidgetRotation();
+	UFUNCTION()
+	virtual void SetHealthWidgetRotation() override;
 
 public:	
 	// Called every frame
@@ -77,6 +80,7 @@ public:
 	/**
 	* Inflicts Damage
 	*/
-	void TakeDamageAmount(float Amount);
+	UFUNCTION()
+	virtual void TakeDamageAmount(float Amount) override;
 
 };

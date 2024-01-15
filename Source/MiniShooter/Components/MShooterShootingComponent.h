@@ -42,8 +42,8 @@ protected:
 	/**
 	* Shooting cadence
 	*/
-	UPROPERTY(EditAnywhere, Category = "Override Projectile Speed")
-	float ShootingCadence{ 1.f };
+	UPROPERTY(EditAnywhere, Category = "Shooting Speed")
+	float ShootingCadence{ 0.5f };
 
 	/**
 	* Is Player bAiming
