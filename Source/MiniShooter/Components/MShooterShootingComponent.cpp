@@ -3,6 +3,8 @@
 
 #include "MShooterShootingComponent.h"
 
+#include <Kismet/KismetMathLibrary.h>
+
 #include "../Projectile/MShooterProjectile.h"
 
 // Sets default values for this component's properties
@@ -34,7 +36,7 @@ void UMShooterShootingComponent::TickComponent(float DeltaTime, ELevelTick TickT
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	// ...
+	AimingRotationAdjustment();
 }
 
 void UMShooterShootingComponent::StartShooting()
@@ -89,3 +91,29 @@ void UMShooterShootingComponent::TriggerShot()
 	}
 }
 
+void UMShooterShootingComponent::StartAiming(AActor* NearestEnemy)
+{
+	if (!NearestEnemy || !GetOwner())
+	{
+		return;
+	}
+	CurrentAimedEnemy = NearestEnemy;
+	bIsAiming = true;
+}
+
+void UMShooterShootingComponent::StopAiming()
+{
+	CurrentAimedEnemy = nullptr;
+	bIsAiming = false;
+}
+
+void UMShooterShootingComponent::AimingRotationAdjustment()
+{
+	if (!bIsAiming || !CurrentAimedEnemy || !GetOwner())
+	{
+		return;
+	}
+
+	FRotator NewRotation = UKismetMathLibrary::FindLookAtRotation(GetOwner()->GetActorLocation(), CurrentAimedEnemy->GetActorLocation());
+	GetOwner()->SetActorRotation(NewRotation);
+}

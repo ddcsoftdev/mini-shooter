@@ -9,6 +9,7 @@
 
 
 DECLARE_MULTICAST_DELEGATE_OneParam(FSendShootRequest, bool);
+DECLARE_MULTICAST_DELEGATE(FSendAimRequest);
 
 UCLASS()
 class MINISHOOTER_API AMShooterController : public APlayerController
@@ -23,6 +24,11 @@ public:
 	FSendShootRequest ShootDelegate;
 
 	/**
+	* Delegate for aiming
+	*/
+	FSendAimRequest AimDelegate;
+
+	/**
 	* Override with Super so we can add more inputs
 	*/
 	virtual void SetupInputComponent() override;
@@ -35,6 +41,12 @@ protected:
 	UFUNCTION()
 	void RequestShoot(bool bStart);
 
+
+	/**
+	* Broadcast Aim Delegate to Toggle Start or Stop
+	*/
+	UFUNCTION()
+	void RequestAim();
 
 	virtual void BeginPlay() override;
 

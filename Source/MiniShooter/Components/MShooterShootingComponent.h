@@ -46,6 +46,19 @@ protected:
 	float ShootingCadence{ 1.f };
 
 	/**
+	* Is Player bAiming
+	*/
+	UPROPERTY()
+		bool bIsAiming{ false };
+
+
+	/**
+	* Current Aimed Enemy to Player
+	*/
+	UPROPERTY()
+		AActor* CurrentAimedEnemy;
+
+	/**
 	* Reference for Projectile BP
 	*/
 	UPROPERTY()
@@ -56,6 +69,12 @@ protected:
 	*/
 	UFUNCTION()
 		void TriggerShot();
+
+	/**
+	* Aiming Frame rotation
+	*/
+	UFUNCTION()
+		void AimingRotationAdjustment();
 
 public:	
 	// Called every frame
@@ -68,9 +87,33 @@ public:
 		void StartShooting();
 
 	/**
-	* Start Shoot Loop
+	* Stop Shoot Loop
 	*/
 	UFUNCTION()
 		void StopShooting();
 		
+	/**
+	* Start Aiming 
+	*/
+	UFUNCTION()
+		void StartAiming(AActor* NearestEnemy);
+
+	/**
+	* Stop Aiming
+	*/
+	UFUNCTION()
+		void StopAiming();
+
+	/**
+	* Get Is Aiming
+	*/
+	UFUNCTION()
+		bool GetIsAiming() { return bIsAiming; };
+
+	/**
+	* Get Current Aimed Enemy
+	*/
+	UFUNCTION()
+		AActor* GetCurrentAimedEnemy() { return CurrentAimedEnemy; };
+
 };

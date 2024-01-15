@@ -8,6 +8,7 @@
 
 class UMShooterShootingComponent;
 
+DECLARE_MULTICAST_DELEGATE_OneParam(FRequestNearestEnemy, class AActor*);
 UCLASS(config=Game)
 class AMShooterCharacter : public AMiniShooterCharacter
 {
@@ -16,6 +17,17 @@ class AMShooterCharacter : public AMiniShooterCharacter
 public:
 
 	AMShooterCharacter();
+
+	/**
+	* Delegate to Request Nearest Enemy
+	*/
+	FRequestNearestEnemy RequestNearestEnemyDelegate;
+
+	/**
+	* Get Current Aimed Enemy
+	*/
+	UFUNCTION()
+	AActor* RequestGetAimedEnemy();
 
 protected:
 
@@ -26,10 +38,28 @@ protected:
 	UMShooterShootingComponent* ShootingComponent;
 
 	/**
-	* Shooting Function that trigger the Shooting Component
+	* Stop Aiming TimeHandle so you can aim before shooting
+	*/
+	UPROPERTY(EditAnywhere)
+	FTimerHandle StopAimingTimeHandle;
+
+	/**
+	* Shooting method that trigger the Shooting Component
 	*/
 	UFUNCTION()
 	void Shoot(bool bStart);
+
+	/**
+	* Aiming method that start aiming at Enemies
+	*/
+	UFUNCTION()
+		void Aim();
+
+	/**
+	* Recieve nearest Enemy
+	*/
+	UFUNCTION()
+	void GetNearestEnemy(AActor* NearestEnemy);
 
 	virtual void BeginPlay() override;
 };

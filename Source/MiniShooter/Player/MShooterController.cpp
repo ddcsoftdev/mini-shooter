@@ -23,6 +23,9 @@ void AMShooterController::SetupInputComponent()
 		return;
 	}
 	
+	InputComponent->BindAction("Aim", IE_Pressed, this, &AMShooterController::RequestAim);
+
+
 	/*Handle compound input bindings*/
 
 	//Shooting Start
@@ -55,3 +58,10 @@ void AMShooterController::RequestShoot(bool bStart)
 	}
 }
 
+void AMShooterController::RequestAim()
+{
+	if (AimDelegate.IsBound())
+	{
+		AimDelegate.Broadcast();
+	}
+}

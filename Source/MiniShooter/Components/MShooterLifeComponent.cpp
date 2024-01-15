@@ -3,6 +3,11 @@
 
 #include "MShooterLifeComponent.h"
 
+#include <Kismet/GameplayStatics.h>
+
+#include "../MiniShooterGameMode.h"
+
+
 // Sets default values for this component's properties
 UMShooterLifeComponent::UMShooterLifeComponent()
 {
@@ -48,8 +53,13 @@ void UMShooterLifeComponent::SetHealth(float NewHealth)
 
 void UMShooterLifeComponent::KillOwner()
 {
-	if (GetOwner())
+	if (!GetOwner())
 	{
-		GetOwner()->Destroy();
+		return;
 	}
+	if (AMiniShooterGameMode* GameMode = Cast<AMiniShooterGameMode>(UGameplayStatics::GetGameMode(GetOwner()->GetWorld())))
+	{
+		GameMode->NotifyEnemyDeadDelegate.Broadcast(GetOwner());
+	}
+	GetOwner()->Destroy();
 }
