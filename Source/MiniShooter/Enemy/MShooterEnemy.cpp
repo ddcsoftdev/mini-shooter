@@ -73,7 +73,7 @@ void AMShooterEnemy::UpdateHealthBarWidget(float MaxHealth, float CurrentHealth)
 	}
 }
 
-void AMShooterEnemy::TakeDamage(float Amount)
+void AMShooterEnemy::TakeDamageAmount(float Amount)
 {
 	if (!LifeComponent)
 	{

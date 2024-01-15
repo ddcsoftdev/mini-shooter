@@ -3,6 +3,8 @@
 
 #include "MShooterShootingComponent.h"
 
+#include "../Projectile/MShooterProjectile.h"
+
 // Sets default values for this component's properties
 UMShooterShootingComponent::UMShooterShootingComponent()
 {
@@ -34,6 +36,18 @@ void UMShooterShootingComponent::TickComponent(float DeltaTime, ELevelTick TickT
 
 void UMShooterShootingComponent::TriggerShot()
 {
-	//PAM
+
+	//ConstructorHelpers::FClassFinder<AActor> BPFinder(TEXT("/Game/Path/To/BP"));
+	//TSubclassOf<AActor> BPToSpawn; = BPFinder.Class;
+	//AActor* Projectile = GetWorld()->SpawnActor(BPToSpawn, ...);
+	AActor* Projectile = nullptr;
+	if (bOverrideProjectileSpeed)
+	{
+		if (AMShooterProjectile* CastedProjectile = Cast<AMShooterProjectile>(Projectile))
+		{
+			CastedProjectile->OverrideProjectileSpeed(ProjectileSpeed);
+		}
+	}
+
 }
 

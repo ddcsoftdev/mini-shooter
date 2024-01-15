@@ -77,6 +77,6 @@ public:
 	/**
 	* Inflicts Damage
 	*/
-	void TakeDamage(float Amount);
+	void TakeDamageAmount(float Amount);
 
 };

@@ -24,5 +24,13 @@ protected:
 	*/
 	UPROPERTY(EditAnywhere)
 	UMShooterShootingComponent* ShootingComponent;
+
+	/**
+	* Shooting Function that trigger the Shooting Component
+	*/
+	UFUNCTION()
+	void Shoot();
+
+	virtual void BeginPlay() override;
 };
 
