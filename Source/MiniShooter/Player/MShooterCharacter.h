@@ -29,7 +29,7 @@ protected:
 	* Shooting Function that trigger the Shooting Component
 	*/
 	UFUNCTION()
-	void Shoot();
+	void Shoot(bool bStart);
 
 	virtual void BeginPlay() override;
 };

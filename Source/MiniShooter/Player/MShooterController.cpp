@@ -12,7 +12,6 @@ void AMShooterController::BeginPlay()
 {
 	Super::BeginPlay();
 
-	SetupInputComponent();
 }
 
 void AMShooterController::SetupInputComponent()
@@ -23,15 +22,36 @@ void AMShooterController::SetupInputComponent()
 	{
 		return;
 	}
+	
+	/*Handle compound input bindings*/
 
-	InputComponent->BindAction("Shoot", IE_Pressed, this, &AMShooterController::RequestShoot);
+	//Shooting Start
+	FInputActionHandlerSignature StartShootingActionHandler;
+	//Obj / Func name / Variable
+	StartShootingActionHandler.BindUFunction(this, TEXT("RequestShoot"), true);
+
+	FInputActionBinding StartShootingActionBinding("Shoot", IE_Pressed);
+	StartShootingActionBinding.ActionDelegate = StartShootingActionHandler;
+	InputComponent->AddActionBinding(StartShootingActionBinding);
+
+	//Shooting End
+	FInputActionHandlerSignature StopShootingActionHandler;
+	//Obj / Func name / Variable
+	StopShootingActionHandler.BindUFunction(this, TEXT("RequestShoot"), false);
+
+	FInputActionBinding StopShootingActionBinding("Shoot", IE_Released);
+	StopShootingActionBinding.ActionDelegate = StopShootingActionHandler;
+	InputComponent->AddActionBinding(StopShootingActionBinding);
+
+	/*handle compund input bindins end*/
+
 }
 
-void AMShooterController::RequestShoot()
+void AMShooterController::RequestShoot(bool bStart)
 {
 	if (ShootDelegate.IsBound())
 	{
-		ShootDelegate.Broadcast();
+		ShootDelegate.Broadcast(bStart);
 	}
 }
 

@@ -6,6 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "MShooterProjectile.generated.h"
 
+class UStaticMeshComponent;
 UCLASS()
 class MINISHOOTER_API AMShooterProjectile : public AActor
 {
@@ -20,23 +21,72 @@ public:
 	*/
 	void OverrideProjectileSpeed(float OverrideProjectileSpeed);
 
+	/**
+	* Set Registered Owner
+	*/
+	void RegisterProjectileOwner(AActor* RegisterOwner);
+
 protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
+
+	/**
+	* Visible Mesh for for projectile
+	*/
+	UPROPERTY(EditAnywhere)
+		UStaticMeshComponent* StaticMeshComponent;
 
 	/**
 	* Speed for the projectile
 	*/
-	UPROPERTY(EditAnywhere)
-		float ProjectileSpeed{ 10.f };
+	UPROPERTY(EditAnywhere, Category = "Projectile Config")
+	float ProjectileSpeed{ 10.f };
 
-		/**
-		* Moves projectile forward in a straigh line
-		*/
+	/**
+	* Damage for the projectile
+	*/
+	UPROPERTY(EditAnywhere, Category = "Projectile Config")
+	float ProjectileDamage{ 25.f };
+
+	/**
+	* Timer handle for Destroy Actor
+	*/
+	UPROPERTY()
+	FTimerHandle DestroyTimerHandle;
+
+	/**
+	* Time To Destroy
+	*/
+	UPROPERTY(EditAnywhere, Category = "Projectile Config")
+		float TimeToDestroy{ 3.f };
+
+	/**
+	* Registered Owner of this Projectile
+	*/
+	UPROPERTY()
+	AActor* RegisteredOwnerOfProjectile;
+
+	/**
+	* Moves projectile forward in a straigh line
+	*/
+	UFUNCTION()
+	void MoveProjectile(float DeltaTime);
+
+	/**
+	* Kickstarts AutoDestroy Timer so no map overflow
+	*/
+	UFUNCTION()
+	void StartDestroyTimer();
+
+	/**
+	* Starts Destroy schedule
+	*/
+	UFUNCTION()
+	void RequestProjectileDestroy();
+
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
 
 	UFUNCTION()
-		void MoveProjectile(float DeltaTime);
-
+		virtual void NotifyActorBeginOverlap(AActor* OtherActor) override;
 
 public:	
 	// Called every frame

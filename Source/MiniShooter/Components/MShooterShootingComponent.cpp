@@ -12,7 +12,12 @@ UMShooterShootingComponent::UMShooterShootingComponent()
 	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = true;
 
-	// ...
+
+	ConstructorHelpers::FObjectFinder<UBlueprint> ProjectileFinder(TEXT("Blueprint'/Game/MiniShooter/Projectile/Projectile_BP.Projectile_BP'"));
+	if (ProjectileFinder.Object)
+	{
+		ProjectileBPReference = (UClass*)ProjectileFinder.Object->GeneratedClass;
+	}
 }
 
 
@@ -20,8 +25,6 @@ UMShooterShootingComponent::UMShooterShootingComponent()
 void UMShooterShootingComponent::BeginPlay()
 {
 	Super::BeginPlay();
-
-	// ...
 	
 }
 
@@ -34,20 +37,55 @@ void UMShooterShootingComponent::TickComponent(float DeltaTime, ELevelTick TickT
 	// ...
 }
 
-void UMShooterShootingComponent::TriggerShot()
+void UMShooterShootingComponent::StartShooting()
 {
-
-	//ConstructorHelpers::FClassFinder<AActor> BPFinder(TEXT("/Game/Path/To/BP"));
-	//TSubclassOf<AActor> BPToSpawn; = BPFinder.Class;
-	//AActor* Projectile = GetWorld()->SpawnActor(BPToSpawn, ...);
-	AActor* Projectile = nullptr;
-	if (bOverrideProjectileSpeed)
+	if (!GetWorld())
 	{
-		if (AMShooterProjectile* CastedProjectile = Cast<AMShooterProjectile>(Projectile))
-		{
-			CastedProjectile->OverrideProjectileSpeed(ProjectileSpeed);
-		}
+		return;
 	}
 
+	if (GetWorld()->GetTimerManager().IsTimerActive(ShootingTimer))
+	{
+		return;
+	}
+	TriggerShot();
+	GetWorld()->GetTimerManager().SetTimer(ShootingTimer, this, &UMShooterShootingComponent::TriggerShot, ShootingCadence, true);
+}
+
+void UMShooterShootingComponent::StopShooting()
+{
+	if (!GetWorld())
+	{
+		return;
+	}
+
+	if (!GetWorld()->GetTimerManager().IsTimerActive(ShootingTimer))
+	{
+		return;
+	}
+
+	GetWorld()->GetTimerManager().ClearTimer(ShootingTimer);
+}
+
+void UMShooterShootingComponent::TriggerShot()
+{
+	if (!ProjectileBPReference || !GetOwner())
+	{
+		return;
+	}
+
+	const FVector SpawnLocation = GetOwner()->GetActorLocation() + (GetOwner()->GetActorForwardVector() * 10.f);
+	const FRotator SpawnRotation = GetOwner()->GetActorRotation();
+	const FActorSpawnParameters SpawnParams = FActorSpawnParameters();
+
+	AMShooterProjectile* Projectile = GetOwner()->GetWorld()->SpawnActor<AMShooterProjectile>(ProjectileBPReference, SpawnLocation, SpawnRotation, SpawnParams);
+	if (Projectile)
+	{
+		Projectile->RegisterProjectileOwner(GetOwner());
+		if (bOverrideProjectileSpeed)
+		{
+			Projectile->OverrideProjectileSpeed(ProjectileSpeed);
+		}
+	}
 }
 

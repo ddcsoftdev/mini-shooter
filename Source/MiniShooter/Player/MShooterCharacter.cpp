@@ -30,12 +30,19 @@ void AMShooterCharacter::BeginPlay()
 	}
 }
 
-void AMShooterCharacter::Shoot()
+void AMShooterCharacter::Shoot(bool bStart)
 {
 	if (!ShootingComponent)
 	{
 		return;
 	}
-
-	ShootingComponent->TriggerShot();
+	if (bStart)
+	{
+		ShootingComponent->StartShooting();
+	}
+	else
+	{
+		ShootingComponent->StopShooting();
+	}
+	
 }
