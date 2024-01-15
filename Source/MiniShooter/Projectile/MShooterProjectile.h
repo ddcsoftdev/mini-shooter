@@ -86,7 +86,7 @@ protected:
 	virtual void BeginPlay() override;
 
 	UFUNCTION()
-		virtual void NotifyActorBeginOverlap(AActor* OtherActor) override;
+	virtual void NotifyActorBeginOverlap(AActor* OtherActor) override;
 
 public:	
 	// Called every frame
