@@ -54,7 +54,7 @@ void AMShooterCharacter::Shoot(bool bStart)
 	{
 		ShootingComponent->StopShooting();
 		//Give some time to Stop Aiming so you can start aiming before shooting
-		GetWorld()->GetTimerManager().SetTimer(StopAimingTimeHandle, [&]() {ShootingComponent->StopAiming(); }, 1.f, false);
+		GetWorld()->GetTimerManager().SetTimer(StopAimingTimeHandle, [&]() {ShootingComponent->StopAiming(); }, TimeToAutoStopAiming, false);
 	}
 }
 
@@ -77,6 +77,13 @@ void AMShooterCharacter::GetNearestEnemy(AActor* NearestEnemy)
 	if (NearestEnemy)
 	{
 		ShootingComponent->StartAiming(NearestEnemy);
+
+		//Give some delay of time to aim if not shooting, but stop aiming if player takes too long
+		if (!ShootingComponent->GetIsShooting())
+		{
+			//Give some time to Stop Aiming so you can start aiming before shooting
+			GetWorld()->GetTimerManager().SetTimer(StopAimingTimeHandle, [&]() {ShootingComponent->StopAiming(); }, TimeToAutoStopAiming, false);
+		}
 	}
 	else
 	{

@@ -4,8 +4,11 @@
 #include "MShooterShootingComponent.h"
 
 #include <Kismet/KismetMathLibrary.h>
+#include <Kismet/GameplayStatics.h>
+#include <Camera/CameraComponent.h>
 
 #include "../Projectile/MShooterProjectile.h"
+#include "../Player/MShooterCharacter.h"
 
 // Sets default values for this component's properties
 UMShooterShootingComponent::UMShooterShootingComponent()
@@ -50,6 +53,7 @@ void UMShooterShootingComponent::StartShooting()
 	{
 		return;
 	}
+	bIsShooting = true;
 	TriggerShot();
 	GetWorld()->GetTimerManager().SetTimer(ShootingTimer, this, &UMShooterShootingComponent::TriggerShot, ShootingCadence, true);
 }
@@ -65,7 +69,7 @@ void UMShooterShootingComponent::StopShooting()
 	{
 		return;
 	}
-
+	bIsShooting = false;
 	GetWorld()->GetTimerManager().ClearTimer(ShootingTimer);
 }
 
@@ -76,9 +80,20 @@ void UMShooterShootingComponent::TriggerShot()
 		return;
 	}
 
-	const FVector SpawnLocation = GetOwner()->GetActorLocation() + (GetOwner()->GetActorForwardVector() * 10.f);
-	const FRotator SpawnRotation = GetOwner()->GetActorRotation();
+	//This is used to adjust location spawn to crosshair
+	float CrosshairVerticalOffset = 80.f;
+	const FVector SpawnLocation = GetOwner()->GetActorLocation() + (FVector(0.f, 0.f, CrosshairVerticalOffset) + GetOwner()->GetActorForwardVector() * 10.f);
 	const FActorSpawnParameters SpawnParams = FActorSpawnParameters();
+	FRotator SpawnRotation = GetOwner()->GetActorRotation();
+
+	//Scalable: If this is player, spawn according to camera 
+	if (AMShooterCharacter* Player = Cast<AMShooterCharacter>(GetOwner()))
+	{
+		if (UCameraComponent* Camera = Player->GetFollowCamera())
+		{
+			SpawnRotation = Camera->GetComponentRotation();
+		}
+	}
 
 	AMShooterProjectile* Projectile = GetOwner()->GetWorld()->SpawnActor<AMShooterProjectile>(ProjectileBPReference, SpawnLocation, SpawnRotation, SpawnParams);
 	if (Projectile)
@@ -115,5 +130,22 @@ void UMShooterShootingComponent::AimingRotationAdjustment()
 	}
 
 	FRotator NewRotation = UKismetMathLibrary::FindLookAtRotation(GetOwner()->GetActorLocation(), CurrentAimedEnemy->GetActorLocation());
-	GetOwner()->SetActorRotation(NewRotation);
+	float GetActorVerticalRotation = GetOwner()->GetActorRotation().Roll;
+	GetOwner()->SetActorRotation(FRotator(GetOwner()->GetActorRotation().Pitch, NewRotation.Yaw, NewRotation.Roll));
+
+	//Scalable: if player rotate camera also. Check if player by casting to class
+	if (AMShooterCharacter* Player = Cast<AMShooterCharacter>(GetOwner()))
+	{
+		AController* Controller = Player->GetController();
+		UCameraComponent* Camera = Player->GetFollowCamera();
+		if (Controller && Camera)
+		{
+			float InterSpeed = 10.f;
+			FRotator CameraRotation = UKismetMathLibrary::FindLookAtRotation(Camera->GetComponentLocation(), CurrentAimedEnemy->GetActorLocation());
+			FRotator InterpRotation = UKismetMathLibrary::RInterpTo(Controller->GetControlRotation(), CameraRotation, GetWorld()->GetDeltaSeconds(), InterSpeed);
+			FRotator NewControlRotation = FRotator(Controller->GetControlRotation().Pitch, InterpRotation.Yaw, Controller->GetControlRotation().Roll);
+			Controller->SetControlRotation(NewControlRotation);
+		}
+
+	}
 }

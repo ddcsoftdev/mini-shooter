@@ -44,6 +44,12 @@ protected:
 	FTimerHandle StopAimingTimeHandle;
 
 	/**
+	* Time for Aiming to reset if not Shooting
+	*/
+	UPROPERTY(EditAnywhere)
+		float TimeToAutoStopAiming{ 0.25f };
+
+	/**
 	* Shooting method that trigger the Shooting Component
 	*/
 	UFUNCTION()

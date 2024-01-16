@@ -45,6 +45,13 @@ protected:
 	UPROPERTY(EditAnywhere, Category = "Shooting Speed")
 	float ShootingCadence{ 0.5f };
 
+
+	/**
+	* Is Player bShooting
+	*/
+	UPROPERTY()
+		bool bIsShooting{ false };
+
 	/**
 	* Is Player bAiming
 	*/
@@ -103,6 +110,12 @@ public:
 	*/
 	UFUNCTION()
 		void StopAiming();
+
+	/**
+	* Get Is Shooting
+	*/
+	UFUNCTION()
+		bool GetIsShooting() { return bIsShooting; };
 
 	/**
 	* Get Is Aiming

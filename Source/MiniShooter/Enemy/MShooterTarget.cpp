@@ -92,7 +92,7 @@ void AMShooterTarget::TakeDamageAmount(float Amount)
 
 void AMShooterTarget::PlayTargetAnimation()
 {
-	const float SizeOffset = StaticMeshComponent->GetStaticMesh()->GetBounds().BoxExtent.Size();
+	const float SizeOffset = StaticMeshComponent->GetStaticMesh()->GetBounds().BoxExtent.Size() / 2;
 	const float FloorLocation = 130.f;
 
 	FVector MoveToLocation = GetActorLocation() + (GetActorUpVector() * TargetSpeed);
@@ -105,7 +105,7 @@ void AMShooterTarget::PlayTargetAnimation()
 	}
 	else
 	{
-		//Override movement and start over to avoid clipping
+		//Override location and start over to avoid clipping
 		MoveToLocation = EndLocation;
 	}
 
@@ -116,14 +116,13 @@ void AMShooterTarget::PlayTargetAnimation()
 		{
 			StartLocation = EndLocation;
 			EndLocation = EndLocation - MovementDistanceAmount;
-			TargetSpeed = TargetSpeed * -1.f;
 		}
 		else
 		{
 			StartLocation = EndLocation;
 			EndLocation = EndLocation + MovementDistanceAmount;
-			TargetSpeed = TargetSpeed * -1.f;
 		}
+		TargetSpeed = -TargetSpeed;
 	}
 }
 
