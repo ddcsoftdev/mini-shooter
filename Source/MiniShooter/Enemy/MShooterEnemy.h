@@ -2,9 +2,11 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
-#include "GameFramework/Actor.h"
+#include <CoreMinimal.h>
+#include <GameFramework/Actor.h>
+
 #include "MShooterEnemyInterface.h"
+
 #include "MShooterEnemy.generated.h"
 
 class UStaticMeshComponent;
@@ -17,6 +19,11 @@ class UMShooterShootingComponent;
 class UMShooterAIComponent;
 class UMShooterPatrolZone;
 
+/**
+* Main Enemy class with all the relevant functionality
+* Relevant AI, Shooting and Life functionality is mostly done in correspondant Components better modularity
+* Implements some methods from Enemy Interface
+*/
 UCLASS()
 class MINISHOOTER_API AMShooterEnemy : public AActor, public IMShooterEnemyBasics
 {
@@ -25,6 +32,45 @@ class MINISHOOTER_API AMShooterEnemy : public AActor, public IMShooterEnemyBasic
 public:	
 	// Sets default values for this actor's properties
 	AMShooterEnemy();
+
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
+
+	/**
+	* Inflicts Damage
+	*/
+	UFUNCTION()
+		virtual void TakeDamageAmount(float Amount) override;
+
+	/**
+	* Register belonging Patrol Zone
+	*/
+	UFUNCTION()
+		AActor* GetActivePatrolZone() { return ActivePatrolZone; }
+
+	/**
+	* Register belonging Patrol Zone
+	*/
+	UFUNCTION()
+		void RegisterPatrolZone(AActor* PatrolZone);
+
+	/**
+	* Unregister belonging Patrol Zone
+	*/
+	UFUNCTION()
+		void UnRegisterPatrolZone(AActor* PatrolZone);
+
+	/**
+	* Updates TargetLocation for AI
+	*/
+	UFUNCTION()
+		void UpdateAITargetLocation(AActor* PatrolPoint);
+
+	/**
+	* Toggels on and off the AI
+	*/
+	UFUNCTION()
+		void SetAIBehaviour(bool bActivate);
 
 protected:
 
@@ -83,13 +129,15 @@ protected:
 	/**
 	* Internal update health bar widget
 	* It uses Health and MaxHealth Attributes from class
+	* 
 	*/
 	UFUNCTION()
-	virtual void UpdateHealthBarWidget(float MaxHealth, float CurrentHealth) override;
+		virtual void UpdateHealthBarWidget(float MaxHealth, float CurrentHealth) override;
 
 
 	/**
 	* Rotate Healthbar
+	* 
 	*/
 	UFUNCTION()
 	virtual void SetHealthWidgetRotation() override;
@@ -99,45 +147,4 @@ protected:
 	*/
 	UFUNCTION()
 		void HandlePlayerWithinZone(bool bIsInsideZone);
-
-public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
-
-	/**
-	* Inflicts Damage
-	*/
-	UFUNCTION()
-	virtual void TakeDamageAmount(float Amount) override;
-
-	/**
-	* Register belonging Patrol Zone
-	*/
-	UFUNCTION()
-		AActor* GetActivePatrolZone() { return ActivePatrolZone; }
-
-	/**
-	* Register belonging Patrol Zone
-	*/
-	UFUNCTION()
-		void RegisterPatrolZone(AActor* PatrolZone);
-
-	/**
-	* Unregister belonging Patrol Zone
-	*/
-	UFUNCTION()
-		void UnRegisterPatrolZone(AActor* PatrolZone);
-
-	/**
-	* Updates TargetLocation for AI
-	*/
-	UFUNCTION()
-		void UpdateAITargetLocation(AActor* PatrolPoint);
-
-	/**
-	* Toggels on and off the AI
-	*/
-	UFUNCTION()
-		void SetAIBehaviour(bool bActivate);
-
 };

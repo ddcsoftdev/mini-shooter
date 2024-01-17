@@ -46,7 +46,6 @@ void AMShooterTarget::BeginPlay()
 	//Kickstarting animation first "MoveTo" location
 	StartLocation = GetActorLocation();
 	EndLocation = StartLocation + FVector(0.f, 0.f, AnimationDistanceAmount);
-
 }
 
 // Called every frame

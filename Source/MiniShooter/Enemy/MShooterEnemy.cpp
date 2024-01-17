@@ -42,10 +42,10 @@ void AMShooterEnemy::BeginPlay()
 {
 	Super::BeginPlay();
 	
-	//TODO: Remove this. Fixing Offset and making sure it always spawns correctly
+	//Spawning Scene Components giving weird offset when importing in Scene
+	//Suggestion: consider adding to design creating this from BP and use C++ just to link them
 	BoxCollision->SetRelativeLocation(FVector(0.f, 0.f, 50.f));
 	HealthWidget->SetRelativeLocation(FVector(0.f, 0.f, 150.f));
-
 }
 
 // Called every frame
@@ -53,100 +53,113 @@ void AMShooterEnemy::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	//Modifying Health Widget Rotation per frame so it faces Player
 	SetHealthWidgetRotation();
 }
 
 void AMShooterEnemy::SetHealthWidgetRotation()
 {
-	if (!HealthWidget)
+	if (ensureMsgf(HealthWidget && GetWorld(), TEXT("%s couldn't load %s or %s at Runtime"), *GetClass()->GetName(), *HealthWidget->GetClass()->GetName(), *GetWorld()->GetClass()->GetName()))
 	{
-		return;
-	}
-
-	if (ACharacter* Player = UGameplayStatics::GetPlayerCharacter(this, 0))
-	{
-		HealthWidget->SetWorldRotation(UKismetMathLibrary::FindLookAtRotation(GetActorLocation(), Player->GetActorLocation()));
+		if (ACharacter* Player = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0))
+		{
+			//Rotating HealthWidget once per frame so it always faces Player
+			HealthWidget->SetWorldRotation(UKismetMathLibrary::FindLookAtRotation(GetActorLocation(), Player->GetActorLocation()));
+		}
 	}
 }
 
 void AMShooterEnemy::UpdateHealthBarWidget(float MaxHealth, float CurrentHealth)
 {
-	if (UMShooterHealthBarWidget* HealthBar = Cast<UMShooterHealthBarWidget>(HealthWidget->GetWidget()))
+	if (ensureMsgf(HealthWidget, TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *HealthWidget->GetClass()->GetName()))
 	{
-		HealthBar->SetHealthBar(MaxHealth, CurrentHealth);
+		if (UMShooterHealthBarWidget* HealthBar = Cast<UMShooterHealthBarWidget>(HealthWidget->GetWidget()))
+		{
+			//Set value of Health Bar
+			HealthBar->SetHealthBar(MaxHealth, CurrentHealth);
+		}
 	}
 }
 
 void AMShooterEnemy::TakeDamageAmount(float Amount)
 {
-	if (!LifeComponent)
+	if (ensureMsgf(LifeComponent, TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *LifeComponent->GetClass()->GetName()))
 	{
-		return;
+		//Invert Damage Amount to negative to subtract
+		Amount = -Amount;
+		//Setting Health in Life Component
+		LifeComponent->SetHealth(Amount);
+		//Updating Widget
+		UpdateHealthBarWidget(LifeComponent->GetMaxHealth(), LifeComponent->GetHealth());
 	}
-	Amount = -Amount;
-	LifeComponent->SetHealth(Amount);
-	UpdateHealthBarWidget(LifeComponent->GetMaxHealth(), LifeComponent->GetHealth());
 }
 
 void AMShooterEnemy::RegisterPatrolZone(AActor* PatrolZone)
 {
-	//Quick way to tell if class is correct
-	if (AMShooterPatrolZone* CastedZone = Cast<AMShooterPatrolZone>(PatrolZone))
+	if (IsValid(PatrolZone))
 	{
-		ActivePatrolZone = PatrolZone;
-		CastedZone->PlayerIsInsideZoneDelegate.AddUObject(this, &AMShooterEnemy::HandlePlayerWithinZone);
+		if (AMShooterPatrolZone* CastedZone = Cast<AMShooterPatrolZone>(PatrolZone))
+		{
+			//If Enemy is within a Patrol Zone, register it in variable for convenience
+			ActivePatrolZone = PatrolZone;
+			//Bind Delegate to know when Player is within this Patrol Zone
+			CastedZone->PlayerIsInsideZoneDelegate.AddUObject(this, &AMShooterEnemy::HandlePlayerWithinZone);
+		}
 	}
 }
 
 void AMShooterEnemy::UnRegisterPatrolZone(AActor* PatrolZone)
 {
-	if (AMShooterPatrolZone* CastedZone = Cast<AMShooterPatrolZone>(PatrolZone))
+	if (IsValid(PatrolZone))
 	{
-		if (ActivePatrolZone == PatrolZone)
+		if (AMShooterPatrolZone* CastedZone = Cast<AMShooterPatrolZone>(PatrolZone))
 		{
-			ActivePatrolZone = nullptr;
+			if (ActivePatrolZone == PatrolZone)
+			{
+				//When Actor leaves Patrol Zone make sure the reference in variable is wiped
+				ActivePatrolZone = nullptr;
+			}
 		}
 	}
 }
 
 void AMShooterEnemy::HandlePlayerWithinZone(bool bIsInsideZone)
 {
-	if (!AIComponent)
+	if (ensureMsgf(AIComponent, TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *AIComponent->GetClass()->GetName()))
 	{
-		return;
-	}
-
-	if (bIsInsideZone)
-	{
-		AIComponent->StartPlayerChase();
-	}
-	else
-	{
-		AIComponent->StopPlayerChase();
+		//Tell AI Component that Player has entered / left the Patrol Zone this Actor belongs to
+		if (bIsInsideZone)
+		{
+			AIComponent->StartPlayerChase();
+		}
+		else
+		{
+			AIComponent->StopPlayerChase();
+		}
 	}
 }
 
 void AMShooterEnemy::UpdateAITargetLocation(AActor* PatrolPoint)
 {
-	if (!AIComponent)
+	if (ensureMsgf(AIComponent, TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *AIComponent->GetClass()->GetName()))
 	{
-		return;
+		if (AMShooterPatrolZone* CastedZone = Cast<AMShooterPatrolZone>(ActivePatrolZone))
+		{
+			//Tries to return the old Patrol Point this Actor was using as Location to the Patrol Zone pool
+			CastedZone->TryToReturnPatrolPoint(ActivePatrolPoint);
+		}
+		//Sets the new Patrol Point sent by the Patrol Zone
+		ActivePatrolPoint = PatrolPoint;
+		//Sends the Patrol Point location to the AI Component to set course towrads the new location
+		AIComponent->SetTargetLocation(PatrolPoint->GetActorLocation());
 	}
-	if (AMShooterPatrolZone* CastedZone = Cast<AMShooterPatrolZone>(ActivePatrolZone))
-	{
-		CastedZone->TryToReturnPatrolPoint(ActivePatrolPoint);
-	}
-
-	ActivePatrolPoint = PatrolPoint;
-	AIComponent->SetTargetLocation(PatrolPoint->GetActorLocation());
 }
 
 void AMShooterEnemy::SetAIBehaviour(bool bActivate)
 {
-	if (!AIComponent)
+	if (ensureMsgf(AIComponent, TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *AIComponent->GetClass()->GetName()))
 	{
-		return;
+		//This Activates or Deactivates this Actor's AI Behaviour
+		AIComponent->SetAIBehaviour(bActivate);
 	}
-
-	AIComponent->SetAIBehaviour(bActivate);
 }
