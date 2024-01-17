@@ -134,7 +134,6 @@ protected:
 	UFUNCTION()
 		virtual void UpdateHealthBarWidget(float MaxHealth, float CurrentHealth) override;
 
-
 	/**
 	* Rotate Healthbar
 	* 
