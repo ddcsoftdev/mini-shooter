@@ -6,39 +6,37 @@
 \DoxyCodeLine{00002\ }
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00004\ }
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}CoreMinimal.h"{}}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}GameFramework/Actor.h"{}}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}MShooterPlatform.generated.h"{}}}
-\DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ UCLASS()}
-\DoxyCodeLine{00010\ class\ MINISHOOTER\_API\ \mbox{\hyperlink{class_a_m_shooter_platform}{AMShooterPlatform}}\ :\ public\ AActor}
-\DoxyCodeLine{00011\ \{}
-\DoxyCodeLine{00012\ \ \ \ \ GENERATED\_BODY()}
-\DoxyCodeLine{00013\ \ \ \ \ }
-\DoxyCodeLine{00014\ \textcolor{keyword}{public}:\ }
-\DoxyCodeLine{00015\ \ \ \ \ \textcolor{comment}{//\ Sets\ default\ values\ for\ this\ actor's\ properties}}
-\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{class_a_m_shooter_platform}{AMShooterPlatform}}();}
-\DoxyCodeLine{00017\ }
-\DoxyCodeLine{00018\ \textcolor{keyword}{protected}:}
-\DoxyCodeLine{00019\ }
-\DoxyCodeLine{00023\ \ \ \ \ UPROPERTY(EditAnywhere,\ Category\ =\ \textcolor{stringliteral}{"{}Platform\ Config"{}})}
-\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ float\ NewShootingSpeed\{\ 10.f\ \};}
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{float}\ BackupShootingSpeed\{\ 0.f\ \};}
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00031\ \ \ \ \ \textcolor{comment}{//\ Called\ when\ the\ game\ starts\ or\ when\ spawned}}
-\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ BeginPlay()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00033\ }
-\DoxyCodeLine{00034\ \ \ \ \ UFUNCTION()}
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ NotifyActorBeginOverlap(AActor*\ OtherActor)\ override;}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \ \ \ \ UFUNCTION()}
-\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ NotifyActorEndOverlap(AActor*\ OtherActor)\ override;}
-\DoxyCodeLine{00039\ }
-\DoxyCodeLine{00040\ public:\ }
-\DoxyCodeLine{00041\ \ \ \ \ \textcolor{comment}{//\ Called\ every\ frame}}
-\DoxyCodeLine{00042\ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ Tick(\textcolor{keywordtype}{float}\ DeltaTime)\ override;}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <CoreMinimal.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <GameFramework/Actor.h>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}MShooterPlatform.generated.h"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00014\ UCLASS()}
+\DoxyCodeLine{00015\ class\ MINISHOOTER\_API\ \mbox{\hyperlink{class_a_m_shooter_platform}{AMShooterPlatform}}\ :\ public\ AActor}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ GENERATED\_BODY()}
+\DoxyCodeLine{00018\ \ \ \ \ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{public}:\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{comment}{//\ Sets\ default\ values\ for\ this\ actor's\ properties}}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{class_a_m_shooter_platform}{AMShooterPlatform}}();}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{comment}{//\ Called\ every\ frame}}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ Tick(\textcolor{keywordtype}{float}\ DeltaTime)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00025\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00030\ \ \ \ \ UPROPERTY(EditAnywhere,\ Category\ =\ \textcolor{stringliteral}{"{}Platform\ Config"{}})}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ float\ NewShootingSpeed\{\ 10.f\ \};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{float}\ BackupShootingSpeed\{\ 0.f\ \};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{comment}{//\ Called\ when\ the\ game\ starts\ or\ when\ spawned}}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ BeginPlay()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ NotifyActorBeginOverlap(AActor*\ OtherActor)\ override;}
 \DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ \};}
+\DoxyCodeLine{00044\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ NotifyActorEndOverlap(AActor*\ OtherActor)\ override;}
+\DoxyCodeLine{00046\ \};}
 
 \end{DoxyCode}

@@ -43,15 +43,18 @@ UBox\+Component \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_a_m_shooter_ta
 \item 
 UWidget\+Component \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_a_m_shooter_target_a42b8df9b0a6c69dc29a54e3d5e479090}{Health\+Widget}}
 \item 
-float \mbox{\hyperlink{class_a_m_shooter_target_abfc818a73087a9946e90af69cbc85410}{Movement\+Distance\+Amount}} \{ 150.f \}
+float \mbox{\hyperlink{class_a_m_shooter_target_a20ff9a8de42a24b52c626f27402e4c18}{Animation\+Distance\+Amount}} \{ 150.f \}
 \item 
-float \mbox{\hyperlink{class_a_m_shooter_target_a89ec2a9ea2b01f773d891b57ec05ab4d}{Target\+Speed}} \{ 3.f \}
+float \mbox{\hyperlink{class_a_m_shooter_target_ac822c483d75e510bbe990da0aa329614}{Animation\+Speed}} \{ 3.f \}
 \item 
 FVector \mbox{\hyperlink{class_a_m_shooter_target_ad831c6c2a716275e2cd8b27a55c02b4e}{Start\+Location}} \{FVector\+::\+Zero\+Vector\}
 \item 
 FVector \mbox{\hyperlink{class_a_m_shooter_target_a0c9219d95578273ea288d7067c00614e}{End\+Location}} \{FVector\+::\+Zero\+Vector\}
 \end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Target class that simulates a Shooting Range Target It has a simple up and down animation Has same functionality as Enemy except for this class lacking AI Implements Enemy Interface 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \Hypertarget{class_a_m_shooter_target_ac9ba0babbedcf5652f1caba11475cda7}\label{class_a_m_shooter_target_ac9ba0babbedcf5652f1caba11475cda7} 
@@ -81,7 +84,7 @@ Move Target Up and Down \Hypertarget{class_a_m_shooter_target_abfd4d6b044da41ae9
 \doxysubsubsection{\texorpdfstring{SetHealthWidgetRotation()}{SetHealthWidgetRotation()}}
 {\footnotesize\ttfamily void AMShooter\+Target\+::\+Set\+Health\+Widget\+Rotation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
 
-Rotate Healthbar 
+Rotate Healthbar Widget 
 
 Reimplemented from \mbox{\hyperlink{class_i_m_shooter_enemy_basics_ab847def3f0ace44ad27829db11c3b612}{IMShooter\+Enemy\+Basics}}.
 
@@ -91,7 +94,7 @@ Reimplemented from \mbox{\hyperlink{class_i_m_shooter_enemy_basics_ab847def3f0ac
 \doxysubsubsection{\texorpdfstring{TakeDamageAmount()}{TakeDamageAmount()}}
 {\footnotesize\ttfamily void AMShooter\+Target\+::\+Take\+Damage\+Amount (\begin{DoxyParamCaption}\item[{float}]{Amount }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
-Inflicts Damage 
+Inflicts Damage Inverts Amount value to negative to subtract 
 
 Reimplemented from \mbox{\hyperlink{class_i_m_shooter_enemy_basics_a568989012b5396f2a845f272c8b1ce05}{IMShooter\+Enemy\+Basics}}.
 
@@ -114,7 +117,19 @@ Reimplemented from \mbox{\hyperlink{class_i_m_shooter_enemy_basics_a3426dfff365d
 
 
 \doxysubsection{Member Data Documentation}
-\Hypertarget{class_a_m_shooter_target_a1752a21651dbd7e63b78623d82423a8d}\label{class_a_m_shooter_target_a1752a21651dbd7e63b78623d82423a8d} 
+\Hypertarget{class_a_m_shooter_target_a20ff9a8de42a24b52c626f27402e4c18}\label{class_a_m_shooter_target_a20ff9a8de42a24b52c626f27402e4c18} 
+\index{AMShooterTarget@{AMShooterTarget}!AnimationDistanceAmount@{AnimationDistanceAmount}}
+\index{AnimationDistanceAmount@{AnimationDistanceAmount}!AMShooterTarget@{AMShooterTarget}}
+\doxysubsubsection{\texorpdfstring{AnimationDistanceAmount}{AnimationDistanceAmount}}
+{\footnotesize\ttfamily float AMShooter\+Target\+::\+Animation\+Distance\+Amount \{ 150.f \}\hspace{0.3cm}{\ttfamily [protected]}}
+
+Amount the target moves up and down \Hypertarget{class_a_m_shooter_target_ac822c483d75e510bbe990da0aa329614}\label{class_a_m_shooter_target_ac822c483d75e510bbe990da0aa329614} 
+\index{AMShooterTarget@{AMShooterTarget}!AnimationSpeed@{AnimationSpeed}}
+\index{AnimationSpeed@{AnimationSpeed}!AMShooterTarget@{AMShooterTarget}}
+\doxysubsubsection{\texorpdfstring{AnimationSpeed}{AnimationSpeed}}
+{\footnotesize\ttfamily float AMShooter\+Target\+::\+Animation\+Speed \{ 3.f \}\hspace{0.3cm}{\ttfamily [protected]}}
+
+Animation Speed \Hypertarget{class_a_m_shooter_target_a1752a21651dbd7e63b78623d82423a8d}\label{class_a_m_shooter_target_a1752a21651dbd7e63b78623d82423a8d} 
 \index{AMShooterTarget@{AMShooterTarget}!BoxCollision@{BoxCollision}}
 \index{BoxCollision@{BoxCollision}!AMShooterTarget@{AMShooterTarget}}
 \doxysubsubsection{\texorpdfstring{BoxCollision}{BoxCollision}}
@@ -138,13 +153,7 @@ Health Widget \Hypertarget{class_a_m_shooter_target_a9d86b74d834b8c5f25298907ee5
 \doxysubsubsection{\texorpdfstring{LifeComponent}{LifeComponent}}
 {\footnotesize\ttfamily UMShooter\+Life\+Component\texorpdfstring{$\ast$}{*} AMShooter\+Target\+::\+Life\+Component\hspace{0.3cm}{\ttfamily [protected]}}
 
-Life Component that handles enemy life \Hypertarget{class_a_m_shooter_target_abfc818a73087a9946e90af69cbc85410}\label{class_a_m_shooter_target_abfc818a73087a9946e90af69cbc85410} 
-\index{AMShooterTarget@{AMShooterTarget}!MovementDistanceAmount@{MovementDistanceAmount}}
-\index{MovementDistanceAmount@{MovementDistanceAmount}!AMShooterTarget@{AMShooterTarget}}
-\doxysubsubsection{\texorpdfstring{MovementDistanceAmount}{MovementDistanceAmount}}
-{\footnotesize\ttfamily float AMShooter\+Target\+::\+Movement\+Distance\+Amount \{ 150.f \}\hspace{0.3cm}{\ttfamily [protected]}}
-
-Amount the target moves up and down \Hypertarget{class_a_m_shooter_target_a2e45a6a0cedf8c0895f5ca6cfd3b93ff}\label{class_a_m_shooter_target_a2e45a6a0cedf8c0895f5ca6cfd3b93ff} 
+Life Component that handles enemy life \Hypertarget{class_a_m_shooter_target_a2e45a6a0cedf8c0895f5ca6cfd3b93ff}\label{class_a_m_shooter_target_a2e45a6a0cedf8c0895f5ca6cfd3b93ff} 
 \index{AMShooterTarget@{AMShooterTarget}!ShootingComponent@{ShootingComponent}}
 \index{ShootingComponent@{ShootingComponent}!AMShooterTarget@{AMShooterTarget}}
 \doxysubsubsection{\texorpdfstring{ShootingComponent}{ShootingComponent}}
@@ -162,13 +171,7 @@ Start and End Location for Animation \Hypertarget{class_a_m_shooter_target_a3398
 \doxysubsubsection{\texorpdfstring{StaticMeshComponent}{StaticMeshComponent}}
 {\footnotesize\ttfamily UStatic\+Mesh\+Component\texorpdfstring{$\ast$}{*} AMShooter\+Target\+::\+Static\+Mesh\+Component\hspace{0.3cm}{\ttfamily [protected]}}
 
-Visible Mesh for Enemy \Hypertarget{class_a_m_shooter_target_a89ec2a9ea2b01f773d891b57ec05ab4d}\label{class_a_m_shooter_target_a89ec2a9ea2b01f773d891b57ec05ab4d} 
-\index{AMShooterTarget@{AMShooterTarget}!TargetSpeed@{TargetSpeed}}
-\index{TargetSpeed@{TargetSpeed}!AMShooterTarget@{AMShooterTarget}}
-\doxysubsubsection{\texorpdfstring{TargetSpeed}{TargetSpeed}}
-{\footnotesize\ttfamily float AMShooter\+Target\+::\+Target\+Speed \{ 3.f \}\hspace{0.3cm}{\ttfamily [protected]}}
-
-Target Speed 
+Visible Mesh for Enemy 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

@@ -2,9 +2,11 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
-#include "GameFramework/Actor.h"
+#include <CoreMinimal.h>
+#include <GameFramework/Actor.h>
+
 #include "MShooterEnemyInterface.h"
+
 #include "MShooterTarget.generated.h"
 
 class UStaticMeshComponent;
@@ -15,6 +17,12 @@ class AMShooterAIController;
 class UMShooterLifeComponent;
 class UMShooterShootingComponent;
 
+/**
+* Target class that simulates a Shooting Range Target
+* It has a simple up and down animation
+* Has same functionality as Enemy except for this class lacking AI
+* Implements Enemy Interface
+*/
 UCLASS()
 class MINISHOOTER_API AMShooterTarget : public AActor, public IMShooterEnemyBasics
 {
@@ -24,6 +32,15 @@ public:
 	// Sets default values for this actor's properties
 	AMShooterTarget();
 
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
+
+	/**
+	* Inflicts Damage
+	* Inverts Amount value to negative to subtract
+	*/
+	UFUNCTION()
+		virtual void TakeDamageAmount(float Amount) override;
 protected:
 
 	/**
@@ -59,14 +76,14 @@ protected:
 	/**
 	* Amount the target moves up and down
 	*/
-	UPROPERTY(EditAnywhere, Category = "Target Movement")
-		float MovementDistanceAmount{ 150.f };
+	UPROPERTY(EditAnywhere, Category = "Shooting Target Config")
+		float AnimationDistanceAmount{ 150.f };
 
 	/**
-	* Target Speed
+	* Animation Speed
 	*/
-	UPROPERTY(EditAnywhere, Category = "Target Movement")
-		float TargetSpeed{ 3.f };
+	UPROPERTY(EditAnywhere, Category = "Shooting Target Config")
+		float AnimationSpeed{ 3.f };
 
 	/**
 	* Start and End Location for Animation
@@ -87,7 +104,7 @@ protected:
 		virtual void UpdateHealthBarWidget(float MaxHealth, float CurrentHealth) override;
 
 	/**
-	* Rotate Healthbar
+	* Rotate Healthbar Widget
 	*/
 	UFUNCTION()
 		virtual void SetHealthWidgetRotation() override;
@@ -97,15 +114,4 @@ protected:
 	*/
 	UFUNCTION()
 	void PlayTargetAnimation();
-
-public:
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
-
-	/**
-	* Inflicts Damage
-	*/
-	UFUNCTION()
-		virtual void TakeDamageAmount(float Amount) override;
-
 };

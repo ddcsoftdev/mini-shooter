@@ -7,54 +7,56 @@
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00004\ }
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_mini_shooter_character_8h}{../MiniShooterCharacter.h}}"{}}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}MShooterCharacter.generated.h"{}}}
-\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}MShooterCharacter.generated.h"{}}}
 \DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }UMShooterShootingComponent;}
-\DoxyCodeLine{00010\ }
-\DoxyCodeLine{00011\ \mbox{\hyperlink{_m_shooter_character_8h_a3e8859f8ce505781b94eb31a8c37ac03}{DECLARE\_MULTICAST\_DELEGATE\_OneParam}}(FRequestNearestEnemy,\ \textcolor{keyword}{class}\ AActor*);}
-\DoxyCodeLine{00012\ UCLASS(config=Game)}
-\DoxyCodeLine{00013\ class\ \mbox{\hyperlink{class_a_m_shooter_character}{AMShooterCharacter}}\ :\ public\ \mbox{\hyperlink{class_a_mini_shooter_character}{AMiniShooterCharacter}}}
-\DoxyCodeLine{00014\ \{}
-\DoxyCodeLine{00015\ \ \ \ \ GENERATED\_BODY()}
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00018\ }
-\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_a_m_shooter_character}{AMShooterCharacter}}();}
-\DoxyCodeLine{00020\ }
-\DoxyCodeLine{00024\ \ \ \ \ FRequestNearestEnemy\ \mbox{\hyperlink{class_a_m_shooter_character_aea10c4062b81c1df1d25ddfdbcd273cd}{RequestNearestEnemyDelegate}};}
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00029\ \ \ \ \ UFUNCTION()}
-\DoxyCodeLine{00030\ \ \ \ \ AActor*\ RequestGetAimedEnemy();}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }UMShooterShootingComponent;}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \mbox{\hyperlink{_m_shooter_character_8h_a3e8859f8ce505781b94eb31a8c37ac03}{DECLARE\_MULTICAST\_DELEGATE\_OneParam}}(FRequestNearestEnemy,\ \textcolor{keyword}{class}\ AActor*);}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00018\ UCLASS(config=Game)}
+\DoxyCodeLine{00019\ class\ \mbox{\hyperlink{class_a_m_shooter_character}{AMShooterCharacter}}\ :\ public\ \mbox{\hyperlink{class_a_mini_shooter_character}{AMiniShooterCharacter}}}
+\DoxyCodeLine{00020\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ GENERATED\_BODY()}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_a_m_shooter_character}{AMShooterCharacter}}();}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00030\ \ \ \ \ FRequestNearestEnemy\ \mbox{\hyperlink{class_a_m_shooter_character_aea10c4062b81c1df1d25ddfdbcd273cd}{RequestNearestEnemyDelegate}};}
 \DoxyCodeLine{00031\ }
-\DoxyCodeLine{00035\ \ \ \ \ UFUNCTION()}
-\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ SetShootingSpeed(\textcolor{keywordtype}{float}\ NewSpeed);}
-\DoxyCodeLine{00037\ }
-\DoxyCodeLine{00041\ \ \ \ \ UFUNCTION()}
-\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ GetShootingSpeed();}
-\DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ protected:}
-\DoxyCodeLine{00045\ }
-\DoxyCodeLine{00049\ \ \ \ \ UPROPERTY(EditAnywhere)}
-\DoxyCodeLine{00050\ \ \ \ \ UMShooterShootingComponent*\ ShootingComponent;}
+\DoxyCodeLine{00036\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00037\ \ \ \ \ AActor*\ RequestGetAimedEnemy();}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00042\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ SetShootingSpeed(\textcolor{keywordtype}{float}\ NewSpeed);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00049\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{float}\ GetShootingSpeed();}
 \DoxyCodeLine{00051\ }
-\DoxyCodeLine{00055\ \ \ \ \ UPROPERTY(EditAnywhere)}
-\DoxyCodeLine{00056\ \ \ \ \ FTimerHandle\ StopAimingTimeHandle;}
-\DoxyCodeLine{00057\ }
-\DoxyCodeLine{00061\ \ \ \ \ UPROPERTY(EditAnywhere)}
-\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ TimeToAutoStopAiming\{\ 0.25f\ \};}
-\DoxyCodeLine{00063\ }
-\DoxyCodeLine{00067\ \ \ \ \ UFUNCTION()}
-\DoxyCodeLine{00068\ \ \ \ \ void\ Shoot(\textcolor{keywordtype}{bool}\ bStart);}
-\DoxyCodeLine{00069\ }
-\DoxyCodeLine{00073\ \ \ \ \ UFUNCTION()}
-\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ Aim();}
-\DoxyCodeLine{00075\ }
-\DoxyCodeLine{00079\ \ \ \ \ UFUNCTION()}
-\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{void}\ GetNearestEnemy(AActor*\ NearestEnemy);}
-\DoxyCodeLine{00081\ }
-\DoxyCodeLine{00082\ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ BeginPlay()\ override;}
-\DoxyCodeLine{00083\ \};}
-\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00052\ protected:}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00057\ \ \ \ \ UPROPERTY(EditAnywhere)}
+\DoxyCodeLine{00058\ \ \ \ \ UMShooterShootingComponent*\ ShootingComponent;}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00063\ \ \ \ \ UPROPERTY(EditAnywhere)}
+\DoxyCodeLine{00064\ \ \ \ \ FTimerHandle\ StopAimingTimeHandle;}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00069\ \ \ \ \ UPROPERTY(EditAnywhere,\ Category\ =\ "{}Character\ Config"{})}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ TimeToAutoStopAiming\{\ 0.25f\ \};}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00075\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00076\ \ \ \ \ void\ Shoot(\textcolor{keywordtype}{bool}\ bStart);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00081\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{void}\ Aim();}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00087\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{void}\ GetNearestEnemy(AActor*\ NearestEnemy);}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ BeginPlay()\ override;}
+\DoxyCodeLine{00091\ \};}
+\DoxyCodeLine{00092\ }
 
 \end{DoxyCode}

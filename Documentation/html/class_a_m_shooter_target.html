@@ -123,16 +123,18 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a1752a21651dbd7e63b78623d82423a8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42b8df9b0a6c69dc29a54e3d5e479090" id="r_a42b8df9b0a6c69dc29a54e3d5e479090"><td class="memItemLeft" align="right" valign="top">UWidgetComponent *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a42b8df9b0a6c69dc29a54e3d5e479090">HealthWidget</a></td></tr>
 <tr class="separator:a42b8df9b0a6c69dc29a54e3d5e479090"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abfc818a73087a9946e90af69cbc85410" id="r_abfc818a73087a9946e90af69cbc85410"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abfc818a73087a9946e90af69cbc85410">MovementDistanceAmount</a> { 150.f }</td></tr>
-<tr class="separator:abfc818a73087a9946e90af69cbc85410"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89ec2a9ea2b01f773d891b57ec05ab4d" id="r_a89ec2a9ea2b01f773d891b57ec05ab4d"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a89ec2a9ea2b01f773d891b57ec05ab4d">TargetSpeed</a> { 3.f }</td></tr>
-<tr class="separator:a89ec2a9ea2b01f773d891b57ec05ab4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20ff9a8de42a24b52c626f27402e4c18" id="r_a20ff9a8de42a24b52c626f27402e4c18"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a20ff9a8de42a24b52c626f27402e4c18">AnimationDistanceAmount</a> { 150.f }</td></tr>
+<tr class="separator:a20ff9a8de42a24b52c626f27402e4c18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac822c483d75e510bbe990da0aa329614" id="r_ac822c483d75e510bbe990da0aa329614"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac822c483d75e510bbe990da0aa329614">AnimationSpeed</a> { 3.f }</td></tr>
+<tr class="separator:ac822c483d75e510bbe990da0aa329614"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad831c6c2a716275e2cd8b27a55c02b4e" id="r_ad831c6c2a716275e2cd8b27a55c02b4e"><td class="memItemLeft" align="right" valign="top">FVector&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad831c6c2a716275e2cd8b27a55c02b4e">StartLocation</a> {FVector::ZeroVector}</td></tr>
 <tr class="separator:ad831c6c2a716275e2cd8b27a55c02b4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c9219d95578273ea288d7067c00614e" id="r_a0c9219d95578273ea288d7067c00614e"><td class="memItemLeft" align="right" valign="top">FVector&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0c9219d95578273ea288d7067c00614e">EndLocation</a> {FVector::ZeroVector}</td></tr>
 <tr class="separator:a0c9219d95578273ea288d7067c00614e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Target class that simulates a Shooting Range Target It has a simple up and down animation Has same functionality as Enemy except for this class lacking AI Implements Enemy Interface </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ac9ba0babbedcf5652f1caba11475cda7" name="ac9ba0babbedcf5652f1caba11475cda7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac9ba0babbedcf5652f1caba11475cda7">&#9670;&#160;</a></span>AMShooterTarget()</h2>
 
@@ -224,7 +226,7 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Rotate Healthbar </p>
+<p>Rotate Healthbar Widget </p>
 
 <p>Reimplemented from <a class="el" href="class_i_m_shooter_enemy_basics.html#ab847def3f0ace44ad27829db11c3b612">IMShooterEnemyBasics</a>.</p>
 
@@ -252,7 +254,7 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Inflicts Damage </p>
+<p>Inflicts Damage Inverts Amount value to negative to subtract </p>
 
 <p>Reimplemented from <a class="el" href="class_i_m_shooter_enemy_basics.html#a568989012b5396f2a845f272c8b1ce05">IMShooterEnemyBasics</a>.</p>
 
@@ -316,6 +318,52 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a20ff9a8de42a24b52c626f27402e4c18" name="a20ff9a8de42a24b52c626f27402e4c18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20ff9a8de42a24b52c626f27402e4c18">&#9670;&#160;</a></span>AnimationDistanceAmount</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float AMShooterTarget::AnimationDistanceAmount { 150.f }</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Amount the target moves up and down </p>
+
+</div>
+</div>
+<a id="ac822c483d75e510bbe990da0aa329614" name="ac822c483d75e510bbe990da0aa329614"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac822c483d75e510bbe990da0aa329614">&#9670;&#160;</a></span>AnimationSpeed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float AMShooterTarget::AnimationSpeed { 3.f }</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Animation Speed </p>
+
+</div>
+</div>
 <a id="a1752a21651dbd7e63b78623d82423a8d" name="a1752a21651dbd7e63b78623d82423a8d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1752a21651dbd7e63b78623d82423a8d">&#9670;&#160;</a></span>BoxCollision</h2>
 
@@ -407,29 +455,6 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="abfc818a73087a9946e90af69cbc85410" name="abfc818a73087a9946e90af69cbc85410"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abfc818a73087a9946e90af69cbc85410">&#9670;&#160;</a></span>MovementDistanceAmount</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float AMShooterTarget::MovementDistanceAmount { 150.f }</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Amount the target moves up and down </p>
-
-</div>
-</div>
 <a id="a2e45a6a0cedf8c0895f5ca6cfd3b93ff" name="a2e45a6a0cedf8c0895f5ca6cfd3b93ff"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2e45a6a0cedf8c0895f5ca6cfd3b93ff">&#9670;&#160;</a></span>ShootingComponent</h2>
 
@@ -496,29 +521,6 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Visible Mesh for Enemy </p>
-
-</div>
-</div>
-<a id="a89ec2a9ea2b01f773d891b57ec05ab4d" name="a89ec2a9ea2b01f773d891b57ec05ab4d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a89ec2a9ea2b01f773d891b57ec05ab4d">&#9670;&#160;</a></span>TargetSpeed</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float AMShooterTarget::TargetSpeed { 3.f }</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Target Speed </p>
 
 </div>
 </div>

@@ -51,6 +51,9 @@ AActor \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_a_m_shooter_projectile_
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+Projectile class that is to be launched by Player and Enemies. It also handles collision and the resulting effects such as health modification. 
+
 \doxysubsection{Constructor \& Destructor Documentation}
 \Hypertarget{class_a_m_shooter_projectile_a6ea687d9dd8548895651d09703ba5c8f}\label{class_a_m_shooter_projectile_a6ea687d9dd8548895651d09703ba5c8f} 
 \index{AMShooterProjectile@{AMShooterProjectile}!AMShooterProjectile@{AMShooterProjectile}}
@@ -85,7 +88,7 @@ Moves projectile forward in a straigh line \Hypertarget{class_a_m_shooter_projec
 \doxysubsubsection{\texorpdfstring{OverrideProjectileSpeed()}{OverrideProjectileSpeed()}}
 {\footnotesize\ttfamily void AMShooter\+Projectile\+::\+Override\+Projectile\+Speed (\begin{DoxyParamCaption}\item[{float}]{Override\+Projectile\+Speed }\end{DoxyParamCaption})}
 
-Override projectile speed \Hypertarget{class_a_m_shooter_projectile_aa777b9e54f9660e2e6acd6bcc3f1882f}\label{class_a_m_shooter_projectile_aa777b9e54f9660e2e6acd6bcc3f1882f} 
+Override projectile speed. This is an option giving to the shooting user and handled by MShooter\+Shooting\+Ccomponent. \Hypertarget{class_a_m_shooter_projectile_aa777b9e54f9660e2e6acd6bcc3f1882f}\label{class_a_m_shooter_projectile_aa777b9e54f9660e2e6acd6bcc3f1882f} 
 \index{AMShooterProjectile@{AMShooterProjectile}!RegisterProjectileOwner@{RegisterProjectileOwner}}
 \index{RegisterProjectileOwner@{RegisterProjectileOwner}!AMShooterProjectile@{AMShooterProjectile}}
 \doxysubsubsection{\texorpdfstring{RegisterProjectileOwner()}{RegisterProjectileOwner()}}
@@ -148,7 +151,7 @@ Visible Mesh for for projectile \Hypertarget{class_a_m_shooter_projectile_a7575e
 \doxysubsubsection{\texorpdfstring{TimeToDestroy}{TimeToDestroy}}
 {\footnotesize\ttfamily float AMShooter\+Projectile\+::\+Time\+To\+Destroy \{ 3.f \}\hspace{0.3cm}{\ttfamily [protected]}}
 
-Time To Destroy 
+Time To Destroy after Spawning. Used to avoid uncesseary unused projectiles stacking up in map 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

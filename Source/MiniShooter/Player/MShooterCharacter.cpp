@@ -12,8 +12,8 @@
 #include <GameFramework/SpringArmComponent.h>
 
 #include "../Components/MShooterShootingComponent.h"
-#include "MShooterController.h"
 #include "../MiniShooterGameMode.h"
+#include "MShooterController.h"
 
 AMShooterCharacter::AMShooterCharacter()
 {
@@ -25,13 +25,13 @@ void AMShooterCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 
-	//Bind Shoot Input
+	//Bind Shoot and Aim Delegate
 	if (AMShooterController* PlayerController = Cast<AMShooterController>(GetController()))
 	{
 		PlayerController->ShootDelegate.AddUObject(this, &AMShooterCharacter::Shoot);
 		PlayerController->AimDelegate.AddUObject(this, &AMShooterCharacter::Aim);
 	}
-
+	//Bind Send Enemy Delegate to Recieve new Enemy upon Aim State start
 	if (AMiniShooterGameMode* GameMode = Cast<AMiniShooterGameMode>(UGameplayStatics::GetGameMode(this)))
 	{
 		GameMode->SendEnemyDelegate.AddUObject(this, &AMShooterCharacter::GetNearestEnemy);
@@ -40,87 +40,82 @@ void AMShooterCharacter::BeginPlay()
 
 void AMShooterCharacter::Shoot(bool bStart)
 {
-	if (!ShootingComponent)
+	if (ensureMsgf(ShootingComponent && GetWorld(), TEXT("%s couldn't load %s or %s at Runtime"), *GetClass()->GetName(), *ShootingComponent->GetClass()->GetName(), *GetWorld()->GetClass()->GetName()))
 	{
-		return;
-	}
-
-	if (bStart)
-	{
-		ShootingComponent->StartShooting();
-		GetWorld()->GetTimerManager().ClearTimer(StopAimingTimeHandle);
-	}
-	else
-	{
-		ShootingComponent->StopShooting();
-		//Give some time to Stop Aiming so you can start aiming before shooting
-		GetWorld()->GetTimerManager().SetTimer(StopAimingTimeHandle, [&]() {ShootingComponent->StopAiming(); }, TimeToAutoStopAiming, false);
+		//If Delegate ends true, then start shooting
+		if (bStart)
+		{
+			ShootingComponent->StartShooting();
+			GetWorld()->GetTimerManager().ClearTimer(StopAimingTimeHandle);
+		}
+		else
+		{
+			ShootingComponent->StopShooting();
+			//Allow Aim to perdure some time without shooting so it's not too sudden
+			GetWorld()->GetTimerManager().SetTimer(StopAimingTimeHandle, [&]() {ShootingComponent->StopAiming(); }, TimeToAutoStopAiming, false);
+		}
 	}
 }
 
 void AMShooterCharacter::Aim()
 {
-	if (!ShootingComponent)
+	if (ensureMsgf(ShootingComponent, TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *ShootingComponent->GetClass()->GetName()))
 	{
-		return;
+		//Request Nearest Enemy to GameMode to start Aiming
+		RequestNearestEnemyDelegate.Broadcast(this);
 	}
-
-	RequestNearestEnemyDelegate.Broadcast(this);
 }
 
 void AMShooterCharacter::GetNearestEnemy(AActor* NearestEnemy)
 {
-	if (!ShootingComponent)
+	if (ensureMsgf(ShootingComponent && GetWorld(), TEXT("%s couldn't load %s or %s at Runtime"), *GetClass()->GetName(), *ShootingComponent->GetClass()->GetName(), *GetWorld()->GetClass()->GetName()))
 	{
-		return;
-	}
-	if (NearestEnemy)
-	{
-		ShootingComponent->StartAiming(NearestEnemy);
-
-		//Give some delay of time to aim if not shooting, but stop aiming if player takes too long
-		if (!ShootingComponent->GetIsShooting())
+		//Check if there is any Enemy left to aim at
+		if (IsValid(NearestEnemy))
 		{
-			//Give some time to Stop Aiming so you can start aiming before shooting
-			GetWorld()->GetTimerManager().SetTimer(StopAimingTimeHandle, [&]() {ShootingComponent->StopAiming(); }, TimeToAutoStopAiming, false);
+			ShootingComponent->StartAiming(NearestEnemy);
+			//Start a TimerHandle to cancel Aiming state in case player stops shooting
+			if (!ShootingComponent->GetIsShooting())
+			{
+				GetWorld()->GetTimerManager().SetTimer(StopAimingTimeHandle, [&]() {ShootingComponent->StopAiming(); }, TimeToAutoStopAiming, false);
+			}
+		}
+		else
+		{
+			//If there is no Enemy left to aim, then stop Aiming state
+			ShootingComponent->StopAiming();
 		}
 	}
-	else
-	{
-		ShootingComponent->StopAiming();
-	}
-	
 }
 
 AActor* AMShooterCharacter::RequestGetAimedEnemy()
 {
-	if (!ShootingComponent)
+	//Get the Enemy that the Player is currently aiming at
+	if (ensureMsgf(ShootingComponent, TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *ShootingComponent->GetClass()->GetName()))
 	{
-		return nullptr;
+		return ShootingComponent->GetCurrentAimedEnemy();
 	}
-	
-	return ShootingComponent->GetCurrentAimedEnemy();
+	return nullptr;	
 }
 
 void AMShooterCharacter::SetShootingSpeed(float NewSpeed)
 {
-	if (!ShootingComponent)
+	if (ensureMsgf(ShootingComponent, TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *ShootingComponent->GetClass()->GetName()))
 	{
-		return;
+		//Sets the new Shooting Speed for the Player within the Shooting Component
+		ShootingComponent->SetShootingSpeed(NewSpeed);
+		//Resets the Shooting Cycle within Component in order to apply new Shooting Speeed value
+		ShootingComponent->StopShooting();
+		ShootingComponent->StartShooting();
 	}
-
-	ShootingComponent->SetShootingSpeed(NewSpeed);
-	//Reset cycle
-	ShootingComponent->StopShooting();
-	ShootingComponent->StartShooting();
 }
 
 float AMShooterCharacter::GetShootingSpeed()
 {
-	if (!ShootingComponent)
+	if (ensureMsgf(ShootingComponent, TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *ShootingComponent->GetClass()->GetName()))
 	{
-		return 0.f;
+		//Gets current Shooting Speed from Shooting Component
+		return ShootingComponent->GetShootingSpeed();
 	}
-
-	return ShootingComponent->GetShootingSpeed();
+	return -1.f;
 }

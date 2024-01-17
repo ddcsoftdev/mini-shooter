@@ -5,5 +5,7 @@ var searchData=
   ['activepatrolzone_2',['ActivePatrolZone',['../class_a_m_shooter_enemy.html#a80e81c5e5917e2479bcf59738d10c553',1,'AMShooterEnemy']]],
   ['aicomponent_3',['AIComponent',['../class_a_m_shooter_enemy.html#acc76f869934d5b63028811f3f49083c0',1,'AMShooterEnemy']]],
   ['aimdelegate_4',['AimDelegate',['../class_a_m_shooter_controller.html#a749630ed72c7f111145a6b5d260f8451',1,'AMShooterController']]],
-  ['availablepatrolpoints_5',['AvailablePatrolPoints',['../class_a_m_shooter_patrol_zone.html#a7b8a81d468b36a84981de681c0730ad3',1,'AMShooterPatrolZone']]]
+  ['animationdistanceamount_5',['AnimationDistanceAmount',['../class_a_m_shooter_target.html#a20ff9a8de42a24b52c626f27402e4c18',1,'AMShooterTarget']]],
+  ['animationspeed_6',['AnimationSpeed',['../class_a_m_shooter_target.html#ac822c483d75e510bbe990da0aa329614',1,'AMShooterTarget']]],
+  ['availablepatrolpoints_7',['AvailablePatrolPoints',['../class_a_m_shooter_patrol_zone.html#a7b8a81d468b36a84981de681c0730ad3',1,'AMShooterPatrolZone']]]
 ];

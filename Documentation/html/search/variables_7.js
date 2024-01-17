@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['newshootingspeed_0',['NewShootingSpeed',['../class_a_m_shooter_platform.html#a906c0426d01a16e0ee64b048907681ac',1,'AMShooterPlatform']]],
-  ['notifyenemydeaddelegate_1',['NotifyEnemyDeadDelegate',['../class_a_mini_shooter_game_mode.html#ab0707825be0a9652bfcfda22a55e8685',1,'AMiniShooterGameMode']]]
+  ['playerisinsidezonedelegate_0',['PlayerIsInsideZoneDelegate',['../class_a_m_shooter_patrol_zone.html#a9fb9874277359bd7e5c9159041f73b95',1,'AMShooterPatrolZone']]],
+  ['projectiledamage_1',['ProjectileDamage',['../class_a_m_shooter_projectile.html#ab93ff96eceecb2abbada89700e3af0c4',1,'AMShooterProjectile']]],
+  ['projectilespeed_2',['ProjectileSpeed',['../class_a_m_shooter_projectile.html#a67c4b25174c6bddf283b096c3220f7a1',1,'AMShooterProjectile']]]
 ];

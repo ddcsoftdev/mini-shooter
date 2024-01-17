@@ -83,6 +83,9 @@ float \mbox{\hyperlink{class_a_m_shooter_character_ae39d60e5ea9d770734b30763fa97
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+Character class derived from class created by UE for project Core for Player\textquotesingle{}s mechanics and functionality 
+
 \doxysubsection{Constructor \& Destructor Documentation}
 \Hypertarget{class_a_m_shooter_character_a9982efd9215f787b14cef3bec214c28d}\label{class_a_m_shooter_character_a9982efd9215f787b14cef3bec214c28d} 
 \index{AMShooterCharacter@{AMShooterCharacter}!AMShooterCharacter@{AMShooterCharacter}}
@@ -117,13 +120,13 @@ Recieve nearest Enemy \Hypertarget{class_a_m_shooter_character_ac17c6392987cf466
 \doxysubsubsection{\texorpdfstring{GetShootingSpeed()}{GetShootingSpeed()}}
 {\footnotesize\ttfamily float AMShooter\+Character\+::\+Get\+Shooting\+Speed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Get new Shooting speed \Hypertarget{class_a_m_shooter_character_a164f2d8c9d115f55016506e3d7025ecc}\label{class_a_m_shooter_character_a164f2d8c9d115f55016506e3d7025ecc} 
+Get new Shooting speed It returns -\/1.\+f if error occurs \Hypertarget{class_a_m_shooter_character_a164f2d8c9d115f55016506e3d7025ecc}\label{class_a_m_shooter_character_a164f2d8c9d115f55016506e3d7025ecc} 
 \index{AMShooterCharacter@{AMShooterCharacter}!RequestGetAimedEnemy@{RequestGetAimedEnemy}}
 \index{RequestGetAimedEnemy@{RequestGetAimedEnemy}!AMShooterCharacter@{AMShooterCharacter}}
 \doxysubsubsection{\texorpdfstring{RequestGetAimedEnemy()}{RequestGetAimedEnemy()}}
 {\footnotesize\ttfamily AActor \texorpdfstring{$\ast$}{*} AMShooter\+Character\+::\+Request\+Get\+Aimed\+Enemy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Get Current Aimed Enemy \Hypertarget{class_a_m_shooter_character_aabc7ad501c730d2472ff2d64648127d5}\label{class_a_m_shooter_character_aabc7ad501c730d2472ff2d64648127d5} 
+Get Current Aimed Enemy This method does not Sanitize so nullptr is plausible \Hypertarget{class_a_m_shooter_character_aabc7ad501c730d2472ff2d64648127d5}\label{class_a_m_shooter_character_aabc7ad501c730d2472ff2d64648127d5} 
 \index{AMShooterCharacter@{AMShooterCharacter}!SetShootingSpeed@{SetShootingSpeed}}
 \index{SetShootingSpeed@{SetShootingSpeed}!AMShooterCharacter@{AMShooterCharacter}}
 \doxysubsubsection{\texorpdfstring{SetShootingSpeed()}{SetShootingSpeed()}}

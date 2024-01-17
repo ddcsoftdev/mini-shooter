@@ -16,5 +16,7 @@ var searchData=
   ['amshooterplatform_13',['AMShooterPlatform',['../class_a_m_shooter_platform.html',1,'AMShooterPlatform'],['../class_a_m_shooter_platform.html#a767ebadc36f2555591845370a9c4c76f',1,'AMShooterPlatform::AMShooterPlatform()']]],
   ['amshooterprojectile_14',['AMShooterProjectile',['../class_a_m_shooter_projectile.html',1,'AMShooterProjectile'],['../class_a_m_shooter_projectile.html#a6ea687d9dd8548895651d09703ba5c8f',1,'AMShooterProjectile::AMShooterProjectile()']]],
   ['amshootertarget_15',['AMShooterTarget',['../class_a_m_shooter_target.html',1,'AMShooterTarget'],['../class_a_m_shooter_target.html#ac9ba0babbedcf5652f1caba11475cda7',1,'AMShooterTarget::AMShooterTarget()']]],
-  ['availablepatrolpoints_16',['AvailablePatrolPoints',['../class_a_m_shooter_patrol_zone.html#a7b8a81d468b36a84981de681c0730ad3',1,'AMShooterPatrolZone']]]
+  ['animationdistanceamount_16',['AnimationDistanceAmount',['../class_a_m_shooter_target.html#a20ff9a8de42a24b52c626f27402e4c18',1,'AMShooterTarget']]],
+  ['animationspeed_17',['AnimationSpeed',['../class_a_m_shooter_target.html#ac822c483d75e510bbe990da0aa329614',1,'AMShooterTarget']]],
+  ['availablepatrolpoints_18',['AvailablePatrolPoints',['../class_a_m_shooter_patrol_zone.html#a7b8a81d468b36a84981de681c0730ad3',1,'AMShooterPatrolZone']]]
 ];

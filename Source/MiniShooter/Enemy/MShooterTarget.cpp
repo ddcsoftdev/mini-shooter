@@ -38,13 +38,14 @@ void AMShooterTarget::BeginPlay()
 {
 	Super::BeginPlay();
 
-	//TODO: Remove this. Fixing Offset and making sure it always spawns correctly
+	//Spawning Scene Components giving weird offset when importing in Scene
+	//Suggestion: consider adding to design creating this from BP and use C++ just to link them
 	BoxCollision->SetRelativeLocation(FVector(0.f, 0.f, 50.f));
 	HealthWidget->SetRelativeLocation(FVector(0.f, 0.f, 150.f));
 
-	//Set Location for Inital Move Animation
+	//Kickstarting animation first "MoveTo" location
 	StartLocation = GetActorLocation();
-	EndLocation = StartLocation + FVector(0.f, 0.f, MovementDistanceAmount);
+	EndLocation = StartLocation + FVector(0.f, 0.f, AnimationDistanceAmount);
 
 }
 
@@ -53,76 +54,90 @@ void AMShooterTarget::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	//Modifying Health Widget Rotation per frame so it faces Player
 	SetHealthWidgetRotation();
-
+	//Modifying Actor location per frame. Simple movement so no DeltaTime needed for Lerp or Interp
 	PlayTargetAnimation();
 }
 
 void AMShooterTarget::SetHealthWidgetRotation()
 {
-	if (!HealthWidget)
+	if (ensureMsgf(HealthWidget && GetWorld(), TEXT("%s couldn't load %s or %s at Runtime"), *GetClass()->GetName(), *HealthWidget->GetClass()->GetName(), *GetWorld()->GetClass()->GetName()))
 	{
-		return;
-	}
-
-	if (ACharacter* Player = UGameplayStatics::GetPlayerCharacter(this, 0))
-	{
-		HealthWidget->SetWorldRotation(UKismetMathLibrary::FindLookAtRotation(GetActorLocation(), Player->GetActorLocation()));
+		if (ACharacter* Player = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0))
+		{
+			//Setting Health Widget Rotation so it always faces Player
+			HealthWidget->SetWorldRotation(UKismetMathLibrary::FindLookAtRotation(GetActorLocation(), Player->GetActorLocation()));
+		}
 	}
 }
 
 void AMShooterTarget::UpdateHealthBarWidget(float MaxHealth, float CurrentHealth)
 {
-	if (UMShooterHealthBarWidget* HealthBar = Cast<UMShooterHealthBarWidget>(HealthWidget->GetWidget()))
+	if (ensureMsgf(HealthWidget, TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *HealthWidget->GetClass()->GetName()))
 	{
-		HealthBar->SetHealthBar(MaxHealth, CurrentHealth);
+		if (UMShooterHealthBarWidget* HealthBar = Cast<UMShooterHealthBarWidget>(HealthWidget->GetWidget()))
+		{
+			//Setting Health Bar Widget new value
+			HealthBar->SetHealthBar(MaxHealth, CurrentHealth);
+		}
 	}
 }
 
 void AMShooterTarget::TakeDamageAmount(float Amount)
 {
-	if (!LifeComponent)
+	if (ensureMsgf(LifeComponent, TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *LifeComponent->GetClass()->GetName()))
 	{
-		return;
+		//Invert Damage Amount to negative to subtract
+		Amount = -Amount;
+		//Setting Health in Life Component
+		LifeComponent->SetHealth(Amount);
+		//Updating Widget
+		UpdateHealthBarWidget(LifeComponent->GetMaxHealth(), LifeComponent->GetHealth());
 	}
-	Amount = -Amount;
-	LifeComponent->SetHealth(Amount);
-	UpdateHealthBarWidget(LifeComponent->GetMaxHealth(), LifeComponent->GetHealth());
 }
 
 void AMShooterTarget::PlayTargetAnimation()
 {
-	const float SizeOffset = StaticMeshComponent->GetStaticMesh()->GetBounds().BoxExtent.Size() / 2;
-	const float FloorLocation = 130.f;
+	float SizeOffset = 0.f;
+	float FloorLocation = 0.f;
+	if (ensureMsgf(StaticMeshComponent, TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *StaticMeshComponent->GetClass()->GetName()))
+	{
+		//Get where the floor is based on the Actor's Mesh. This is used to avoid Actor going through floor
+		SizeOffset = StaticMeshComponent->GetStaticMesh()->GetBounds().BoxExtent.Size() / 2;
+		FloorLocation = 130.f;
+	}
+	
+	//Calculate New Location for Actor to Move To
+	FVector MoveToLocation = GetActorLocation() + (GetActorUpVector() * AnimationSpeed);
 
-	FVector MoveToLocation = GetActorLocation() + (GetActorUpVector() * TargetSpeed);
-
-	//Check that target wont clip with floor (0.f Axis Z)
-	//Using offset to account for Target size, since it counts from center of mesh
+	//Check possiblity of Actor going through floor and avoid if it's predicted
 	if (MoveToLocation.Z - SizeOffset > FloorLocation)
 	{
 		SetActorLocation(MoveToLocation, true);
 	}
 	else
 	{
-		//Override location and start over to avoid clipping
+		//Override Location to immediatly reach endpoint assuming it would go through floor and clip
 		MoveToLocation = EndLocation;
 	}
 
-	//Target has arrived to Location and change direction
+	//Check Actor has arrived to desired location, and prepare to reverse motion backwards
 	if (MoveToLocation.Equals(EndLocation, 10.f))
 	{
+		//Checking automatically if Actor is supposed to go up or down based on where is EndLocation relative to StartLocation
 		if (StartLocation.Z < MoveToLocation.Z)
 		{
 			StartLocation = EndLocation;
-			EndLocation = EndLocation - MovementDistanceAmount;
+			EndLocation = EndLocation - AnimationDistanceAmount;
 		}
 		else
 		{
 			StartLocation = EndLocation;
-			EndLocation = EndLocation + MovementDistanceAmount;
+			EndLocation = EndLocation + AnimationDistanceAmount;
 		}
-		TargetSpeed = -TargetSpeed;
+		//Use Animation Speed as the driver for direction, simply reversing for next iterations of this method
+		AnimationSpeed = -AnimationSpeed;
 	}
 }
 

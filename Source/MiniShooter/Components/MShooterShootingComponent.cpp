@@ -55,7 +55,7 @@ void UMShooterShootingComponent::StartShooting()
 	}
 	bIsShooting = true;
 	TriggerShot();
-	GetWorld()->GetTimerManager().SetTimer(ShootingTimer, this, &UMShooterShootingComponent::TriggerShot, 1/ ShootingSpeed, true);
+	GetWorld()->GetTimerManager().SetTimer(ShootingTimer, this, &UMShooterShootingComponent::TriggerShot, 1 / ShootingSpeed, true);
 }
 
 void UMShooterShootingComponent::StopShooting()

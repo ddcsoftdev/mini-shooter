@@ -3,12 +3,18 @@
 #pragma once
 
 #include "../MiniShooterCharacter.h"
+
 #include "MShooterCharacter.generated.h"
 
 
 class UMShooterShootingComponent;
 
 DECLARE_MULTICAST_DELEGATE_OneParam(FRequestNearestEnemy, class AActor*);
+
+/**
+* Character class derived from class created by UE for project
+* Core for Player's mechanics and functionality
+*/
 UCLASS(config=Game)
 class AMShooterCharacter : public AMiniShooterCharacter
 {
@@ -25,6 +31,7 @@ public:
 
 	/**
 	* Get Current Aimed Enemy
+	* This method does not Sanitize so nullptr is plausible
 	*/
 	UFUNCTION()
 	AActor* RequestGetAimedEnemy();
@@ -37,9 +44,10 @@ public:
 
 	/**
 	* Get new Shooting speed
+	* It returns -1.f if error occurs
 	*/
 	UFUNCTION()
-		float GetShootingSpeed();
+	float GetShootingSpeed();
 
 protected:
 
@@ -58,7 +66,7 @@ protected:
 	/**
 	* Time for Aiming to reset if not Shooting
 	*/
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, Category = "Character Config")
 		float TimeToAutoStopAiming{ 0.25f };
 
 	/**
@@ -71,7 +79,7 @@ protected:
 	* Aiming method that start aiming at Enemies
 	*/
 	UFUNCTION()
-		void Aim();
+	void Aim();
 
 	/**
 	* Recieve nearest Enemy
