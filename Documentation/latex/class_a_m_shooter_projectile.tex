@@ -1,0 +1,156 @@
+\doxysection{AMShooter\+Projectile Class Reference}
+\hypertarget{class_a_m_shooter_projectile}{}\label{class_a_m_shooter_projectile}\index{AMShooterProjectile@{AMShooterProjectile}}
+
+
+{\ttfamily \#include $<$MShooter\+Projectile.\+h$>$}
+
+Inheritance diagram for AMShooter\+Projectile\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_a_m_shooter_projectile}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_a_m_shooter_projectile_a6ea687d9dd8548895651d09703ba5c8f}{AMShooter\+Projectile}} ()
+\item 
+void \mbox{\hyperlink{class_a_m_shooter_projectile_a0efd7508499e6621e61604c44b4797a4}{Override\+Projectile\+Speed}} (float Override\+Projectile\+Speed)
+\item 
+void \mbox{\hyperlink{class_a_m_shooter_projectile_aa777b9e54f9660e2e6acd6bcc3f1882f}{Register\+Projectile\+Owner}} (AActor \texorpdfstring{$\ast$}{*}Register\+Owner)
+\item 
+virtual void \mbox{\hyperlink{class_a_m_shooter_projectile_abbfc91a728135b86eca5241c76a0007c}{Tick}} (float Delta\+Time) override
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_a_m_shooter_projectile_a00819efff50e868be1e8e0bece37180a}{Move\+Projectile}} (float Delta\+Time)
+\item 
+void \mbox{\hyperlink{class_a_m_shooter_projectile_a5934ccff460af1823a76fd58260b730e}{Start\+Destroy\+Timer}} ()
+\item 
+void \mbox{\hyperlink{class_a_m_shooter_projectile_a31de07ca88cd08bb99e7a3acd5d1125f}{Request\+Projectile\+Destroy}} ()
+\item 
+virtual void \mbox{\hyperlink{class_a_m_shooter_projectile_a03446c892ef1f1a7691981fdae49cfb4}{Begin\+Play}} () override
+\item 
+virtual void \mbox{\hyperlink{class_a_m_shooter_projectile_ad04c4889ae1b669e9eb39b814f44a139}{Notify\+Actor\+Begin\+Overlap}} (AActor \texorpdfstring{$\ast$}{*}Other\+Actor) override
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+UStatic\+Mesh\+Component \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_a_m_shooter_projectile_a89ed2fcc9b3152127c516af42aa5ef04}{Static\+Mesh\+Component}}
+\item 
+float \mbox{\hyperlink{class_a_m_shooter_projectile_a67c4b25174c6bddf283b096c3220f7a1}{Projectile\+Speed}} \{ 10.f \}
+\item 
+float \mbox{\hyperlink{class_a_m_shooter_projectile_ab93ff96eceecb2abbada89700e3af0c4}{Projectile\+Damage}} \{ 25.f \}
+\item 
+FTimer\+Handle \mbox{\hyperlink{class_a_m_shooter_projectile_a46aa45778fe116e1d09d7e098b36af49}{Destroy\+Timer\+Handle}}
+\item 
+float \mbox{\hyperlink{class_a_m_shooter_projectile_a7575e889af57054601e85787989fd350}{Time\+To\+Destroy}} \{ 3.f \}
+\item 
+AActor \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_a_m_shooter_projectile_a3e4f8a8972b84775b89b60940033df55}{Registered\+Owner\+Of\+Projectile}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_a_m_shooter_projectile_a6ea687d9dd8548895651d09703ba5c8f}\label{class_a_m_shooter_projectile_a6ea687d9dd8548895651d09703ba5c8f} 
+\index{AMShooterProjectile@{AMShooterProjectile}!AMShooterProjectile@{AMShooterProjectile}}
+\index{AMShooterProjectile@{AMShooterProjectile}!AMShooterProjectile@{AMShooterProjectile}}
+\doxysubsubsection{\texorpdfstring{AMShooterProjectile()}{AMShooterProjectile()}}
+{\footnotesize\ttfamily AMShooter\+Projectile\+::\+AMShooter\+Projectile (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_a_m_shooter_projectile_a03446c892ef1f1a7691981fdae49cfb4}\label{class_a_m_shooter_projectile_a03446c892ef1f1a7691981fdae49cfb4} 
+\index{AMShooterProjectile@{AMShooterProjectile}!BeginPlay@{BeginPlay}}
+\index{BeginPlay@{BeginPlay}!AMShooterProjectile@{AMShooterProjectile}}
+\doxysubsubsection{\texorpdfstring{BeginPlay()}{BeginPlay()}}
+{\footnotesize\ttfamily void AMShooter\+Projectile\+::\+Begin\+Play (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+\Hypertarget{class_a_m_shooter_projectile_a00819efff50e868be1e8e0bece37180a}\label{class_a_m_shooter_projectile_a00819efff50e868be1e8e0bece37180a} 
+\index{AMShooterProjectile@{AMShooterProjectile}!MoveProjectile@{MoveProjectile}}
+\index{MoveProjectile@{MoveProjectile}!AMShooterProjectile@{AMShooterProjectile}}
+\doxysubsubsection{\texorpdfstring{MoveProjectile()}{MoveProjectile()}}
+{\footnotesize\ttfamily void AMShooter\+Projectile\+::\+Move\+Projectile (\begin{DoxyParamCaption}\item[{float}]{Delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Moves projectile forward in a straigh line \Hypertarget{class_a_m_shooter_projectile_ad04c4889ae1b669e9eb39b814f44a139}\label{class_a_m_shooter_projectile_ad04c4889ae1b669e9eb39b814f44a139} 
+\index{AMShooterProjectile@{AMShooterProjectile}!NotifyActorBeginOverlap@{NotifyActorBeginOverlap}}
+\index{NotifyActorBeginOverlap@{NotifyActorBeginOverlap}!AMShooterProjectile@{AMShooterProjectile}}
+\doxysubsubsection{\texorpdfstring{NotifyActorBeginOverlap()}{NotifyActorBeginOverlap()}}
+{\footnotesize\ttfamily void AMShooter\+Projectile\+::\+Notify\+Actor\+Begin\+Overlap (\begin{DoxyParamCaption}\item[{AActor \texorpdfstring{$\ast$}{*}}]{Other\+Actor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+\Hypertarget{class_a_m_shooter_projectile_a0efd7508499e6621e61604c44b4797a4}\label{class_a_m_shooter_projectile_a0efd7508499e6621e61604c44b4797a4} 
+\index{AMShooterProjectile@{AMShooterProjectile}!OverrideProjectileSpeed@{OverrideProjectileSpeed}}
+\index{OverrideProjectileSpeed@{OverrideProjectileSpeed}!AMShooterProjectile@{AMShooterProjectile}}
+\doxysubsubsection{\texorpdfstring{OverrideProjectileSpeed()}{OverrideProjectileSpeed()}}
+{\footnotesize\ttfamily void AMShooter\+Projectile\+::\+Override\+Projectile\+Speed (\begin{DoxyParamCaption}\item[{float}]{Override\+Projectile\+Speed }\end{DoxyParamCaption})}
+
+Override projectile speed \Hypertarget{class_a_m_shooter_projectile_aa777b9e54f9660e2e6acd6bcc3f1882f}\label{class_a_m_shooter_projectile_aa777b9e54f9660e2e6acd6bcc3f1882f} 
+\index{AMShooterProjectile@{AMShooterProjectile}!RegisterProjectileOwner@{RegisterProjectileOwner}}
+\index{RegisterProjectileOwner@{RegisterProjectileOwner}!AMShooterProjectile@{AMShooterProjectile}}
+\doxysubsubsection{\texorpdfstring{RegisterProjectileOwner()}{RegisterProjectileOwner()}}
+{\footnotesize\ttfamily void AMShooter\+Projectile\+::\+Register\+Projectile\+Owner (\begin{DoxyParamCaption}\item[{AActor \texorpdfstring{$\ast$}{*}}]{Register\+Owner }\end{DoxyParamCaption})}
+
+Set Registered Owner \Hypertarget{class_a_m_shooter_projectile_a31de07ca88cd08bb99e7a3acd5d1125f}\label{class_a_m_shooter_projectile_a31de07ca88cd08bb99e7a3acd5d1125f} 
+\index{AMShooterProjectile@{AMShooterProjectile}!RequestProjectileDestroy@{RequestProjectileDestroy}}
+\index{RequestProjectileDestroy@{RequestProjectileDestroy}!AMShooterProjectile@{AMShooterProjectile}}
+\doxysubsubsection{\texorpdfstring{RequestProjectileDestroy()}{RequestProjectileDestroy()}}
+{\footnotesize\ttfamily void AMShooter\+Projectile\+::\+Request\+Projectile\+Destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Starts Destroy schedule \Hypertarget{class_a_m_shooter_projectile_a5934ccff460af1823a76fd58260b730e}\label{class_a_m_shooter_projectile_a5934ccff460af1823a76fd58260b730e} 
+\index{AMShooterProjectile@{AMShooterProjectile}!StartDestroyTimer@{StartDestroyTimer}}
+\index{StartDestroyTimer@{StartDestroyTimer}!AMShooterProjectile@{AMShooterProjectile}}
+\doxysubsubsection{\texorpdfstring{StartDestroyTimer()}{StartDestroyTimer()}}
+{\footnotesize\ttfamily void AMShooter\+Projectile\+::\+Start\+Destroy\+Timer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Kickstarts Auto\+Destroy Timer so no map overflow \Hypertarget{class_a_m_shooter_projectile_abbfc91a728135b86eca5241c76a0007c}\label{class_a_m_shooter_projectile_abbfc91a728135b86eca5241c76a0007c} 
+\index{AMShooterProjectile@{AMShooterProjectile}!Tick@{Tick}}
+\index{Tick@{Tick}!AMShooterProjectile@{AMShooterProjectile}}
+\doxysubsubsection{\texorpdfstring{Tick()}{Tick()}}
+{\footnotesize\ttfamily void AMShooter\+Projectile\+::\+Tick (\begin{DoxyParamCaption}\item[{float}]{Delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_a_m_shooter_projectile_a46aa45778fe116e1d09d7e098b36af49}\label{class_a_m_shooter_projectile_a46aa45778fe116e1d09d7e098b36af49} 
+\index{AMShooterProjectile@{AMShooterProjectile}!DestroyTimerHandle@{DestroyTimerHandle}}
+\index{DestroyTimerHandle@{DestroyTimerHandle}!AMShooterProjectile@{AMShooterProjectile}}
+\doxysubsubsection{\texorpdfstring{DestroyTimerHandle}{DestroyTimerHandle}}
+{\footnotesize\ttfamily FTimer\+Handle AMShooter\+Projectile\+::\+Destroy\+Timer\+Handle\hspace{0.3cm}{\ttfamily [protected]}}
+
+Timer handle for Destroy Actor \Hypertarget{class_a_m_shooter_projectile_ab93ff96eceecb2abbada89700e3af0c4}\label{class_a_m_shooter_projectile_ab93ff96eceecb2abbada89700e3af0c4} 
+\index{AMShooterProjectile@{AMShooterProjectile}!ProjectileDamage@{ProjectileDamage}}
+\index{ProjectileDamage@{ProjectileDamage}!AMShooterProjectile@{AMShooterProjectile}}
+\doxysubsubsection{\texorpdfstring{ProjectileDamage}{ProjectileDamage}}
+{\footnotesize\ttfamily float AMShooter\+Projectile\+::\+Projectile\+Damage \{ 25.f \}\hspace{0.3cm}{\ttfamily [protected]}}
+
+Damage for the projectile \Hypertarget{class_a_m_shooter_projectile_a67c4b25174c6bddf283b096c3220f7a1}\label{class_a_m_shooter_projectile_a67c4b25174c6bddf283b096c3220f7a1} 
+\index{AMShooterProjectile@{AMShooterProjectile}!ProjectileSpeed@{ProjectileSpeed}}
+\index{ProjectileSpeed@{ProjectileSpeed}!AMShooterProjectile@{AMShooterProjectile}}
+\doxysubsubsection{\texorpdfstring{ProjectileSpeed}{ProjectileSpeed}}
+{\footnotesize\ttfamily float AMShooter\+Projectile\+::\+Projectile\+Speed \{ 10.f \}\hspace{0.3cm}{\ttfamily [protected]}}
+
+Speed for the projectile \Hypertarget{class_a_m_shooter_projectile_a3e4f8a8972b84775b89b60940033df55}\label{class_a_m_shooter_projectile_a3e4f8a8972b84775b89b60940033df55} 
+\index{AMShooterProjectile@{AMShooterProjectile}!RegisteredOwnerOfProjectile@{RegisteredOwnerOfProjectile}}
+\index{RegisteredOwnerOfProjectile@{RegisteredOwnerOfProjectile}!AMShooterProjectile@{AMShooterProjectile}}
+\doxysubsubsection{\texorpdfstring{RegisteredOwnerOfProjectile}{RegisteredOwnerOfProjectile}}
+{\footnotesize\ttfamily AActor\texorpdfstring{$\ast$}{*} AMShooter\+Projectile\+::\+Registered\+Owner\+Of\+Projectile\hspace{0.3cm}{\ttfamily [protected]}}
+
+Registered Owner of this Projectile \Hypertarget{class_a_m_shooter_projectile_a89ed2fcc9b3152127c516af42aa5ef04}\label{class_a_m_shooter_projectile_a89ed2fcc9b3152127c516af42aa5ef04} 
+\index{AMShooterProjectile@{AMShooterProjectile}!StaticMeshComponent@{StaticMeshComponent}}
+\index{StaticMeshComponent@{StaticMeshComponent}!AMShooterProjectile@{AMShooterProjectile}}
+\doxysubsubsection{\texorpdfstring{StaticMeshComponent}{StaticMeshComponent}}
+{\footnotesize\ttfamily UStatic\+Mesh\+Component\texorpdfstring{$\ast$}{*} AMShooter\+Projectile\+::\+Static\+Mesh\+Component\hspace{0.3cm}{\ttfamily [protected]}}
+
+Visible Mesh for for projectile \Hypertarget{class_a_m_shooter_projectile_a7575e889af57054601e85787989fd350}\label{class_a_m_shooter_projectile_a7575e889af57054601e85787989fd350} 
+\index{AMShooterProjectile@{AMShooterProjectile}!TimeToDestroy@{TimeToDestroy}}
+\index{TimeToDestroy@{TimeToDestroy}!AMShooterProjectile@{AMShooterProjectile}}
+\doxysubsubsection{\texorpdfstring{TimeToDestroy}{TimeToDestroy}}
+{\footnotesize\ttfamily float AMShooter\+Projectile\+::\+Time\+To\+Destroy \{ 3.f \}\hspace{0.3cm}{\ttfamily [protected]}}
+
+Time To Destroy 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Mini\+Shooter/\+Projectile/\mbox{\hyperlink{_m_shooter_projectile_8h}{MShooter\+Projectile.\+h}}\item 
+Mini\+Shooter/\+Projectile/\mbox{\hyperlink{_m_shooter_projectile_8cpp}{MShooter\+Projectile.\+cpp}}\end{DoxyCompactItemize}

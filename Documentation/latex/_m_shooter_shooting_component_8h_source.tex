@@ -1,0 +1,93 @@
+\doxysection{MShooter\+Shooting\+Component.\+h}
+\hypertarget{_m_shooter_shooting_component_8h_source}{}\label{_m_shooter_shooting_component_8h_source}\index{MiniShooter/Components/MShooterShootingComponent.h@{MiniShooter/Components/MShooterShootingComponent.h}}
+\mbox{\hyperlink{_m_shooter_shooting_component_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Fill\ out\ your\ copyright\ notice\ in\ the\ Description\ page\ of\ Project\ Settings.}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}CoreMinimal.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Components/ActorComponent.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}MShooterShootingComponent.generated.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_a_m_shooter_projectile}{AMShooterProjectile}};}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ UCLASS(\ ClassGroup=(Custom),\ meta=(BlueprintSpawnableComponent)\ )}
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }MINISHOOTER\_API\ UMShooterShootingComponent\ :\ \textcolor{keyword}{public}\ UActorComponent}
+\DoxyCodeLine{00013\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ GENERATED\_BODY()}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ public:\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{comment}{//\ Sets\ default\ values\ for\ this\ component's\ properties}}
+\DoxyCodeLine{00018\ \ \ \ \ UMShooterShootingComponent();}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ protected:}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{comment}{//\ Called\ when\ the\ game\ starts}}
+\DoxyCodeLine{00022\ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ BeginPlay()\ override;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00027\ \ \ \ \ UPROPERTY()}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ FTimerHandle\ ShootingTimer;}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00033\ \ \ \ \ UPROPERTY(EditAnywhere,\ Category\ =\ "{}Override\ Projectile\ Speed"{})}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{bool}\ bOverrideProjectileSpeed\{\ \textcolor{keyword}{true}\ \};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00039\ \ \ \ \ UPROPERTY(EditAnywhere,\ Category\ =\ \textcolor{stringliteral}{"{}Override\ Projectile\ Speed"{}})}
+\DoxyCodeLine{00040\ \ \ \ \ float\ ProjectileSpeed\{\ 40.f\ \};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00045\ \ \ \ \ UPROPERTY(EditAnywhere,\ Category\ =\ \textcolor{stringliteral}{"{}Shooting\ Speed"{}})}
+\DoxyCodeLine{00046\ \ \ \ \ float\ ShootingSpeed\{\ 5.f\ \};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00052\ \ \ \ \ UPROPERTY()}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ bool\ bIsShooting\{\ \textcolor{keyword}{false}\ \};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00058\ \ \ \ \ UPROPERTY()}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ bool\ bIsAiming\{\ \textcolor{keyword}{false}\ \};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00065\ \ \ \ \ UPROPERTY()}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ AActor*\ CurrentAimedEnemy;}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00071\ \ \ \ \ UPROPERTY()}
+\DoxyCodeLine{00072\ \ \ \ \ TSubclassOf<\mbox{\hyperlink{class_a_m_shooter_projectile}{AMShooterProjectile}}>\ ProjectileBPReference;}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00077\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ TriggerShot();}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00083\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ AimingRotationAdjustment();}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ public:\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{comment}{//\ Called\ every\ frame}}
+\DoxyCodeLine{00088\ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ TickComponent(\textcolor{keywordtype}{float}\ DeltaTime,\ ELevelTick\ TickType,\ FActorComponentTickFunction*\ ThisTickFunction)\ override;}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00093\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ StartShooting();}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00099\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ StopShooting();}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00105\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ StartAiming(AActor*\ NearestEnemy);}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00111\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ StopAiming();}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00117\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ GetIsShooting()\ \{\ \textcolor{keywordflow}{return}\ bIsShooting;\ \};}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00123\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ bool\ GetIsAiming()\ \{\ \textcolor{keywordflow}{return}\ bIsAiming;\ \};}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00129\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ AActor*\ GetCurrentAimedEnemy()\ \{\ \textcolor{keywordflow}{return}\ CurrentAimedEnemy;\ \};}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00135\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ void\ SetShootingSpeed(\textcolor{keywordtype}{float}\ NewSpeed)\ \{\ ShootingSpeed\ =\ NewSpeed;\ \};}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00141\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ float\ GetShootingSpeed()\ \{\ \textcolor{keywordflow}{return}\ ShootingSpeed;\ \};}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \};}
+
+\end{DoxyCode}

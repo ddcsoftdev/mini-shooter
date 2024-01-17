@@ -2,11 +2,17 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
-#include "GameFramework/Actor.h"
+#include <CoreMinimal.h>
+#include <GameFramework/Actor.h>
+
 #include "MShooterProjectile.generated.h"
 
 class UStaticMeshComponent;
+
+/**
+* Projectile class that is to be launched by Player and Enemies.
+* It also handles collision and the resulting effects such as health modification.
+*/
 UCLASS()
 class MINISHOOTER_API AMShooterProjectile : public AActor
 {
@@ -17,7 +23,7 @@ public:
 	AMShooterProjectile();
 
 	/**
-	* Override projectile speed
+	* Override projectile speed. This is an option giving to the shooting user and handled by MShooterShootingCcomponent.
 	*/
 	void OverrideProjectileSpeed(float OverrideProjectileSpeed);
 
@@ -25,6 +31,9 @@ public:
 	* Set Registered Owner
 	*/
 	void RegisterProjectileOwner(AActor* RegisterOwner);
+
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
 
 protected:
 
@@ -53,7 +62,7 @@ protected:
 	FTimerHandle DestroyTimerHandle;
 
 	/**
-	* Time To Destroy
+	* Time To Destroy after Spawning. Used to avoid uncesseary unused projectiles stacking up in map
 	*/
 	UPROPERTY(EditAnywhere, Category = "Projectile Config")
 		float TimeToDestroy{ 3.f };
@@ -87,9 +96,4 @@ protected:
 
 	UFUNCTION()
 	virtual void NotifyActorBeginOverlap(AActor* OtherActor) override;
-
-public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
-
 };

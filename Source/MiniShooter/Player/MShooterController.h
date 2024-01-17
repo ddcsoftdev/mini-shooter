@@ -2,8 +2,9 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
-#include "GameFramework/PlayerController.h"
+#include <CoreMinimal.h>
+#include <GameFramework/PlayerController.h>
+
 #include "MShooterController.generated.h"
 
 
@@ -11,6 +12,9 @@
 DECLARE_MULTICAST_DELEGATE_OneParam(FSendShootRequest, bool);
 DECLARE_MULTICAST_DELEGATE(FSendAimRequest);
 
+/**
+* Controller class for Player that mainly handles input bindings
+*/
 UCLASS()
 class MINISHOOTER_API AMShooterController : public APlayerController
 {
@@ -29,7 +33,7 @@ public:
 	FSendAimRequest AimDelegate;
 
 	/**
-	* Override with Super so we can add more inputs
+	* Override but calling Super so we can add more inputs on top of old ones
 	*/
 	virtual void SetupInputComponent() override;
 
@@ -41,7 +45,6 @@ protected:
 	UFUNCTION()
 	void RequestShoot(bool bStart);
 
-
 	/**
 	* Broadcast Aim Delegate to Toggle Start or Stop
 	*/
@@ -49,5 +52,4 @@ protected:
 	void RequestAim();
 
 	virtual void BeginPlay() override;
-
 };

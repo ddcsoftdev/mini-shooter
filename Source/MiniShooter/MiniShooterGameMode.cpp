@@ -5,7 +5,6 @@
 #include <UObject/ConstructorHelpers.h>
 #include <Kismet/GameplayStatics.h>
 
-#include "MiniShooterCharacter.h"
 #include "Player/MShooterCharacter.h"
 #include "Enemy/MShooterEnemy.h"
 #include "Enemy/MShooterTarget.h"
@@ -25,13 +24,14 @@ void AMiniShooterGameMode::BeginPlay()
 {
 	Super::BeginPlay();
 
+	//Bind Delegates
 	if (AMShooterCharacter* Player = Cast<AMShooterCharacter>(UGameplayStatics::GetPlayerCharacter(this, 0)))
 	{
 		Player->RequestNearestEnemyDelegate.AddUObject(this, &AMiniShooterGameMode::ProcessRequestEnemyDelegate);
 	}
-
 	NotifyEnemyDeadDelegate.AddUObject(this, &AMiniShooterGameMode::RemoveDeadEnemyFromActiveEnemies);
 
+	//Scan All Enemies
 	ScanAllActiveEnemies();
 }
 
@@ -40,8 +40,8 @@ void AMiniShooterGameMode::ProcessRequestEnemyDelegate(AActor* RequestingActor)
 	AActor* NearestEnemy = nullptr;
 	AActor* CurrentlyAimedEnemy = nullptr;
 
-	//Get Current Targeted enemy if any to make sure aim changes to another
-	//It still is closer alternative
+	//Get Current Targeted enemy, and attempt to change to another
+	//It still works accounting for second closest.
 	if (AMShooterCharacter* Player = Cast<AMShooterCharacter>(RequestingActor))
 	{
 		CurrentlyAimedEnemy = Player->RequestGetAimedEnemy();
@@ -55,12 +55,10 @@ void AMiniShooterGameMode::ProcessRequestEnemyDelegate(AActor* RequestingActor)
 			continue;
 		}
 
-		//If enemy is already toggeled continue
 		if (Enemy == CurrentlyAimedEnemy)
 		{
 			continue;
 		}
-
 
 		float CurrentEnemyDistance = NearestEnemy->GetDistanceTo(RequestingActor);
 		float ContenderEnemyDistance = Enemy->GetDistanceTo(RequestingActor);
@@ -69,23 +67,20 @@ void AMiniShooterGameMode::ProcessRequestEnemyDelegate(AActor* RequestingActor)
 			NearestEnemy = Enemy;
 		}
 	}
-
+	//Send newly selected Enemy
 	SendEnemyDelegate.Broadcast(NearestEnemy);
 }
 
 void AMiniShooterGameMode::ScanAllActiveEnemies()
 {
+	//Scan All Enemies, it does not count MShooterTarget as Enemies purposfully
 	ActiveEnemies.Empty();
 	UGameplayStatics::GetAllActorsOfClass(this, AMShooterEnemy::StaticClass(), ActiveEnemies);
-
-	//Not sure if it was design to Scan targets too, but writing code here
-	/*TArray<AActor*> Targets;
-	UGameplayStatics::GetAllActorsOfClass(this, AMShooterTarget::StaticClass(), Targets);
-	ActiveEnemies += Targets;*/
 }
 
 void AMiniShooterGameMode::RemoveDeadEnemyFromActiveEnemies(AActor* DeadEnemy)
 {
+	//Remove Enemy from array when it notifies death
 	ActiveEnemies.RemoveSingle(DeadEnemy);
 
 	//If killed enemy was the Aimed Target, get another target if available

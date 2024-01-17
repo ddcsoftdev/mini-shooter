@@ -1,0 +1,176 @@
+\doxysection{AMShooter\+Target Class Reference}
+\hypertarget{class_a_m_shooter_target}{}\label{class_a_m_shooter_target}\index{AMShooterTarget@{AMShooterTarget}}
+
+
+{\ttfamily \#include $<$MShooter\+Target.\+h$>$}
+
+Inheritance diagram for AMShooter\+Target\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_a_m_shooter_target}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_a_m_shooter_target_ac9ba0babbedcf5652f1caba11475cda7}{AMShooter\+Target}} ()
+\item 
+virtual void \mbox{\hyperlink{class_a_m_shooter_target_a833bcc5838d08a3780a24ba09ae87bb0}{Tick}} (float Delta\+Time) override
+\item 
+virtual void \mbox{\hyperlink{class_a_m_shooter_target_a20b1cbaedae7160c6efc5e126ab0feac}{Take\+Damage\+Amount}} (float Amount) override
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_a_m_shooter_target_a86317aef633a041a10cd46ed757d17b7}{Begin\+Play}} () override
+\item 
+virtual void \mbox{\hyperlink{class_a_m_shooter_target_affae585bcb41a2706993a5f44e5d0d87}{Update\+Health\+Bar\+Widget}} (float Max\+Health, float Current\+Health) override
+\item 
+virtual void \mbox{\hyperlink{class_a_m_shooter_target_abfd4d6b044da41ae9307fe664b517443}{Set\+Health\+Widget\+Rotation}} () override
+\item 
+void \mbox{\hyperlink{class_a_m_shooter_target_a9e2298656214d9975ad6b0c5bc0d858b}{Play\+Target\+Animation}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+UMShooter\+Life\+Component \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_a_m_shooter_target_a9d86b74d834b8c5f25298907ee5ccd8e}{Life\+Component}}
+\item 
+UMShooter\+Shooting\+Component \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_a_m_shooter_target_a2e45a6a0cedf8c0895f5ca6cfd3b93ff}{Shooting\+Component}}
+\item 
+UStatic\+Mesh\+Component \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_a_m_shooter_target_a3398d265cb245694f148e5d50f6d5ff4}{Static\+Mesh\+Component}}
+\item 
+UBox\+Component \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_a_m_shooter_target_a1752a21651dbd7e63b78623d82423a8d}{Box\+Collision}}
+\item 
+UWidget\+Component \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_a_m_shooter_target_a42b8df9b0a6c69dc29a54e3d5e479090}{Health\+Widget}}
+\item 
+float \mbox{\hyperlink{class_a_m_shooter_target_abfc818a73087a9946e90af69cbc85410}{Movement\+Distance\+Amount}} \{ 150.f \}
+\item 
+float \mbox{\hyperlink{class_a_m_shooter_target_a89ec2a9ea2b01f773d891b57ec05ab4d}{Target\+Speed}} \{ 3.f \}
+\item 
+FVector \mbox{\hyperlink{class_a_m_shooter_target_ad831c6c2a716275e2cd8b27a55c02b4e}{Start\+Location}} \{FVector\+::\+Zero\+Vector\}
+\item 
+FVector \mbox{\hyperlink{class_a_m_shooter_target_a0c9219d95578273ea288d7067c00614e}{End\+Location}} \{FVector\+::\+Zero\+Vector\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_a_m_shooter_target_ac9ba0babbedcf5652f1caba11475cda7}\label{class_a_m_shooter_target_ac9ba0babbedcf5652f1caba11475cda7} 
+\index{AMShooterTarget@{AMShooterTarget}!AMShooterTarget@{AMShooterTarget}}
+\index{AMShooterTarget@{AMShooterTarget}!AMShooterTarget@{AMShooterTarget}}
+\doxysubsubsection{\texorpdfstring{AMShooterTarget()}{AMShooterTarget()}}
+{\footnotesize\ttfamily AMShooter\+Target\+::\+AMShooter\+Target (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_a_m_shooter_target_a86317aef633a041a10cd46ed757d17b7}\label{class_a_m_shooter_target_a86317aef633a041a10cd46ed757d17b7} 
+\index{AMShooterTarget@{AMShooterTarget}!BeginPlay@{BeginPlay}}
+\index{BeginPlay@{BeginPlay}!AMShooterTarget@{AMShooterTarget}}
+\doxysubsubsection{\texorpdfstring{BeginPlay()}{BeginPlay()}}
+{\footnotesize\ttfamily void AMShooter\+Target\+::\+Begin\+Play (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+\Hypertarget{class_a_m_shooter_target_a9e2298656214d9975ad6b0c5bc0d858b}\label{class_a_m_shooter_target_a9e2298656214d9975ad6b0c5bc0d858b} 
+\index{AMShooterTarget@{AMShooterTarget}!PlayTargetAnimation@{PlayTargetAnimation}}
+\index{PlayTargetAnimation@{PlayTargetAnimation}!AMShooterTarget@{AMShooterTarget}}
+\doxysubsubsection{\texorpdfstring{PlayTargetAnimation()}{PlayTargetAnimation()}}
+{\footnotesize\ttfamily void AMShooter\+Target\+::\+Play\+Target\+Animation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Move Target Up and Down \Hypertarget{class_a_m_shooter_target_abfd4d6b044da41ae9307fe664b517443}\label{class_a_m_shooter_target_abfd4d6b044da41ae9307fe664b517443} 
+\index{AMShooterTarget@{AMShooterTarget}!SetHealthWidgetRotation@{SetHealthWidgetRotation}}
+\index{SetHealthWidgetRotation@{SetHealthWidgetRotation}!AMShooterTarget@{AMShooterTarget}}
+\doxysubsubsection{\texorpdfstring{SetHealthWidgetRotation()}{SetHealthWidgetRotation()}}
+{\footnotesize\ttfamily void AMShooter\+Target\+::\+Set\+Health\+Widget\+Rotation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Rotate Healthbar 
+
+Reimplemented from \mbox{\hyperlink{class_i_m_shooter_enemy_basics_ab847def3f0ace44ad27829db11c3b612}{IMShooter\+Enemy\+Basics}}.
+
+\Hypertarget{class_a_m_shooter_target_a20b1cbaedae7160c6efc5e126ab0feac}\label{class_a_m_shooter_target_a20b1cbaedae7160c6efc5e126ab0feac} 
+\index{AMShooterTarget@{AMShooterTarget}!TakeDamageAmount@{TakeDamageAmount}}
+\index{TakeDamageAmount@{TakeDamageAmount}!AMShooterTarget@{AMShooterTarget}}
+\doxysubsubsection{\texorpdfstring{TakeDamageAmount()}{TakeDamageAmount()}}
+{\footnotesize\ttfamily void AMShooter\+Target\+::\+Take\+Damage\+Amount (\begin{DoxyParamCaption}\item[{float}]{Amount }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Inflicts Damage 
+
+Reimplemented from \mbox{\hyperlink{class_i_m_shooter_enemy_basics_a568989012b5396f2a845f272c8b1ce05}{IMShooter\+Enemy\+Basics}}.
+
+\Hypertarget{class_a_m_shooter_target_a833bcc5838d08a3780a24ba09ae87bb0}\label{class_a_m_shooter_target_a833bcc5838d08a3780a24ba09ae87bb0} 
+\index{AMShooterTarget@{AMShooterTarget}!Tick@{Tick}}
+\index{Tick@{Tick}!AMShooterTarget@{AMShooterTarget}}
+\doxysubsubsection{\texorpdfstring{Tick()}{Tick()}}
+{\footnotesize\ttfamily void AMShooter\+Target\+::\+Tick (\begin{DoxyParamCaption}\item[{float}]{Delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\Hypertarget{class_a_m_shooter_target_affae585bcb41a2706993a5f44e5d0d87}\label{class_a_m_shooter_target_affae585bcb41a2706993a5f44e5d0d87} 
+\index{AMShooterTarget@{AMShooterTarget}!UpdateHealthBarWidget@{UpdateHealthBarWidget}}
+\index{UpdateHealthBarWidget@{UpdateHealthBarWidget}!AMShooterTarget@{AMShooterTarget}}
+\doxysubsubsection{\texorpdfstring{UpdateHealthBarWidget()}{UpdateHealthBarWidget()}}
+{\footnotesize\ttfamily void AMShooter\+Target\+::\+Update\+Health\+Bar\+Widget (\begin{DoxyParamCaption}\item[{float}]{Max\+Health,  }\item[{float}]{Current\+Health }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Internal update health bar widget It uses Health and Max\+Health Attributes from class 
+
+Reimplemented from \mbox{\hyperlink{class_i_m_shooter_enemy_basics_a3426dfff365d10203be7d3c21b77b680}{IMShooter\+Enemy\+Basics}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_a_m_shooter_target_a1752a21651dbd7e63b78623d82423a8d}\label{class_a_m_shooter_target_a1752a21651dbd7e63b78623d82423a8d} 
+\index{AMShooterTarget@{AMShooterTarget}!BoxCollision@{BoxCollision}}
+\index{BoxCollision@{BoxCollision}!AMShooterTarget@{AMShooterTarget}}
+\doxysubsubsection{\texorpdfstring{BoxCollision}{BoxCollision}}
+{\footnotesize\ttfamily UBox\+Component\texorpdfstring{$\ast$}{*} AMShooter\+Target\+::\+Box\+Collision\hspace{0.3cm}{\ttfamily [protected]}}
+
+Decouple Collision from Mesh for flexibility \Hypertarget{class_a_m_shooter_target_a0c9219d95578273ea288d7067c00614e}\label{class_a_m_shooter_target_a0c9219d95578273ea288d7067c00614e} 
+\index{AMShooterTarget@{AMShooterTarget}!EndLocation@{EndLocation}}
+\index{EndLocation@{EndLocation}!AMShooterTarget@{AMShooterTarget}}
+\doxysubsubsection{\texorpdfstring{EndLocation}{EndLocation}}
+{\footnotesize\ttfamily FVector AMShooter\+Target\+::\+End\+Location \{FVector\+::\+Zero\+Vector\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_a_m_shooter_target_a42b8df9b0a6c69dc29a54e3d5e479090}\label{class_a_m_shooter_target_a42b8df9b0a6c69dc29a54e3d5e479090} 
+\index{AMShooterTarget@{AMShooterTarget}!HealthWidget@{HealthWidget}}
+\index{HealthWidget@{HealthWidget}!AMShooterTarget@{AMShooterTarget}}
+\doxysubsubsection{\texorpdfstring{HealthWidget}{HealthWidget}}
+{\footnotesize\ttfamily UWidget\+Component\texorpdfstring{$\ast$}{*} AMShooter\+Target\+::\+Health\+Widget\hspace{0.3cm}{\ttfamily [protected]}}
+
+Health Widget \Hypertarget{class_a_m_shooter_target_a9d86b74d834b8c5f25298907ee5ccd8e}\label{class_a_m_shooter_target_a9d86b74d834b8c5f25298907ee5ccd8e} 
+\index{AMShooterTarget@{AMShooterTarget}!LifeComponent@{LifeComponent}}
+\index{LifeComponent@{LifeComponent}!AMShooterTarget@{AMShooterTarget}}
+\doxysubsubsection{\texorpdfstring{LifeComponent}{LifeComponent}}
+{\footnotesize\ttfamily UMShooter\+Life\+Component\texorpdfstring{$\ast$}{*} AMShooter\+Target\+::\+Life\+Component\hspace{0.3cm}{\ttfamily [protected]}}
+
+Life Component that handles enemy life \Hypertarget{class_a_m_shooter_target_abfc818a73087a9946e90af69cbc85410}\label{class_a_m_shooter_target_abfc818a73087a9946e90af69cbc85410} 
+\index{AMShooterTarget@{AMShooterTarget}!MovementDistanceAmount@{MovementDistanceAmount}}
+\index{MovementDistanceAmount@{MovementDistanceAmount}!AMShooterTarget@{AMShooterTarget}}
+\doxysubsubsection{\texorpdfstring{MovementDistanceAmount}{MovementDistanceAmount}}
+{\footnotesize\ttfamily float AMShooter\+Target\+::\+Movement\+Distance\+Amount \{ 150.f \}\hspace{0.3cm}{\ttfamily [protected]}}
+
+Amount the target moves up and down \Hypertarget{class_a_m_shooter_target_a2e45a6a0cedf8c0895f5ca6cfd3b93ff}\label{class_a_m_shooter_target_a2e45a6a0cedf8c0895f5ca6cfd3b93ff} 
+\index{AMShooterTarget@{AMShooterTarget}!ShootingComponent@{ShootingComponent}}
+\index{ShootingComponent@{ShootingComponent}!AMShooterTarget@{AMShooterTarget}}
+\doxysubsubsection{\texorpdfstring{ShootingComponent}{ShootingComponent}}
+{\footnotesize\ttfamily UMShooter\+Shooting\+Component\texorpdfstring{$\ast$}{*} AMShooter\+Target\+::\+Shooting\+Component\hspace{0.3cm}{\ttfamily [protected]}}
+
+Shooting Component \Hypertarget{class_a_m_shooter_target_ad831c6c2a716275e2cd8b27a55c02b4e}\label{class_a_m_shooter_target_ad831c6c2a716275e2cd8b27a55c02b4e} 
+\index{AMShooterTarget@{AMShooterTarget}!StartLocation@{StartLocation}}
+\index{StartLocation@{StartLocation}!AMShooterTarget@{AMShooterTarget}}
+\doxysubsubsection{\texorpdfstring{StartLocation}{StartLocation}}
+{\footnotesize\ttfamily FVector AMShooter\+Target\+::\+Start\+Location \{FVector\+::\+Zero\+Vector\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+Start and End Location for Animation \Hypertarget{class_a_m_shooter_target_a3398d265cb245694f148e5d50f6d5ff4}\label{class_a_m_shooter_target_a3398d265cb245694f148e5d50f6d5ff4} 
+\index{AMShooterTarget@{AMShooterTarget}!StaticMeshComponent@{StaticMeshComponent}}
+\index{StaticMeshComponent@{StaticMeshComponent}!AMShooterTarget@{AMShooterTarget}}
+\doxysubsubsection{\texorpdfstring{StaticMeshComponent}{StaticMeshComponent}}
+{\footnotesize\ttfamily UStatic\+Mesh\+Component\texorpdfstring{$\ast$}{*} AMShooter\+Target\+::\+Static\+Mesh\+Component\hspace{0.3cm}{\ttfamily [protected]}}
+
+Visible Mesh for Enemy \Hypertarget{class_a_m_shooter_target_a89ec2a9ea2b01f773d891b57ec05ab4d}\label{class_a_m_shooter_target_a89ec2a9ea2b01f773d891b57ec05ab4d} 
+\index{AMShooterTarget@{AMShooterTarget}!TargetSpeed@{TargetSpeed}}
+\index{TargetSpeed@{TargetSpeed}!AMShooterTarget@{AMShooterTarget}}
+\doxysubsubsection{\texorpdfstring{TargetSpeed}{TargetSpeed}}
+{\footnotesize\ttfamily float AMShooter\+Target\+::\+Target\+Speed \{ 3.f \}\hspace{0.3cm}{\ttfamily [protected]}}
+
+Target Speed 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Mini\+Shooter/\+Enemy/\mbox{\hyperlink{_m_shooter_target_8h}{MShooter\+Target.\+h}}\item 
+Mini\+Shooter/\+Enemy/\mbox{\hyperlink{_m_shooter_target_8cpp}{MShooter\+Target.\+cpp}}\end{DoxyCompactItemize}

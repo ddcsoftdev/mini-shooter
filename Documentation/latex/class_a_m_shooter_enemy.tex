@@ -1,0 +1,208 @@
+\doxysection{AMShooter\+Enemy Class Reference}
+\hypertarget{class_a_m_shooter_enemy}{}\label{class_a_m_shooter_enemy}\index{AMShooterEnemy@{AMShooterEnemy}}
+
+
+{\ttfamily \#include $<$MShooter\+Enemy.\+h$>$}
+
+Inheritance diagram for AMShooter\+Enemy\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_a_m_shooter_enemy}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_a_m_shooter_enemy_af963456d24765586dfbf30276f13d0c9}{AMShooter\+Enemy}} ()
+\item 
+virtual void \mbox{\hyperlink{class_a_m_shooter_enemy_aea39b53bff1321bca96c5050ac543cf3}{Tick}} (float Delta\+Time) override
+\item 
+virtual void \mbox{\hyperlink{class_a_m_shooter_enemy_a2bf1f04eef2d5ee29c40db121552e1b1}{Take\+Damage\+Amount}} (float Amount) override
+\item 
+AActor \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_a_m_shooter_enemy_adebcd02ee46eb7693a0a094969f42db7}{Get\+Active\+Patrol\+Zone}} ()
+\item 
+void \mbox{\hyperlink{class_a_m_shooter_enemy_abc20df2205d174073dd9b7d8979514ac}{Register\+Patrol\+Zone}} (AActor \texorpdfstring{$\ast$}{*}Patrol\+Zone)
+\item 
+void \mbox{\hyperlink{class_a_m_shooter_enemy_a6516184ebdad211a779e7d478129205b}{Un\+Register\+Patrol\+Zone}} (AActor \texorpdfstring{$\ast$}{*}Patrol\+Zone)
+\item 
+void \mbox{\hyperlink{class_a_m_shooter_enemy_a72afdebc9f006820b94e06ba455ab317}{Update\+AITarget\+Location}} (AActor \texorpdfstring{$\ast$}{*}Patrol\+Point)
+\item 
+void \mbox{\hyperlink{class_a_m_shooter_enemy_aee043eea862114da95b247ffebbc0eac}{Set\+AIBehaviour}} (bool b\+Activate)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_a_m_shooter_enemy_aea3c38c58b0764226a37dda4a2395f13}{Begin\+Play}} () override
+\item 
+virtual void \mbox{\hyperlink{class_a_m_shooter_enemy_abceeadc1e5c4d64d0c4c16c097ae69d3}{Update\+Health\+Bar\+Widget}} (float Max\+Health, float Current\+Health) override
+\item 
+virtual void \mbox{\hyperlink{class_a_m_shooter_enemy_a91d59ad3fbe823a28e3a562d9bb14873}{Set\+Health\+Widget\+Rotation}} () override
+\item 
+void \mbox{\hyperlink{class_a_m_shooter_enemy_a6612af866f1cc42af2e3c693ca9145aa}{Handle\+Player\+Within\+Zone}} (bool b\+Is\+Inside\+Zone)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+UMShooter\+Life\+Component \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_a_m_shooter_enemy_aca7b278faf4219e7df309942b396cc35}{Life\+Component}}
+\item 
+UMShooter\+Shooting\+Component \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_a_m_shooter_enemy_a1eb940e3e686ce687b36a414adc9469e}{Shooting\+Component}}
+\item 
+UMShooter\+AIComponent \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_a_m_shooter_enemy_acc76f869934d5b63028811f3f49083c0}{AIComponent}}
+\item 
+UStatic\+Mesh\+Component \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_a_m_shooter_enemy_ac6a2ae5e3f7422f20716e1d6a854a314}{Static\+Mesh\+Component}}
+\item 
+UBox\+Component \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_a_m_shooter_enemy_a60245d0f412057ea3cbbc8fa92542ef7}{Box\+Collision}}
+\item 
+UWidget\+Component \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_a_m_shooter_enemy_a8494f4a22489102440c09bba92a09823}{Health\+Widget}}
+\item 
+AActor \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_a_m_shooter_enemy_a80e81c5e5917e2479bcf59738d10c553}{Active\+Patrol\+Zone}}
+\item 
+AActor \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_a_m_shooter_enemy_a62a0361d1893e22ac64e869ec8f2d922}{Active\+Patrol\+Point}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_a_m_shooter_enemy_af963456d24765586dfbf30276f13d0c9}\label{class_a_m_shooter_enemy_af963456d24765586dfbf30276f13d0c9} 
+\index{AMShooterEnemy@{AMShooterEnemy}!AMShooterEnemy@{AMShooterEnemy}}
+\index{AMShooterEnemy@{AMShooterEnemy}!AMShooterEnemy@{AMShooterEnemy}}
+\doxysubsubsection{\texorpdfstring{AMShooterEnemy()}{AMShooterEnemy()}}
+{\footnotesize\ttfamily AMShooter\+Enemy\+::\+AMShooter\+Enemy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_a_m_shooter_enemy_aea3c38c58b0764226a37dda4a2395f13}\label{class_a_m_shooter_enemy_aea3c38c58b0764226a37dda4a2395f13} 
+\index{AMShooterEnemy@{AMShooterEnemy}!BeginPlay@{BeginPlay}}
+\index{BeginPlay@{BeginPlay}!AMShooterEnemy@{AMShooterEnemy}}
+\doxysubsubsection{\texorpdfstring{BeginPlay()}{BeginPlay()}}
+{\footnotesize\ttfamily void AMShooter\+Enemy\+::\+Begin\+Play (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+\Hypertarget{class_a_m_shooter_enemy_adebcd02ee46eb7693a0a094969f42db7}\label{class_a_m_shooter_enemy_adebcd02ee46eb7693a0a094969f42db7} 
+\index{AMShooterEnemy@{AMShooterEnemy}!GetActivePatrolZone@{GetActivePatrolZone}}
+\index{GetActivePatrolZone@{GetActivePatrolZone}!AMShooterEnemy@{AMShooterEnemy}}
+\doxysubsubsection{\texorpdfstring{GetActivePatrolZone()}{GetActivePatrolZone()}}
+{\footnotesize\ttfamily AActor \texorpdfstring{$\ast$}{*} AMShooter\+Enemy\+::\+Get\+Active\+Patrol\+Zone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Register belonging Patrol Zone \Hypertarget{class_a_m_shooter_enemy_a6612af866f1cc42af2e3c693ca9145aa}\label{class_a_m_shooter_enemy_a6612af866f1cc42af2e3c693ca9145aa} 
+\index{AMShooterEnemy@{AMShooterEnemy}!HandlePlayerWithinZone@{HandlePlayerWithinZone}}
+\index{HandlePlayerWithinZone@{HandlePlayerWithinZone}!AMShooterEnemy@{AMShooterEnemy}}
+\doxysubsubsection{\texorpdfstring{HandlePlayerWithinZone()}{HandlePlayerWithinZone()}}
+{\footnotesize\ttfamily void AMShooter\+Enemy\+::\+Handle\+Player\+Within\+Zone (\begin{DoxyParamCaption}\item[{bool}]{b\+Is\+Inside\+Zone }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Comunicates AI Component about player within zone \Hypertarget{class_a_m_shooter_enemy_abc20df2205d174073dd9b7d8979514ac}\label{class_a_m_shooter_enemy_abc20df2205d174073dd9b7d8979514ac} 
+\index{AMShooterEnemy@{AMShooterEnemy}!RegisterPatrolZone@{RegisterPatrolZone}}
+\index{RegisterPatrolZone@{RegisterPatrolZone}!AMShooterEnemy@{AMShooterEnemy}}
+\doxysubsubsection{\texorpdfstring{RegisterPatrolZone()}{RegisterPatrolZone()}}
+{\footnotesize\ttfamily void AMShooter\+Enemy\+::\+Register\+Patrol\+Zone (\begin{DoxyParamCaption}\item[{AActor \texorpdfstring{$\ast$}{*}}]{Patrol\+Zone }\end{DoxyParamCaption})}
+
+Register belonging Patrol Zone \Hypertarget{class_a_m_shooter_enemy_aee043eea862114da95b247ffebbc0eac}\label{class_a_m_shooter_enemy_aee043eea862114da95b247ffebbc0eac} 
+\index{AMShooterEnemy@{AMShooterEnemy}!SetAIBehaviour@{SetAIBehaviour}}
+\index{SetAIBehaviour@{SetAIBehaviour}!AMShooterEnemy@{AMShooterEnemy}}
+\doxysubsubsection{\texorpdfstring{SetAIBehaviour()}{SetAIBehaviour()}}
+{\footnotesize\ttfamily void AMShooter\+Enemy\+::\+Set\+AIBehaviour (\begin{DoxyParamCaption}\item[{bool}]{b\+Activate }\end{DoxyParamCaption})}
+
+Toggels on and off the AI \Hypertarget{class_a_m_shooter_enemy_a91d59ad3fbe823a28e3a562d9bb14873}\label{class_a_m_shooter_enemy_a91d59ad3fbe823a28e3a562d9bb14873} 
+\index{AMShooterEnemy@{AMShooterEnemy}!SetHealthWidgetRotation@{SetHealthWidgetRotation}}
+\index{SetHealthWidgetRotation@{SetHealthWidgetRotation}!AMShooterEnemy@{AMShooterEnemy}}
+\doxysubsubsection{\texorpdfstring{SetHealthWidgetRotation()}{SetHealthWidgetRotation()}}
+{\footnotesize\ttfamily void AMShooter\+Enemy\+::\+Set\+Health\+Widget\+Rotation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Rotate Healthbar 
+
+Reimplemented from \mbox{\hyperlink{class_i_m_shooter_enemy_basics_ab847def3f0ace44ad27829db11c3b612}{IMShooter\+Enemy\+Basics}}.
+
+\Hypertarget{class_a_m_shooter_enemy_a2bf1f04eef2d5ee29c40db121552e1b1}\label{class_a_m_shooter_enemy_a2bf1f04eef2d5ee29c40db121552e1b1} 
+\index{AMShooterEnemy@{AMShooterEnemy}!TakeDamageAmount@{TakeDamageAmount}}
+\index{TakeDamageAmount@{TakeDamageAmount}!AMShooterEnemy@{AMShooterEnemy}}
+\doxysubsubsection{\texorpdfstring{TakeDamageAmount()}{TakeDamageAmount()}}
+{\footnotesize\ttfamily void AMShooter\+Enemy\+::\+Take\+Damage\+Amount (\begin{DoxyParamCaption}\item[{float}]{Amount }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Inflicts Damage 
+
+Reimplemented from \mbox{\hyperlink{class_i_m_shooter_enemy_basics_a568989012b5396f2a845f272c8b1ce05}{IMShooter\+Enemy\+Basics}}.
+
+\Hypertarget{class_a_m_shooter_enemy_aea39b53bff1321bca96c5050ac543cf3}\label{class_a_m_shooter_enemy_aea39b53bff1321bca96c5050ac543cf3} 
+\index{AMShooterEnemy@{AMShooterEnemy}!Tick@{Tick}}
+\index{Tick@{Tick}!AMShooterEnemy@{AMShooterEnemy}}
+\doxysubsubsection{\texorpdfstring{Tick()}{Tick()}}
+{\footnotesize\ttfamily void AMShooter\+Enemy\+::\+Tick (\begin{DoxyParamCaption}\item[{float}]{Delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\Hypertarget{class_a_m_shooter_enemy_a6516184ebdad211a779e7d478129205b}\label{class_a_m_shooter_enemy_a6516184ebdad211a779e7d478129205b} 
+\index{AMShooterEnemy@{AMShooterEnemy}!UnRegisterPatrolZone@{UnRegisterPatrolZone}}
+\index{UnRegisterPatrolZone@{UnRegisterPatrolZone}!AMShooterEnemy@{AMShooterEnemy}}
+\doxysubsubsection{\texorpdfstring{UnRegisterPatrolZone()}{UnRegisterPatrolZone()}}
+{\footnotesize\ttfamily void AMShooter\+Enemy\+::\+Un\+Register\+Patrol\+Zone (\begin{DoxyParamCaption}\item[{AActor \texorpdfstring{$\ast$}{*}}]{Patrol\+Zone }\end{DoxyParamCaption})}
+
+Unregister belonging Patrol Zone \Hypertarget{class_a_m_shooter_enemy_a72afdebc9f006820b94e06ba455ab317}\label{class_a_m_shooter_enemy_a72afdebc9f006820b94e06ba455ab317} 
+\index{AMShooterEnemy@{AMShooterEnemy}!UpdateAITargetLocation@{UpdateAITargetLocation}}
+\index{UpdateAITargetLocation@{UpdateAITargetLocation}!AMShooterEnemy@{AMShooterEnemy}}
+\doxysubsubsection{\texorpdfstring{UpdateAITargetLocation()}{UpdateAITargetLocation()}}
+{\footnotesize\ttfamily void AMShooter\+Enemy\+::\+Update\+AITarget\+Location (\begin{DoxyParamCaption}\item[{AActor \texorpdfstring{$\ast$}{*}}]{Patrol\+Point }\end{DoxyParamCaption})}
+
+Updates Target\+Location for AI \Hypertarget{class_a_m_shooter_enemy_abceeadc1e5c4d64d0c4c16c097ae69d3}\label{class_a_m_shooter_enemy_abceeadc1e5c4d64d0c4c16c097ae69d3} 
+\index{AMShooterEnemy@{AMShooterEnemy}!UpdateHealthBarWidget@{UpdateHealthBarWidget}}
+\index{UpdateHealthBarWidget@{UpdateHealthBarWidget}!AMShooterEnemy@{AMShooterEnemy}}
+\doxysubsubsection{\texorpdfstring{UpdateHealthBarWidget()}{UpdateHealthBarWidget()}}
+{\footnotesize\ttfamily void AMShooter\+Enemy\+::\+Update\+Health\+Bar\+Widget (\begin{DoxyParamCaption}\item[{float}]{Max\+Health,  }\item[{float}]{Current\+Health }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Internal update health bar widget It uses Health and Max\+Health Attributes from class 
+
+Reimplemented from \mbox{\hyperlink{class_i_m_shooter_enemy_basics_a3426dfff365d10203be7d3c21b77b680}{IMShooter\+Enemy\+Basics}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_a_m_shooter_enemy_a62a0361d1893e22ac64e869ec8f2d922}\label{class_a_m_shooter_enemy_a62a0361d1893e22ac64e869ec8f2d922} 
+\index{AMShooterEnemy@{AMShooterEnemy}!ActivePatrolPoint@{ActivePatrolPoint}}
+\index{ActivePatrolPoint@{ActivePatrolPoint}!AMShooterEnemy@{AMShooterEnemy}}
+\doxysubsubsection{\texorpdfstring{ActivePatrolPoint}{ActivePatrolPoint}}
+{\footnotesize\ttfamily AActor\texorpdfstring{$\ast$}{*} AMShooter\+Enemy\+::\+Active\+Patrol\+Point\hspace{0.3cm}{\ttfamily [protected]}}
+
+Belonging Patrol Zone if Any \Hypertarget{class_a_m_shooter_enemy_a80e81c5e5917e2479bcf59738d10c553}\label{class_a_m_shooter_enemy_a80e81c5e5917e2479bcf59738d10c553} 
+\index{AMShooterEnemy@{AMShooterEnemy}!ActivePatrolZone@{ActivePatrolZone}}
+\index{ActivePatrolZone@{ActivePatrolZone}!AMShooterEnemy@{AMShooterEnemy}}
+\doxysubsubsection{\texorpdfstring{ActivePatrolZone}{ActivePatrolZone}}
+{\footnotesize\ttfamily AActor\texorpdfstring{$\ast$}{*} AMShooter\+Enemy\+::\+Active\+Patrol\+Zone\hspace{0.3cm}{\ttfamily [protected]}}
+
+Belonging Patrol Zone if Any \Hypertarget{class_a_m_shooter_enemy_acc76f869934d5b63028811f3f49083c0}\label{class_a_m_shooter_enemy_acc76f869934d5b63028811f3f49083c0} 
+\index{AMShooterEnemy@{AMShooterEnemy}!AIComponent@{AIComponent}}
+\index{AIComponent@{AIComponent}!AMShooterEnemy@{AMShooterEnemy}}
+\doxysubsubsection{\texorpdfstring{AIComponent}{AIComponent}}
+{\footnotesize\ttfamily UMShooter\+AIComponent\texorpdfstring{$\ast$}{*} AMShooter\+Enemy\+::\+AIComponent\hspace{0.3cm}{\ttfamily [protected]}}
+
+AI Component \Hypertarget{class_a_m_shooter_enemy_a60245d0f412057ea3cbbc8fa92542ef7}\label{class_a_m_shooter_enemy_a60245d0f412057ea3cbbc8fa92542ef7} 
+\index{AMShooterEnemy@{AMShooterEnemy}!BoxCollision@{BoxCollision}}
+\index{BoxCollision@{BoxCollision}!AMShooterEnemy@{AMShooterEnemy}}
+\doxysubsubsection{\texorpdfstring{BoxCollision}{BoxCollision}}
+{\footnotesize\ttfamily UBox\+Component\texorpdfstring{$\ast$}{*} AMShooter\+Enemy\+::\+Box\+Collision\hspace{0.3cm}{\ttfamily [protected]}}
+
+Decouple Collision from Mesh for flexibility \Hypertarget{class_a_m_shooter_enemy_a8494f4a22489102440c09bba92a09823}\label{class_a_m_shooter_enemy_a8494f4a22489102440c09bba92a09823} 
+\index{AMShooterEnemy@{AMShooterEnemy}!HealthWidget@{HealthWidget}}
+\index{HealthWidget@{HealthWidget}!AMShooterEnemy@{AMShooterEnemy}}
+\doxysubsubsection{\texorpdfstring{HealthWidget}{HealthWidget}}
+{\footnotesize\ttfamily UWidget\+Component\texorpdfstring{$\ast$}{*} AMShooter\+Enemy\+::\+Health\+Widget\hspace{0.3cm}{\ttfamily [protected]}}
+
+Health Widget \Hypertarget{class_a_m_shooter_enemy_aca7b278faf4219e7df309942b396cc35}\label{class_a_m_shooter_enemy_aca7b278faf4219e7df309942b396cc35} 
+\index{AMShooterEnemy@{AMShooterEnemy}!LifeComponent@{LifeComponent}}
+\index{LifeComponent@{LifeComponent}!AMShooterEnemy@{AMShooterEnemy}}
+\doxysubsubsection{\texorpdfstring{LifeComponent}{LifeComponent}}
+{\footnotesize\ttfamily UMShooter\+Life\+Component\texorpdfstring{$\ast$}{*} AMShooter\+Enemy\+::\+Life\+Component\hspace{0.3cm}{\ttfamily [protected]}}
+
+Life Component that handles enemy life \Hypertarget{class_a_m_shooter_enemy_a1eb940e3e686ce687b36a414adc9469e}\label{class_a_m_shooter_enemy_a1eb940e3e686ce687b36a414adc9469e} 
+\index{AMShooterEnemy@{AMShooterEnemy}!ShootingComponent@{ShootingComponent}}
+\index{ShootingComponent@{ShootingComponent}!AMShooterEnemy@{AMShooterEnemy}}
+\doxysubsubsection{\texorpdfstring{ShootingComponent}{ShootingComponent}}
+{\footnotesize\ttfamily UMShooter\+Shooting\+Component\texorpdfstring{$\ast$}{*} AMShooter\+Enemy\+::\+Shooting\+Component\hspace{0.3cm}{\ttfamily [protected]}}
+
+Shooting Component \Hypertarget{class_a_m_shooter_enemy_ac6a2ae5e3f7422f20716e1d6a854a314}\label{class_a_m_shooter_enemy_ac6a2ae5e3f7422f20716e1d6a854a314} 
+\index{AMShooterEnemy@{AMShooterEnemy}!StaticMeshComponent@{StaticMeshComponent}}
+\index{StaticMeshComponent@{StaticMeshComponent}!AMShooterEnemy@{AMShooterEnemy}}
+\doxysubsubsection{\texorpdfstring{StaticMeshComponent}{StaticMeshComponent}}
+{\footnotesize\ttfamily UStatic\+Mesh\+Component\texorpdfstring{$\ast$}{*} AMShooter\+Enemy\+::\+Static\+Mesh\+Component\hspace{0.3cm}{\ttfamily [protected]}}
+
+Visible Mesh for Enemy 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Mini\+Shooter/\+Enemy/\mbox{\hyperlink{_m_shooter_enemy_8h}{MShooter\+Enemy.\+h}}\item 
+Mini\+Shooter/\+Enemy/\mbox{\hyperlink{_m_shooter_enemy_8cpp}{MShooter\+Enemy.\+cpp}}\end{DoxyCompactItemize}

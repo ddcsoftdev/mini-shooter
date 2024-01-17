@@ -7,6 +7,9 @@
 
 void UMShooterHealthBarWidget::SetHealthBar(float MaxHealth, float CurrentHealth)
 {
-	float Percentage = (CurrentHealth * 1.f) / MaxHealth;
-	HealthBar->SetPercent(Percentage);
+	if (ensureMsgf(HealthBar, TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *HealthBar->GetClass()->GetName()))
+	{
+		float Percentage = (CurrentHealth * 1.f) / MaxHealth;
+		HealthBar->SetPercent(Percentage);
+	}
 }

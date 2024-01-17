@@ -18,40 +18,41 @@ void AMShooterController::SetupInputComponent()
 {
 	Super::SetupInputComponent();
 
-	if (!InputComponent)
+	//Early return if InputComponent could not be loaded
+	if (!ensureMsgf(InputComponent, TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *InputComponent->GetClass()->GetName()))
 	{
 		return;
 	}
-	
+
+	//Request Aim Binding. This state only ends when stop Shooting state ends as per desing.
 	InputComponent->BindAction("Aim", IE_Pressed, this, &AMShooterController::RequestAim);
 
+	/*Start Request Shooting Binding : Longer input binding to pass a Bool along the Delegate created by UE*/
+	//Start Shooting State
+	bool bStartShooting = true;
 
-	/*Handle compound input bindings*/
-
-	//Shooting Start
 	FInputActionHandlerSignature StartShootingActionHandler;
-	//Obj / Func name / Variable
-	StartShootingActionHandler.BindUFunction(this, TEXT("RequestShoot"), true);
+	StartShootingActionHandler.BindUFunction(this, TEXT("RequestShoot"), bStartShooting);
 
 	FInputActionBinding StartShootingActionBinding("Shoot", IE_Pressed);
 	StartShootingActionBinding.ActionDelegate = StartShootingActionHandler;
 	InputComponent->AddActionBinding(StartShootingActionBinding);
 
-	//Shooting End
+	//End Shooting State
+	bStartShooting = false;
+
 	FInputActionHandlerSignature StopShootingActionHandler;
-	//Obj / Func name / Variable
-	StopShootingActionHandler.BindUFunction(this, TEXT("RequestShoot"), false);
+	StopShootingActionHandler.BindUFunction(this, TEXT("RequestShoot"), bStartShooting);
 
 	FInputActionBinding StopShootingActionBinding("Shoot", IE_Released);
 	StopShootingActionBinding.ActionDelegate = StopShootingActionHandler;
 	InputComponent->AddActionBinding(StopShootingActionBinding);
-
-	/*handle compund input bindins end*/
-
+	/*End Request Shooting Binding*/
 }
 
 void AMShooterController::RequestShoot(bool bStart)
 {
+	//Broadcast ShootDelegate To Character with bool as arg
 	if (ShootDelegate.IsBound())
 	{
 		ShootDelegate.Broadcast(bStart);
@@ -60,6 +61,7 @@ void AMShooterController::RequestShoot(bool bStart)
 
 void AMShooterController::RequestAim()
 {
+	//Broadcast AimDelegate To Character for state to start (end depends on Shooting as per design)
 	if (AimDelegate.IsBound())
 	{
 		AimDelegate.Broadcast();

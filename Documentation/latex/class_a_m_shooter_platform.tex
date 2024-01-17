@@ -1,0 +1,92 @@
+\doxysection{AMShooter\+Platform Class Reference}
+\hypertarget{class_a_m_shooter_platform}{}\label{class_a_m_shooter_platform}\index{AMShooterPlatform@{AMShooterPlatform}}
+
+
+{\ttfamily \#include $<$MShooter\+Platform.\+h$>$}
+
+Inheritance diagram for AMShooter\+Platform\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_a_m_shooter_platform}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_a_m_shooter_platform_a767ebadc36f2555591845370a9c4c76f}{AMShooter\+Platform}} ()
+\item 
+virtual void \mbox{\hyperlink{class_a_m_shooter_platform_ac0c471bec633fec102f733798de1962e}{Tick}} (float Delta\+Time) override
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_a_m_shooter_platform_aa903d4acd8047cd23812369a66976633}{Begin\+Play}} () override
+\item 
+virtual void \mbox{\hyperlink{class_a_m_shooter_platform_ae8a74083303d61523f60f3a1fac69258}{Notify\+Actor\+Begin\+Overlap}} (AActor \texorpdfstring{$\ast$}{*}Other\+Actor) override
+\item 
+virtual void \mbox{\hyperlink{class_a_m_shooter_platform_ad8a407e1ea7f9b91c7893dc3addc0b62}{Notify\+Actor\+End\+Overlap}} (AActor \texorpdfstring{$\ast$}{*}Other\+Actor) override
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_a_m_shooter_platform_a906c0426d01a16e0ee64b048907681ac}{New\+Shooting\+Speed}} \{ 10.f \}
+\item 
+float \mbox{\hyperlink{class_a_m_shooter_platform_a44c76b001d3a1794490feb147b80ae0d}{Backup\+Shooting\+Speed}} \{ 0.f \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_a_m_shooter_platform_a767ebadc36f2555591845370a9c4c76f}\label{class_a_m_shooter_platform_a767ebadc36f2555591845370a9c4c76f} 
+\index{AMShooterPlatform@{AMShooterPlatform}!AMShooterPlatform@{AMShooterPlatform}}
+\index{AMShooterPlatform@{AMShooterPlatform}!AMShooterPlatform@{AMShooterPlatform}}
+\doxysubsubsection{\texorpdfstring{AMShooterPlatform()}{AMShooterPlatform()}}
+{\footnotesize\ttfamily AMShooter\+Platform\+::\+AMShooter\+Platform (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_a_m_shooter_platform_aa903d4acd8047cd23812369a66976633}\label{class_a_m_shooter_platform_aa903d4acd8047cd23812369a66976633} 
+\index{AMShooterPlatform@{AMShooterPlatform}!BeginPlay@{BeginPlay}}
+\index{BeginPlay@{BeginPlay}!AMShooterPlatform@{AMShooterPlatform}}
+\doxysubsubsection{\texorpdfstring{BeginPlay()}{BeginPlay()}}
+{\footnotesize\ttfamily void AMShooter\+Platform\+::\+Begin\+Play (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+\Hypertarget{class_a_m_shooter_platform_ae8a74083303d61523f60f3a1fac69258}\label{class_a_m_shooter_platform_ae8a74083303d61523f60f3a1fac69258} 
+\index{AMShooterPlatform@{AMShooterPlatform}!NotifyActorBeginOverlap@{NotifyActorBeginOverlap}}
+\index{NotifyActorBeginOverlap@{NotifyActorBeginOverlap}!AMShooterPlatform@{AMShooterPlatform}}
+\doxysubsubsection{\texorpdfstring{NotifyActorBeginOverlap()}{NotifyActorBeginOverlap()}}
+{\footnotesize\ttfamily void AMShooter\+Platform\+::\+Notify\+Actor\+Begin\+Overlap (\begin{DoxyParamCaption}\item[{AActor \texorpdfstring{$\ast$}{*}}]{Other\+Actor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+\Hypertarget{class_a_m_shooter_platform_ad8a407e1ea7f9b91c7893dc3addc0b62}\label{class_a_m_shooter_platform_ad8a407e1ea7f9b91c7893dc3addc0b62} 
+\index{AMShooterPlatform@{AMShooterPlatform}!NotifyActorEndOverlap@{NotifyActorEndOverlap}}
+\index{NotifyActorEndOverlap@{NotifyActorEndOverlap}!AMShooterPlatform@{AMShooterPlatform}}
+\doxysubsubsection{\texorpdfstring{NotifyActorEndOverlap()}{NotifyActorEndOverlap()}}
+{\footnotesize\ttfamily void AMShooter\+Platform\+::\+Notify\+Actor\+End\+Overlap (\begin{DoxyParamCaption}\item[{AActor \texorpdfstring{$\ast$}{*}}]{Other\+Actor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+\Hypertarget{class_a_m_shooter_platform_ac0c471bec633fec102f733798de1962e}\label{class_a_m_shooter_platform_ac0c471bec633fec102f733798de1962e} 
+\index{AMShooterPlatform@{AMShooterPlatform}!Tick@{Tick}}
+\index{Tick@{Tick}!AMShooterPlatform@{AMShooterPlatform}}
+\doxysubsubsection{\texorpdfstring{Tick()}{Tick()}}
+{\footnotesize\ttfamily void AMShooter\+Platform\+::\+Tick (\begin{DoxyParamCaption}\item[{float}]{Delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_a_m_shooter_platform_a44c76b001d3a1794490feb147b80ae0d}\label{class_a_m_shooter_platform_a44c76b001d3a1794490feb147b80ae0d} 
+\index{AMShooterPlatform@{AMShooterPlatform}!BackupShootingSpeed@{BackupShootingSpeed}}
+\index{BackupShootingSpeed@{BackupShootingSpeed}!AMShooterPlatform@{AMShooterPlatform}}
+\doxysubsubsection{\texorpdfstring{BackupShootingSpeed}{BackupShootingSpeed}}
+{\footnotesize\ttfamily float AMShooter\+Platform\+::\+Backup\+Shooting\+Speed \{ 0.f \}\hspace{0.3cm}{\ttfamily [protected]}}
+
+Old Shooting Speed to be able to restore \Hypertarget{class_a_m_shooter_platform_a906c0426d01a16e0ee64b048907681ac}\label{class_a_m_shooter_platform_a906c0426d01a16e0ee64b048907681ac} 
+\index{AMShooterPlatform@{AMShooterPlatform}!NewShootingSpeed@{NewShootingSpeed}}
+\index{NewShootingSpeed@{NewShootingSpeed}!AMShooterPlatform@{AMShooterPlatform}}
+\doxysubsubsection{\texorpdfstring{NewShootingSpeed}{NewShootingSpeed}}
+{\footnotesize\ttfamily float AMShooter\+Platform\+::\+New\+Shooting\+Speed \{ 10.f \}\hspace{0.3cm}{\ttfamily [protected]}}
+
+New Shooting Speed for player upon entering platform 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Mini\+Shooter/\+Player/\mbox{\hyperlink{_m_shooter_platform_8h}{MShooter\+Platform.\+h}}\item 
+Mini\+Shooter/\+Player/\mbox{\hyperlink{_m_shooter_platform_8cpp}{MShooter\+Platform.\+cpp}}\end{DoxyCompactItemize}

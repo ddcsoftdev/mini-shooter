@@ -2,10 +2,15 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
-#include "GameFramework/Actor.h"
+#include <CoreMinimal.h>
+#include <GameFramework/Actor.h>
+
 #include "MShooterPlatform.generated.h"
 
+/**
+* Platform class that enables a Shooting Speed modification for the Player when standing over it.
+* Shooting Speed is restored to normal when Player moves off the platform
+*/
 UCLASS()
 class MINISHOOTER_API AMShooterPlatform : public AActor
 {
@@ -15,6 +20,8 @@ public:
 	// Sets default values for this actor's properties
 	AMShooterPlatform();
 
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
 protected:
 
 	/**
@@ -24,7 +31,7 @@ protected:
 		float NewShootingSpeed{ 10.f };
 
 	/**
-	* Old Shooting Speed to be able to restore
+	* Backup Shooting Speed to be able to restore to old value
 	*/
 	float BackupShootingSpeed{ 0.f };
 
@@ -36,9 +43,4 @@ protected:
 
 	UFUNCTION()
 		virtual void NotifyActorEndOverlap(AActor* OtherActor) override;
-
-public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
-
 };

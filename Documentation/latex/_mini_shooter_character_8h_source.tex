@@ -1,0 +1,61 @@
+\doxysection{Mini\+Shooter\+Character.\+h}
+\hypertarget{_mini_shooter_character_8h_source}{}\label{_mini_shooter_character_8h_source}\index{MiniShooter/MiniShooterCharacter.h@{MiniShooter/MiniShooterCharacter.h}}
+\mbox{\hyperlink{_mini_shooter_character_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ Epic\ Games,\ Inc.\ All\ Rights\ Reserved.}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}CoreMinimal.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}GameFramework/Character.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}MiniShooterCharacter.generated.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ UCLASS(config=Game)}
+\DoxyCodeLine{00010\ class\ \mbox{\hyperlink{class_a_mini_shooter_character}{AMiniShooterCharacter}}\ :\ public\ ACharacter}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ GENERATED\_BODY()}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ }
+\DoxyCodeLine{00015\ \ \ \ \ UPROPERTY(VisibleAnywhere,\ BlueprintReadOnly,\ Category\ =\ Camera,\ meta\ =\ (AllowPrivateAccess\ =\ \textcolor{stringliteral}{"{}true"{}}))}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{class\ }USpringArmComponent*\ CameraBoom;}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00019\ \ \ \ \ UPROPERTY(VisibleAnywhere,\ BlueprintReadOnly,\ Category\ =\ Camera,\ meta\ =\ (AllowPrivateAccess\ =\ \textcolor{stringliteral}{"{}true"{}}))}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{class\ }UCameraComponent*\ FollowCamera;}
+\DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{class_a_mini_shooter_character}{AMiniShooterCharacter}}();}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00025\ \ \ \ \ UPROPERTY(VisibleAnywhere,\ BlueprintReadOnly,\ Category=Camera)}
+\DoxyCodeLine{00026\ \ \ \ \ float\ BaseTurnRate;}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00029\ \ \ \ \ UPROPERTY(VisibleAnywhere,\ BlueprintReadOnly,\ Category=Camera)}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{float}\ BaseLookUpRate;}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ protected:}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ OnResetVR();}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ MoveForward(\textcolor{keywordtype}{float}\ Value);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ MoveRight(\textcolor{keywordtype}{float}\ Value);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ TurnAtRate(\textcolor{keywordtype}{float}\ Rate);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ LookUpAtRate(\textcolor{keywordtype}{float}\ Rate);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ TouchStarted(ETouchIndex::Type\ FingerIndex,\ FVector\ Location);}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{void}\ TouchStopped(ETouchIndex::Type\ FingerIndex,\ FVector\ Location);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ protected:}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{comment}{//\ APawn\ interface}}
+\DoxyCodeLine{00063\ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ SetupPlayerInputComponent(class\ UInputComponent*\ PlayerInputComponent)\ override;}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{comment}{//\ End\ of\ APawn\ interface}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ public:}
+\DoxyCodeLine{00069\ \ \ \ \ FORCEINLINE\ class\ USpringArmComponent*\ GetCameraBoom()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ CameraBoom;\ \}}
+\DoxyCodeLine{00071\ \ \ \ \ FORCEINLINE\ \textcolor{keyword}{class\ }UCameraComponent*\ \mbox{\hyperlink{class_a_mini_shooter_character_a78fa329da4546664d507c17694f839d9}{GetFollowCamera}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ FollowCamera;\ \}}
+\DoxyCodeLine{00072\ \};}
+\DoxyCodeLine{00073\ }
+
+\end{DoxyCode}

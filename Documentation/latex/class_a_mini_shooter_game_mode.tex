@@ -1,0 +1,103 @@
+\doxysection{AMini\+Shooter\+Game\+Mode Class Reference}
+\hypertarget{class_a_mini_shooter_game_mode}{}\label{class_a_mini_shooter_game_mode}\index{AMiniShooterGameMode@{AMiniShooterGameMode}}
+
+
+{\ttfamily \#include $<$Mini\+Shooter\+Game\+Mode.\+h$>$}
+
+Inheritance diagram for AMini\+Shooter\+Game\+Mode\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_a_mini_shooter_game_mode}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_a_mini_shooter_game_mode_a237c54f0448a5e566e9c8c66edb63053}{AMini\+Shooter\+Game\+Mode}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+FSend\+Nearest\+Enemy \mbox{\hyperlink{class_a_mini_shooter_game_mode_adcb419f100a85cac5f9df98f21eb2fe7}{Send\+Enemy\+Delegate}}
+\item 
+FNotify\+Enemy\+Dead \mbox{\hyperlink{class_a_mini_shooter_game_mode_ab0707825be0a9652bfcfda22a55e8685}{Notify\+Enemy\+Dead\+Delegate}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_a_mini_shooter_game_mode_a608f41b1575176b29427d2fa6bd15e4e}{Scan\+All\+Active\+Enemies}} ()
+\item 
+void \mbox{\hyperlink{class_a_mini_shooter_game_mode_a9796a86ecbcabbc91fef101c496f0619}{Remove\+Dead\+Enemy\+From\+Active\+Enemies}} (AActor \texorpdfstring{$\ast$}{*}Dead\+Enemy)
+\item 
+void \mbox{\hyperlink{class_a_mini_shooter_game_mode_a65fbe23fb8683aa96193c1c44805df06}{Process\+Request\+Enemy\+Delegate}} (AActor \texorpdfstring{$\ast$}{*}Requesting\+Actor)
+\item 
+virtual void \mbox{\hyperlink{class_a_mini_shooter_game_mode_a8f92a42e7c5d29e7e2515011591b85ca}{Begin\+Play}} () override
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+TArray$<$ AActor \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_a_mini_shooter_game_mode_a9b921e4b9111d65aa116c326b3ab9d0a}{Active\+Enemies}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_a_mini_shooter_game_mode_a237c54f0448a5e566e9c8c66edb63053}\label{class_a_mini_shooter_game_mode_a237c54f0448a5e566e9c8c66edb63053} 
+\index{AMiniShooterGameMode@{AMiniShooterGameMode}!AMiniShooterGameMode@{AMiniShooterGameMode}}
+\index{AMiniShooterGameMode@{AMiniShooterGameMode}!AMiniShooterGameMode@{AMiniShooterGameMode}}
+\doxysubsubsection{\texorpdfstring{AMiniShooterGameMode()}{AMiniShooterGameMode()}}
+{\footnotesize\ttfamily AMini\+Shooter\+Game\+Mode\+::\+AMini\+Shooter\+Game\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_a_mini_shooter_game_mode_a8f92a42e7c5d29e7e2515011591b85ca}\label{class_a_mini_shooter_game_mode_a8f92a42e7c5d29e7e2515011591b85ca} 
+\index{AMiniShooterGameMode@{AMiniShooterGameMode}!BeginPlay@{BeginPlay}}
+\index{BeginPlay@{BeginPlay}!AMiniShooterGameMode@{AMiniShooterGameMode}}
+\doxysubsubsection{\texorpdfstring{BeginPlay()}{BeginPlay()}}
+{\footnotesize\ttfamily void AMini\+Shooter\+Game\+Mode\+::\+Begin\+Play (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+\Hypertarget{class_a_mini_shooter_game_mode_a65fbe23fb8683aa96193c1c44805df06}\label{class_a_mini_shooter_game_mode_a65fbe23fb8683aa96193c1c44805df06} 
+\index{AMiniShooterGameMode@{AMiniShooterGameMode}!ProcessRequestEnemyDelegate@{ProcessRequestEnemyDelegate}}
+\index{ProcessRequestEnemyDelegate@{ProcessRequestEnemyDelegate}!AMiniShooterGameMode@{AMiniShooterGameMode}}
+\doxysubsubsection{\texorpdfstring{ProcessRequestEnemyDelegate()}{ProcessRequestEnemyDelegate()}}
+{\footnotesize\ttfamily void AMini\+Shooter\+Game\+Mode\+::\+Process\+Request\+Enemy\+Delegate (\begin{DoxyParamCaption}\item[{AActor \texorpdfstring{$\ast$}{*}}]{Requesting\+Actor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Method that processes Request\+Enemy\+Delegate \Hypertarget{class_a_mini_shooter_game_mode_a9796a86ecbcabbc91fef101c496f0619}\label{class_a_mini_shooter_game_mode_a9796a86ecbcabbc91fef101c496f0619} 
+\index{AMiniShooterGameMode@{AMiniShooterGameMode}!RemoveDeadEnemyFromActiveEnemies@{RemoveDeadEnemyFromActiveEnemies}}
+\index{RemoveDeadEnemyFromActiveEnemies@{RemoveDeadEnemyFromActiveEnemies}!AMiniShooterGameMode@{AMiniShooterGameMode}}
+\doxysubsubsection{\texorpdfstring{RemoveDeadEnemyFromActiveEnemies()}{RemoveDeadEnemyFromActiveEnemies()}}
+{\footnotesize\ttfamily void AMini\+Shooter\+Game\+Mode\+::\+Remove\+Dead\+Enemy\+From\+Active\+Enemies (\begin{DoxyParamCaption}\item[{AActor \texorpdfstring{$\ast$}{*}}]{Dead\+Enemy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Remove Dead Enemy from Active Enemies \Hypertarget{class_a_mini_shooter_game_mode_a608f41b1575176b29427d2fa6bd15e4e}\label{class_a_mini_shooter_game_mode_a608f41b1575176b29427d2fa6bd15e4e} 
+\index{AMiniShooterGameMode@{AMiniShooterGameMode}!ScanAllActiveEnemies@{ScanAllActiveEnemies}}
+\index{ScanAllActiveEnemies@{ScanAllActiveEnemies}!AMiniShooterGameMode@{AMiniShooterGameMode}}
+\doxysubsubsection{\texorpdfstring{ScanAllActiveEnemies()}{ScanAllActiveEnemies()}}
+{\footnotesize\ttfamily void AMini\+Shooter\+Game\+Mode\+::\+Scan\+All\+Active\+Enemies (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Scan for all active enemies in map 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_a_mini_shooter_game_mode_a9b921e4b9111d65aa116c326b3ab9d0a}\label{class_a_mini_shooter_game_mode_a9b921e4b9111d65aa116c326b3ab9d0a} 
+\index{AMiniShooterGameMode@{AMiniShooterGameMode}!ActiveEnemies@{ActiveEnemies}}
+\index{ActiveEnemies@{ActiveEnemies}!AMiniShooterGameMode@{AMiniShooterGameMode}}
+\doxysubsubsection{\texorpdfstring{ActiveEnemies}{ActiveEnemies}}
+{\footnotesize\ttfamily TArray$<$AActor\texorpdfstring{$\ast$}{*}$>$ AMini\+Shooter\+Game\+Mode\+::\+Active\+Enemies\hspace{0.3cm}{\ttfamily [protected]}}
+
+All active Enemies on map \Hypertarget{class_a_mini_shooter_game_mode_ab0707825be0a9652bfcfda22a55e8685}\label{class_a_mini_shooter_game_mode_ab0707825be0a9652bfcfda22a55e8685} 
+\index{AMiniShooterGameMode@{AMiniShooterGameMode}!NotifyEnemyDeadDelegate@{NotifyEnemyDeadDelegate}}
+\index{NotifyEnemyDeadDelegate@{NotifyEnemyDeadDelegate}!AMiniShooterGameMode@{AMiniShooterGameMode}}
+\doxysubsubsection{\texorpdfstring{NotifyEnemyDeadDelegate}{NotifyEnemyDeadDelegate}}
+{\footnotesize\ttfamily FNotify\+Enemy\+Dead AMini\+Shooter\+Game\+Mode\+::\+Notify\+Enemy\+Dead\+Delegate}
+
+Delegate that is to be broadcasted when Enemy dies \Hypertarget{class_a_mini_shooter_game_mode_adcb419f100a85cac5f9df98f21eb2fe7}\label{class_a_mini_shooter_game_mode_adcb419f100a85cac5f9df98f21eb2fe7} 
+\index{AMiniShooterGameMode@{AMiniShooterGameMode}!SendEnemyDelegate@{SendEnemyDelegate}}
+\index{SendEnemyDelegate@{SendEnemyDelegate}!AMiniShooterGameMode@{AMiniShooterGameMode}}
+\doxysubsubsection{\texorpdfstring{SendEnemyDelegate}{SendEnemyDelegate}}
+{\footnotesize\ttfamily FSend\+Nearest\+Enemy AMini\+Shooter\+Game\+Mode\+::\+Send\+Enemy\+Delegate}
+
+Delegate that Player can use to get the nearest Enemy 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Mini\+Shooter/\mbox{\hyperlink{_mini_shooter_game_mode_8h}{Mini\+Shooter\+Game\+Mode.\+h}}\item 
+Mini\+Shooter/\mbox{\hyperlink{_mini_shooter_game_mode_8cpp}{Mini\+Shooter\+Game\+Mode.\+cpp}}\end{DoxyCompactItemize}

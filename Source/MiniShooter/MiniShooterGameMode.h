@@ -2,14 +2,17 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
-#include "GameFramework/GameModeBase.h"
+#include <CoreMinimal.h>
+#include <GameFramework/GameModeBase.h>
+
 #include "MiniShooterGameMode.generated.h"
 
 DECLARE_MULTICAST_DELEGATE_OneParam(FSendNearestEnemy, class AActor*);
 DECLARE_MULTICAST_DELEGATE_OneParam(FNotifyEnemyDead, class AActor*);
 
-
+/**
+* Reusing Default GameMode and adding custom functionality Mainly about Enemies and Aiming availability functionality
+*/
 UCLASS(minimalapi)
 class AMiniShooterGameMode : public AGameModeBase
 {
@@ -54,8 +57,6 @@ protected:
 	void ProcessRequestEnemyDelegate(AActor* RequestingActor);
 
 	virtual void BeginPlay() override;
-
-
 };
 
 

@@ -27,6 +27,8 @@ void AMShooterProjectile::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	//Start a time to destroy in case Projectile does not interact and gets lost in the void
+	//This is quick replace for Kill beyond coordinates
 	StartDestroyTimer();
 }
 
@@ -35,6 +37,7 @@ void AMShooterProjectile::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	//Handles moving the Projectile every frame in a straight line
 	MoveProjectile(DeltaTime);
 }
 
@@ -45,16 +48,21 @@ void AMShooterProjectile::OverrideProjectileSpeed(float OverrideProjectileSpeed)
 
 void AMShooterProjectile::MoveProjectile(float DeltaTime)
 {
+	//Primitive way to move Projectile without knowing ending location
+	//No LineTrace for this simple interaction
 	FVector EndLocation = GetActorLocation() + (GetActorForwardVector() * ProjectileSpeed);
 	SetActorLocation(EndLocation, true);
 }
 
 void AMShooterProjectile::StartDestroyTimer()
 {
-	FTimerDelegate DestroyDelegate;
-	DestroyDelegate.BindUFunction(this, "RequestProjectileDestroy");
-
-	GetWorld()->GetTimerManager().SetTimer(DestroyTimerHandle, DestroyDelegate, TimeToDestroy, false);
+	//Schedule up FTimerHandle for Destroy
+	if (ensureMsgf(GetWorld(), TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *GetWorld()->GetClass()->GetName()))
+	{
+		FTimerDelegate DestroyDelegate;
+		DestroyDelegate.BindUFunction(this, "RequestProjectileDestroy");
+		GetWorld()->GetTimerManager().SetTimer(DestroyTimerHandle, DestroyDelegate, TimeToDestroy, false);
+	}
 }
 
 void AMShooterProjectile::RequestProjectileDestroy()
@@ -64,36 +72,45 @@ void AMShooterProjectile::RequestProjectileDestroy()
 
 void AMShooterProjectile::NotifyActorBeginOverlap(AActor* OtherActor)
 {
-	//Avoid owner to destroy bullet, specially if used with AI
-	if (RegisteredOwnerOfProjectile && OtherActor == RegisteredOwnerOfProjectile)
+	if (ensureMsgf(RegisteredOwnerOfProjectile, TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *GetWorld()->GetClass()->GetName()))
 	{
-		return;
+		//Safeguard against any possible contact with Owner
+		if (OtherActor == RegisteredOwnerOfProjectile)
+		{
+			return;
+		}
 	}
 
-	//Make sure other bullets do not affect this for crossfire
+
 	if (OtherActor->GetClass()->GetSuperClass() == AMShooterProjectile::StaticClass())
 	{
+		//Ignore other bullets as per design and do NOT destroy
+		return;
+	}
+	else if (OtherActor->GetClass()->GetSuperClass() == AMShooterPatrolZone::StaticClass())
+	{
+		//Ignore patrol zone collision and do NOT destroy
 		return;
 	}
 
 	if (OtherActor->GetClass()->GetSuperClass() == AMShooterEnemy::StaticClass())
 	{
+		//If Enemy deal damage
 		Cast<AMShooterEnemy>(OtherActor)->TakeDamageAmount(ProjectileDamage);
 	}
 	else if (OtherActor->GetClass()->GetSuperClass() == AMShooterTarget::StaticClass())
 	{
+		//If Target deal damage
 		Cast<AMShooterTarget>(OtherActor)->TakeDamageAmount(ProjectileDamage);
 	}
-	else if (OtherActor->GetClass()->GetSuperClass() == AMShooterPatrolZone::StaticClass())
-	{
-		//Ignore patrol zone collision
-		return;
-	}
+
+	//Destroy bullet upon valid collision
 	RequestProjectileDestroy();
 }
 
 void AMShooterProjectile::RegisterProjectileOwner(AActor* RegisterOwner)
 {
+	//Registering Owner and Enabling Collision
 	RegisteredOwnerOfProjectile = RegisterOwner;
 	StaticMeshComponent->SetCollisionProfileName(TEXT("OverlapAll"));
 }

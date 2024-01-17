@@ -3,7 +3,6 @@
 
 #include "MShooterPlatform.h"
 
-
 #include "MShooterCharacter.h"
 
 // Sets default values
@@ -31,6 +30,7 @@ void AMShooterPlatform::Tick(float DeltaTime)
 
 void AMShooterPlatform::NotifyActorBeginOverlap(AActor* OtherActor)
 {
+	//If Player enters platform, then store current Shooting Speed value and apply new one
 	if (OtherActor->GetClass()->GetSuperClass() == AMShooterCharacter::StaticClass())
 	{
 		if (AMShooterCharacter* Player = Cast<AMShooterCharacter>(OtherActor))
@@ -43,6 +43,7 @@ void AMShooterPlatform::NotifyActorBeginOverlap(AActor* OtherActor)
 
 void AMShooterPlatform::NotifyActorEndOverlap(AActor* OtherActor)
 {
+	//If Player leaves platform, then restore Shooting Speed to the value before entering
 	if (OtherActor->GetClass()->GetSuperClass() == AMShooterCharacter::StaticClass())
 	{
 		if (AMShooterCharacter* Player = Cast<AMShooterCharacter>(OtherActor))

@@ -1,0 +1,170 @@
+\doxysection{AMShooter\+Character Class Reference}
+\hypertarget{class_a_m_shooter_character}{}\label{class_a_m_shooter_character}\index{AMShooterCharacter@{AMShooterCharacter}}
+
+
+{\ttfamily \#include $<$MShooter\+Character.\+h$>$}
+
+Inheritance diagram for AMShooter\+Character\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_a_m_shooter_character}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_a_m_shooter_character_a9982efd9215f787b14cef3bec214c28d}{AMShooter\+Character}} ()
+\item 
+AActor \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_a_m_shooter_character_a164f2d8c9d115f55016506e3d7025ecc}{Request\+Get\+Aimed\+Enemy}} ()
+\item 
+void \mbox{\hyperlink{class_a_m_shooter_character_aabc7ad501c730d2472ff2d64648127d5}{Set\+Shooting\+Speed}} (float New\+Speed)
+\item 
+float \mbox{\hyperlink{class_a_m_shooter_character_ac17c6392987cf4662260263780daf032}{Get\+Shooting\+Speed}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_a_mini_shooter_character}{AMini\+Shooter\+Character}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_a_mini_shooter_character_a3837a5b67f8ca929cadbbe2fae99a098}{AMini\+Shooter\+Character}} ()
+\item 
+FORCEINLINE class USpring\+Arm\+Component \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_a_mini_shooter_character_a84ddac74bfeac59325d3800150d053a7}{Get\+Camera\+Boom}} () const
+\item 
+FORCEINLINE class UCamera\+Component \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_a_mini_shooter_character_a78fa329da4546664d507c17694f839d9}{Get\+Follow\+Camera}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+FRequest\+Nearest\+Enemy \mbox{\hyperlink{class_a_m_shooter_character_aea10c4062b81c1df1d25ddfdbcd273cd}{Request\+Nearest\+Enemy\+Delegate}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_a_mini_shooter_character}{AMini\+Shooter\+Character}}}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_a_mini_shooter_character_a093252d51f7fec905806874eca0f9122}{Base\+Turn\+Rate}}
+\item 
+float \mbox{\hyperlink{class_a_mini_shooter_character_a12bb89223d7ecbf14a40d69b8c2bb8b8}{Base\+Look\+Up\+Rate}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_a_m_shooter_character_ae738504b06eb9db014dd27fc4c3d1fb2}{Shoot}} (bool b\+Start)
+\item 
+void \mbox{\hyperlink{class_a_m_shooter_character_a9b93f1b2115f5a04339dfc2feff91409}{Aim}} ()
+\item 
+void \mbox{\hyperlink{class_a_m_shooter_character_a0cf56846f1ed45242ee3a7cb89e72b19}{Get\+Nearest\+Enemy}} (AActor \texorpdfstring{$\ast$}{*}Nearest\+Enemy)
+\item 
+virtual void \mbox{\hyperlink{class_a_m_shooter_character_a32c85a33ed279a32d24f23962bcf4464}{Begin\+Play}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_a_mini_shooter_character}{AMini\+Shooter\+Character}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_a_mini_shooter_character_a9d4ba05adbb7dbccfab8f5afd9f4544b}{On\+Reset\+VR}} ()
+\item 
+void \mbox{\hyperlink{class_a_mini_shooter_character_a638f099e46c4a092f2a503f9ce098e8d}{Move\+Forward}} (float Value)
+\item 
+void \mbox{\hyperlink{class_a_mini_shooter_character_aa70fe8bb7fc3b596fc2f426c4271988d}{Move\+Right}} (float Value)
+\item 
+void \mbox{\hyperlink{class_a_mini_shooter_character_a358ca27832cd79404a3923a49f1898e0}{Turn\+At\+Rate}} (float Rate)
+\item 
+void \mbox{\hyperlink{class_a_mini_shooter_character_a7e103846abd1c6f60518028e63fca4a3}{Look\+Up\+At\+Rate}} (float Rate)
+\item 
+void \mbox{\hyperlink{class_a_mini_shooter_character_a6729dd8da2223f168b2d4c59e7e105bc}{Touch\+Started}} (ETouch\+Index\+::\+Type Finger\+Index, FVector Location)
+\item 
+void \mbox{\hyperlink{class_a_mini_shooter_character_a63937efa6a77ed5c1642b3c86d820ed3}{Touch\+Stopped}} (ETouch\+Index\+::\+Type Finger\+Index, FVector Location)
+\item 
+virtual void \mbox{\hyperlink{class_a_mini_shooter_character_a0426e0d06515c4a07556db2b4e2c96c2}{Setup\+Player\+Input\+Component}} (class UInput\+Component \texorpdfstring{$\ast$}{*}Player\+Input\+Component) override
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+UMShooter\+Shooting\+Component \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_a_m_shooter_character_a2687d5b53c61a58f8b45b7b88b75bcc0}{Shooting\+Component}}
+\item 
+FTimer\+Handle \mbox{\hyperlink{class_a_m_shooter_character_a16dd4c02210ab51709fedf9c2c86c665}{Stop\+Aiming\+Time\+Handle}}
+\item 
+float \mbox{\hyperlink{class_a_m_shooter_character_ae39d60e5ea9d770734b30763fa975925}{Time\+To\+Auto\+Stop\+Aiming}} \{ 0.\+25f \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_a_m_shooter_character_a9982efd9215f787b14cef3bec214c28d}\label{class_a_m_shooter_character_a9982efd9215f787b14cef3bec214c28d} 
+\index{AMShooterCharacter@{AMShooterCharacter}!AMShooterCharacter@{AMShooterCharacter}}
+\index{AMShooterCharacter@{AMShooterCharacter}!AMShooterCharacter@{AMShooterCharacter}}
+\doxysubsubsection{\texorpdfstring{AMShooterCharacter()}{AMShooterCharacter()}}
+{\footnotesize\ttfamily AMShooter\+Character\+::\+AMShooter\+Character (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_a_m_shooter_character_a9b93f1b2115f5a04339dfc2feff91409}\label{class_a_m_shooter_character_a9b93f1b2115f5a04339dfc2feff91409} 
+\index{AMShooterCharacter@{AMShooterCharacter}!Aim@{Aim}}
+\index{Aim@{Aim}!AMShooterCharacter@{AMShooterCharacter}}
+\doxysubsubsection{\texorpdfstring{Aim()}{Aim()}}
+{\footnotesize\ttfamily void AMShooter\+Character\+::\+Aim (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Aiming method that start aiming at Enemies \Hypertarget{class_a_m_shooter_character_a32c85a33ed279a32d24f23962bcf4464}\label{class_a_m_shooter_character_a32c85a33ed279a32d24f23962bcf4464} 
+\index{AMShooterCharacter@{AMShooterCharacter}!BeginPlay@{BeginPlay}}
+\index{BeginPlay@{BeginPlay}!AMShooterCharacter@{AMShooterCharacter}}
+\doxysubsubsection{\texorpdfstring{BeginPlay()}{BeginPlay()}}
+{\footnotesize\ttfamily void AMShooter\+Character\+::\+Begin\+Play (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+\Hypertarget{class_a_m_shooter_character_a0cf56846f1ed45242ee3a7cb89e72b19}\label{class_a_m_shooter_character_a0cf56846f1ed45242ee3a7cb89e72b19} 
+\index{AMShooterCharacter@{AMShooterCharacter}!GetNearestEnemy@{GetNearestEnemy}}
+\index{GetNearestEnemy@{GetNearestEnemy}!AMShooterCharacter@{AMShooterCharacter}}
+\doxysubsubsection{\texorpdfstring{GetNearestEnemy()}{GetNearestEnemy()}}
+{\footnotesize\ttfamily void AMShooter\+Character\+::\+Get\+Nearest\+Enemy (\begin{DoxyParamCaption}\item[{AActor \texorpdfstring{$\ast$}{*}}]{Nearest\+Enemy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Recieve nearest Enemy \Hypertarget{class_a_m_shooter_character_ac17c6392987cf4662260263780daf032}\label{class_a_m_shooter_character_ac17c6392987cf4662260263780daf032} 
+\index{AMShooterCharacter@{AMShooterCharacter}!GetShootingSpeed@{GetShootingSpeed}}
+\index{GetShootingSpeed@{GetShootingSpeed}!AMShooterCharacter@{AMShooterCharacter}}
+\doxysubsubsection{\texorpdfstring{GetShootingSpeed()}{GetShootingSpeed()}}
+{\footnotesize\ttfamily float AMShooter\+Character\+::\+Get\+Shooting\+Speed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get new Shooting speed \Hypertarget{class_a_m_shooter_character_a164f2d8c9d115f55016506e3d7025ecc}\label{class_a_m_shooter_character_a164f2d8c9d115f55016506e3d7025ecc} 
+\index{AMShooterCharacter@{AMShooterCharacter}!RequestGetAimedEnemy@{RequestGetAimedEnemy}}
+\index{RequestGetAimedEnemy@{RequestGetAimedEnemy}!AMShooterCharacter@{AMShooterCharacter}}
+\doxysubsubsection{\texorpdfstring{RequestGetAimedEnemy()}{RequestGetAimedEnemy()}}
+{\footnotesize\ttfamily AActor \texorpdfstring{$\ast$}{*} AMShooter\+Character\+::\+Request\+Get\+Aimed\+Enemy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get Current Aimed Enemy \Hypertarget{class_a_m_shooter_character_aabc7ad501c730d2472ff2d64648127d5}\label{class_a_m_shooter_character_aabc7ad501c730d2472ff2d64648127d5} 
+\index{AMShooterCharacter@{AMShooterCharacter}!SetShootingSpeed@{SetShootingSpeed}}
+\index{SetShootingSpeed@{SetShootingSpeed}!AMShooterCharacter@{AMShooterCharacter}}
+\doxysubsubsection{\texorpdfstring{SetShootingSpeed()}{SetShootingSpeed()}}
+{\footnotesize\ttfamily void AMShooter\+Character\+::\+Set\+Shooting\+Speed (\begin{DoxyParamCaption}\item[{float}]{New\+Speed }\end{DoxyParamCaption})}
+
+Set new Shooting speed \Hypertarget{class_a_m_shooter_character_ae738504b06eb9db014dd27fc4c3d1fb2}\label{class_a_m_shooter_character_ae738504b06eb9db014dd27fc4c3d1fb2} 
+\index{AMShooterCharacter@{AMShooterCharacter}!Shoot@{Shoot}}
+\index{Shoot@{Shoot}!AMShooterCharacter@{AMShooterCharacter}}
+\doxysubsubsection{\texorpdfstring{Shoot()}{Shoot()}}
+{\footnotesize\ttfamily void AMShooter\+Character\+::\+Shoot (\begin{DoxyParamCaption}\item[{bool}]{b\+Start }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Shooting method that trigger the Shooting Component 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_a_m_shooter_character_aea10c4062b81c1df1d25ddfdbcd273cd}\label{class_a_m_shooter_character_aea10c4062b81c1df1d25ddfdbcd273cd} 
+\index{AMShooterCharacter@{AMShooterCharacter}!RequestNearestEnemyDelegate@{RequestNearestEnemyDelegate}}
+\index{RequestNearestEnemyDelegate@{RequestNearestEnemyDelegate}!AMShooterCharacter@{AMShooterCharacter}}
+\doxysubsubsection{\texorpdfstring{RequestNearestEnemyDelegate}{RequestNearestEnemyDelegate}}
+{\footnotesize\ttfamily FRequest\+Nearest\+Enemy AMShooter\+Character\+::\+Request\+Nearest\+Enemy\+Delegate}
+
+Delegate to Request Nearest Enemy \Hypertarget{class_a_m_shooter_character_a2687d5b53c61a58f8b45b7b88b75bcc0}\label{class_a_m_shooter_character_a2687d5b53c61a58f8b45b7b88b75bcc0} 
+\index{AMShooterCharacter@{AMShooterCharacter}!ShootingComponent@{ShootingComponent}}
+\index{ShootingComponent@{ShootingComponent}!AMShooterCharacter@{AMShooterCharacter}}
+\doxysubsubsection{\texorpdfstring{ShootingComponent}{ShootingComponent}}
+{\footnotesize\ttfamily UMShooter\+Shooting\+Component\texorpdfstring{$\ast$}{*} AMShooter\+Character\+::\+Shooting\+Component\hspace{0.3cm}{\ttfamily [protected]}}
+
+Shooting Component \Hypertarget{class_a_m_shooter_character_a16dd4c02210ab51709fedf9c2c86c665}\label{class_a_m_shooter_character_a16dd4c02210ab51709fedf9c2c86c665} 
+\index{AMShooterCharacter@{AMShooterCharacter}!StopAimingTimeHandle@{StopAimingTimeHandle}}
+\index{StopAimingTimeHandle@{StopAimingTimeHandle}!AMShooterCharacter@{AMShooterCharacter}}
+\doxysubsubsection{\texorpdfstring{StopAimingTimeHandle}{StopAimingTimeHandle}}
+{\footnotesize\ttfamily FTimer\+Handle AMShooter\+Character\+::\+Stop\+Aiming\+Time\+Handle\hspace{0.3cm}{\ttfamily [protected]}}
+
+Stop Aiming Time\+Handle so you can aim before shooting \Hypertarget{class_a_m_shooter_character_ae39d60e5ea9d770734b30763fa975925}\label{class_a_m_shooter_character_ae39d60e5ea9d770734b30763fa975925} 
+\index{AMShooterCharacter@{AMShooterCharacter}!TimeToAutoStopAiming@{TimeToAutoStopAiming}}
+\index{TimeToAutoStopAiming@{TimeToAutoStopAiming}!AMShooterCharacter@{AMShooterCharacter}}
+\doxysubsubsection{\texorpdfstring{TimeToAutoStopAiming}{TimeToAutoStopAiming}}
+{\footnotesize\ttfamily float AMShooter\+Character\+::\+Time\+To\+Auto\+Stop\+Aiming \{ 0.\+25f \}\hspace{0.3cm}{\ttfamily [protected]}}
+
+Time for Aiming to reset if not Shooting 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Mini\+Shooter/\+Player/\mbox{\hyperlink{_m_shooter_character_8h}{MShooter\+Character.\+h}}\item 
+Mini\+Shooter/\+Player/\mbox{\hyperlink{_m_shooter_character_8cpp}{MShooter\+Character.\+cpp}}\end{DoxyCompactItemize}

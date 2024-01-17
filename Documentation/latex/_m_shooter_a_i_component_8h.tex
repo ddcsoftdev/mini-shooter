@@ -1,0 +1,48 @@
+\doxysection{Mini\+Shooter/\+AI/\+MShooter\+AIComponent.h File Reference}
+\hypertarget{_m_shooter_a_i_component_8h}{}\label{_m_shooter_a_i_component_8h}\index{MiniShooter/AI/MShooterAIComponent.h@{MiniShooter/AI/MShooterAIComponent.h}}
+{\ttfamily \#include "{}Core\+Minimal.\+h"{}}\newline
+{\ttfamily \#include "{}Components/\+Actor\+Component.\+h"{}}\newline
+{\ttfamily \#include "{}MShooter\+AIComponent.\+generated.\+h"{}}\newline
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271}{EState\+Machine}} \+: uint8 \{ \newline
+\mbox{\hyperlink{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271aa3f80d8f0f1b4ffa8c475f5d60ea5635}{UMETA}} =(Display\+Name = "{}\+Idle"{})
+, \mbox{\hyperlink{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271aa3f80d8f0f1b4ffa8c475f5d60ea5635}{UMETA}} =(Display\+Name = "{}\+Patrol"{})
+, \mbox{\hyperlink{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271aa3f80d8f0f1b4ffa8c475f5d60ea5635}{UMETA}} =(Display\+Name = "{}\+Chase"{})
+, \mbox{\hyperlink{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271aa3f80d8f0f1b4ffa8c475f5d60ea5635}{UMETA}} =(Display\+Name = "{}\+Rest"{})
+, \newline
+\mbox{\hyperlink{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271aa3f80d8f0f1b4ffa8c475f5d60ea5635}{UMETA}} =(Display\+Name = "{}\+Attack"{})
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271}\label{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271} 
+\index{MShooterAIComponent.h@{MShooterAIComponent.h}!EStateMachine@{EStateMachine}}
+\index{EStateMachine@{EStateMachine}!MShooterAIComponent.h@{MShooterAIComponent.h}}
+\doxysubsubsection{\texorpdfstring{EStateMachine}{EStateMachine}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271}{EState\+Machine}} \+: uint8\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UMETA@{UMETA}!MShooterAIComponent.h@{MShooterAIComponent.h}}\index{MShooterAIComponent.h@{MShooterAIComponent.h}!UMETA@{UMETA}}}\Hypertarget{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271aa3f80d8f0f1b4ffa8c475f5d60ea5635}\label{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271aa3f80d8f0f1b4ffa8c475f5d60ea5635} 
+UMETA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UMETA@{UMETA}!MShooterAIComponent.h@{MShooterAIComponent.h}}\index{MShooterAIComponent.h@{MShooterAIComponent.h}!UMETA@{UMETA}}}\Hypertarget{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271aa3f80d8f0f1b4ffa8c475f5d60ea5635}\label{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271aa3f80d8f0f1b4ffa8c475f5d60ea5635} 
+UMETA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UMETA@{UMETA}!MShooterAIComponent.h@{MShooterAIComponent.h}}\index{MShooterAIComponent.h@{MShooterAIComponent.h}!UMETA@{UMETA}}}\Hypertarget{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271aa3f80d8f0f1b4ffa8c475f5d60ea5635}\label{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271aa3f80d8f0f1b4ffa8c475f5d60ea5635} 
+UMETA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UMETA@{UMETA}!MShooterAIComponent.h@{MShooterAIComponent.h}}\index{MShooterAIComponent.h@{MShooterAIComponent.h}!UMETA@{UMETA}}}\Hypertarget{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271aa3f80d8f0f1b4ffa8c475f5d60ea5635}\label{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271aa3f80d8f0f1b4ffa8c475f5d60ea5635} 
+UMETA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UMETA@{UMETA}!MShooterAIComponent.h@{MShooterAIComponent.h}}\index{MShooterAIComponent.h@{MShooterAIComponent.h}!UMETA@{UMETA}}}\Hypertarget{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271aa3f80d8f0f1b4ffa8c475f5d60ea5635}\label{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271aa3f80d8f0f1b4ffa8c475f5d60ea5635} 
+UMETA&\\
+\hline
+
+\end{DoxyEnumFields}

@@ -1,0 +1,150 @@
+\doxysection{AMini\+Shooter\+Character Class Reference}
+\hypertarget{class_a_mini_shooter_character}{}\label{class_a_mini_shooter_character}\index{AMiniShooterCharacter@{AMiniShooterCharacter}}
+
+
+{\ttfamily \#include $<$Mini\+Shooter\+Character.\+h$>$}
+
+Inheritance diagram for AMini\+Shooter\+Character\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_a_mini_shooter_character}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_a_mini_shooter_character_a3837a5b67f8ca929cadbbe2fae99a098}{AMini\+Shooter\+Character}} ()
+\item 
+FORCEINLINE class USpring\+Arm\+Component \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_a_mini_shooter_character_a84ddac74bfeac59325d3800150d053a7}{Get\+Camera\+Boom}} () const
+\item 
+FORCEINLINE class UCamera\+Component \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_a_mini_shooter_character_a78fa329da4546664d507c17694f839d9}{Get\+Follow\+Camera}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_a_mini_shooter_character_a093252d51f7fec905806874eca0f9122}{Base\+Turn\+Rate}}
+\item 
+float \mbox{\hyperlink{class_a_mini_shooter_character_a12bb89223d7ecbf14a40d69b8c2bb8b8}{Base\+Look\+Up\+Rate}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_a_mini_shooter_character_a9d4ba05adbb7dbccfab8f5afd9f4544b}{On\+Reset\+VR}} ()
+\item 
+void \mbox{\hyperlink{class_a_mini_shooter_character_a638f099e46c4a092f2a503f9ce098e8d}{Move\+Forward}} (float Value)
+\item 
+void \mbox{\hyperlink{class_a_mini_shooter_character_aa70fe8bb7fc3b596fc2f426c4271988d}{Move\+Right}} (float Value)
+\item 
+void \mbox{\hyperlink{class_a_mini_shooter_character_a358ca27832cd79404a3923a49f1898e0}{Turn\+At\+Rate}} (float Rate)
+\item 
+void \mbox{\hyperlink{class_a_mini_shooter_character_a7e103846abd1c6f60518028e63fca4a3}{Look\+Up\+At\+Rate}} (float Rate)
+\item 
+void \mbox{\hyperlink{class_a_mini_shooter_character_a6729dd8da2223f168b2d4c59e7e105bc}{Touch\+Started}} (ETouch\+Index\+::\+Type Finger\+Index, FVector Location)
+\item 
+void \mbox{\hyperlink{class_a_mini_shooter_character_a63937efa6a77ed5c1642b3c86d820ed3}{Touch\+Stopped}} (ETouch\+Index\+::\+Type Finger\+Index, FVector Location)
+\item 
+virtual void \mbox{\hyperlink{class_a_mini_shooter_character_a0426e0d06515c4a07556db2b4e2c96c2}{Setup\+Player\+Input\+Component}} (class UInput\+Component \texorpdfstring{$\ast$}{*}Player\+Input\+Component) override
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_a_mini_shooter_character_a3837a5b67f8ca929cadbbe2fae99a098}\label{class_a_mini_shooter_character_a3837a5b67f8ca929cadbbe2fae99a098} 
+\index{AMiniShooterCharacter@{AMiniShooterCharacter}!AMiniShooterCharacter@{AMiniShooterCharacter}}
+\index{AMiniShooterCharacter@{AMiniShooterCharacter}!AMiniShooterCharacter@{AMiniShooterCharacter}}
+\doxysubsubsection{\texorpdfstring{AMiniShooterCharacter()}{AMiniShooterCharacter()}}
+{\footnotesize\ttfamily AMini\+Shooter\+Character\+::\+AMini\+Shooter\+Character (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_a_mini_shooter_character_a84ddac74bfeac59325d3800150d053a7}\label{class_a_mini_shooter_character_a84ddac74bfeac59325d3800150d053a7} 
+\index{AMiniShooterCharacter@{AMiniShooterCharacter}!GetCameraBoom@{GetCameraBoom}}
+\index{GetCameraBoom@{GetCameraBoom}!AMiniShooterCharacter@{AMiniShooterCharacter}}
+\doxysubsubsection{\texorpdfstring{GetCameraBoom()}{GetCameraBoom()}}
+{\footnotesize\ttfamily FORCEINLINE class USpring\+Arm\+Component \texorpdfstring{$\ast$}{*} AMini\+Shooter\+Character\+::\+Get\+Camera\+Boom (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns Camera\+Boom subobject \Hypertarget{class_a_mini_shooter_character_a78fa329da4546664d507c17694f839d9}\label{class_a_mini_shooter_character_a78fa329da4546664d507c17694f839d9} 
+\index{AMiniShooterCharacter@{AMiniShooterCharacter}!GetFollowCamera@{GetFollowCamera}}
+\index{GetFollowCamera@{GetFollowCamera}!AMiniShooterCharacter@{AMiniShooterCharacter}}
+\doxysubsubsection{\texorpdfstring{GetFollowCamera()}{GetFollowCamera()}}
+{\footnotesize\ttfamily FORCEINLINE class UCamera\+Component \texorpdfstring{$\ast$}{*} AMini\+Shooter\+Character\+::\+Get\+Follow\+Camera (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns Follow\+Camera subobject \Hypertarget{class_a_mini_shooter_character_a7e103846abd1c6f60518028e63fca4a3}\label{class_a_mini_shooter_character_a7e103846abd1c6f60518028e63fca4a3} 
+\index{AMiniShooterCharacter@{AMiniShooterCharacter}!LookUpAtRate@{LookUpAtRate}}
+\index{LookUpAtRate@{LookUpAtRate}!AMiniShooterCharacter@{AMiniShooterCharacter}}
+\doxysubsubsection{\texorpdfstring{LookUpAtRate()}{LookUpAtRate()}}
+{\footnotesize\ttfamily void AMini\+Shooter\+Character\+::\+Look\+Up\+At\+Rate (\begin{DoxyParamCaption}\item[{float}]{Rate }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Called via input to turn look up/down at a given rate. 
+\begin{DoxyParams}{Parameters}
+{\em Rate} & This is a normalized rate, i.\+e. 1.\+0 means 100\% of desired turn rate \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_a_mini_shooter_character_a638f099e46c4a092f2a503f9ce098e8d}\label{class_a_mini_shooter_character_a638f099e46c4a092f2a503f9ce098e8d} 
+\index{AMiniShooterCharacter@{AMiniShooterCharacter}!MoveForward@{MoveForward}}
+\index{MoveForward@{MoveForward}!AMiniShooterCharacter@{AMiniShooterCharacter}}
+\doxysubsubsection{\texorpdfstring{MoveForward()}{MoveForward()}}
+{\footnotesize\ttfamily void AMini\+Shooter\+Character\+::\+Move\+Forward (\begin{DoxyParamCaption}\item[{float}]{Value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Called for forwards/backward input \Hypertarget{class_a_mini_shooter_character_aa70fe8bb7fc3b596fc2f426c4271988d}\label{class_a_mini_shooter_character_aa70fe8bb7fc3b596fc2f426c4271988d} 
+\index{AMiniShooterCharacter@{AMiniShooterCharacter}!MoveRight@{MoveRight}}
+\index{MoveRight@{MoveRight}!AMiniShooterCharacter@{AMiniShooterCharacter}}
+\doxysubsubsection{\texorpdfstring{MoveRight()}{MoveRight()}}
+{\footnotesize\ttfamily void AMini\+Shooter\+Character\+::\+Move\+Right (\begin{DoxyParamCaption}\item[{float}]{Value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Called for side to side input \Hypertarget{class_a_mini_shooter_character_a9d4ba05adbb7dbccfab8f5afd9f4544b}\label{class_a_mini_shooter_character_a9d4ba05adbb7dbccfab8f5afd9f4544b} 
+\index{AMiniShooterCharacter@{AMiniShooterCharacter}!OnResetVR@{OnResetVR}}
+\index{OnResetVR@{OnResetVR}!AMiniShooterCharacter@{AMiniShooterCharacter}}
+\doxysubsubsection{\texorpdfstring{OnResetVR()}{OnResetVR()}}
+{\footnotesize\ttfamily void AMini\+Shooter\+Character\+::\+On\+Reset\+VR (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Resets HMD orientation in VR. \Hypertarget{class_a_mini_shooter_character_a0426e0d06515c4a07556db2b4e2c96c2}\label{class_a_mini_shooter_character_a0426e0d06515c4a07556db2b4e2c96c2} 
+\index{AMiniShooterCharacter@{AMiniShooterCharacter}!SetupPlayerInputComponent@{SetupPlayerInputComponent}}
+\index{SetupPlayerInputComponent@{SetupPlayerInputComponent}!AMiniShooterCharacter@{AMiniShooterCharacter}}
+\doxysubsubsection{\texorpdfstring{SetupPlayerInputComponent()}{SetupPlayerInputComponent()}}
+{\footnotesize\ttfamily void AMini\+Shooter\+Character\+::\+Setup\+Player\+Input\+Component (\begin{DoxyParamCaption}\item[{class UInput\+Component \texorpdfstring{$\ast$}{*}}]{Player\+Input\+Component }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+\Hypertarget{class_a_mini_shooter_character_a6729dd8da2223f168b2d4c59e7e105bc}\label{class_a_mini_shooter_character_a6729dd8da2223f168b2d4c59e7e105bc} 
+\index{AMiniShooterCharacter@{AMiniShooterCharacter}!TouchStarted@{TouchStarted}}
+\index{TouchStarted@{TouchStarted}!AMiniShooterCharacter@{AMiniShooterCharacter}}
+\doxysubsubsection{\texorpdfstring{TouchStarted()}{TouchStarted()}}
+{\footnotesize\ttfamily void AMini\+Shooter\+Character\+::\+Touch\+Started (\begin{DoxyParamCaption}\item[{ETouch\+Index\+::\+Type}]{Finger\+Index,  }\item[{FVector}]{Location }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Handler for when a touch input begins. \Hypertarget{class_a_mini_shooter_character_a63937efa6a77ed5c1642b3c86d820ed3}\label{class_a_mini_shooter_character_a63937efa6a77ed5c1642b3c86d820ed3} 
+\index{AMiniShooterCharacter@{AMiniShooterCharacter}!TouchStopped@{TouchStopped}}
+\index{TouchStopped@{TouchStopped}!AMiniShooterCharacter@{AMiniShooterCharacter}}
+\doxysubsubsection{\texorpdfstring{TouchStopped()}{TouchStopped()}}
+{\footnotesize\ttfamily void AMini\+Shooter\+Character\+::\+Touch\+Stopped (\begin{DoxyParamCaption}\item[{ETouch\+Index\+::\+Type}]{Finger\+Index,  }\item[{FVector}]{Location }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Handler for when a touch input stops. \Hypertarget{class_a_mini_shooter_character_a358ca27832cd79404a3923a49f1898e0}\label{class_a_mini_shooter_character_a358ca27832cd79404a3923a49f1898e0} 
+\index{AMiniShooterCharacter@{AMiniShooterCharacter}!TurnAtRate@{TurnAtRate}}
+\index{TurnAtRate@{TurnAtRate}!AMiniShooterCharacter@{AMiniShooterCharacter}}
+\doxysubsubsection{\texorpdfstring{TurnAtRate()}{TurnAtRate()}}
+{\footnotesize\ttfamily void AMini\+Shooter\+Character\+::\+Turn\+At\+Rate (\begin{DoxyParamCaption}\item[{float}]{Rate }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Called via input to turn at a given rate. 
+\begin{DoxyParams}{Parameters}
+{\em Rate} & This is a normalized rate, i.\+e. 1.\+0 means 100\% of desired turn rate \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_a_mini_shooter_character_a12bb89223d7ecbf14a40d69b8c2bb8b8}\label{class_a_mini_shooter_character_a12bb89223d7ecbf14a40d69b8c2bb8b8} 
+\index{AMiniShooterCharacter@{AMiniShooterCharacter}!BaseLookUpRate@{BaseLookUpRate}}
+\index{BaseLookUpRate@{BaseLookUpRate}!AMiniShooterCharacter@{AMiniShooterCharacter}}
+\doxysubsubsection{\texorpdfstring{BaseLookUpRate}{BaseLookUpRate}}
+{\footnotesize\ttfamily float AMini\+Shooter\+Character\+::\+Base\+Look\+Up\+Rate}
+
+Base look up/down rate, in deg/sec. Other scaling may affect final rate. \Hypertarget{class_a_mini_shooter_character_a093252d51f7fec905806874eca0f9122}\label{class_a_mini_shooter_character_a093252d51f7fec905806874eca0f9122} 
+\index{AMiniShooterCharacter@{AMiniShooterCharacter}!BaseTurnRate@{BaseTurnRate}}
+\index{BaseTurnRate@{BaseTurnRate}!AMiniShooterCharacter@{AMiniShooterCharacter}}
+\doxysubsubsection{\texorpdfstring{BaseTurnRate}{BaseTurnRate}}
+{\footnotesize\ttfamily float AMini\+Shooter\+Character\+::\+Base\+Turn\+Rate}
+
+Base turn rate, in deg/sec. Other scaling may affect final turn rate. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Mini\+Shooter/\mbox{\hyperlink{_mini_shooter_character_8h}{Mini\+Shooter\+Character.\+h}}\item 
+Mini\+Shooter/\mbox{\hyperlink{_mini_shooter_character_8cpp}{Mini\+Shooter\+Character.\+cpp}}\end{DoxyCompactItemize}
