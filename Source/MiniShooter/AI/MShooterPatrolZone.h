@@ -6,6 +6,13 @@
 #include "GameFramework/Actor.h"
 #include "MShooterPatrolZone.generated.h"
 
+class AMShooterPatrolPoint;
+
+DECLARE_MULTICAST_DELEGATE_TwoParams(FRegisterPatrolPointUsage, class AActor*, bool bIsBeingUsed);
+
+DECLARE_MULTICAST_DELEGATE_OneParam(FSendPatrolPoint, class AActor*);
+
+DECLARE_MULTICAST_DELEGATE_OneParam(FPlayerIsInsideZone, bool bIsInside);
 UCLASS()
 class MINISHOOTER_API AMShooterPatrolZone : public AActor
 {
@@ -15,12 +22,108 @@ public:
 	// Sets default values for this actor's properties
 	AMShooterPatrolZone();
 
+	/**
+	* Delegate for registering in use Patrol Points
+	*/
+		FRegisterPatrolPointUsage RegisterPatrolPointInUserDelegate;
+
+	/**
+	* Sends available patrol point
+	* Takes the Enemy as argument to know who to send it to
+	*/
+		FSendPatrolPoint SendPatrolPointDelegate;
+
+	/**
+	* Sends available patrol point
+	* Takes the Enemy as argument to know who to send it to
+	*/
+		FPlayerIsInsideZone PlayerIsInsideZoneDelegate;
+
 protected:
+
+	/**
+	* Available Patrol Points for this Zone
+	*/
+	UPROPERTY()
+	TArray<AActor*> AvailablePatrolPoints;
+
+	/**
+	* Enemies within Patrol Zone
+	*/
+	UPROPERTY()
+		TArray<AActor*> ActiveEnemies;
+
+
+
+	/**
+	* Get Available Patrol Points
+	*/
+	UFUNCTION()
+		AActor* GetAvailablePatrolPoint();
+
+
+	/**
+	* Register Available Patrol Points when not detected in Array
+	*/
+	UFUNCTION()
+		void RegisterPatrolPoint(AActor* PatrolPoint);
+
+	/**
+	* Register Enemies upon entering patrol zone
+	*/
+	UFUNCTION()
+		void RegisterEnemy(AActor* Enemy);
+
+	/**
+	* UnRegister Available Patrol Points
+	*/
+	UFUNCTION()
+		void UnRegisterPatrolPoint(AActor* PatrolPoint);
+
+	/**
+	* UnRegister Enemies upon entering patrol zone
+	*/
+	UFUNCTION()
+		void UnRegisterEnemy(AActor* Enemy);
+
+	/**
+	* Notify all enemies player has entered zone
+	*/
+	UFUNCTION()
+		void NotifyPlayerEnteredZone(AActor* Enemy);
+
+	/**
+	* Notify all enemies player has left zone
+	*/
+	UFUNCTION()
+		void NotifyPlayerLeftZone(AActor* Enemy);
+
+	/***
+	* Get Random Point within Patrol Zone
+	*/
+	UFUNCTION()
+	void SendPatrolPoint(AActor* EnemyToSend);
+
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
+	UFUNCTION()
+	virtual void NotifyActorBeginOverlap(AActor* OtherActor) override;
+
+	UFUNCTION()
+	virtual void NotifyActorEndOverlap(AActor* OtherActor) override;
 
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	/**
+	* Try to return used Patrol Point
+	*/
+	UFUNCTION()
+	void TryToReturnPatrolPoint(AActor* PatrolPoint);
+
+	UFUNCTION()
+	void Initialize();
 
 };

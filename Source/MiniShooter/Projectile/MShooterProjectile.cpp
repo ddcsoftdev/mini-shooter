@@ -8,6 +8,7 @@
 
 #include "../Enemy/MShooterEnemy.h"
 #include "../Enemy/MShooterTarget.h"
+#include "../AI/MShooterPatrolZone.h"
 
 // Sets default values
 AMShooterProjectile::AMShooterProjectile()
@@ -82,6 +83,11 @@ void AMShooterProjectile::NotifyActorBeginOverlap(AActor* OtherActor)
 	else if (OtherActor->GetClass()->GetSuperClass() == AMShooterTarget::StaticClass())
 	{
 		Cast<AMShooterTarget>(OtherActor)->TakeDamageAmount(ProjectileDamage);
+	}
+	else if (OtherActor->GetClass()->GetSuperClass() == AMShooterPatrolZone::StaticClass())
+	{
+		//Ignore patrol zone collision
+		return;
 	}
 	RequestProjectileDestroy();
 }

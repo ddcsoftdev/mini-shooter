@@ -37,7 +37,7 @@ protected:
 	* Speed for Overriden projectile Speed
 	*/
 	UPROPERTY(EditAnywhere, Category = "Override Projectile Speed")
-	float ProjectileSpeed{ 20.f };
+	float ProjectileSpeed{ 40.f };
 
 	/**
 	* Shooting cadence

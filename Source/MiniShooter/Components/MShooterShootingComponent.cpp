@@ -81,7 +81,7 @@ void UMShooterShootingComponent::TriggerShot()
 	}
 
 	//This is used to adjust location spawn to crosshair
-	float CrosshairVerticalOffset = 80.f;
+	const float CrosshairVerticalOffset = 80.f;
 	const FVector SpawnLocation = GetOwner()->GetActorLocation() + (FVector(0.f, 0.f, CrosshairVerticalOffset) + GetOwner()->GetActorForwardVector() * 10.f);
 	const FActorSpawnParameters SpawnParams = FActorSpawnParameters();
 	FRotator SpawnRotation = GetOwner()->GetActorRotation();
@@ -130,7 +130,7 @@ void UMShooterShootingComponent::AimingRotationAdjustment()
 	}
 
 	FRotator NewRotation = UKismetMathLibrary::FindLookAtRotation(GetOwner()->GetActorLocation(), CurrentAimedEnemy->GetActorLocation());
-	float GetActorVerticalRotation = GetOwner()->GetActorRotation().Roll;
+	const float GetActorVerticalRotation = GetOwner()->GetActorRotation().Roll;
 	GetOwner()->SetActorRotation(FRotator(GetOwner()->GetActorRotation().Pitch, NewRotation.Yaw, NewRotation.Roll));
 
 	//Scalable: if player rotate camera also. Check if player by casting to class
@@ -140,7 +140,7 @@ void UMShooterShootingComponent::AimingRotationAdjustment()
 		UCameraComponent* Camera = Player->GetFollowCamera();
 		if (Controller && Camera)
 		{
-			float InterSpeed = 10.f;
+			const float InterSpeed = 10.f;
 			FRotator CameraRotation = UKismetMathLibrary::FindLookAtRotation(Camera->GetComponentLocation(), CurrentAimedEnemy->GetActorLocation());
 			FRotator InterpRotation = UKismetMathLibrary::RInterpTo(Controller->GetControlRotation(), CameraRotation, GetWorld()->GetDeltaSeconds(), InterSpeed);
 			FRotator NewControlRotation = FRotator(Controller->GetControlRotation().Pitch, InterpRotation.Yaw, Controller->GetControlRotation().Roll);

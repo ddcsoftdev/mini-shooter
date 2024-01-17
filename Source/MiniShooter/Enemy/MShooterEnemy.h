@@ -14,6 +14,8 @@ class UWidgetComponent;
 class AMShooterAIController;
 class UMShooterLifeComponent;
 class UMShooterShootingComponent;
+class UMShooterAIComponent;
+class UMShooterPatrolZone;
 
 UCLASS()
 class MINISHOOTER_API AMShooterEnemy : public AActor, public IMShooterEnemyBasics
@@ -39,6 +41,12 @@ protected:
 		UMShooterShootingComponent* ShootingComponent;
 
 	/**
+	* AI Component
+	*/
+	UPROPERTY(EditAnywhere)
+		UMShooterAIComponent* AIComponent;
+
+	/**
 	* Visible Mesh for Enemy
 	*/
 	UPROPERTY(EditAnywhere)
@@ -55,6 +63,19 @@ protected:
 	*/
 	UPROPERTY(EditAnywhere)
 		UWidgetComponent* HealthWidget;
+
+	/**
+	* Belonging Patrol Zone if Any
+	*/
+	UPROPERTY()
+		AActor* ActivePatrolZone;
+
+	/**
+	* Belonging Patrol Zone if Any
+	*/
+	UPROPERTY()
+		AActor* ActivePatrolPoint;
+
 
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -73,6 +94,12 @@ protected:
 	UFUNCTION()
 	virtual void SetHealthWidgetRotation() override;
 
+	/**
+	* Comunicates AI Component about player within zone
+	*/
+	UFUNCTION()
+		void HandlePlayerWithinZone(bool bIsInsideZone);
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -82,5 +109,35 @@ public:
 	*/
 	UFUNCTION()
 	virtual void TakeDamageAmount(float Amount) override;
+
+	/**
+	* Register belonging Patrol Zone
+	*/
+	UFUNCTION()
+		AActor* GetActivePatrolZone() { return ActivePatrolZone; }
+
+	/**
+	* Register belonging Patrol Zone
+	*/
+	UFUNCTION()
+		void RegisterPatrolZone(AActor* PatrolZone);
+
+	/**
+	* Unregister belonging Patrol Zone
+	*/
+	UFUNCTION()
+		void UnRegisterPatrolZone(AActor* PatrolZone);
+
+	/**
+	* Updates TargetLocation for AI
+	*/
+	UFUNCTION()
+		void UpdateAITargetLocation(AActor* PatrolPoint);
+
+	/**
+	* Toggels on and off the AI
+	*/
+	UFUNCTION()
+		void SetAIBehaviour(bool bActivate);
 
 };

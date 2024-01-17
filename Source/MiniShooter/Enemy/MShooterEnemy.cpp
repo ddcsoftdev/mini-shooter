@@ -13,6 +13,8 @@
 #include "../Components/MShooterLifeComponent.h"
 #include "../Components/MShooterShootingComponent.h"
 #include "../UI/MShooterHealthBarWidget.h"
+#include "../AI/MShooterAIComponent.h"
+#include "../AI/MShooterPatrolZone.h"
 
 // Sets default values
 AMShooterEnemy::AMShooterEnemy()
@@ -24,6 +26,8 @@ AMShooterEnemy::AMShooterEnemy()
 	LifeComponent = CreateDefaultSubobject<UMShooterLifeComponent>(FName(TEXT("LifeComponent")));
 	//Create Shooting Component
 	ShootingComponent = CreateDefaultSubobject<UMShooterShootingComponent>(FName(TEXT("ShootingComponent")));
+	//Create Shooting Component
+	AIComponent = CreateDefaultSubobject<UMShooterAIComponent>(FName(TEXT("AIComponent")));
 	//Create Static Mesh Component
 	StaticMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(FName(TEXT("StaticMesh")));
 	//Create Box Collision Box
@@ -82,4 +86,67 @@ void AMShooterEnemy::TakeDamageAmount(float Amount)
 	Amount = -Amount;
 	LifeComponent->SetHealth(Amount);
 	UpdateHealthBarWidget(LifeComponent->GetMaxHealth(), LifeComponent->GetHealth());
+}
+
+void AMShooterEnemy::RegisterPatrolZone(AActor* PatrolZone)
+{
+	//Quick way to tell if class is correct
+	if (AMShooterPatrolZone* CastedZone = Cast<AMShooterPatrolZone>(PatrolZone))
+	{
+		ActivePatrolZone = PatrolZone;
+		CastedZone->PlayerIsInsideZoneDelegate.AddUObject(this, &AMShooterEnemy::HandlePlayerWithinZone);
+	}
+}
+
+void AMShooterEnemy::UnRegisterPatrolZone(AActor* PatrolZone)
+{
+	if (AMShooterPatrolZone* CastedZone = Cast<AMShooterPatrolZone>(PatrolZone))
+	{
+		if (ActivePatrolZone == PatrolZone)
+		{
+			ActivePatrolZone = nullptr;
+		}
+	}
+}
+
+void AMShooterEnemy::HandlePlayerWithinZone(bool bIsInsideZone)
+{
+	if (!AIComponent)
+	{
+		return;
+	}
+
+	if (bIsInsideZone)
+	{
+		AIComponent->StartPlayerChase();
+	}
+	else
+	{
+		AIComponent->StopPlayerChase();
+	}
+}
+
+void AMShooterEnemy::UpdateAITargetLocation(AActor* PatrolPoint)
+{
+	if (!AIComponent)
+	{
+		return;
+	}
+	if (AMShooterPatrolZone* CastedZone = Cast<AMShooterPatrolZone>(ActivePatrolZone))
+	{
+		CastedZone->TryToReturnPatrolPoint(ActivePatrolPoint);
+	}
+
+	ActivePatrolPoint = PatrolPoint;
+	AIComponent->SetTargetLocation(PatrolPoint->GetActorLocation());
+}
+
+void AMShooterEnemy::SetAIBehaviour(bool bActivate)
+{
+	if (!AIComponent)
+	{
+		return;
+	}
+
+	AIComponent->SetAIBehaviour(bActivate);
 }
