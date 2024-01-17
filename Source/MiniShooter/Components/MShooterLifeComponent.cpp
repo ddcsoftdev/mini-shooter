@@ -24,7 +24,7 @@ void UMShooterLifeComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
-	//Jumpstart Health
+	//Set Current Health variable to Max Health as a default initialization point
 	Health = MaxHealth;
 }
 
@@ -40,12 +40,15 @@ void UMShooterLifeComponent::TickComponent(float DeltaTime, ELevelTick TickType,
 void UMShooterLifeComponent::SetHealth(float NewHealth)
 {
 	float FinalHealth = Health + NewHealth;
+	//Determine if the NewHealth would be valid
 	if (FinalHealth > 0 && FinalHealth <= MaxHealth)
 	{
+		//If it's valid then set the current health to that value
 		Health = FinalHealth;
 	}
 	else if (FinalHealth <= 0)
 	{
+		//If Health is 0, then Kill Owning Actor
 		Health = 0;
 		KillOwner();
 	}
@@ -53,13 +56,15 @@ void UMShooterLifeComponent::SetHealth(float NewHealth)
 
 void UMShooterLifeComponent::KillOwner()
 {
-	if (!GetOwner())
+	if (ensureMsgf(GetOwner(), TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *GetOwner()->GetClass()->GetName()))
 	{
-		return;
+		if (AMiniShooterGameMode* GameMode = Cast<AMiniShooterGameMode>(UGameplayStatics::GetGameMode(GetOwner()->GetWorld())))
+		{
+			//Notify GameMode if this Actor is about to die
+			//Currently used mainly for Enemies and Shooting Targets, since GameMode keeps active track of them
+			GameMode->NotifyEnemyDeadDelegate.Broadcast(GetOwner());
+		}
+		//Destroy Owner
+		GetOwner()->Destroy();
 	}
-	if (AMiniShooterGameMode* GameMode = Cast<AMiniShooterGameMode>(UGameplayStatics::GetGameMode(GetOwner()->GetWorld())))
-	{
-		GameMode->NotifyEnemyDeadDelegate.Broadcast(GetOwner());
-	}
-	GetOwner()->Destroy();
 }

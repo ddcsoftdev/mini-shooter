@@ -30,6 +30,11 @@ void AMShooterPlatform::Tick(float DeltaTime)
 
 void AMShooterPlatform::NotifyActorBeginOverlap(AActor* OtherActor)
 {
+	if (!IsValid(OtherActor))
+	{
+		return;
+	}
+
 	//If Player enters platform, then store current Shooting Speed value and apply new one
 	if (OtherActor->GetClass()->GetSuperClass() == AMShooterCharacter::StaticClass())
 	{
@@ -43,6 +48,11 @@ void AMShooterPlatform::NotifyActorBeginOverlap(AActor* OtherActor)
 
 void AMShooterPlatform::NotifyActorEndOverlap(AActor* OtherActor)
 {
+	if (!IsValid(OtherActor))
+	{
+		return;
+	}
+
 	//If Player leaves platform, then restore Shooting Speed to the value before entering
 	if (OtherActor->GetClass()->GetSuperClass() == AMShooterCharacter::StaticClass())
 	{

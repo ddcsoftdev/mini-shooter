@@ -75,7 +75,7 @@ void AMShooterProjectile::NotifyActorBeginOverlap(AActor* OtherActor)
 	if (ensureMsgf(RegisteredOwnerOfProjectile, TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *GetWorld()->GetClass()->GetName()))
 	{
 		//Safeguard against any possible contact with Owner
-		if (OtherActor == RegisteredOwnerOfProjectile)
+		if (!IsValid(OtherActor) || OtherActor == RegisteredOwnerOfProjectile)
 		{
 			return;
 		}

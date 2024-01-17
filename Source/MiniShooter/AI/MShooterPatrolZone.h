@@ -2,17 +2,22 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
-#include "GameFramework/Actor.h"
+#include <CoreMinimal.h>
+#include <GameFramework/Actor.h>
+
 #include "MShooterPatrolZone.generated.h"
 
 class AMShooterPatrolPoint;
 
 DECLARE_MULTICAST_DELEGATE_TwoParams(FRegisterPatrolPointUsage, class AActor*, bool bIsBeingUsed);
-
 DECLARE_MULTICAST_DELEGATE_OneParam(FSendPatrolPoint, class AActor*);
-
 DECLARE_MULTICAST_DELEGATE_OneParam(FPlayerIsInsideZone, bool bIsInside);
+
+/**
+* Actor that represents a Patrol Zone where Enemies can patrol.
+* It uses Patrol Points to define valid locations to patrol within it's boundries
+* It alerts Enemies of a Player entering and leaving the Patrol Zone
+*/
 UCLASS()
 class MINISHOOTER_API AMShooterPatrolZone : public AActor
 {
@@ -39,6 +44,18 @@ public:
 	*/
 		FPlayerIsInsideZone PlayerIsInsideZoneDelegate;
 
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
+
+	/**
+	* Wrapper function Try to return used Patrol Point from other classes
+	*/
+	UFUNCTION()
+		void TryToReturnPatrolPoint(AActor* PatrolPoint);
+
+	UFUNCTION()
+		void Initialize();
+
 protected:
 
 	/**
@@ -53,14 +70,11 @@ protected:
 	UPROPERTY()
 		TArray<AActor*> ActiveEnemies;
 
-
-
 	/**
 	* Get Available Patrol Points
 	*/
 	UFUNCTION()
 		AActor* GetAvailablePatrolPoint();
-
 
 	/**
 	* Register Available Patrol Points when not detected in Array
@@ -112,18 +126,5 @@ protected:
 
 	UFUNCTION()
 	virtual void NotifyActorEndOverlap(AActor* OtherActor) override;
-
-public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
-
-	/**
-	* Try to return used Patrol Point
-	*/
-	UFUNCTION()
-	void TryToReturnPatrolPoint(AActor* PatrolPoint);
-
-	UFUNCTION()
-	void Initialize();
 
 };

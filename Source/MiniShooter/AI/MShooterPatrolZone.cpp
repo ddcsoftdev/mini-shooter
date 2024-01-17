@@ -22,11 +22,16 @@ void AMShooterPatrolZone::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	//Bind Delegate to send new Patrol Points to Enemies within the Zone
 	SendPatrolPointDelegate.AddUObject(this, &AMShooterPatrolZone::SendPatrolPoint);
 
-	//Delay Initialization so All Actors load properly
-	FTimerHandle InitializeTimerHander;
-	GetWorld()->GetTimerManager().SetTimer(InitializeTimerHander, [&]() {Initialize(); }, 0.25f, false);
+	if (ensureMsgf(GetWorld(), TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *GetWorld()->GetClass()->GetName()))
+	{
+		//Initialize by Registering all Overlapping Actors and starting AI in relevant Enemies
+		//Delayed with a TimerHandle to allow all Actors to properly Spawn within level before attemping scan
+		FTimerHandle InitializeTimerHander;
+		GetWorld()->GetTimerManager().SetTimer(InitializeTimerHander, [&]() {Initialize(); }, 0.25f, false);
+	}
 }
 
 // Called every frame
@@ -39,74 +44,102 @@ void AMShooterPatrolZone::Tick(float DeltaTime)
 
 void AMShooterPatrolZone::NotifyActorBeginOverlap(AActor* OtherActor)
 {
+	if (!IsValid(OtherActor))
+	{
+		return;
+	}
+
 	if (OtherActor->GetClass()->GetSuperClass() == AMShooterPatrolPoint::StaticClass())
 	{
+		//Registering Patrol Point when found
 		RegisterPatrolPoint(OtherActor);
 	}
 	else if (OtherActor->GetClass()->GetSuperClass() == AMShooterEnemy::StaticClass())
 	{
+		//Registering Enemy when found
 		RegisterEnemy(OtherActor);
 	}
 	else if (OtherActor->GetClass()->GetSuperClass() == AMShooterCharacter::StaticClass())
 	{
+		//Alert all Enemies that Player has entered this Patrol Zone
 		PlayerIsInsideZoneDelegate.Broadcast(true);
 	}
 }
 
 void AMShooterPatrolZone::NotifyActorEndOverlap(AActor* OtherActor)
 {
+	if (!IsValid(OtherActor))
+	{
+		return;
+	}
+
 	if (OtherActor->GetClass()->GetSuperClass() == AMShooterPatrolPoint::StaticClass())
 	{
+		//Unregister Patrol Point if it ends overlap with Patrol Zone
 		UnRegisterPatrolPoint(OtherActor);
 	}
 	else if (OtherActor->GetClass()->GetSuperClass() == AMShooterEnemy::StaticClass())
 	{
+		//Unregister Enemy if it ends overlap with Patrol Zone
 		UnRegisterEnemy(OtherActor);
 	}
 	else if (OtherActor->GetClass()->GetSuperClass() == AMShooterCharacter::StaticClass())
 	{
+		//Alert all Enemies that Player has exited this Patrol Zone
 		PlayerIsInsideZoneDelegate.Broadcast(false);
 	}
 }
 
 void AMShooterPatrolZone::SendPatrolPoint(AActor* EnemyToSend)
 {
-	if (AActor* PatrolPoint = GetAvailablePatrolPoint())
+	if (IsValid(EnemyToSend))
 	{
-		if (AMShooterEnemy* Enemy = Cast<AMShooterEnemy>(EnemyToSend))
+		//Get a valid Patrol Point from TArray
+		if (AActor* PatrolPoint = GetAvailablePatrolPoint())
 		{
-			Enemy->UpdateAITargetLocation(PatrolPoint);
-			UnRegisterPatrolPoint(PatrolPoint);
+			if (AMShooterEnemy* Enemy = Cast<AMShooterEnemy>(EnemyToSend))
+			{
+				//Send the Enemy the validated new Patrol Point
+				Enemy->UpdateAITargetLocation(PatrolPoint);
+				//Unregister the sent Patrol Point from TArray
+				UnRegisterPatrolPoint(PatrolPoint);
+			}
 		}
 	}
 }
 
 void AMShooterPatrolZone::RegisterPatrolPoint(AActor* PatrolPoint)
 {
-	//Avoids adding patrol point twice
+	//Put Patrol Point into TArray
 	AvailablePatrolPoints.AddUnique(PatrolPoint);
 }
 
 void AMShooterPatrolZone::RegisterEnemy(AActor* Enemy)
 {
+	//Put Enemy into TArray
 	ActiveEnemies.AddUnique(Enemy);
 	if (AMShooterEnemy* CastedEnemy = Cast<AMShooterEnemy>(Enemy))
 	{
+		//Telling Enemy to register this as it's Patrol Zone
 		CastedEnemy->RegisterPatrolZone(this);
+		//Start AI Behaviour for Enemy
 		CastedEnemy->SetAIBehaviour(true);
 	}
 }
 
 void AMShooterPatrolZone::UnRegisterPatrolPoint(AActor* PatrolPoint)
 {
+	//Take Patrol Point out of TArray
 	AvailablePatrolPoints.RemoveSingle(PatrolPoint);
 }
 
 void AMShooterPatrolZone::UnRegisterEnemy(AActor* Enemy)
 {
+	//Take Enemy out of TArray
 	ActiveEnemies.RemoveSingle(Enemy);
 	if (AMShooterEnemy* CastedEnemy = Cast<AMShooterEnemy>(Enemy))
 	{
+		//Tell Enemy to delete reference for this Patrol Zone as it no longer belongs to it
 		CastedEnemy->UnRegisterPatrolZone(this);
 	}
 }
@@ -127,8 +160,8 @@ AActor* AMShooterPatrolZone::GetAvailablePatrolPoint()
 	{
 		return nullptr;
 	}
+	//Get valid random Patrol Poing for TArray
 	int32 Seed = FMath::RandRange(0, AvailablePatrolPoints.Num() - 1);
-
 	return AvailablePatrolPoints[Seed];
 }
 
@@ -139,11 +172,11 @@ void AMShooterPatrolZone::TryToReturnPatrolPoint(AActor* PatrolPoint)
 
 void AMShooterPatrolZone::Initialize()
 {
-	//Do Initial Scan for Actors
+	//Scan all overlapping Actors
 	TArray<AActor*> OverlappingActors;
 	GetOverlappingActors(OverlappingActors);
 
-	//First Scan Patrol Points
+	//Try to get all Patrol Points first, so they can be passed to Enemy upon registry
 	for (AActor* Actor : OverlappingActors)
 	{
 		if (Actor->GetClass()->GetSuperClass() == AMShooterPatrolPoint::StaticClass())
@@ -151,7 +184,7 @@ void AMShooterPatrolZone::Initialize()
 			RegisterPatrolPoint(Actor);
 		}
 	}
-	//Then do rest
+	//Scan for Enemies, and also Player if it happens to spawn within Patrol Zone
 	for (AActor* Actor : OverlappingActors)
 	{
 		if (Actor->GetClass()->GetSuperClass() == AMShooterEnemy::StaticClass())

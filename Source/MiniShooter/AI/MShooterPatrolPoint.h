@@ -6,6 +6,10 @@
 #include "GameFramework/Actor.h"
 #include "MShooterPatrolPoint.generated.h"
 
+/**
+* Class used to indicate Location for Enemies within a Patrol Zone
+* It has no furthuer functionality at the moment
+*/
 UCLASS()
 class MINISHOOTER_API AMShooterPatrolPoint : public AActor
 {

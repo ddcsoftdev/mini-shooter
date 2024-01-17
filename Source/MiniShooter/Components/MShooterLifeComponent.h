@@ -2,11 +2,14 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
-#include "Components/ActorComponent.h"
+#include <CoreMinimal.h>
+#include <Components/ActorComponent.h>
+
 #include "MShooterLifeComponent.generated.h"
 
-
+/**
+* Component that adds Health and it's relevant functionality to an Actor
+*/
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class MINISHOOTER_API UMShooterLifeComponent : public UActorComponent
 {
@@ -16,28 +19,6 @@ public:
 	// Sets default values for this component's properties
 	UMShooterLifeComponent();
 
-protected:
-
-	/**
-	* MaxHealth that can be set from Editor
-	*/
-	UPROPERTY(EditAnywhere, Category = "Life Settings")
-	float MaxHealth{ 100.f };
-
-	/**
-	* Main health metter for component
-	*/
-	float Health{ 0.f };
-
-	/**
-	* Kills component owner
-	*/
-	void KillOwner();
-
-	virtual void BeginPlay() override;
-
-
-public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
@@ -56,5 +37,23 @@ public:
 	*/
 	float GetMaxHealth() { return MaxHealth; };
 
-		
+protected:
+
+	/**
+	* MaxHealth that can be set from Editor
+	*/
+	UPROPERTY(EditAnywhere, Category = "Life Config")
+	float MaxHealth{ 100.f };
+
+	/**
+	* Main health metter for component
+	*/
+	float Health{ 0.f };
+
+	/**
+	* Kills component owner
+	*/
+	void KillOwner();
+
+	virtual void BeginPlay() override;	
 };
