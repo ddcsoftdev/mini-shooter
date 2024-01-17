@@ -105,8 +105,7 @@ void AMShooterCharacter::SetShootingSpeed(float NewSpeed)
 		//Sets the new Shooting Speed for the Player within the Shooting Component
 		ShootingComponent->SetShootingSpeed(NewSpeed);
 		//Resets the Shooting Cycle within Component in order to apply new Shooting Speeed value
-		ShootingComponent->StopShooting();
-		ShootingComponent->StartShooting();
+		ShootingComponent->RestartShootingTimer();
 	}
 }
 

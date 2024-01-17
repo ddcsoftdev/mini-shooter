@@ -47,11 +47,6 @@ void UMShooterShootingComponent::StartShooting()
 {
 	if (ensureMsgf(GetWorld(), TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *GetWorld()->GetClass()->GetName()))
 	{
-		//If TimerHandle is active, since it's set to loop, then exit method
-		if (GetWorld()->GetTimerManager().IsTimerActive(ShootingTimer))
-		{
-			return;
-		}
 		//Set control bool variable to true
 		bIsShooting = true;
 		//Trigger shoot immediatly, since TimerHandle has a delay before it Trigger first shot
@@ -72,9 +67,23 @@ void UMShooterShootingComponent::StopShooting()
 	}
 }
 
+void UMShooterShootingComponent::RestartShootingTimer()
+{
+	if (ensureMsgf(GetWorld(), TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *GetWorld()->GetClass()->GetName()))
+	{
+		GetWorld()->GetTimerManager().SetTimer(ShootingTimer, this, &UMShooterShootingComponent::TriggerShot, 1 / ShootingSpeed, true);
+	}
+
+}
+
 void UMShooterShootingComponent::TriggerShot()
 {
 	if (!ensureMsgf(GetOwner() && ProjectileBPReference, TEXT("%s couldn't load %s or %s at Runtime"), *GetClass()->GetName(), *GetOwner()->GetClass()->GetName(), *ProjectileBPReference->GetClass()->GetName()))
+	{
+		return;
+	}
+	//Check as a failsafe control variable to make sure it's supposed to Shoot
+	if (!bIsShooting)
 	{
 		return;
 	}
@@ -175,3 +184,4 @@ void UMShooterShootingComponent::AimingRotationAdjustment()
 		}
 	}
 }
+

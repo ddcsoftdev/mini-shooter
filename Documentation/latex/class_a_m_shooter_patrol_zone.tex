@@ -20,6 +20,8 @@ virtual void \mbox{\hyperlink{class_a_m_shooter_patrol_zone_a7e25daa870f7188899b
 void \mbox{\hyperlink{class_a_m_shooter_patrol_zone_a1c50e9621f55b34f344ddec3f78cd60b}{Try\+To\+Return\+Patrol\+Point}} (AActor \texorpdfstring{$\ast$}{*}Patrol\+Point)
 \item 
 void \mbox{\hyperlink{class_a_m_shooter_patrol_zone_a35a180779da67aafcf891bb4ee417d54}{Initialize}} ()
+\item 
+void \mbox{\hyperlink{class_a_m_shooter_patrol_zone_ad2379944be1a3a5befb499cf60aeb082}{Check\+If\+Player\+Still\+In\+Zone}} (AActor \texorpdfstring{$\ast$}{*}Enemy)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -61,8 +63,13 @@ virtual void \mbox{\hyperlink{class_a_m_shooter_patrol_zone_a53aea9e97e8e36696b5
 TArray$<$ AActor \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_a_m_shooter_patrol_zone_a7b8a81d468b36a84981de681c0730ad3}{Available\+Patrol\+Points}}
 \item 
 TArray$<$ AActor \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_a_m_shooter_patrol_zone_aaa3786cc8c847e6976647b45833f116c}{Active\+Enemies}}
+\item 
+bool \mbox{\hyperlink{class_a_m_shooter_patrol_zone_af103889bd3bc1d47d32c168e45b5f0af}{b\+Is\+Player\+In\+Zone}} \{ false \}
 \end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Actor that represents a Patrol Zone where Enemies can patrol. It uses Patrol Points to define valid locations to patrol within it\textquotesingle{}s boundries It alerts Enemies of a Player entering and leaving the Patrol Zone 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \Hypertarget{class_a_m_shooter_patrol_zone_a9e6d922d78988780d53abc82db942fb8}\label{class_a_m_shooter_patrol_zone_a9e6d922d78988780d53abc82db942fb8} 
@@ -80,7 +87,13 @@ TArray$<$ AActor \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_a_m_shoot
 \doxysubsubsection{\texorpdfstring{BeginPlay()}{BeginPlay()}}
 {\footnotesize\ttfamily void AMShooter\+Patrol\+Zone\+::\+Begin\+Play (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
 
-\Hypertarget{class_a_m_shooter_patrol_zone_ae8abdae45aabc2e1351e047d5e1fe7c0}\label{class_a_m_shooter_patrol_zone_ae8abdae45aabc2e1351e047d5e1fe7c0} 
+\Hypertarget{class_a_m_shooter_patrol_zone_ad2379944be1a3a5befb499cf60aeb082}\label{class_a_m_shooter_patrol_zone_ad2379944be1a3a5befb499cf60aeb082} 
+\index{AMShooterPatrolZone@{AMShooterPatrolZone}!CheckIfPlayerStillInZone@{CheckIfPlayerStillInZone}}
+\index{CheckIfPlayerStillInZone@{CheckIfPlayerStillInZone}!AMShooterPatrolZone@{AMShooterPatrolZone}}
+\doxysubsubsection{\texorpdfstring{CheckIfPlayerStillInZone()}{CheckIfPlayerStillInZone()}}
+{\footnotesize\ttfamily void AMShooter\+Patrol\+Zone\+::\+Check\+If\+Player\+Still\+In\+Zone (\begin{DoxyParamCaption}\item[{AActor \texorpdfstring{$\ast$}{*}}]{Enemy }\end{DoxyParamCaption})}
+
+Ensure that Enemy Should keep chaisng as a failsafe \Hypertarget{class_a_m_shooter_patrol_zone_ae8abdae45aabc2e1351e047d5e1fe7c0}\label{class_a_m_shooter_patrol_zone_ae8abdae45aabc2e1351e047d5e1fe7c0} 
 \index{AMShooterPatrolZone@{AMShooterPatrolZone}!GetAvailablePatrolPoint@{GetAvailablePatrolPoint}}
 \index{GetAvailablePatrolPoint@{GetAvailablePatrolPoint}!AMShooterPatrolZone@{AMShooterPatrolZone}}
 \doxysubsubsection{\texorpdfstring{GetAvailablePatrolPoint()}{GetAvailablePatrolPoint()}}
@@ -92,7 +105,7 @@ Get Available Patrol Points \Hypertarget{class_a_m_shooter_patrol_zone_a35a18077
 \doxysubsubsection{\texorpdfstring{Initialize()}{Initialize()}}
 {\footnotesize\ttfamily void AMShooter\+Patrol\+Zone\+::\+Initialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\Hypertarget{class_a_m_shooter_patrol_zone_aec8a13815c9c293833bad327203fc17f}\label{class_a_m_shooter_patrol_zone_aec8a13815c9c293833bad327203fc17f} 
+Initialize Component \Hypertarget{class_a_m_shooter_patrol_zone_aec8a13815c9c293833bad327203fc17f}\label{class_a_m_shooter_patrol_zone_aec8a13815c9c293833bad327203fc17f} 
 \index{AMShooterPatrolZone@{AMShooterPatrolZone}!NotifyActorBeginOverlap@{NotifyActorBeginOverlap}}
 \index{NotifyActorBeginOverlap@{NotifyActorBeginOverlap}!AMShooterPatrolZone@{AMShooterPatrolZone}}
 \doxysubsubsection{\texorpdfstring{NotifyActorBeginOverlap()}{NotifyActorBeginOverlap()}}
@@ -146,7 +159,7 @@ Register Available Patrol Points when not detected in Array \Hypertarget{class_a
 \doxysubsubsection{\texorpdfstring{TryToReturnPatrolPoint()}{TryToReturnPatrolPoint()}}
 {\footnotesize\ttfamily void AMShooter\+Patrol\+Zone\+::\+Try\+To\+Return\+Patrol\+Point (\begin{DoxyParamCaption}\item[{AActor \texorpdfstring{$\ast$}{*}}]{Patrol\+Point }\end{DoxyParamCaption})}
 
-Try to return used Patrol Point \Hypertarget{class_a_m_shooter_patrol_zone_a195c3ba2ffaeedd16d0457aab04a0266}\label{class_a_m_shooter_patrol_zone_a195c3ba2ffaeedd16d0457aab04a0266} 
+Wrapper function Try to return used Patrol Point from other classes \Hypertarget{class_a_m_shooter_patrol_zone_a195c3ba2ffaeedd16d0457aab04a0266}\label{class_a_m_shooter_patrol_zone_a195c3ba2ffaeedd16d0457aab04a0266} 
 \index{AMShooterPatrolZone@{AMShooterPatrolZone}!UnRegisterEnemy@{UnRegisterEnemy}}
 \index{UnRegisterEnemy@{UnRegisterEnemy}!AMShooterPatrolZone@{AMShooterPatrolZone}}
 \doxysubsubsection{\texorpdfstring{UnRegisterEnemy()}{UnRegisterEnemy()}}
@@ -173,7 +186,13 @@ Enemies within Patrol Zone \Hypertarget{class_a_m_shooter_patrol_zone_a7b8a81d46
 \doxysubsubsection{\texorpdfstring{AvailablePatrolPoints}{AvailablePatrolPoints}}
 {\footnotesize\ttfamily TArray$<$AActor\texorpdfstring{$\ast$}{*}$>$ AMShooter\+Patrol\+Zone\+::\+Available\+Patrol\+Points\hspace{0.3cm}{\ttfamily [protected]}}
 
-Available Patrol Points for this Zone \Hypertarget{class_a_m_shooter_patrol_zone_a9fb9874277359bd7e5c9159041f73b95}\label{class_a_m_shooter_patrol_zone_a9fb9874277359bd7e5c9159041f73b95} 
+Available Patrol Points for this Zone \Hypertarget{class_a_m_shooter_patrol_zone_af103889bd3bc1d47d32c168e45b5f0af}\label{class_a_m_shooter_patrol_zone_af103889bd3bc1d47d32c168e45b5f0af} 
+\index{AMShooterPatrolZone@{AMShooterPatrolZone}!bIsPlayerInZone@{bIsPlayerInZone}}
+\index{bIsPlayerInZone@{bIsPlayerInZone}!AMShooterPatrolZone@{AMShooterPatrolZone}}
+\doxysubsubsection{\texorpdfstring{bIsPlayerInZone}{bIsPlayerInZone}}
+{\footnotesize\ttfamily bool AMShooter\+Patrol\+Zone\+::b\+Is\+Player\+In\+Zone \{ false \}\hspace{0.3cm}{\ttfamily [protected]}}
+
+Control variable for Player within Zone \Hypertarget{class_a_m_shooter_patrol_zone_a9fb9874277359bd7e5c9159041f73b95}\label{class_a_m_shooter_patrol_zone_a9fb9874277359bd7e5c9159041f73b95} 
 \index{AMShooterPatrolZone@{AMShooterPatrolZone}!PlayerIsInsideZoneDelegate@{PlayerIsInsideZoneDelegate}}
 \index{PlayerIsInsideZoneDelegate@{PlayerIsInsideZoneDelegate}!AMShooterPatrolZone@{AMShooterPatrolZone}}
 \doxysubsubsection{\texorpdfstring{PlayerIsInsideZoneDelegate}{PlayerIsInsideZoneDelegate}}

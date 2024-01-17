@@ -20,7 +20,6 @@ UMShooterAIComponent::UMShooterAIComponent()
 	// ...
 }
 
-
 // Called when the game starts
 void UMShooterAIComponent::BeginPlay()
 {
@@ -28,166 +27,191 @@ void UMShooterAIComponent::BeginPlay()
 
 }
 
-
 // Called every frame
 void UMShooterAIComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
+	//Move Actor to desired location
 	MoveActor(DeltaTime);
 }
 
 void UMShooterAIComponent::ChangeState(EStateMachine NewState)
 {
-	if (!GetOwner())
+	if (!ensureMsgf(GetOwner() && GetWorld(), TEXT("%s couldn't load %s or %s at Runtime"), *GetClass()->GetName(), *GetOwner()->GetClass()->GetName(), *GetWorld()->GetClass()->GetName()))
 	{
 		return;
 	}
 
-	//Switch for functionality
+	//AI Functionality dependant on the State Machine
 	switch (NewState)
 	{
 		case EStateMachine::Idle:
-
+			//Do nothing on Idle
 			break;
 		case EStateMachine::Patrol:
+			//Patrol between Patrol Point within the active Patrol Zone
 			StartPatrolFunctionality();
-			if (GetWorld())
-			{
-				GetWorld()->GetTimerManager().SetTimer(InSameStateTimer, [&]() {StartRestFunctionality(); }, TimeBeforeResting, false);
-			}
-			else 
-			{
-				ChangeState(EStateMachine::Patrol);
-			}
-			break;
-		case EStateMachine::Chase:
-			StartChaseFunctionality();
-			if (GetWorld())
-			{
-				GetWorld()->GetTimerManager().SetTimer(InSameStateTimer, [&]() {StartRestFunctionality(); }, TimeBeforeResting, false);
-			}
-			else
-			{
-				ChangeState(EStateMachine::Chase);
-			}
-
-			break;
-		case EStateMachine::Rest:
-
-			break;
-		case EStateMachine::Attack:
+			//Set TimerHandle to transition to Rest State as per design
 			GetWorld()->GetTimerManager().SetTimer(InSameStateTimer, [&]() {StartRestFunctionality(); }, TimeBeforeResting, false);
 			break;
+		case EStateMachine::Chase:
+			//Chase Player within Patrol Zone
+			StartChaseFunctionality();
+			//Set TimerHandle to transition to Rest State as per design
+			GetWorld()->GetTimerManager().SetTimer(InSameStateTimer, [&]() {StartRestFunctionality(); }, TimeBeforeResting, false);
+			break;
+		case EStateMachine::Rest:
+			//Rest functionality is called with the Timer
+			//Rests for some time and then returns to previous state
+			break;
+		case EStateMachine::Attack:
+			//No current functionality added for this state
+			break;
 	}
+
+	//Keeping track of previous state as a reference point
 	PreviousState = ActiveState;
 	ActiveState = NewState;
 }
 
 void UMShooterAIComponent::StartRestFunctionality()
 {
-	if (!GetWorld())
+	if (ensureMsgf(GetWorld(), TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *GetWorld()->GetClass()->GetName()))
 	{
-		ChangeState(PreviousState);
-		return;
+		//This is called mainly to change the Enum since functionality resides here
+		ChangeState(EStateMachine::Rest);
+		//Set time for resting before returning to previous state
+		const float TimeToResumePrevState = TimeOfResting;
+		GetWorld()->GetTimerManager().SetTimer(InSameStateTimer, [&]() {ChangeState(PreviousState); }, TimeToResumePrevState, false);
 	}
-	ChangeState(EStateMachine::Rest);
-
-	const float TimeToResumePrevState = TimeOfResting;
-	GetWorld()->GetTimerManager().SetTimer(InSameStateTimer, [&]() {ChangeState(PreviousState); }, TimeToResumePrevState, false);
 }
 
 void UMShooterAIComponent::StartPatrolFunctionality()
 {
-	if (!GetOwner())
+	if (ensureMsgf(GetOwner(), TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *GetOwner()->GetClass()->GetName()))
 	{
-		return;
-	}
-
-	if (AMShooterEnemy* Enemy = Cast<AMShooterEnemy>(GetOwner()))
-	{
-		if (AMShooterPatrolZone* PatrolZone = Cast<AMShooterPatrolZone>(Enemy->GetActivePatrolZone()))
+		if (AMShooterEnemy* Enemy = Cast<AMShooterEnemy>(GetOwner()))
 		{
-			//This handles getting a new target location and add it it to the local variable TargetLocation
-			PatrolZone->SendPatrolPointDelegate.Broadcast(GetOwner());
+			if (AMShooterPatrolZone* PatrolZone = Cast<AMShooterPatrolZone>(Enemy->GetActivePatrolZone()))
+			{
+				//Asks Patrol Zone Delegate to send a new Patrol Point to reference it as the Actor's next Location
+				PatrolZone->SendPatrolPointDelegate.Broadcast(GetOwner());
+			}
 		}
 	}
 }
 
 void UMShooterAIComponent::StartChaseFunctionality()
 {
-	if (!GetWorld())
+	if (ensureMsgf(GetWorld(), TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *GetWorld()->GetClass()->GetName()))
 	{
-		return; 
+		if (ACharacter* Player = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0))
+		{
+			//Get Player and set it as it's new Location, this location will update every frame within MoveActor
+			TargetLocation = Player->GetActorLocation();
+		}
 	}
-
-	if (ACharacter* Player = UGameplayStatics::GetPlayerCharacter(GetOwner()->GetWorld(), 0))
+	else
 	{
-		TargetLocation = Player->GetActorLocation();
+		ChangeState(EStateMachine::Chase);
 	}
-	
 }
 
 void UMShooterAIComponent::MoveActor(float DeltaTime)
 {
-	if (!GetOwner() || !GetWorld() || (ActiveState != EStateMachine::Patrol && ActiveState != EStateMachine::Chase))
+	//Actor only moves on Patrol and Chase so return on rest
+	if (ActiveState != EStateMachine::Patrol && ActiveState != EStateMachine::Chase)
+	{
+		return;
+	}
+	if (!ensureMsgf(GetOwner() && GetWorld(), TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *GetOwner()->GetClass()->GetName() , *GetWorld()->GetClass()->GetName()))
 	{
 		return;
 	}
 
-	//Deal with possible vertical issues
+	//Try to avoid vertical issues where Actor is Spawned too close to the floor, and thus it get's stucked
+	//Also can work for stairs and level changes
 	FHitResult HitResult;
 	FVector CurrentLocation = GetOwner()->GetActorLocation();
 	const float TraceVerticalOffset = 400.f;
 	FVector FloorLocation = CurrentLocation - (GetOwner()->GetActorUpVector() * TraceVerticalOffset);
 	FCollisionQueryParams Collision;
 	Collision.AddIgnoredActor(GetOwner());
+	//Do a trace looking for the first object below (normally platform on which Actor is standing)
 	GetWorld()->LineTraceSingleByChannel(HitResult, CurrentLocation, FloorLocation, ECollisionChannel::ECC_Visibility,Collision);
-
-	if (HitResult.GetActor())
+	//Apply changes to vertical vector only
+	if (IsValid(HitResult.GetActor()))
 	{
-		const float Min = 20.f;
+		const float Min = 50.f;
+		//If distance to floor is less that Min, then add Min as height to current Actor Z vector
 		if (HitResult.Distance < Min)
 		{
+			//Set Actor Vertical Location
 			FVector CorrectedHeight = CurrentLocation + (GetOwner()->GetActorUpVector() * Min);
 			GetOwner()->SetActorLocation(CorrectedHeight, true);
 		}
 	}
 
-	//Move Forward
+	//This is used when checking if arrived at location, for Patrol is smaller than Chase to avoid Enemies bashing into each other
+	float ErrorPerctengateToLocation = 50.f;
+	if (ActiveState == EStateMachine::Chase)
+	{
+		//Adjusting this variable to avoid bashing between Enemies
+		ErrorPerctengateToLocation = 300.f;
+	}
+
+	//Check to verify if Actor has reached TargetLocation
+	if (GetOwner()->GetActorLocation().Equals(TargetLocation, ErrorPerctengateToLocation))
+	{
+
+		if (AMShooterEnemy* Enemy = Cast<AMShooterEnemy>(GetOwner()))
+		{
+			if (AMShooterPatrolZone* PatrolZone = Cast<AMShooterPatrolZone>(Enemy->GetActivePatrolZone()))
+			{
+				if (ActiveState == EStateMachine::Chase)
+				{
+					//Make sure that Enemy should still follow Player as a failsaife
+					PatrolZone->CheckIfPlayerStillInZone(GetOwner());
+				}
+				else
+				{
+					//This handles getting a new target location and add it it to the local variable TargetLocation
+					PatrolZone->SendPatrolPointDelegate.Broadcast(GetOwner());
+				}
+
+			}
+		}
+		//return to avoid Moving actor since it has arrived to location
+		return;
+	}
+
+	//Move Forward based on Current Location (which may be altered vertically)
 	CurrentLocation = GetOwner()->GetActorLocation();
 	FVector NewLocation;
 
 	if (ActiveState == EStateMachine::Chase)
 	{
-		if (ACharacter* Player = UGameplayStatics::GetPlayerCharacter(GetOwner()->GetWorld(), 0))
+		//If in Chase state use for NewLocation the Player Location and update this location each framse
+		if (ACharacter* Player = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0))
 		{
 			TargetLocation = Player->GetActorLocation();
 		}
+		//Apply Lerp with the current ChaseRunSpeed variable
 		const float Speed = 2 / ChaseRunSpeed;
 		const float AlphaTime = FMath::Clamp(DeltaTime / Speed, 0.0f, 1.0f);
 		NewLocation = UKismetMathLibrary::VLerp(CurrentLocation, TargetLocation, AlphaTime);
 	}
 	else
 	{
+		//Patrol does not need to update Location each frame as it takes the static location from the Patrol Point
+		//Apply Lerp with PatrolWalkSpeed
 		const float Speed = 2 / PatrolWalkSpeed;
 		const float AlphaTime = FMath::Clamp(DeltaTime / Speed, 0.0f, 1.0f);
 		NewLocation = UKismetMathLibrary::VLerp(CurrentLocation, TargetLocation, AlphaTime);
 	}
-
+	//Set Actor Forward Movement after checking that is safe to move
 	GetOwner()->SetActorLocation(NewLocation, true);
-
-	if (GetOwner()->GetActorLocation().Equals(TargetLocation, 50.f))
-	{
-		if (AMShooterEnemy* Enemy = Cast<AMShooterEnemy>(GetOwner()))
-		{
-			if (AMShooterPatrolZone* PatrolZone = Cast<AMShooterPatrolZone>(Enemy->GetActivePatrolZone()))
-			{
-				//This handles getting a new target location and add it it to the local variable TargetLocation
-				PatrolZone->SendPatrolPointDelegate.Broadcast(GetOwner());
-			}
-		}
-	}
 }
 
 void UMShooterAIComponent::StartPlayerChase()
@@ -207,6 +231,7 @@ void UMShooterAIComponent::SetTargetLocation(FVector NewLocation)
 
 void UMShooterAIComponent::SetAIBehaviour(bool bActivate)
 {
+	//Activates AI by Kickstarting Patrol, or Deactivates by switching to Idle
 	if (bActivate)
 	{
 		ChangeState(EStateMachine::Patrol);

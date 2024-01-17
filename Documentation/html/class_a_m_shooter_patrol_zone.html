@@ -99,6 +99,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a1c50e9621f55b34f344ddec3f78cd60b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35a180779da67aafcf891bb4ee417d54" id="r_a35a180779da67aafcf891bb4ee417d54"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a35a180779da67aafcf891bb4ee417d54">Initialize</a> ()</td></tr>
 <tr class="separator:a35a180779da67aafcf891bb4ee417d54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2379944be1a3a5befb499cf60aeb082" id="r_ad2379944be1a3a5befb499cf60aeb082"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad2379944be1a3a5befb499cf60aeb082">CheckIfPlayerStillInZone</a> (AActor *Enemy)</td></tr>
+<tr class="separator:ad2379944be1a3a5befb499cf60aeb082"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -140,8 +142,12 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a7b8a81d468b36a84981de681c0730ad3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa3786cc8c847e6976647b45833f116c" id="r_aaa3786cc8c847e6976647b45833f116c"><td class="memItemLeft" align="right" valign="top">TArray&lt; AActor * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaa3786cc8c847e6976647b45833f116c">ActiveEnemies</a></td></tr>
 <tr class="separator:aaa3786cc8c847e6976647b45833f116c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af103889bd3bc1d47d32c168e45b5f0af" id="r_af103889bd3bc1d47d32c168e45b5f0af"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af103889bd3bc1d47d32c168e45b5f0af">bIsPlayerInZone</a> { false }</td></tr>
+<tr class="separator:af103889bd3bc1d47d32c168e45b5f0af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Actor that represents a Patrol Zone where Enemies can patrol. It uses Patrol Points to define valid locations to patrol within it's boundries It alerts Enemies of a Player entering and leaving the Patrol Zone </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a9e6d922d78988780d53abc82db942fb8" name="a9e6d922d78988780d53abc82db942fb8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9e6d922d78988780d53abc82db942fb8">&#9670;&#160;</a></span>AMShooterPatrolZone()</h2>
 
@@ -185,6 +191,24 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="ad2379944be1a3a5befb499cf60aeb082" name="ad2379944be1a3a5befb499cf60aeb082"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2379944be1a3a5befb499cf60aeb082">&#9670;&#160;</a></span>CheckIfPlayerStillInZone()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AMShooterPatrolZone::CheckIfPlayerStillInZone </td>
+          <td>(</td>
+          <td class="paramtype">AActor *</td>          <td class="paramname"><span class="paramname"><em>Enemy</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Ensure that Enemy Should keep chaisng as a failsafe </p>
+
+</div>
+</div>
 <a id="ae8abdae45aabc2e1351e047d5e1fe7c0" name="ae8abdae45aabc2e1351e047d5e1fe7c0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae8abdae45aabc2e1351e047d5e1fe7c0">&#9670;&#160;</a></span>GetAvailablePatrolPoint()</h2>
 
@@ -225,6 +249,7 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Initialize Component </p>
 
 </div>
 </div>
@@ -446,7 +471,7 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Try to return used Patrol Point </p>
+<p>Wrapper function Try to return used Patrol Point from other classes </p>
 
 </div>
 </div>
@@ -546,6 +571,29 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Available Patrol Points for this Zone </p>
+
+</div>
+</div>
+<a id="af103889bd3bc1d47d32c168e45b5f0af" name="af103889bd3bc1d47d32c168e45b5f0af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af103889bd3bc1d47d32c168e45b5f0af">&#9670;&#160;</a></span>bIsPlayerInZone</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AMShooterPatrolZone::bIsPlayerInZone { false }</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Control variable for Player within Zone </p>
 
 </div>
 </div>

@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['unregisterenemy_0',['UnRegisterEnemy',['../class_a_m_shooter_patrol_zone.html#a195c3ba2ffaeedd16d0457aab04a0266',1,'AMShooterPatrolZone']]],
-  ['unregisterpatrolpoint_1',['UnRegisterPatrolPoint',['../class_a_m_shooter_patrol_zone.html#a9e0793777a2807fdc699d3e29a9f7584',1,'AMShooterPatrolZone']]],
-  ['unregisterpatrolzone_2',['UnRegisterPatrolZone',['../class_a_m_shooter_enemy.html#a6516184ebdad211a779e7d478129205b',1,'AMShooterEnemy']]],
-  ['updateaitargetlocation_3',['UpdateAITargetLocation',['../class_a_m_shooter_enemy.html#a72afdebc9f006820b94e06ba455ab317',1,'AMShooterEnemy']]],
-  ['updatehealthbarwidget_4',['UpdateHealthBarWidget',['../class_a_m_shooter_enemy.html#abceeadc1e5c4d64d0c4c16c097ae69d3',1,'AMShooterEnemy::UpdateHealthBarWidget()'],['../class_i_m_shooter_enemy_basics.html#a3426dfff365d10203be7d3c21b77b680',1,'IMShooterEnemyBasics::UpdateHealthBarWidget()'],['../class_a_m_shooter_target.html#affae585bcb41a2706993a5f44e5d0d87',1,'AMShooterTarget::UpdateHealthBarWidget()']]]
+  ['takedamageamount_0',['TakeDamageAmount',['../class_a_m_shooter_enemy.html#a2bf1f04eef2d5ee29c40db121552e1b1',1,'AMShooterEnemy::TakeDamageAmount()'],['../class_i_m_shooter_enemy_basics.html#a568989012b5396f2a845f272c8b1ce05',1,'IMShooterEnemyBasics::TakeDamageAmount()'],['../class_a_m_shooter_target.html#a20b1cbaedae7160c6efc5e126ab0feac',1,'AMShooterTarget::TakeDamageAmount()']]],
+  ['tick_1',['Tick',['../class_a_m_shooter_patrol_point.html#a35685e5bc5dbee4e9ff71c974f0791de',1,'AMShooterPatrolPoint::Tick()'],['../class_a_m_shooter_patrol_zone.html#a7e25daa870f7188899b3b657940d587e',1,'AMShooterPatrolZone::Tick()'],['../class_a_m_shooter_enemy.html#aea39b53bff1321bca96c5050ac543cf3',1,'AMShooterEnemy::Tick()'],['../class_a_m_shooter_target.html#a833bcc5838d08a3780a24ba09ae87bb0',1,'AMShooterTarget::Tick()'],['../class_a_m_shooter_platform.html#ac0c471bec633fec102f733798de1962e',1,'AMShooterPlatform::Tick()'],['../class_a_m_shooter_projectile.html#abbfc91a728135b86eca5241c76a0007c',1,'AMShooterProjectile::Tick()']]],
+  ['touchstarted_2',['TouchStarted',['../class_a_mini_shooter_character.html#a6729dd8da2223f168b2d4c59e7e105bc',1,'AMiniShooterCharacter']]],
+  ['touchstopped_3',['TouchStopped',['../class_a_mini_shooter_character.html#a63937efa6a77ed5c1642b3c86d820ed3',1,'AMiniShooterCharacter']]],
+  ['trytoreturnpatrolpoint_4',['TryToReturnPatrolPoint',['../class_a_m_shooter_patrol_zone.html#a1c50e9621f55b34f344ddec3f78cd60b',1,'AMShooterPatrolZone']]],
+  ['turnatrate_5',['TurnAtRate',['../class_a_mini_shooter_character.html#a358ca27832cd79404a3923a49f1898e0',1,'AMiniShooterCharacter']]]
 ];

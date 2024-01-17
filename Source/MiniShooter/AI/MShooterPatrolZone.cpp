@@ -63,6 +63,7 @@ void AMShooterPatrolZone::NotifyActorBeginOverlap(AActor* OtherActor)
 	{
 		//Alert all Enemies that Player has entered this Patrol Zone
 		PlayerIsInsideZoneDelegate.Broadcast(true);
+		bIsPlayerInZone = true;
 	}
 }
 
@@ -87,11 +88,20 @@ void AMShooterPatrolZone::NotifyActorEndOverlap(AActor* OtherActor)
 	{
 		//Alert all Enemies that Player has exited this Patrol Zone
 		PlayerIsInsideZoneDelegate.Broadcast(false);
+		bIsPlayerInZone = false;
 	}
 }
 
 void AMShooterPatrolZone::SendPatrolPoint(AActor* EnemyToSend)
 {
+	//As a safety meassure check that Player is not within Zone before sending a new Patrol Point
+	if (bIsPlayerInZone)
+	{
+		//If it is Notify Enemy and do not send a Patrol Point
+		PlayerIsInsideZoneDelegate.Broadcast(true);
+		return;
+	}
+
 	if (IsValid(EnemyToSend))
 	{
 		//Get a valid Patrol Point from TArray
@@ -137,11 +147,6 @@ void AMShooterPatrolZone::UnRegisterEnemy(AActor* Enemy)
 {
 	//Take Enemy out of TArray
 	ActiveEnemies.RemoveSingle(Enemy);
-	if (AMShooterEnemy* CastedEnemy = Cast<AMShooterEnemy>(Enemy))
-	{
-		//Tell Enemy to delete reference for this Patrol Zone as it no longer belongs to it
-		CastedEnemy->UnRegisterPatrolZone(this);
-	}
 }
 
 void AMShooterPatrolZone::NotifyPlayerEnteredZone(AActor* Enemy)
@@ -194,6 +199,24 @@ void AMShooterPatrolZone::Initialize()
 		else if (Actor->GetClass()->GetSuperClass() == AMiniShooterCharacter::StaticClass())
 		{
 			PlayerIsInsideZoneDelegate.Broadcast(true);
+		}
+	}
+}
+
+void AMShooterPatrolZone::CheckIfPlayerStillInZone(AActor* Enemy)
+{
+	if (IsValid(Enemy))
+	{
+		if (AMShooterEnemy* CastedEnemy = Cast<AMShooterEnemy>(Enemy))
+		{
+			if (bIsPlayerInZone)
+			{
+				PlayerIsInsideZoneDelegate.Broadcast(true);
+			}
+			else
+			{
+				PlayerIsInsideZoneDelegate.Broadcast(false);
+			}
 		}
 	}
 }

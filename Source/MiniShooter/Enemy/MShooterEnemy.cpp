@@ -116,7 +116,6 @@ void AMShooterEnemy::UnRegisterPatrolZone(AActor* PatrolZone)
 		{
 			if (ActivePatrolZone == PatrolZone)
 			{
-				//When Actor leaves Patrol Zone make sure the reference in variable is wiped
 				ActivePatrolZone = nullptr;
 			}
 		}

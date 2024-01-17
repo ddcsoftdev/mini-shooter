@@ -2,10 +2,14 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
-#include "Components/ActorComponent.h"
+#include <CoreMinimal.h>
+#include <Components/ActorComponent.h>
+
 #include "MShooterAIComponent.generated.h"
 
+/**
+* State Machine represented as an Enum for all possible AI States
+*/
 UENUM(BlueprintType)
 enum class EStateMachine : uint8
 {
@@ -16,6 +20,9 @@ enum class EStateMachine : uint8
 	Attack  UMETA(DisplayName = "Attack")
 };
 
+/**
+* AI Component that implements AI to any Actor
+*/
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class MINISHOOTER_API UMShooterAIComponent : public UActorComponent
 {
@@ -24,6 +31,33 @@ class MINISHOOTER_API UMShooterAIComponent : public UActorComponent
 public:	
 	// Sets default values for this component's properties
 	UMShooterAIComponent();
+
+	// Called every frame
+	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+
+	/**
+	* Alert that Player within Patrol Zone
+	*/
+	UFUNCTION()
+		void StartPlayerChase();
+
+	/**
+	* Alert that Player left Patrol Zone
+	*/
+	UFUNCTION()
+		void StopPlayerChase();
+
+	/**
+	* Set Target Location
+	*/
+	UFUNCTION()
+		void SetTargetLocation(FVector NewLocation);
+
+	/**
+	* Activate / Deactivate AI
+	*/
+	UFUNCTION()
+		void SetAIBehaviour(bool bActivate);
 
 protected:
 
@@ -107,33 +141,4 @@ protected:
 
 	// Called when the game starts
 	virtual void BeginPlay() override;
-
-public:	
-	// Called every frame
-	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
-
-	/**
-	* Alert that Player within Patrol Zone
-	*/
-	UFUNCTION()
-		void StartPlayerChase();
-
-	/**
-	* Alert that Player left Patrol Zone
-	*/
-	UFUNCTION()
-		void StopPlayerChase();
-
-	/**
-	* Set Target Location
-	*/
-	UFUNCTION()
-		void SetTargetLocation(FVector NewLocation);
-
-	/**
-	* Activate / Deactivate AI
-	*/
-	UFUNCTION()
-		void SetAIBehaviour(bool bActivate);
-		
 };

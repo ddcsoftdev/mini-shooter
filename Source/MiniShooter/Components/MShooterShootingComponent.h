@@ -80,6 +80,12 @@ public:
 	UFUNCTION()
 		float GetShootingSpeed() { return ShootingSpeed; };
 
+	/**
+	* Restart Shoot cycle for actions like change Shooting Speed
+	*/
+	UFUNCTION()
+		void RestartShootingTimer();
+
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;

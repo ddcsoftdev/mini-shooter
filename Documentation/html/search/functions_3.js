@@ -1,9 +1,6 @@
 var searchData=
 [
-  ['getactivepatrolzone_0',['GetActivePatrolZone',['../class_a_m_shooter_enemy.html#adebcd02ee46eb7693a0a094969f42db7',1,'AMShooterEnemy']]],
-  ['getavailablepatrolpoint_1',['GetAvailablePatrolPoint',['../class_a_m_shooter_patrol_zone.html#ae8abdae45aabc2e1351e047d5e1fe7c0',1,'AMShooterPatrolZone']]],
-  ['getcameraboom_2',['GetCameraBoom',['../class_a_mini_shooter_character.html#a84ddac74bfeac59325d3800150d053a7',1,'AMiniShooterCharacter']]],
-  ['getfollowcamera_3',['GetFollowCamera',['../class_a_mini_shooter_character.html#a78fa329da4546664d507c17694f839d9',1,'AMiniShooterCharacter']]],
-  ['getnearestenemy_4',['GetNearestEnemy',['../class_a_m_shooter_character.html#a0cf56846f1ed45242ee3a7cb89e72b19',1,'AMShooterCharacter']]],
-  ['getshootingspeed_5',['GetShootingSpeed',['../class_a_m_shooter_character.html#ac17c6392987cf4662260263780daf032',1,'AMShooterCharacter']]]
+  ['declare_5fmulticast_5fdelegate_0',['DECLARE_MULTICAST_DELEGATE',['../_m_shooter_controller_8h.html#a467cd442e80d77d09a23b135837383e7',1,'MShooterController.h']]],
+  ['declare_5fmulticast_5fdelegate_5foneparam_1',['DECLARE_MULTICAST_DELEGATE_OneParam',['../_m_shooter_patrol_zone_8h.html#ad11a2246576ed973eec55416c6e88894',1,'DECLARE_MULTICAST_DELEGATE_OneParam(FSendPatrolPoint, class AActor *):&#160;MShooterPatrolZone.h'],['../_m_shooter_patrol_zone_8h.html#af4d62d779910a8c1c20f9223ad865444',1,'DECLARE_MULTICAST_DELEGATE_OneParam(FPlayerIsInsideZone, bool bIsInside):&#160;MShooterPatrolZone.h'],['../_mini_shooter_game_mode_8h.html#a945dbf0a2814311cdfd8b37f64929589',1,'DECLARE_MULTICAST_DELEGATE_OneParam(FSendNearestEnemy, class AActor *):&#160;MiniShooterGameMode.h'],['../_mini_shooter_game_mode_8h.html#acc7fba304ae3e48f6dc24638cb6cbc83',1,'DECLARE_MULTICAST_DELEGATE_OneParam(FNotifyEnemyDead, class AActor *):&#160;MiniShooterGameMode.h'],['../_m_shooter_character_8h.html#a3e8859f8ce505781b94eb31a8c37ac03',1,'DECLARE_MULTICAST_DELEGATE_OneParam(FRequestNearestEnemy, class AActor *):&#160;MShooterCharacter.h'],['../_m_shooter_controller_8h.html#a49616659e0d6784e0edd11790a5e0d64',1,'DECLARE_MULTICAST_DELEGATE_OneParam(FSendShootRequest, bool):&#160;MShooterController.h']]],
+  ['declare_5fmulticast_5fdelegate_5ftwoparams_2',['DECLARE_MULTICAST_DELEGATE_TwoParams',['../_m_shooter_patrol_zone_8h.html#adbeaad881d266cb0d4b2858dc18d6923',1,'MShooterPatrolZone.h']]]
 ];

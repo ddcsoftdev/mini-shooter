@@ -53,8 +53,17 @@ public:
 	UFUNCTION()
 		void TryToReturnPatrolPoint(AActor* PatrolPoint);
 
+	/**
+	* Initialize Component
+	*/
 	UFUNCTION()
 		void Initialize();
+
+	/**
+	* Ensure that Enemy Should keep chaisng as a failsafe
+	*/
+	UFUNCTION()
+		void CheckIfPlayerStillInZone(AActor* Enemy);
 
 protected:
 
@@ -69,6 +78,12 @@ protected:
 	*/
 	UPROPERTY()
 		TArray<AActor*> ActiveEnemies;
+
+	/**
+	* Control variable for Player within Zone
+	*/
+	UPROPERTY()
+		bool bIsPlayerInZone{ false };
 
 	/**
 	* Get Available Patrol Points

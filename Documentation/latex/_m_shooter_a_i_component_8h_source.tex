@@ -6,89 +6,88 @@
 \DoxyCodeLine{00002\ }
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00004\ }
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}CoreMinimal.h"{}}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Components/ActorComponent.h"{}}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}MShooterAIComponent.generated.h"{}}}
-\DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ UENUM(BlueprintType)}
-\DoxyCodeLine{00010\ enum\ class\ \mbox{\hyperlink{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271}{EStateMachine}}\ :\ uint8}
-\DoxyCodeLine{00011\ \{}
-\DoxyCodeLine{00012\ \ \ \ \ Idle\ \ \ \ \mbox{\hyperlink{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271aa3f80d8f0f1b4ffa8c475f5d60ea5635}{UMETA}}(DisplayName\ =\ \textcolor{stringliteral}{"{}Idle"{}}),}
-\DoxyCodeLine{00013\ \ \ \ \ Patrol\ \ \mbox{\hyperlink{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271aa3f80d8f0f1b4ffa8c475f5d60ea5635}{UMETA}}(DisplayName\ =\ \textcolor{stringliteral}{"{}Patrol"{}}),}
-\DoxyCodeLine{00014\ \ \ \ \ Chase\ \ \ \mbox{\hyperlink{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271aa3f80d8f0f1b4ffa8c475f5d60ea5635}{UMETA}}(DisplayName\ =\ \textcolor{stringliteral}{"{}Chase"{}}),}
-\DoxyCodeLine{00015\ \ \ \ \ Rest\ \ \ \ \mbox{\hyperlink{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271aa3f80d8f0f1b4ffa8c475f5d60ea5635}{UMETA}}(DisplayName\ =\ \textcolor{stringliteral}{"{}Rest"{}}),}
-\DoxyCodeLine{00016\ \ \ \ \ Attack\ \ \mbox{\hyperlink{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271aa3f80d8f0f1b4ffa8c475f5d60ea5635}{UMETA}}(DisplayName\ =\ \textcolor{stringliteral}{"{}Attack"{}})}
-\DoxyCodeLine{00017\ \};}
-\DoxyCodeLine{00018\ }
-\DoxyCodeLine{00019\ UCLASS(\ ClassGroup=(Custom),\ meta=(BlueprintSpawnableComponent)\ )}
-\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }MINISHOOTER\_API\ UMShooterAIComponent\ :\ \textcolor{keyword}{public}\ UActorComponent}
-\DoxyCodeLine{00021\ \{}
-\DoxyCodeLine{00022\ \ \ \ \ GENERATED\_BODY()}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ public:\ }
-\DoxyCodeLine{00025\ \ \ \ \ \textcolor{comment}{//\ Sets\ default\ values\ for\ this\ component's\ properties}}
-\DoxyCodeLine{00026\ \ \ \ \ UMShooterAIComponent();}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ protected:}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00033\ \ \ \ \ UPROPERTY()}
-\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271}{EStateMachine}}\ ActiveState\ \{EStateMachine::Idle\};}
-\DoxyCodeLine{00035\ }
-\DoxyCodeLine{00039\ \ \ \ \ UPROPERTY()}
-\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271}{EStateMachine}}\ PreviousState\ \{EStateMachine::Idle\};}
-\DoxyCodeLine{00041\ }
-\DoxyCodeLine{00045\ \ \ \ \ UPROPERTY()}
-\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ FTimerHandle\ InSameStateTimer;}
-\DoxyCodeLine{00047\ }
-\DoxyCodeLine{00051\ \ \ \ \ UPROPERTY(EditAnywhere,\ Category\ =\ "{}AI\ Config"{})}
-\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ TimeBeforeResting\{\ 5.f\ \};}
-\DoxyCodeLine{00053\ }
-\DoxyCodeLine{00057\ \ \ \ \ UPROPERTY(EditAnywhere,\ Category\ =\ \textcolor{stringliteral}{"{}AI\ Config"{}})}
-\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ float\ TimeOfResting\{\ 3.f\ \};}
-\DoxyCodeLine{00059\ }
-\DoxyCodeLine{00063\ \ \ \ \ UPROPERTY(EditAnywhere,\ Category\ =\ \textcolor{stringliteral}{"{}AI\ Config"{}})}
-\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ float\ PatrolWalkSpeed\{\ 2.f\ \};}
-\DoxyCodeLine{00065\ }
-\DoxyCodeLine{00069\ \ \ \ \ UPROPERTY(EditAnywhere,\ Category\ =\ \textcolor{stringliteral}{"{}AI\ Config"{}})}
-\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ float\ ChaseRunSpeed\{\ 4.f\ \};}
-\DoxyCodeLine{00071\ }
-\DoxyCodeLine{00075\ \ \ \ \ UPROPERTY()}
-\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ FVector\ TargetLocation\{\ FVector::ZeroVector\ \};}
-\DoxyCodeLine{00077\ }
-\DoxyCodeLine{00081\ \ \ \ \ UFUNCTION()}
-\DoxyCodeLine{00082\ \ \ \ \ void\ ChangeState(\mbox{\hyperlink{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271}{EStateMachine}}\ NewState);}
-\DoxyCodeLine{00083\ }
-\DoxyCodeLine{00087\ \ \ \ \ UFUNCTION()}
-\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ StartRestFunctionality();}
-\DoxyCodeLine{00089\ }
-\DoxyCodeLine{00093\ \ \ \ \ UFUNCTION()}
-\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ StartPatrolFunctionality();}
-\DoxyCodeLine{00095\ }
-\DoxyCodeLine{00099\ \ \ \ \ UFUNCTION()}
-\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ StartChaseFunctionality();}
-\DoxyCodeLine{00101\ }
-\DoxyCodeLine{00105\ \ \ \ \ UFUNCTION()}
-\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ MoveActor(\textcolor{keywordtype}{float}\ DeltaTime);}
-\DoxyCodeLine{00107\ }
-\DoxyCodeLine{00108\ \ \ \ \ \textcolor{comment}{//\ Called\ when\ the\ game\ starts}}
-\DoxyCodeLine{00109\ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ BeginPlay()\ override;}
-\DoxyCodeLine{00110\ }
-\DoxyCodeLine{00111\ public:\ }
-\DoxyCodeLine{00112\ \ \ \ \ \textcolor{comment}{//\ Called\ every\ frame}}
-\DoxyCodeLine{00113\ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ TickComponent(\textcolor{keywordtype}{float}\ DeltaTime,\ ELevelTick\ TickType,\ FActorComponentTickFunction*\ ThisTickFunction)\ override;}
-\DoxyCodeLine{00114\ }
-\DoxyCodeLine{00118\ \ \ \ \ UFUNCTION()}
-\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ StartPlayerChase();}
-\DoxyCodeLine{00120\ }
-\DoxyCodeLine{00124\ \ \ \ \ UFUNCTION()}
-\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ StopPlayerChase();}
-\DoxyCodeLine{00126\ }
-\DoxyCodeLine{00130\ \ \ \ \ UFUNCTION()}
-\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetTargetLocation(FVector\ NewLocation);}
-\DoxyCodeLine{00132\ }
-\DoxyCodeLine{00136\ \ \ \ \ UFUNCTION()}
-\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetAIBehaviour(\textcolor{keywordtype}{bool}\ bActivate);}
-\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00139\ \};}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <CoreMinimal.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <Components/ActorComponent.h>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}MShooterAIComponent.generated.h"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00013\ UENUM(BlueprintType)}
+\DoxyCodeLine{00014\ enum\ class\ \mbox{\hyperlink{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271}{EStateMachine}}\ :\ uint8}
+\DoxyCodeLine{00015\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ Idle\ \ \ \ \mbox{\hyperlink{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271aa3f80d8f0f1b4ffa8c475f5d60ea5635}{UMETA}}(DisplayName\ =\ \textcolor{stringliteral}{"{}Idle"{}}),}
+\DoxyCodeLine{00017\ \ \ \ \ Patrol\ \ \mbox{\hyperlink{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271aa3f80d8f0f1b4ffa8c475f5d60ea5635}{UMETA}}(DisplayName\ =\ \textcolor{stringliteral}{"{}Patrol"{}}),}
+\DoxyCodeLine{00018\ \ \ \ \ Chase\ \ \ \mbox{\hyperlink{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271aa3f80d8f0f1b4ffa8c475f5d60ea5635}{UMETA}}(DisplayName\ =\ \textcolor{stringliteral}{"{}Chase"{}}),}
+\DoxyCodeLine{00019\ \ \ \ \ Rest\ \ \ \ \mbox{\hyperlink{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271aa3f80d8f0f1b4ffa8c475f5d60ea5635}{UMETA}}(DisplayName\ =\ \textcolor{stringliteral}{"{}Rest"{}}),}
+\DoxyCodeLine{00020\ \ \ \ \ Attack\ \ \mbox{\hyperlink{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271aa3f80d8f0f1b4ffa8c475f5d60ea5635}{UMETA}}(DisplayName\ =\ \textcolor{stringliteral}{"{}Attack"{}})}
+\DoxyCodeLine{00021\ \};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00026\ UCLASS(\ ClassGroup=(Custom),\ meta=(BlueprintSpawnableComponent)\ )}
+\DoxyCodeLine{00027\ \textcolor{keyword}{class\ }MINISHOOTER\_API\ UMShooterAIComponent\ :\ \textcolor{keyword}{public}\ UActorComponent}
+\DoxyCodeLine{00028\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ GENERATED\_BODY()}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ public:\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{comment}{//\ Sets\ default\ values\ for\ this\ component's\ properties}}
+\DoxyCodeLine{00033\ \ \ \ \ UMShooterAIComponent();}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{comment}{//\ Called\ every\ frame}}
+\DoxyCodeLine{00036\ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ TickComponent(\textcolor{keywordtype}{float}\ DeltaTime,\ ELevelTick\ TickType,\ FActorComponentTickFunction*\ ThisTickFunction)\ override;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00041\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ StartPlayerChase();}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00047\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ StopPlayerChase();}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00053\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetTargetLocation(FVector\ NewLocation);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00059\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetAIBehaviour(\textcolor{keywordtype}{bool}\ bActivate);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ protected:}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00067\ \ \ \ \ UPROPERTY()}
+\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271}{EStateMachine}}\ ActiveState\ \{EStateMachine::Idle\};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00073\ \ \ \ \ UPROPERTY()}
+\DoxyCodeLine{00074\ \ \ \ \ \mbox{\hyperlink{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271}{EStateMachine}}\ PreviousState\ \{EStateMachine::Idle\};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00079\ \ \ \ \ UPROPERTY()}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ FTimerHandle\ InSameStateTimer;}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00085\ \ \ \ \ UPROPERTY(EditAnywhere,\ Category\ =\ "{}AI\ Config"{})}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ TimeBeforeResting\{\ 5.f\ \};}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00091\ \ \ \ \ UPROPERTY(EditAnywhere,\ Category\ =\ \textcolor{stringliteral}{"{}AI\ Config"{}})}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ float\ TimeOfResting\{\ 3.f\ \};}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00097\ \ \ \ \ UPROPERTY(EditAnywhere,\ Category\ =\ \textcolor{stringliteral}{"{}AI\ Config"{}})}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ float\ PatrolWalkSpeed\{\ 2.f\ \};}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00103\ \ \ \ \ UPROPERTY(EditAnywhere,\ Category\ =\ \textcolor{stringliteral}{"{}AI\ Config"{}})}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ float\ ChaseRunSpeed\{\ 4.f\ \};}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00109\ \ \ \ \ UPROPERTY()}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ FVector\ TargetLocation\{\ FVector::ZeroVector\ \};}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00115\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00116\ \ \ \ \ void\ ChangeState(\mbox{\hyperlink{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271}{EStateMachine}}\ NewState);}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00121\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ StartRestFunctionality();}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00127\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ StartPatrolFunctionality();}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00133\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ StartChaseFunctionality();}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00139\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ MoveActor(\textcolor{keywordtype}{float}\ DeltaTime);}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{comment}{//\ Called\ when\ the\ game\ starts}}
+\DoxyCodeLine{00143\ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ BeginPlay()\ override;}
+\DoxyCodeLine{00144\ \};}
 
 \end{DoxyCode}
