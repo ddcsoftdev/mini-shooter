@@ -52,18 +52,32 @@ void UMShooterAIComponent::ChangeState(EStateMachine NewState)
 			break;
 		case EStateMachine::Patrol:
 			StartPatrolFunctionality();
-			GetOwner()->GetWorld()->GetTimerManager().SetTimer(InSameStateTimer, [&]() {StartRestFunctionality(); }, TimeBeforeResting, false);
+			if (GetWorld())
+			{
+				GetWorld()->GetTimerManager().SetTimer(InSameStateTimer, [&]() {StartRestFunctionality(); }, TimeBeforeResting, false);
+			}
+			else 
+			{
+				ChangeState(EStateMachine::Patrol);
+			}
 			break;
 		case EStateMachine::Chase:
 			StartChaseFunctionality();
-			GetOwner()->GetWorld()->GetTimerManager().SetTimer(InSameStateTimer, [&]() {StartRestFunctionality(); }, TimeBeforeResting, false);
+			if (GetWorld())
+			{
+				GetWorld()->GetTimerManager().SetTimer(InSameStateTimer, [&]() {StartRestFunctionality(); }, TimeBeforeResting, false);
+			}
+			else
+			{
+				ChangeState(EStateMachine::Chase);
+			}
 
 			break;
 		case EStateMachine::Rest:
 
 			break;
 		case EStateMachine::Attack:
-			GetOwner()->GetWorld()->GetTimerManager().SetTimer(InSameStateTimer, [&]() {StartRestFunctionality(); }, TimeBeforeResting, false);
+			GetWorld()->GetTimerManager().SetTimer(InSameStateTimer, [&]() {StartRestFunctionality(); }, TimeBeforeResting, false);
 			break;
 	}
 	PreviousState = ActiveState;
@@ -72,10 +86,15 @@ void UMShooterAIComponent::ChangeState(EStateMachine NewState)
 
 void UMShooterAIComponent::StartRestFunctionality()
 {
+	if (!GetWorld())
+	{
+		ChangeState(PreviousState);
+		return;
+	}
 	ChangeState(EStateMachine::Rest);
 
 	const float TimeToResumePrevState = TimeOfResting;
-	GetOwner()->GetWorld()->GetTimerManager().SetTimer(InSameStateTimer, [&]() {ChangeState(PreviousState); }, TimeToResumePrevState, false);
+	GetWorld()->GetTimerManager().SetTimer(InSameStateTimer, [&]() {ChangeState(PreviousState); }, TimeToResumePrevState, false);
 }
 
 void UMShooterAIComponent::StartPatrolFunctionality()
@@ -97,6 +116,11 @@ void UMShooterAIComponent::StartPatrolFunctionality()
 
 void UMShooterAIComponent::StartChaseFunctionality()
 {
+	if (!GetWorld())
+	{
+		return; 
+	}
+
 	if (ACharacter* Player = UGameplayStatics::GetPlayerCharacter(GetOwner()->GetWorld(), 0))
 	{
 		TargetLocation = Player->GetActorLocation();
@@ -106,7 +130,7 @@ void UMShooterAIComponent::StartChaseFunctionality()
 
 void UMShooterAIComponent::MoveActor(float DeltaTime)
 {
-	if (!GetOwner() || (ActiveState != EStateMachine::Patrol && ActiveState != EStateMachine::Chase))
+	if (!GetOwner() || !GetWorld() || (ActiveState != EStateMachine::Patrol && ActiveState != EStateMachine::Chase))
 	{
 		return;
 	}
@@ -118,7 +142,7 @@ void UMShooterAIComponent::MoveActor(float DeltaTime)
 	FVector FloorLocation = CurrentLocation - (GetOwner()->GetActorUpVector() * TraceVerticalOffset);
 	FCollisionQueryParams Collision;
 	Collision.AddIgnoredActor(GetOwner());
-	GetOwner()->GetWorld()->LineTraceSingleByChannel(HitResult, CurrentLocation, FloorLocation, ECollisionChannel::ECC_Visibility,Collision);
+	GetWorld()->LineTraceSingleByChannel(HitResult, CurrentLocation, FloorLocation, ECollisionChannel::ECC_Visibility,Collision);
 
 	if (HitResult.GetActor())
 	{

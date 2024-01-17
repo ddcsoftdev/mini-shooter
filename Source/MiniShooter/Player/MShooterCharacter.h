@@ -29,6 +29,18 @@ public:
 	UFUNCTION()
 	AActor* RequestGetAimedEnemy();
 
+	/**
+	* Set new Shooting speed
+	*/
+	UFUNCTION()
+	void SetShootingSpeed(float NewSpeed);
+
+	/**
+	* Get new Shooting speed
+	*/
+	UFUNCTION()
+		float GetShootingSpeed();
+
 protected:
 
 	/**

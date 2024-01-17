@@ -101,3 +101,26 @@ AActor* AMShooterCharacter::RequestGetAimedEnemy()
 	
 	return ShootingComponent->GetCurrentAimedEnemy();
 }
+
+void AMShooterCharacter::SetShootingSpeed(float NewSpeed)
+{
+	if (!ShootingComponent)
+	{
+		return;
+	}
+
+	ShootingComponent->SetShootingSpeed(NewSpeed);
+	//Reset cycle
+	ShootingComponent->StopShooting();
+	ShootingComponent->StartShooting();
+}
+
+float AMShooterCharacter::GetShootingSpeed()
+{
+	if (!ShootingComponent)
+	{
+		return 0.f;
+	}
+
+	return ShootingComponent->GetShootingSpeed();
+}

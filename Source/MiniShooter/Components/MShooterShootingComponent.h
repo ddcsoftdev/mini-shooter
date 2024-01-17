@@ -43,7 +43,7 @@ protected:
 	* Shooting cadence
 	*/
 	UPROPERTY(EditAnywhere, Category = "Shooting Speed")
-	float ShootingCadence{ 0.5f };
+	float ShootingSpeed{ 5.f };
 
 
 	/**
@@ -128,5 +128,17 @@ public:
 	*/
 	UFUNCTION()
 		AActor* GetCurrentAimedEnemy() { return CurrentAimedEnemy; };
+
+	/**
+	* Set Projectile Speed
+	*/
+	UFUNCTION()
+		void SetShootingSpeed(float NewSpeed) { ShootingSpeed = NewSpeed; };
+
+	/**
+	* Get Projectile Speed
+	*/
+	UFUNCTION()
+		float GetShootingSpeed() { return ShootingSpeed; };
 
 };
