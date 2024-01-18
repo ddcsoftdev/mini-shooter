@@ -8,6 +8,7 @@
 #include "Player/MShooterCharacter.h"
 #include "Enemy/MShooterEnemy.h"
 #include "Enemy/MShooterTarget.h"
+#include "UI/MShooterHUD.h"
 
 
 AMiniShooterGameMode::AMiniShooterGameMode()
@@ -82,6 +83,8 @@ void AMiniShooterGameMode::RemoveDeadEnemyFromActiveEnemies(AActor* DeadEnemy)
 {
 	//Remove Enemy from array when it notifies death
 	ActiveEnemies.RemoveSingle(DeadEnemy);
+	//Updated Killed Enemies Counter
+	KilledEnemiesCount++;
 
 	//If killed enemy was the Aimed Target, get another target if available
 	if (AMShooterCharacter* Player = Cast<AMShooterCharacter>(UGameplayStatics::GetPlayerCharacter(this, 0)))
@@ -94,4 +97,17 @@ void AMiniShooterGameMode::RemoveDeadEnemyFromActiveEnemies(AActor* DeadEnemy)
 			}
 		}
 	}
+	//Updating KillCount Widget
+	if (ensureMsgf(GetWorld(), TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *GetWorld()->GetClass()->GetName()))
+	{
+		
+		if (APlayerController* PlayerController = UGameplayStatics::GetPlayerController(GetWorld(), 0))
+		{
+			if (AMShooterHUD* HUD = Cast<AMShooterHUD>(PlayerController->GetHUD()))
+			{
+				HUD->UpdateKillCountDelegate.Broadcast(KilledEnemiesCount);
+			}
+		}
+	}
+
 }

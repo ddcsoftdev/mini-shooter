@@ -12,8 +12,8 @@
 
 #include "../Components/MShooterLifeComponent.h"
 #include "../Components/MShooterShootingComponent.h"
+#include "../Components/MShooterAIComponent.h"
 #include "../UI/MShooterHealthBarWidget.h"
-#include "../AI/MShooterAIComponent.h"
 #include "../AI/MShooterPatrolZone.h"
 
 // Sets default values

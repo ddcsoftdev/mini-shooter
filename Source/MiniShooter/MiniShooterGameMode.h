@@ -33,10 +33,14 @@ public:
 
 protected:
 
+
+	UPROPERTY()
+		int32 KilledEnemiesCount { 0 };
 	/**
 	* All active Enemies on map
 	*/
-	TArray<AActor*> ActiveEnemies;
+	UPROPERTY()
+		TArray<AActor*> ActiveEnemies;
 
 	/**
 	* Scan for all active enemies in map
