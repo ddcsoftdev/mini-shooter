@@ -40,6 +40,8 @@ public:
 
 	/**
 	* Start Aiming
+ 	*
+  	* @param NearestEnemy Sends the target to aim to
 	*/
 	UFUNCTION()
 		void StartAiming(AActor* NearestEnemy);
@@ -52,30 +54,40 @@ public:
 
 	/**
 	* Get Is Shooting
+ 	*
+  	* @return If Actor is shooting
 	*/
 	UFUNCTION()
 		bool GetIsShooting() { return bIsShooting; };
 
 	/**
 	* Get Is Aiming
+ 	*
+  	* @return If Actor is aiming
 	*/
 	UFUNCTION()
 		bool GetIsAiming() { return bIsAiming; };
 
 	/**
 	* Get Current Aimed Enemy
+ 	*
+  	* @return The Enemy that is being currently aimed at
 	*/
 	UFUNCTION()
 		AActor* GetCurrentAimedEnemy() { return CurrentAimedEnemy; };
 
 	/**
 	* Set Projectile Speed
+ 	*
+  	* @param NewSpeed Value for the new ShootingSpeed
 	*/
 	UFUNCTION()
 		void SetShootingSpeed(float NewSpeed) { ShootingSpeed = NewSpeed; };
 
 	/**
 	* Get Projectile Speed
+ 	*
+  	* @return The current value for ShootingSpeed
 	*/
 	UFUNCTION()
 		float GetShootingSpeed() { return ShootingSpeed; };
@@ -100,20 +112,19 @@ protected:
 	* Override the speed of the projectile
 	*/
 	UPROPERTY(EditAnywhere, Category = "Shooting Config")
-	bool bOverrideProjectileSpeed{ true };
+		bool bOverrideProjectileSpeed{ true };
 
 	/**
 	* Speed for overriding the Projectile Speed
 	*/
 	UPROPERTY(EditAnywhere, Category = "Shooting Config")
-	float ProjectileSpeed{ 40.f };
+		float ProjectileSpeed{ 40.f };
 
 	/**
 	* Shooting cadence
 	*/
 	UPROPERTY(EditAnywhere, Category = "Shooting Config")
-	float ShootingSpeed{ 5.f };
-
+		float ShootingSpeed{ 5.f };
 
 	/**
 	* Is Player bShooting
@@ -137,7 +148,7 @@ protected:
 	* Reference for Projectile BP
 	*/
 	UPROPERTY()
-	TSubclassOf<AMShooterProjectile> ProjectileBPReference;
+		TSubclassOf<AMShooterProjectile> ProjectileBPReference;
 
 	/**
 	* Trigger Shot
