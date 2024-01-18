@@ -244,6 +244,7 @@ void UMShooterAIComponent::SetAIBehaviour(bool bActivate)
 
 void UMShooterAIComponent::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
+	//This may trigger in unharmful way on exit Game, but it fixes possible crash during gameplay
 	if (ensureMsgf(IsValid(GetWorld()), TEXT("%s faced error at Runtime"), *GetClass()->GetName()))
 	{
 		//Clear TimerHandle for safety

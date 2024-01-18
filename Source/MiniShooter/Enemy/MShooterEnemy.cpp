@@ -71,6 +71,11 @@ void AMShooterEnemy::SetHealthWidgetRotation()
 
 void AMShooterEnemy::UpdateHealthBarWidget(float MaxHealth, float CurrentHealth)
 {
+	//This fixes bug caught with ensure
+	if (CurrentHealth <= 0)
+	{
+		return;
+	}
 	if (ensureMsgf(IsValid(HealthWidget), TEXT("%s faced error at Runtime"), *GetClass()->GetName()))
 	{
 		if (UMShooterHealthBarWidget* HealthBar = Cast<UMShooterHealthBarWidget>(HealthWidget->GetWidget()))
