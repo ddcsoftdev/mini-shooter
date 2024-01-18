@@ -41,15 +41,17 @@ protected:
 
 	/**
 	* Broadcast Shoot Delegate to Start or Stop
+ 	*
+  	* @param bStart Value to request start or stop shooting
 	*/
 	UFUNCTION()
-	void RequestShoot(bool bStart);
+		void RequestShoot(bool bStart);
 
 	/**
 	* Broadcast Aim Delegate to Toggle Start or Stop
 	*/
 	UFUNCTION()
-	void RequestAim();
+		void RequestAim();
 
 	virtual void BeginPlay() override;
 };
