@@ -138,7 +138,7 @@ protected:
 	/**
 	* Notify all enemies player has left zone
  	*
-  	* @paramo Enemy Actor that is sending the request
+  	* @param Enemy Actor that is sending the request
 	*/
 	UFUNCTION()
 		void NotifyPlayerLeftZone(AActor* Enemy);
