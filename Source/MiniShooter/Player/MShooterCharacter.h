@@ -32,6 +32,8 @@ public:
 	/**
 	* Get Current Aimed Enemy
 	* This method does not Sanitize so nullptr is plausible
+ 	*
+  	* @return Gets requested aimed actor
 	*/
 	UFUNCTION()
 		AActor* RequestGetAimedEnemy();
@@ -47,6 +49,8 @@ public:
 	/**
 	* Get new Shooting speed
 	* It returns -1.f if error occurs
+ 	*
+  	* @param Gets the value of ShootingSpeed
 	*/
 	UFUNCTION()
 		float GetShootingSpeed();
