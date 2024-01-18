@@ -49,12 +49,16 @@ public:
 
 	/**
 	* Set Target Location
+ 	*
+  	* @param NewLocation Vector that determines the new location
 	*/
 	UFUNCTION()
 		void SetTargetLocation(FVector NewLocation);
 
 	/**
 	* Activate / Deactivate AI
+ 	*
+  	* @param bActivate Used to Activate or Deactivate AI
 	*/
 	UFUNCTION()
 		void SetAIBehaviour(bool bActivate);
@@ -65,13 +69,13 @@ protected:
 	* State Machine for AI
 	*/
 	UPROPERTY()
-	EStateMachine ActiveState {EStateMachine::Idle};
+		EStateMachine ActiveState {EStateMachine::Idle};
 
 	/**
 	* Previous State Track for AI
 	*/
 	UPROPERTY()
-	EStateMachine PreviousState {EStateMachine::Idle};
+		EStateMachine PreviousState {EStateMachine::Idle};
 
 	/**
 	* Same State Timer Handle Tracker
@@ -110,10 +114,12 @@ protected:
 		FVector TargetLocation{ FVector::ZeroVector };
 
 	/**
-	* Change State method
+	* Change State method for the current AI functionality
+ 	*
+  	* @param NewState AI State that we want to transition to
 	*/
 	UFUNCTION()
-	void ChangeState(EStateMachine NewState);
+		void ChangeState(EStateMachine NewState);
 
 	/**
 	* State Functionality: Rest
@@ -135,6 +141,8 @@ protected:
 
 	/**
 	* Method that moves actor if allowed by state
+ 	*
+  	* @param DeltaTime Takes a DeltaTime value 
 	*/
 	UFUNCTION()
 		void MoveActor(float DeltaTime);
