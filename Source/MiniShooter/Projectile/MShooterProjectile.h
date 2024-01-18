@@ -24,13 +24,19 @@ public:
 
 	/**
 	* Override projectile speed. This is an option giving to the shooting user and handled by MShooterShootingCcomponent.
-	*/
-	void OverrideProjectileSpeed(float OverrideProjectileSpeed);
+	*
+ 	* @param OverrideProjectileSpeed Value to change the speed of the projectile
+ 	*/
+	UFUNCTION()
+		void OverrideProjectileSpeed(float OverrideProjectileSpeed);
 
 	/**
 	* Set Registered Owner
+ 	*
+  	* @param RegisterOwner Actor to register as the Owner of the projectile
 	*/
-	void RegisterProjectileOwner(AActor* RegisterOwner);
+	UFUNCTION()
+		void RegisterProjectileOwner(AActor* RegisterOwner);
 
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -47,19 +53,19 @@ protected:
 	* Speed for the projectile
 	*/
 	UPROPERTY(EditAnywhere, Category = "Projectile Config")
-	float ProjectileSpeed{ 10.f };
+		float ProjectileSpeed{ 10.f };
 
 	/**
 	* Damage for the projectile
 	*/
 	UPROPERTY(EditAnywhere, Category = "Projectile Config")
-	float ProjectileDamage{ 25.f };
+		float ProjectileDamage{ 25.f };
 
 	/**
 	* Timer handle for Destroy Actor
 	*/
 	UPROPERTY()
-	FTimerHandle DestroyTimerHandle;
+		FTimerHandle DestroyTimerHandle;
 
 	/**
 	* Time To Destroy after Spawning. Used to avoid uncesseary unused projectiles stacking up in map
@@ -71,29 +77,31 @@ protected:
 	* Registered Owner of this Projectile
 	*/
 	UPROPERTY()
-	AActor* RegisteredOwnerOfProjectile;
+		AActor* RegisteredOwnerOfProjectile;
 
 	/**
-	* Moves projectile forward in a straigh line
+	* Moves projectile forward in a straight line
+ 	*
+  	* @param DeltaTime Value to pass a valid DeltaTime
 	*/
 	UFUNCTION()
-	void MoveProjectile(float DeltaTime);
+		void MoveProjectile(float DeltaTime);
 
 	/**
 	* Kickstarts AutoDestroy Timer so no map overflow
 	*/
 	UFUNCTION()
-	void StartDestroyTimer();
+		void StartDestroyTimer();
 
 	/**
 	* Starts Destroy schedule
 	*/
 	UFUNCTION()
-	void RequestProjectileDestroy();
+		void RequestProjectileDestroy();
 
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 	UFUNCTION()
-	virtual void NotifyActorBeginOverlap(AActor* OtherActor) override;
+		virtual void NotifyActorBeginOverlap(AActor* OtherActor) override;
 };
