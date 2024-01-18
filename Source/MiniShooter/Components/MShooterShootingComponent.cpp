@@ -45,7 +45,7 @@ void UMShooterShootingComponent::TickComponent(float DeltaTime, ELevelTick TickT
 
 void UMShooterShootingComponent::StartShooting()
 {
-	if (ensureMsgf(GetWorld(), TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *GetWorld()->GetClass()->GetName()))
+	if (ensureMsgf(IsValid(GetWorld()), TEXT("%s faced error at Runtime"), *GetClass()->GetName()))
 	{
 		//Set control bool variable to true
 		bIsShooting = true;
@@ -58,7 +58,7 @@ void UMShooterShootingComponent::StartShooting()
 
 void UMShooterShootingComponent::StopShooting()
 {
-	if (ensureMsgf(GetWorld(), TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *GetWorld()->GetClass()->GetName()))
+	if (ensureMsgf(IsValid(GetWorld()), TEXT("%s faced error at Runtime"), *GetClass()->GetName()))
 	{
 		//Set control bool variable to false
 		bIsShooting = false;
@@ -69,7 +69,7 @@ void UMShooterShootingComponent::StopShooting()
 
 void UMShooterShootingComponent::RestartShootingTimer()
 {
-	if (ensureMsgf(GetWorld(), TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *GetWorld()->GetClass()->GetName()))
+	if (ensureMsgf(IsValid(GetWorld()), TEXT("%s faced error at Runtime"), *GetClass()->GetName()))
 	{
 		GetWorld()->GetTimerManager().SetTimer(ShootingTimer, this, &UMShooterShootingComponent::TriggerShot, 1 / ShootingSpeed, true);
 	}
@@ -78,7 +78,7 @@ void UMShooterShootingComponent::RestartShootingTimer()
 
 void UMShooterShootingComponent::TriggerShot()
 {
-	if (!ensureMsgf(GetOwner() && ProjectileBPReference, TEXT("%s couldn't load %s or %s at Runtime"), *GetClass()->GetName(), *GetOwner()->GetClass()->GetName(), *ProjectileBPReference->GetClass()->GetName()))
+	if (!ensureMsgf(IsValid(GetOwner()) && IsValid(ProjectileBPReference), TEXT("%s faced error at Runtime"), *GetClass()->GetName()))
 	{
 		return;
 	}
@@ -127,7 +127,7 @@ void UMShooterShootingComponent::TriggerShot()
 
 void UMShooterShootingComponent::StartAiming(AActor* NearestEnemy)
 {
-	if (ensureMsgf(GetOwner(), TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *GetOwner()->GetClass()->GetName()))
+	if (ensureMsgf(IsValid(GetOwner()), TEXT("%s faced error at Runtime"), *GetClass()->GetName()))
 	{
 		if (IsValid(NearestEnemy))
 		{
@@ -155,7 +155,7 @@ void UMShooterShootingComponent::AimingRotationAdjustment()
 	{
 		return;
 	}
-	if (ensureMsgf(GetOwner() && CurrentAimedEnemy, TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *GetOwner()->GetClass()->GetName()))
+	if (ensureMsgf(IsValid(GetOwner()) && IsValid(CurrentAimedEnemy), TEXT("%s faced error at Runtime"), *GetClass()->GetName()))
 	{
 		//Get Rotation Relative to the Target and set this Actor Rotation to face Target
 		FRotator NewRotation = UKismetMathLibrary::FindLookAtRotation(GetOwner()->GetActorLocation(), CurrentAimedEnemy->GetActorLocation());

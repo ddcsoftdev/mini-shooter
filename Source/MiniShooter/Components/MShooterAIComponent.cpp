@@ -38,7 +38,7 @@ void UMShooterAIComponent::TickComponent(float DeltaTime, ELevelTick TickType, F
 
 void UMShooterAIComponent::ChangeState(EStateMachine NewState)
 {
-	if (!ensureMsgf(GetOwner() && GetWorld(), TEXT("%s couldn't load %s or %s at Runtime"), *GetClass()->GetName(), *GetOwner()->GetClass()->GetName(), *GetWorld()->GetClass()->GetName()))
+	if (!ensureMsgf(IsValid(GetOwner()) && IsValid(GetWorld()), TEXT("%s faced error at Runtime"), *GetClass()->GetName()))
 	{
 		return;
 	}
@@ -77,7 +77,7 @@ void UMShooterAIComponent::ChangeState(EStateMachine NewState)
 
 void UMShooterAIComponent::StartRestFunctionality()
 {
-	if (ensureMsgf(GetWorld(), TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *GetWorld()->GetClass()->GetName()))
+	if (ensureMsgf(IsValid(GetWorld()), TEXT("%s faced error at Runtime"), *GetClass()->GetName()))
 	{
 		//This is called mainly to change the Enum since functionality resides here
 		ChangeState(EStateMachine::Rest);
@@ -89,7 +89,7 @@ void UMShooterAIComponent::StartRestFunctionality()
 
 void UMShooterAIComponent::StartPatrolFunctionality()
 {
-	if (ensureMsgf(GetOwner(), TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *GetOwner()->GetClass()->GetName()))
+	if (ensureMsgf(IsValid(GetOwner()), TEXT("%s faced error at Runtime"), *GetClass()->GetName()))
 	{
 		if (AMShooterEnemy* Enemy = Cast<AMShooterEnemy>(GetOwner()))
 		{
@@ -104,7 +104,7 @@ void UMShooterAIComponent::StartPatrolFunctionality()
 
 void UMShooterAIComponent::StartChaseFunctionality()
 {
-	if (ensureMsgf(GetWorld(), TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *GetWorld()->GetClass()->GetName()))
+	if (ensureMsgf(IsValid(GetWorld()), TEXT("%s faced error at Runtimee"), *GetClass()->GetName()))
 	{
 		if (ACharacter* Player = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0))
 		{
@@ -125,7 +125,7 @@ void UMShooterAIComponent::MoveActor(float DeltaTime)
 	{
 		return;
 	}
-	if (!ensureMsgf(GetOwner() && GetWorld(), TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *GetOwner()->GetClass()->GetName() , *GetWorld()->GetClass()->GetName()))
+	if (!ensureMsgf(IsValid(GetOwner()) && IsValid(GetWorld()), TEXT("%s faced error at Runtime"), *GetClass()->GetName()))
 	{
 		return;
 	}
@@ -239,5 +239,14 @@ void UMShooterAIComponent::SetAIBehaviour(bool bActivate)
 	else
 	{
 		ChangeState(EStateMachine::Idle);
+	}
+}
+
+void UMShooterAIComponent::EndPlay(const EEndPlayReason::Type EndPlayReason)
+{
+	if (ensureMsgf(IsValid(GetWorld()), TEXT("%s faced error at Runtime"), *GetClass()->GetName()))
+	{
+		//Clear TimerHandle for safety
+		GetWorld()->GetTimerManager().ClearTimer(InSameStateTimer);
 	}
 }

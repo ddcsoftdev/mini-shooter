@@ -25,7 +25,7 @@ void AMShooterPatrolZone::BeginPlay()
 	//Bind Delegate to send new Patrol Points to Enemies within the Zone
 	SendPatrolPointDelegate.AddUObject(this, &AMShooterPatrolZone::SendPatrolPoint);
 
-	if (ensureMsgf(GetWorld(), TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *GetWorld()->GetClass()->GetName()))
+	if (ensureMsgf(IsValid(GetWorld()), TEXT("%s faced error at Runtime"), *GetClass()->GetName()))
 	{
 		//Initialize by Registering all Overlapping Actors and starting AI in relevant Enemies
 		//Delayed with a TimerHandle to allow all Actors to properly Spawn within level before attemping scan

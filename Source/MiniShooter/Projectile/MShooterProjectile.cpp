@@ -57,7 +57,7 @@ void AMShooterProjectile::MoveProjectile(float DeltaTime)
 void AMShooterProjectile::StartDestroyTimer()
 {
 	//Schedule up FTimerHandle for Destroy
-	if (ensureMsgf(GetWorld(), TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *GetWorld()->GetClass()->GetName()))
+	if (ensureMsgf(IsValid(GetWorld()), TEXT("%s faced error at Runtime"), *GetClass()->GetName()))
 	{
 		FTimerDelegate DestroyDelegate;
 		DestroyDelegate.BindUFunction(this, "RequestProjectileDestroy");
@@ -72,7 +72,7 @@ void AMShooterProjectile::RequestProjectileDestroy()
 
 void AMShooterProjectile::NotifyActorBeginOverlap(AActor* OtherActor)
 {
-	if (ensureMsgf(RegisteredOwnerOfProjectile, TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *GetWorld()->GetClass()->GetName()))
+	if (ensureMsgf(IsValid(RegisteredOwnerOfProjectile), TEXT("%s faced error at Runtime"), *GetClass()->GetName()))
 	{
 		//Safeguard against any possible contact with Owner
 		if (!IsValid(OtherActor) || OtherActor == RegisteredOwnerOfProjectile)

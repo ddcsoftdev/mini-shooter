@@ -22,7 +22,7 @@ void AMShooterHUD::BeginPlay()
 	UpdateKillCountDelegate.AddUObject(this, &AMShooterHUD::UpdateKillCout);
 
 	//Add Widget to Viewport
-	if (ensureMsgf(KillCountWidgetClass && GetWorld(), TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *KillCountWidgetClass->GetClass()->GetName(), *GetWorld()->GetClass()->GetName()))
+	if (ensureMsgf(IsValid(KillCountWidgetClass) && IsValid(GetWorld()), TEXT("%s faced error at Runtime"), *GetClass()->GetName()))
 	{
 		if (!IsValid(KillCountWidget))
 		{

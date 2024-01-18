@@ -59,7 +59,7 @@ void AMShooterEnemy::Tick(float DeltaTime)
 
 void AMShooterEnemy::SetHealthWidgetRotation()
 {
-	if (ensureMsgf(HealthWidget && GetWorld(), TEXT("%s couldn't load %s or %s at Runtime"), *GetClass()->GetName(), *HealthWidget->GetClass()->GetName(), *GetWorld()->GetClass()->GetName()))
+	if (ensureMsgf(IsValid(HealthWidget) && IsValid(GetWorld()), TEXT("%s faced error at Runtime"), *GetClass()->GetName()))
 	{
 		if (ACharacter* Player = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0))
 		{
@@ -71,7 +71,7 @@ void AMShooterEnemy::SetHealthWidgetRotation()
 
 void AMShooterEnemy::UpdateHealthBarWidget(float MaxHealth, float CurrentHealth)
 {
-	if (ensureMsgf(HealthWidget, TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *HealthWidget->GetClass()->GetName()))
+	if (ensureMsgf(IsValid(HealthWidget), TEXT("%s faced error at Runtime"), *GetClass()->GetName()))
 	{
 		if (UMShooterHealthBarWidget* HealthBar = Cast<UMShooterHealthBarWidget>(HealthWidget->GetWidget()))
 		{
@@ -83,7 +83,7 @@ void AMShooterEnemy::UpdateHealthBarWidget(float MaxHealth, float CurrentHealth)
 
 void AMShooterEnemy::TakeDamageAmount(float Amount)
 {
-	if (ensureMsgf(LifeComponent, TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *LifeComponent->GetClass()->GetName()))
+	if (ensureMsgf(IsValid(LifeComponent), TEXT("%s faced error at Runtime"), *GetClass()->GetName()))
 	{
 		//Invert Damage Amount to negative to subtract
 		Amount = -Amount;
@@ -124,7 +124,7 @@ void AMShooterEnemy::UnRegisterPatrolZone(AActor* PatrolZone)
 
 void AMShooterEnemy::HandlePlayerWithinZone(bool bIsInsideZone)
 {
-	if (ensureMsgf(AIComponent, TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *AIComponent->GetClass()->GetName()))
+	if (ensureMsgf(IsValid(AIComponent), TEXT("%s faced error at Runtime"), *GetClass()->GetName()))
 	{
 		//Tell AI Component that Player has entered / left the Patrol Zone this Actor belongs to
 		if (bIsInsideZone)
@@ -140,7 +140,7 @@ void AMShooterEnemy::HandlePlayerWithinZone(bool bIsInsideZone)
 
 void AMShooterEnemy::UpdateAITargetLocation(AActor* PatrolPoint)
 {
-	if (ensureMsgf(AIComponent, TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *AIComponent->GetClass()->GetName()))
+	if (ensureMsgf(IsValid(AIComponent), TEXT("%s faced error at Runtime"), *GetClass()->GetName()))
 	{
 		if (AMShooterPatrolZone* CastedZone = Cast<AMShooterPatrolZone>(ActivePatrolZone))
 		{
@@ -156,9 +156,20 @@ void AMShooterEnemy::UpdateAITargetLocation(AActor* PatrolPoint)
 
 void AMShooterEnemy::SetAIBehaviour(bool bActivate)
 {
-	if (ensureMsgf(AIComponent, TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *AIComponent->GetClass()->GetName()))
+	if (ensureMsgf(IsValid(AIComponent), TEXT("%s faced error at Runtime"), *GetClass()->GetName()))
 	{
 		//This Activates or Deactivates this Actor's AI Behaviour
 		AIComponent->SetAIBehaviour(bActivate);
+	}
+}
+
+void AMShooterEnemy::EndPlay(const EEndPlayReason::Type EndPlayReason)
+{
+	Super::EndPlay(EndPlayReason);
+
+	//Destroy Component with Timer just to avoid possible glitches
+	if (IsValid(AIComponent))
+	{
+		AIComponent->DestroyComponent();
 	}
 }

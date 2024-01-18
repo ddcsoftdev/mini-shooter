@@ -161,4 +161,6 @@ protected:
 	*/
 	UFUNCTION()
 		void HandlePlayerWithinZone(bool bIsInsideZone);
+
+	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
 };

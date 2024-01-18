@@ -56,7 +56,7 @@ void UMShooterLifeComponent::SetHealth(float NewHealth)
 
 void UMShooterLifeComponent::KillOwner()
 {
-	if (ensureMsgf(GetOwner(), TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *GetOwner()->GetClass()->GetName()))
+	if (ensureMsgf(IsValid(GetOwner()), TEXT("%s faced error at Runtime"), *GetClass()->GetName()))
 	{
 		if (AMiniShooterGameMode* GameMode = Cast<AMiniShooterGameMode>(UGameplayStatics::GetGameMode(GetOwner()->GetWorld())))
 		{

@@ -40,7 +40,7 @@ void AMShooterCharacter::BeginPlay()
 
 void AMShooterCharacter::Shoot(bool bStart)
 {
-	if (ensureMsgf(ShootingComponent && GetWorld(), TEXT("%s couldn't load %s or %s at Runtime"), *GetClass()->GetName(), *ShootingComponent->GetClass()->GetName(), *GetWorld()->GetClass()->GetName()))
+	if (ensureMsgf(IsValid(ShootingComponent) && IsValid(GetWorld()), TEXT("%s faced error at Runtime"), *GetClass()->GetName()))
 	{
 		//If Delegate ends true, then start shooting
 		if (bStart)
@@ -59,7 +59,7 @@ void AMShooterCharacter::Shoot(bool bStart)
 
 void AMShooterCharacter::Aim()
 {
-	if (ensureMsgf(ShootingComponent, TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *ShootingComponent->GetClass()->GetName()))
+	if (ensureMsgf(IsValid(ShootingComponent), TEXT("%s faced error at Runtime"), *GetClass()->GetName()))
 	{
 		//Request Nearest Enemy to GameMode to start Aiming
 		RequestNearestEnemyDelegate.Broadcast(this);
@@ -68,7 +68,7 @@ void AMShooterCharacter::Aim()
 
 void AMShooterCharacter::GetNearestEnemy(AActor* NearestEnemy)
 {
-	if (ensureMsgf(ShootingComponent && GetWorld(), TEXT("%s couldn't load %s or %s at Runtime"), *GetClass()->GetName(), *ShootingComponent->GetClass()->GetName(), *GetWorld()->GetClass()->GetName()))
+	if (ensureMsgf(IsValid(ShootingComponent) && IsValid(GetWorld()), TEXT("%s faced error at Runtime"), *GetClass()->GetName()))
 	{
 		//Check if there is any Enemy left to aim at
 		if (IsValid(NearestEnemy))
@@ -91,7 +91,7 @@ void AMShooterCharacter::GetNearestEnemy(AActor* NearestEnemy)
 AActor* AMShooterCharacter::RequestGetAimedEnemy()
 {
 	//Get the Enemy that the Player is currently aiming at
-	if (ensureMsgf(ShootingComponent, TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *ShootingComponent->GetClass()->GetName()))
+	if (ensureMsgf(IsValid(ShootingComponent), TEXT("%s faced error at Runtime"), *GetClass()->GetName()))
 	{
 		return ShootingComponent->GetCurrentAimedEnemy();
 	}
@@ -100,7 +100,7 @@ AActor* AMShooterCharacter::RequestGetAimedEnemy()
 
 void AMShooterCharacter::SetShootingSpeed(float NewSpeed)
 {
-	if (ensureMsgf(ShootingComponent, TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *ShootingComponent->GetClass()->GetName()))
+	if (ensureMsgf(IsValid(ShootingComponent), TEXT("%s faced error at Runtime"), *GetClass()->GetName()))
 	{
 		//Sets the new Shooting Speed for the Player within the Shooting Component
 		ShootingComponent->SetShootingSpeed(NewSpeed);
@@ -111,7 +111,7 @@ void AMShooterCharacter::SetShootingSpeed(float NewSpeed)
 
 float AMShooterCharacter::GetShootingSpeed()
 {
-	if (ensureMsgf(ShootingComponent, TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *ShootingComponent->GetClass()->GetName()))
+	if (ensureMsgf(IsValid(ShootingComponent), TEXT("%s faced error at Runtime"), *GetClass()->GetName()))
 	{
 		//Gets current Shooting Speed from Shooting Component
 		return ShootingComponent->GetShootingSpeed();

@@ -61,7 +61,7 @@ void AMShooterTarget::Tick(float DeltaTime)
 
 void AMShooterTarget::SetHealthWidgetRotation()
 {
-	if (ensureMsgf(HealthWidget && GetWorld(), TEXT("%s couldn't load %s or %s at Runtime"), *GetClass()->GetName(), *HealthWidget->GetClass()->GetName(), *GetWorld()->GetClass()->GetName()))
+	if (ensureMsgf(IsValid(HealthWidget) && IsValid(GetWorld()), TEXT("%s faced error at Runtime"), *GetClass()->GetName()))
 	{
 		if (ACharacter* Player = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0))
 		{
@@ -73,7 +73,7 @@ void AMShooterTarget::SetHealthWidgetRotation()
 
 void AMShooterTarget::UpdateHealthBarWidget(float MaxHealth, float CurrentHealth)
 {
-	if (ensureMsgf(HealthWidget, TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *HealthWidget->GetClass()->GetName()))
+	if (ensureMsgf(IsValid(HealthWidget), TEXT("%s faced error at Runtime"), *GetClass()->GetName()))
 	{
 		if (UMShooterHealthBarWidget* HealthBar = Cast<UMShooterHealthBarWidget>(HealthWidget->GetWidget()))
 		{
@@ -85,7 +85,7 @@ void AMShooterTarget::UpdateHealthBarWidget(float MaxHealth, float CurrentHealth
 
 void AMShooterTarget::TakeDamageAmount(float Amount)
 {
-	if (ensureMsgf(LifeComponent, TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *LifeComponent->GetClass()->GetName()))
+	if (ensureMsgf(IsValid(LifeComponent), TEXT("%s faced error at Runtime"), *GetClass()->GetName()))
 	{
 		//Invert Damage Amount to negative to subtract
 		Amount = -Amount;
@@ -100,7 +100,7 @@ void AMShooterTarget::PlayTargetAnimation()
 {
 	float SizeOffset = 0.f;
 	float FloorLocation = 0.f;
-	if (ensureMsgf(StaticMeshComponent, TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *StaticMeshComponent->GetClass()->GetName()))
+	if (ensureMsgf(IsValid(StaticMeshComponent), TEXT("%s faced error at Runtime"), *GetClass()->GetName()))
 	{
 		//Get where the floor is based on the Actor's Mesh. This is used to avoid Actor going through floor
 		SizeOffset = StaticMeshComponent->GetStaticMesh()->GetBounds().BoxExtent.Size() / 2;

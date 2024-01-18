@@ -19,7 +19,7 @@ void AMShooterController::SetupInputComponent()
 	Super::SetupInputComponent();
 
 	//Early return if InputComponent could not be loaded
-	if (!ensureMsgf(InputComponent, TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *InputComponent->GetClass()->GetName()))
+	if (!ensureMsgf(IsValid(InputComponent), TEXT("%s faced error at Runtime"), *GetClass()->GetName()))
 	{
 		return;
 	}

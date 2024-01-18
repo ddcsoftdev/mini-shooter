@@ -98,7 +98,7 @@ void AMiniShooterGameMode::RemoveDeadEnemyFromActiveEnemies(AActor* DeadEnemy)
 		}
 	}
 	//Updating KillCount Widget
-	if (ensureMsgf(GetWorld(), TEXT("%s couldn't load %s at Runtime"), *GetClass()->GetName(), *GetWorld()->GetClass()->GetName()))
+	if (ensureMsgf(IsValid(GetWorld()), TEXT("%s faced error at Runtime"), *GetClass()->GetName()))
 	{
 		
 		if (APlayerController* PlayerController = UGameplayStatics::GetPlayerController(GetWorld(), 0))
