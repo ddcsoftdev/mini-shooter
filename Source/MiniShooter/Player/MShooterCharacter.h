@@ -34,20 +34,22 @@ public:
 	* This method does not Sanitize so nullptr is plausible
 	*/
 	UFUNCTION()
-	AActor* RequestGetAimedEnemy();
+		AActor* RequestGetAimedEnemy();
 
 	/**
 	* Set new Shooting speed
+ 	*
+  	* @param NewSpeed Value that sets the value for ShootingSpeed
 	*/
 	UFUNCTION()
-	void SetShootingSpeed(float NewSpeed);
+		void SetShootingSpeed(float NewSpeed);
 
 	/**
 	* Get new Shooting speed
 	* It returns -1.f if error occurs
 	*/
 	UFUNCTION()
-	float GetShootingSpeed();
+		float GetShootingSpeed();
 
 protected:
 
@@ -55,13 +57,13 @@ protected:
 	* Shooting Component
 	*/
 	UPROPERTY(EditAnywhere)
-	UMShooterShootingComponent* ShootingComponent;
+		UMShooterShootingComponent* ShootingComponent;
 
 	/**
 	* Stop Aiming TimeHandle so you can aim before shooting
 	*/
 	UPROPERTY(EditAnywhere)
-	FTimerHandle StopAimingTimeHandle;
+		FTimerHandle StopAimingTimeHandle;
 
 	/**
 	* Time for Aiming to reset if not Shooting
@@ -71,21 +73,25 @@ protected:
 
 	/**
 	* Shooting method that trigger the Shooting Component
+ 	*
+  	* @param bStart Value to start shooting
 	*/
 	UFUNCTION()
-	void Shoot(bool bStart);
+		void Shoot(bool bStart);
 
 	/**
 	* Aiming method that start aiming at Enemies
 	*/
 	UFUNCTION()
-	void Aim();
+		void Aim();
 
 	/**
 	* Recieve nearest Enemy
+ 	*
+  	* @param NearestEnemy Nearest Enemy to aim at
 	*/
 	UFUNCTION()
-	void GetNearestEnemy(AActor* NearestEnemy);
+		void GetNearestEnemy(AActor* NearestEnemy);
 
 	virtual void BeginPlay() override;
 };
