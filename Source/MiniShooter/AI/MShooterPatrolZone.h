@@ -61,6 +61,8 @@ public:
 
 	/**
 	* Ensure that Enemy Should keep chaisng as a failsafe
+ 	*
+  	* @param Enemy reference to the Enemy sending the request
 	*/
 	UFUNCTION()
 		void CheckIfPlayerStillInZone(AActor* Enemy);
@@ -87,48 +89,64 @@ protected:
 
 	/**
 	* Get Available Patrol Points
+ 	*
+  	* @return Available Patrol Point as an Actor or nullptr
 	*/
 	UFUNCTION()
 		AActor* GetAvailablePatrolPoint();
 
 	/**
 	* Register Available Patrol Points when not detected in Array
+ 	*
+  	* @param PatrolPoint Actor to register within this Patrol Zone
 	*/
 	UFUNCTION()
 		void RegisterPatrolPoint(AActor* PatrolPoint);
 
 	/**
 	* Register Enemies upon entering patrol zone
+ 	*
+  	* @param Enemy Actor to register as Enemy within this Patrol Zone
 	*/
 	UFUNCTION()
 		void RegisterEnemy(AActor* Enemy);
 
 	/**
 	* UnRegister Available Patrol Points
+ 	*
+  	* @param PatrolPoint Actor to delete from this Patrol Zone
 	*/
 	UFUNCTION()
 		void UnRegisterPatrolPoint(AActor* PatrolPoint);
 
 	/**
 	* UnRegister Enemies upon entering patrol zone
+ 	*
+  	* @param Enemy Actor to delete from this Patrol Zone
 	*/
 	UFUNCTION()
 		void UnRegisterEnemy(AActor* Enemy);
 
 	/**
 	* Notify all enemies player has entered zone
+ 	*
+  	* @param Enemy Actor that is sending the request
 	*/
 	UFUNCTION()
 		void NotifyPlayerEnteredZone(AActor* Enemy);
 
 	/**
 	* Notify all enemies player has left zone
+ 	*
+  	* @paramo Enemy Actor that is sending the request
 	*/
 	UFUNCTION()
 		void NotifyPlayerLeftZone(AActor* Enemy);
 
 	/***
 	* Get Random Point within Patrol Zone
+ 	*
+  	* @param EnemyToSend Actor that it sends Patrol Point to
 	*/
 	UFUNCTION()
 	void SendPatrolPoint(AActor* EnemyToSend);
