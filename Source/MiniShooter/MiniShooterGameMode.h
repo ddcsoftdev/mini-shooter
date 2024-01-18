@@ -42,19 +42,24 @@ protected:
 	* Scan for all active enemies in map
 	*/
 	UFUNCTION()
-	void ScanAllActiveEnemies();
+		void ScanAllActiveEnemies();
 
 	/**
 	* Remove Dead Enemy from Active Enemies
+ 	*
+  	* @param DeadEnemy Actor to remove from Enemy TArray
 	*/
 	UFUNCTION()
-	void RemoveDeadEnemyFromActiveEnemies(AActor* DeadEnemy);
+		void RemoveDeadEnemyFromActiveEnemies(AActor* DeadEnemy);
 
 	/**
-	* Method that processes RequestEnemyDelegate 
+	* Method that processes RequestEnemyDelegate to send the nearest enemy
+ 	* New enemy must not be currently targeted
+ 	*
+  	* @param RequestingActor Actor that is requesting the new Enemy
 	*/
 	UFUNCTION()
-	void ProcessRequestEnemyDelegate(AActor* RequestingActor);
+		void ProcessRequestEnemyDelegate(AActor* RequestingActor);
 
 	virtual void BeginPlay() override;
 };
