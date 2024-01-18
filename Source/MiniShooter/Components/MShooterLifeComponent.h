@@ -24,16 +24,21 @@ public:
 
 	/**
 	* Setter for Health
+ 	* @param NewHealth Value for current Health
 	*/
 	void SetHealth(float NewHealth);
 
 	/**
 	* Getter for Health
+ 	*
+  	* @return Value of current Health
 	*/
 	float GetHealth() { return Health; };
 
 	/**
 	* Getter for Max Health
+ 	*
+  	* @return Value of the Max Health
 	*/
 	float GetMaxHealth() { return MaxHealth; };
 
@@ -43,7 +48,7 @@ protected:
 	* MaxHealth that can be set from Editor
 	*/
 	UPROPERTY(EditAnywhere, Category = "Life Config")
-	float MaxHealth{ 100.f };
+		float MaxHealth{ 100.f };
 
 	/**
 	* Main health metter for component
