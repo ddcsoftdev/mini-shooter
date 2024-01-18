@@ -23,12 +23,26 @@ class MINISHOOTER_API IMShooterEnemyBasics
 	GENERATED_IINTERFACE_BODY()
 
 public:
+	/**
+	* Amount of Damage done to Actor
+ 	*
+  	* @param Amount Value that is subtracted from Actor health
+	*/
 	virtual void TakeDamageAmount(float Amount);
 
 protected:
+	/**
+	* Updates the HelthBar Widget
+ 	*
+  	* @param MaxHealth Value that represents the max health of the Actor
+   	* @param CurrentHealth Value that represents the current health of the Actor
+	*/
 	UFUNCTION()
-	virtual void UpdateHealthBarWidget(float MaxHealth, float CurrentHealth);
+		virtual void UpdateHealthBarWidget(float MaxHealth, float CurrentHealth);
 
+	/**
+	* Sets the Health Widget Rotation
+	*/
 	UFUNCTION()
-	virtual void SetHealthWidgetRotation();
+		virtual void SetHealthWidgetRotation();
 };
