@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['registeredownerofprojectile_0',['RegisteredOwnerOfProjectile',['../class_a_m_shooter_projectile.html#a3e4f8a8972b84775b89b60940033df55',1,'AMShooterProjectile']]],
-  ['registerpatrolpointinuserdelegate_1',['RegisterPatrolPointInUserDelegate',['../class_a_m_shooter_patrol_zone.html#aea6fbfd862385849649d2c91071672b9',1,'AMShooterPatrolZone']]],
-  ['requestnearestenemydelegate_2',['RequestNearestEnemyDelegate',['../class_a_m_shooter_character.html#aea10c4062b81c1df1d25ddfdbcd273cd',1,'AMShooterCharacter']]]
+  ['playerisinsidezonedelegate_0',['PlayerIsInsideZoneDelegate',['../class_a_m_shooter_patrol_zone.html#a9fb9874277359bd7e5c9159041f73b95',1,'AMShooterPatrolZone']]],
+  ['projectiledamage_1',['ProjectileDamage',['../class_a_m_shooter_projectile.html#ab93ff96eceecb2abbada89700e3af0c4',1,'AMShooterProjectile']]],
+  ['projectilespeed_2',['ProjectileSpeed',['../class_a_m_shooter_projectile.html#a67c4b25174c6bddf283b096c3220f7a1',1,'AMShooterProjectile']]]
 ];

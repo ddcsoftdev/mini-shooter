@@ -1,9 +1,14 @@
 var searchData=
 [
-  ['takedamageamount_0',['TakeDamageAmount',['../class_a_m_shooter_enemy.html#a2bf1f04eef2d5ee29c40db121552e1b1',1,'AMShooterEnemy::TakeDamageAmount()'],['../class_i_m_shooter_enemy_basics.html#a568989012b5396f2a845f272c8b1ce05',1,'IMShooterEnemyBasics::TakeDamageAmount()'],['../class_a_m_shooter_target.html#a20b1cbaedae7160c6efc5e126ab0feac',1,'AMShooterTarget::TakeDamageAmount()']]],
-  ['tick_1',['Tick',['../class_a_m_shooter_patrol_point.html#a35685e5bc5dbee4e9ff71c974f0791de',1,'AMShooterPatrolPoint::Tick()'],['../class_a_m_shooter_patrol_zone.html#a7e25daa870f7188899b3b657940d587e',1,'AMShooterPatrolZone::Tick()'],['../class_a_m_shooter_enemy.html#aea39b53bff1321bca96c5050ac543cf3',1,'AMShooterEnemy::Tick()'],['../class_a_m_shooter_target.html#a833bcc5838d08a3780a24ba09ae87bb0',1,'AMShooterTarget::Tick()'],['../class_a_m_shooter_platform.html#ac0c471bec633fec102f733798de1962e',1,'AMShooterPlatform::Tick()'],['../class_a_m_shooter_projectile.html#abbfc91a728135b86eca5241c76a0007c',1,'AMShooterProjectile::Tick()']]],
-  ['touchstarted_2',['TouchStarted',['../class_a_mini_shooter_character.html#a6729dd8da2223f168b2d4c59e7e105bc',1,'AMiniShooterCharacter']]],
-  ['touchstopped_3',['TouchStopped',['../class_a_mini_shooter_character.html#a63937efa6a77ed5c1642b3c86d820ed3',1,'AMiniShooterCharacter']]],
-  ['trytoreturnpatrolpoint_4',['TryToReturnPatrolPoint',['../class_a_m_shooter_patrol_zone.html#a1c50e9621f55b34f344ddec3f78cd60b',1,'AMShooterPatrolZone']]],
-  ['turnatrate_5',['TurnAtRate',['../class_a_mini_shooter_character.html#a358ca27832cd79404a3923a49f1898e0',1,'AMiniShooterCharacter']]]
+  ['scanallactiveenemies_0',['ScanAllActiveEnemies',['../class_a_mini_shooter_game_mode.html#a608f41b1575176b29427d2fa6bd15e4e',1,'AMiniShooterGameMode']]],
+  ['sendpatrolpoint_1',['SendPatrolPoint',['../class_a_m_shooter_patrol_zone.html#a0298bed297f599b21c57af527c589f67',1,'AMShooterPatrolZone']]],
+  ['setaibehaviour_2',['SetAIBehaviour',['../class_a_m_shooter_enemy.html#aee043eea862114da95b247ffebbc0eac',1,'AMShooterEnemy']]],
+  ['setcount_3',['SetCount',['../class_u_m_shooter_kill_count_widget.html#a4374efa34d6ec887c526db233731d68a',1,'UMShooterKillCountWidget']]],
+  ['sethealthbar_4',['SetHealthBar',['../class_u_m_shooter_health_bar_widget.html#ad589e9ad9a196c5110814411082aa9b4',1,'UMShooterHealthBarWidget']]],
+  ['sethealthwidgetrotation_5',['SetHealthWidgetRotation',['../class_a_m_shooter_enemy.html#a91d59ad3fbe823a28e3a562d9bb14873',1,'AMShooterEnemy::SetHealthWidgetRotation()'],['../class_i_m_shooter_enemy_basics.html#ab847def3f0ace44ad27829db11c3b612',1,'IMShooterEnemyBasics::SetHealthWidgetRotation()'],['../class_a_m_shooter_target.html#abfd4d6b044da41ae9307fe664b517443',1,'AMShooterTarget::SetHealthWidgetRotation()']]],
+  ['setshootingspeed_6',['SetShootingSpeed',['../class_a_m_shooter_character.html#aabc7ad501c730d2472ff2d64648127d5',1,'AMShooterCharacter']]],
+  ['setupinputcomponent_7',['SetupInputComponent',['../class_a_m_shooter_controller.html#a4c40d5ce3c0102a1ed23d2b4b6d56674',1,'AMShooterController']]],
+  ['setupplayerinputcomponent_8',['SetupPlayerInputComponent',['../class_a_mini_shooter_character.html#a0426e0d06515c4a07556db2b4e2c96c2',1,'AMiniShooterCharacter']]],
+  ['shoot_9',['Shoot',['../class_a_m_shooter_character.html#ae738504b06eb9db014dd27fc4c3d1fb2',1,'AMShooterCharacter']]],
+  ['startdestroytimer_10',['StartDestroyTimer',['../class_a_m_shooter_projectile.html#a5934ccff460af1823a76fd58260b730e',1,'AMShooterProjectile']]]
 ];

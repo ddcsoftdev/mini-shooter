@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>MiniShooter: Source/MiniShooter/Enemy/MShooterEnemy.h Source File</title>
+<title>My Project: Source/MiniShooter/Enemy/MShooterEnemy.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">MiniShooter
+   <div id="projectname">My Project
    </div>
   </td>
  </tr>
@@ -83,14 +83,14 @@ $(function() { codefold.init(0); });
   <div class="headertitle"><div class="title">MShooterEnemy.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Fill out your copyright notice in the Description page of Project Settings.</span></div>
+<a href="_m_shooter_enemy_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Fill out your copyright notice in the Description page of Project Settings.</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;CoreMinimal.h&gt;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;GameFramework/Actor.h&gt;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;MShooterEnemyInterface.h&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="_m_shooter_enemy_interface_8h.html">MShooterEnemyInterface.h</a>&quot;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;MShooterEnemy.generated.h&quot;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
@@ -173,8 +173,11 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
 <div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    UFUNCTION()</div>
 <div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        <span class="keywordtype">void</span> HandlePlayerWithinZone(<span class="keywordtype">bool</span> bIsInsideZone);</div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>};</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    virtual <span class="keywordtype">void</span> EndPlay(const EEndPlayReason::Type EndPlayReason) override;</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>};</div>
 </div>
+<div class="ttc" id="a_m_shooter_enemy_interface_8h_html"><div class="ttname"><a href="_m_shooter_enemy_interface_8h.html">MShooterEnemyInterface.h</a></div></div>
 <div class="ttc" id="aclass_a_m_shooter_enemy_html"><div class="ttname"><a href="class_a_m_shooter_enemy.html">AMShooterEnemy</a></div><div class="ttdef"><b>Definition</b> MShooterEnemy.h:29</div></div>
 <div class="ttc" id="aclass_i_m_shooter_enemy_basics_html"><div class="ttname"><a href="class_i_m_shooter_enemy_basics.html">IMShooterEnemyBasics</a></div><div class="ttdef"><b>Definition</b> MShooterEnemyInterface.h:22</div></div>
 </div><!-- fragment --></div><!-- contents -->

@@ -1,6 +1,6 @@
 \doxysection{MShooter\+Patrol\+Zone.\+h}
 \hypertarget{_m_shooter_patrol_zone_8h_source}{}\label{_m_shooter_patrol_zone_8h_source}\index{Source/MiniShooter/AI/MShooterPatrolZone.h@{Source/MiniShooter/AI/MShooterPatrolZone.h}}
-
+\mbox{\hyperlink{_m_shooter_patrol_zone_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//\ Fill\ out\ your\ copyright\ notice\ in\ the\ Description\ page\ of\ Project\ Settings.}}
 \DoxyCodeLine{00002\ }
@@ -13,9 +13,9 @@
 \DoxyCodeLine{00009\ }
 \DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_a_m_shooter_patrol_point}{AMShooterPatrolPoint}};}
 \DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ DECLARE\_MULTICAST\_DELEGATE\_TwoParams(FRegisterPatrolPointUsage,\ \textcolor{keyword}{class}\ AActor*,\ \textcolor{keywordtype}{bool}\ bIsBeingUsed);}
-\DoxyCodeLine{00013\ DECLARE\_MULTICAST\_DELEGATE\_OneParam(FSendPatrolPoint,\ \textcolor{keyword}{class}\ AActor*);}
-\DoxyCodeLine{00014\ DECLARE\_MULTICAST\_DELEGATE\_OneParam(FPlayerIsInsideZone,\ \textcolor{keywordtype}{bool}\ bIsInside);}
+\DoxyCodeLine{00012\ \mbox{\hyperlink{_m_shooter_patrol_zone_8h_adbeaad881d266cb0d4b2858dc18d6923}{DECLARE\_MULTICAST\_DELEGATE\_TwoParams}}(FRegisterPatrolPointUsage,\ \textcolor{keyword}{class}\ AActor*,\ \textcolor{keywordtype}{bool}\ bIsBeingUsed);}
+\DoxyCodeLine{00013\ \mbox{\hyperlink{_m_shooter_patrol_zone_8h_ad11a2246576ed973eec55416c6e88894}{DECLARE\_MULTICAST\_DELEGATE\_OneParam}}(FSendPatrolPoint,\ \textcolor{keyword}{class}\ AActor*);}
+\DoxyCodeLine{00014\ \mbox{\hyperlink{_m_shooter_patrol_zone_8h_ad11a2246576ed973eec55416c6e88894}{DECLARE\_MULTICAST\_DELEGATE\_OneParam}}(FPlayerIsInsideZone,\ \textcolor{keywordtype}{bool}\ bIsInside);}
 \DoxyCodeLine{00015\ }
 \DoxyCodeLine{00021\ UCLASS()}
 \DoxyCodeLine{00022\ class\ MINISHOOTER\_API\ \mbox{\hyperlink{class_a_m_shooter_patrol_zone}{AMShooterPatrolZone}}\ :\ public\ AActor}
@@ -33,7 +33,7 @@
 \DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ FPlayerIsInsideZone\ \mbox{\hyperlink{class_a_m_shooter_patrol_zone_a9fb9874277359bd7e5c9159041f73b95}{PlayerIsInsideZoneDelegate}};}
 \DoxyCodeLine{00046\ }
 \DoxyCodeLine{00047\ \ \ \ \ \textcolor{comment}{//\ Called\ every\ frame}}
-\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ Tick(\textcolor{keywordtype}{float}\ DeltaTime)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_a_m_shooter_patrol_point_a35685e5bc5dbee4e9ff71c974f0791de}{Tick}}(\textcolor{keywordtype}{float}\ DeltaTime)\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00049\ }
 \DoxyCodeLine{00053\ \ \ \ \ UFUNCTION()}
 \DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ void\ TryToReturnPatrolPoint(AActor*\ PatrolPoint);}
@@ -85,7 +85,7 @@
 \DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordtype}{void}\ SendPatrolPoint(AActor*\ EnemyToSend);}
 \DoxyCodeLine{00153\ }
 \DoxyCodeLine{00154\ \ \ \ \ \textcolor{comment}{//\ Called\ when\ the\ game\ starts\ or\ when\ spawned}}
-\DoxyCodeLine{00155\ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ BeginPlay()\ override;}
+\DoxyCodeLine{00155\ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_a_m_shooter_patrol_point_a030d247c59007f000420075393a5bd39}{BeginPlay}}()\ override;}
 \DoxyCodeLine{00156\ }
 \DoxyCodeLine{00157\ \ \ \ \ UFUNCTION()}
 \DoxyCodeLine{00158\ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ NotifyActorBeginOverlap(AActor*\ OtherActor)\ override;}

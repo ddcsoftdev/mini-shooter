@@ -1,12 +1,7 @@
 var searchData=
 [
-  ['registerenemy_0',['RegisterEnemy',['../class_a_m_shooter_patrol_zone.html#a6b073d9e733bb2b17c09eeb72e67f99c',1,'AMShooterPatrolZone']]],
-  ['registerpatrolpoint_1',['RegisterPatrolPoint',['../class_a_m_shooter_patrol_zone.html#a4c7ca572a844a3d6fd48eebe46340f2f',1,'AMShooterPatrolZone']]],
-  ['registerpatrolzone_2',['RegisterPatrolZone',['../class_a_m_shooter_enemy.html#abc20df2205d174073dd9b7d8979514ac',1,'AMShooterEnemy']]],
-  ['registerprojectileowner_3',['RegisterProjectileOwner',['../class_a_m_shooter_projectile.html#aa777b9e54f9660e2e6acd6bcc3f1882f',1,'AMShooterProjectile']]],
-  ['removedeadenemyfromactiveenemies_4',['RemoveDeadEnemyFromActiveEnemies',['../class_a_mini_shooter_game_mode.html#a9796a86ecbcabbc91fef101c496f0619',1,'AMiniShooterGameMode']]],
-  ['requestaim_5',['RequestAim',['../class_a_m_shooter_controller.html#af371379665371ac1f442fbff8cb57903',1,'AMShooterController']]],
-  ['requestgetaimedenemy_6',['RequestGetAimedEnemy',['../class_a_m_shooter_character.html#a164f2d8c9d115f55016506e3d7025ecc',1,'AMShooterCharacter']]],
-  ['requestprojectiledestroy_7',['RequestProjectileDestroy',['../class_a_m_shooter_projectile.html#a31de07ca88cd08bb99e7a3acd5d1125f',1,'AMShooterProjectile']]],
-  ['requestshoot_8',['RequestShoot',['../class_a_m_shooter_controller.html#ab853fb5e0faa17f8554982b277b279fd',1,'AMShooterController']]]
+  ['notifyactorbeginoverlap_0',['NotifyActorBeginOverlap',['../class_a_m_shooter_patrol_zone.html#aec8a13815c9c293833bad327203fc17f',1,'AMShooterPatrolZone::NotifyActorBeginOverlap()'],['../class_a_m_shooter_platform.html#ae8a74083303d61523f60f3a1fac69258',1,'AMShooterPlatform::NotifyActorBeginOverlap()'],['../class_a_m_shooter_projectile.html#ad04c4889ae1b669e9eb39b814f44a139',1,'AMShooterProjectile::NotifyActorBeginOverlap()']]],
+  ['notifyactorendoverlap_1',['NotifyActorEndOverlap',['../class_a_m_shooter_patrol_zone.html#a53aea9e97e8e36696b5f0c81ce7e6672',1,'AMShooterPatrolZone::NotifyActorEndOverlap()'],['../class_a_m_shooter_platform.html#ad8a407e1ea7f9b91c7893dc3addc0b62',1,'AMShooterPlatform::NotifyActorEndOverlap()']]],
+  ['notifyplayerenteredzone_2',['NotifyPlayerEnteredZone',['../class_a_m_shooter_patrol_zone.html#ac9dc6cb5a5d8302e4510af7dd1f32b42',1,'AMShooterPatrolZone']]],
+  ['notifyplayerleftzone_3',['NotifyPlayerLeftZone',['../class_a_m_shooter_patrol_zone.html#a8be93dc6825a515ba16668ca126d8f0a',1,'AMShooterPatrolZone']]]
 ];

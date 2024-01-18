@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>MiniShooter: Source/MiniShooter/Components/MShooterAIComponent.h Source File</title>
+<title>My Project: Source/MiniShooter/Components/MShooterAIComponent.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">MiniShooter
+   <div id="projectname">My Project
    </div>
   </td>
  </tr>
@@ -83,7 +83,7 @@ $(function() { codefold.init(0); });
   <div class="headertitle"><div class="title">MShooterAIComponent.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Fill out your copyright notice in the Description page of Project Settings.</span></div>
+<a href="_m_shooter_a_i_component_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Fill out your copyright notice in the Description page of Project Settings.</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
@@ -93,14 +93,16 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;MShooterAIComponent.generated.h&quot;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>UENUM(BlueprintType)</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">enum class</span> EStateMachine : uint8</div>
+<div class="foldopen" id="foldopen00014" data-start="{" data-end="};">
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="_m_shooter_a_i_component_8h.html#a9793cf5e1ba9cf08e7f1cce8f9160271">   14</a></span>enum class <a class="code hl_enumeration" href="_m_shooter_a_i_component_8h.html#a9793cf5e1ba9cf08e7f1cce8f9160271">EStateMachine</a> : uint8</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>{</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    Idle    UMETA(DisplayName = <span class="stringliteral">&quot;Idle&quot;</span>),</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    Patrol  UMETA(DisplayName = <span class="stringliteral">&quot;Patrol&quot;</span>),</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    Chase   UMETA(DisplayName = <span class="stringliteral">&quot;Chase&quot;</span>),</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    Rest    UMETA(DisplayName = <span class="stringliteral">&quot;Rest&quot;</span>),</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    Attack  UMETA(DisplayName = <span class="stringliteral">&quot;Attack&quot;</span>)</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    Idle    <a class="code hl_enumvalue" href="_m_shooter_a_i_component_8h.html#a9793cf5e1ba9cf08e7f1cce8f9160271aa3f80d8f0f1b4ffa8c475f5d60ea5635">UMETA</a>(DisplayName = <span class="stringliteral">&quot;Idle&quot;</span>),</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    Patrol  <a class="code hl_enumvalue" href="_m_shooter_a_i_component_8h.html#a9793cf5e1ba9cf08e7f1cce8f9160271aa3f80d8f0f1b4ffa8c475f5d60ea5635">UMETA</a>(DisplayName = <span class="stringliteral">&quot;Patrol&quot;</span>),</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    Chase   <a class="code hl_enumvalue" href="_m_shooter_a_i_component_8h.html#a9793cf5e1ba9cf08e7f1cce8f9160271aa3f80d8f0f1b4ffa8c475f5d60ea5635">UMETA</a>(DisplayName = <span class="stringliteral">&quot;Chase&quot;</span>),</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    Rest    <a class="code hl_enumvalue" href="_m_shooter_a_i_component_8h.html#a9793cf5e1ba9cf08e7f1cce8f9160271aa3f80d8f0f1b4ffa8c475f5d60ea5635">UMETA</a>(DisplayName = <span class="stringliteral">&quot;Rest&quot;</span>),</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    Attack  <a class="code hl_enumvalue" href="_m_shooter_a_i_component_8h.html#a9793cf5e1ba9cf08e7f1cce8f9160271aa3f80d8f0f1b4ffa8c475f5d60ea5635">UMETA</a>(DisplayName = <span class="stringliteral">&quot;Attack&quot;</span>)</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>};</div>
+</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">class </span>MINISHOOTER_API UMShooterAIComponent : <span class="keyword">public</span> UActorComponent</div>
@@ -129,10 +131,10 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>protected:</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    UPROPERTY()</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        EStateMachine ActiveState {EStateMachine::Idle};</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <a class="code hl_enumeration" href="_m_shooter_a_i_component_8h.html#a9793cf5e1ba9cf08e7f1cce8f9160271">EStateMachine</a> ActiveState {EStateMachine::Idle};</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    UPROPERTY()</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        EStateMachine PreviousState {EStateMachine::Idle};</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <a class="code hl_enumeration" href="_m_shooter_a_i_component_8h.html#a9793cf5e1ba9cf08e7f1cce8f9160271">EStateMachine</a> PreviousState {EStateMachine::Idle};</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    UPROPERTY()</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        FTimerHandle InSameStateTimer;</div>
@@ -153,7 +155,7 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        FVector TargetLocation{ FVector::ZeroVector };</div>
 <div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
 <div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    UFUNCTION()</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        void ChangeState(EStateMachine NewState);</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        void ChangeState(<a class="code hl_enumeration" href="_m_shooter_a_i_component_8h.html#a9793cf5e1ba9cf08e7f1cce8f9160271">EStateMachine</a> NewState);</div>
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
 <div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    UFUNCTION()</div>
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        <span class="keywordtype">void</span> StartRestFunctionality();</div>
@@ -169,7 +171,11 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
 <div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <span class="comment">// Called when the game starts</span></div>
 <div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    virtual <span class="keywordtype">void</span> BeginPlay() override;</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>};</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    virtual <span class="keywordtype">void</span> EndPlay(const EEndPlayReason::Type EndPlayReason) override;</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>};</div>
+<div class="ttc" id="a_m_shooter_a_i_component_8h_html_a9793cf5e1ba9cf08e7f1cce8f9160271"><div class="ttname"><a href="_m_shooter_a_i_component_8h.html#a9793cf5e1ba9cf08e7f1cce8f9160271">EStateMachine</a></div><div class="ttdeci">EStateMachine</div><div class="ttdef"><b>Definition</b> MShooterAIComponent.h:15</div></div>
+<div class="ttc" id="a_m_shooter_a_i_component_8h_html_a9793cf5e1ba9cf08e7f1cce8f9160271aa3f80d8f0f1b4ffa8c475f5d60ea5635"><div class="ttname"><a href="_m_shooter_a_i_component_8h.html#a9793cf5e1ba9cf08e7f1cce8f9160271aa3f80d8f0f1b4ffa8c475f5d60ea5635">EStateMachine::UMETA</a></div><div class="ttdeci">@ UMETA</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

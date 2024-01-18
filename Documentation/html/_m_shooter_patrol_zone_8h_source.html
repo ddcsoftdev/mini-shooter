@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>MiniShooter: Source/MiniShooter/AI/MShooterPatrolZone.h Source File</title>
+<title>My Project: Source/MiniShooter/AI/MShooterPatrolZone.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">MiniShooter
+   <div id="projectname">My Project
    </div>
   </td>
  </tr>
@@ -83,7 +83,7 @@ $(function() { codefold.init(0); });
   <div class="headertitle"><div class="title">MShooterPatrolZone.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Fill out your copyright notice in the Description page of Project Settings.</span></div>
+<a href="_m_shooter_patrol_zone_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Fill out your copyright notice in the Description page of Project Settings.</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
@@ -94,9 +94,9 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">class </span><a class="code hl_class" href="class_a_m_shooter_patrol_point.html">AMShooterPatrolPoint</a>;</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>DECLARE_MULTICAST_DELEGATE_TwoParams(FRegisterPatrolPointUsage, <span class="keyword">class</span> AActor*, <span class="keywordtype">bool</span> bIsBeingUsed);</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>DECLARE_MULTICAST_DELEGATE_OneParam(FSendPatrolPoint, <span class="keyword">class</span> AActor*);</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>DECLARE_MULTICAST_DELEGATE_OneParam(FPlayerIsInsideZone, <span class="keywordtype">bool</span> bIsInside);</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="_m_shooter_patrol_zone_8h.html#adbeaad881d266cb0d4b2858dc18d6923">   12</a></span><a class="code hl_function" href="_m_shooter_patrol_zone_8h.html#adbeaad881d266cb0d4b2858dc18d6923">DECLARE_MULTICAST_DELEGATE_TwoParams</a>(FRegisterPatrolPointUsage, <span class="keyword">class</span> AActor*, <span class="keywordtype">bool</span> bIsBeingUsed);</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="_m_shooter_patrol_zone_8h.html#ad11a2246576ed973eec55416c6e88894">   13</a></span><a class="code hl_function" href="_m_shooter_patrol_zone_8h.html#ad11a2246576ed973eec55416c6e88894">DECLARE_MULTICAST_DELEGATE_OneParam</a>(FSendPatrolPoint, <span class="keyword">class</span> AActor*);</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="_m_shooter_patrol_zone_8h.html#af4d62d779910a8c1c20f9223ad865444">   14</a></span><a class="code hl_function" href="_m_shooter_patrol_zone_8h.html#ad11a2246576ed973eec55416c6e88894">DECLARE_MULTICAST_DELEGATE_OneParam</a>(FPlayerIsInsideZone, <span class="keywordtype">bool</span> bIsInside);</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>UCLASS()</div>
 <div class="foldopen" id="foldopen00022" data-start="{" data-end="};">
@@ -115,7 +115,7 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="class_a_m_shooter_patrol_zone.html#a9fb9874277359bd7e5c9159041f73b95">   45</a></span>        FPlayerIsInsideZone <a class="code hl_variable" href="class_a_m_shooter_patrol_zone.html#a9fb9874277359bd7e5c9159041f73b95">PlayerIsInsideZoneDelegate</a>;</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="comment">// Called every frame</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> Tick(<span class="keywordtype">float</span> DeltaTime) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_a_m_shooter_patrol_point.html#a35685e5bc5dbee4e9ff71c974f0791de">Tick</a>(<span class="keywordtype">float</span> DeltaTime) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    UFUNCTION()</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        void TryToReturnPatrolPoint(AActor* PatrolPoint);</div>
@@ -167,7 +167,7 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    <span class="keywordtype">void</span> SendPatrolPoint(AActor* EnemyToSend);</div>
 <div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
 <div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    <span class="comment">// Called when the game starts or when spawned</span></div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    virtual <span class="keywordtype">void</span> BeginPlay() override;</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    virtual <span class="keywordtype">void</span> <a class="code hl_function" href="class_a_m_shooter_patrol_point.html#a030d247c59007f000420075393a5bd39">BeginPlay</a>() override;</div>
 <div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
 <div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    UFUNCTION()</div>
 <div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    virtual <span class="keywordtype">void</span> NotifyActorBeginOverlap(AActor* OtherActor) override;</div>
@@ -177,7 +177,11 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
 <div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>};</div>
 </div>
+<div class="ttc" id="a_m_shooter_patrol_zone_8h_html_ad11a2246576ed973eec55416c6e88894"><div class="ttname"><a href="_m_shooter_patrol_zone_8h.html#ad11a2246576ed973eec55416c6e88894">DECLARE_MULTICAST_DELEGATE_OneParam</a></div><div class="ttdeci">DECLARE_MULTICAST_DELEGATE_OneParam(FSendPatrolPoint, class AActor *)</div></div>
+<div class="ttc" id="a_m_shooter_patrol_zone_8h_html_adbeaad881d266cb0d4b2858dc18d6923"><div class="ttname"><a href="_m_shooter_patrol_zone_8h.html#adbeaad881d266cb0d4b2858dc18d6923">DECLARE_MULTICAST_DELEGATE_TwoParams</a></div><div class="ttdeci">DECLARE_MULTICAST_DELEGATE_TwoParams(FRegisterPatrolPointUsage, class AActor *, bool bIsBeingUsed)</div></div>
 <div class="ttc" id="aclass_a_m_shooter_patrol_point_html"><div class="ttname"><a href="class_a_m_shooter_patrol_point.html">AMShooterPatrolPoint</a></div><div class="ttdef"><b>Definition</b> MShooterPatrolPoint.h:15</div></div>
+<div class="ttc" id="aclass_a_m_shooter_patrol_point_html_a030d247c59007f000420075393a5bd39"><div class="ttname"><a href="class_a_m_shooter_patrol_point.html#a030d247c59007f000420075393a5bd39">AMShooterPatrolPoint::BeginPlay</a></div><div class="ttdeci">virtual void BeginPlay() override</div><div class="ttdef"><b>Definition</b> MShooterPatrolPoint.cpp:15</div></div>
+<div class="ttc" id="aclass_a_m_shooter_patrol_point_html_a35685e5bc5dbee4e9ff71c974f0791de"><div class="ttname"><a href="class_a_m_shooter_patrol_point.html#a35685e5bc5dbee4e9ff71c974f0791de">AMShooterPatrolPoint::Tick</a></div><div class="ttdeci">virtual void Tick(float DeltaTime) override</div><div class="ttdef"><b>Definition</b> MShooterPatrolPoint.cpp:22</div></div>
 <div class="ttc" id="aclass_a_m_shooter_patrol_zone_html"><div class="ttname"><a href="class_a_m_shooter_patrol_zone.html">AMShooterPatrolZone</a></div><div class="ttdef"><b>Definition</b> MShooterPatrolZone.h:23</div></div>
 <div class="ttc" id="aclass_a_m_shooter_patrol_zone_html_a1bf09fb0aab208c4e0ddb7258206e95b"><div class="ttname"><a href="class_a_m_shooter_patrol_zone.html#a1bf09fb0aab208c4e0ddb7258206e95b">AMShooterPatrolZone::SendPatrolPointDelegate</a></div><div class="ttdeci">FSendPatrolPoint SendPatrolPointDelegate</div><div class="ttdef"><b>Definition</b> MShooterPatrolZone.h:39</div></div>
 <div class="ttc" id="aclass_a_m_shooter_patrol_zone_html_a9fb9874277359bd7e5c9159041f73b95"><div class="ttname"><a href="class_a_m_shooter_patrol_zone.html#a9fb9874277359bd7e5c9159041f73b95">AMShooterPatrolZone::PlayerIsInsideZoneDelegate</a></div><div class="ttdeci">FPlayerIsInsideZone PlayerIsInsideZoneDelegate</div><div class="ttdef"><b>Definition</b> MShooterPatrolZone.h:45</div></div>

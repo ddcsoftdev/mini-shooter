@@ -1,6 +1,6 @@
 \doxysection{MShooter\+AIComponent.\+h}
 \hypertarget{_m_shooter_a_i_component_8h_source}{}\label{_m_shooter_a_i_component_8h_source}\index{Source/MiniShooter/Components/MShooterAIComponent.h@{Source/MiniShooter/Components/MShooterAIComponent.h}}
-
+\mbox{\hyperlink{_m_shooter_a_i_component_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//\ Fill\ out\ your\ copyright\ notice\ in\ the\ Description\ page\ of\ Project\ Settings.}}
 \DoxyCodeLine{00002\ }
@@ -12,13 +12,13 @@
 \DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}MShooterAIComponent.generated.h"{}}}
 \DoxyCodeLine{00009\ }
 \DoxyCodeLine{00013\ UENUM(BlueprintType)}
-\DoxyCodeLine{00014\ \textcolor{keyword}{enum\ class}\ EStateMachine\ :\ uint8}
+\DoxyCodeLine{00014\ enum\ class\ \mbox{\hyperlink{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271}{EStateMachine}}\ :\ uint8}
 \DoxyCodeLine{00015\ \{}
-\DoxyCodeLine{00016\ \ \ \ \ Idle\ \ \ \ UMETA(DisplayName\ =\ \textcolor{stringliteral}{"{}Idle"{}}),}
-\DoxyCodeLine{00017\ \ \ \ \ Patrol\ \ UMETA(DisplayName\ =\ \textcolor{stringliteral}{"{}Patrol"{}}),}
-\DoxyCodeLine{00018\ \ \ \ \ Chase\ \ \ UMETA(DisplayName\ =\ \textcolor{stringliteral}{"{}Chase"{}}),}
-\DoxyCodeLine{00019\ \ \ \ \ Rest\ \ \ \ UMETA(DisplayName\ =\ \textcolor{stringliteral}{"{}Rest"{}}),}
-\DoxyCodeLine{00020\ \ \ \ \ Attack\ \ UMETA(DisplayName\ =\ \textcolor{stringliteral}{"{}Attack"{}})}
+\DoxyCodeLine{00016\ \ \ \ \ Idle\ \ \ \ \mbox{\hyperlink{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271aa3f80d8f0f1b4ffa8c475f5d60ea5635}{UMETA}}(DisplayName\ =\ \textcolor{stringliteral}{"{}Idle"{}}),}
+\DoxyCodeLine{00017\ \ \ \ \ Patrol\ \ \mbox{\hyperlink{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271aa3f80d8f0f1b4ffa8c475f5d60ea5635}{UMETA}}(DisplayName\ =\ \textcolor{stringliteral}{"{}Patrol"{}}),}
+\DoxyCodeLine{00018\ \ \ \ \ Chase\ \ \ \mbox{\hyperlink{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271aa3f80d8f0f1b4ffa8c475f5d60ea5635}{UMETA}}(DisplayName\ =\ \textcolor{stringliteral}{"{}Chase"{}}),}
+\DoxyCodeLine{00019\ \ \ \ \ Rest\ \ \ \ \mbox{\hyperlink{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271aa3f80d8f0f1b4ffa8c475f5d60ea5635}{UMETA}}(DisplayName\ =\ \textcolor{stringliteral}{"{}Rest"{}}),}
+\DoxyCodeLine{00020\ \ \ \ \ Attack\ \ \mbox{\hyperlink{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271aa3f80d8f0f1b4ffa8c475f5d60ea5635}{UMETA}}(DisplayName\ =\ \textcolor{stringliteral}{"{}Attack"{}})}
 \DoxyCodeLine{00021\ \};}
 \DoxyCodeLine{00022\ }
 \DoxyCodeLine{00026\ UCLASS(\ ClassGroup=(Custom),\ meta=(BlueprintSpawnableComponent)\ )}
@@ -48,10 +48,10 @@
 \DoxyCodeLine{00066\ protected:}
 \DoxyCodeLine{00067\ }
 \DoxyCodeLine{00071\ \ \ \ \ UPROPERTY()}
-\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ EStateMachine\ ActiveState\ \{EStateMachine::Idle\};}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271}{EStateMachine}}\ ActiveState\ \{EStateMachine::Idle\};}
 \DoxyCodeLine{00073\ }
 \DoxyCodeLine{00077\ \ \ \ \ UPROPERTY()}
-\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ EStateMachine\ PreviousState\ \{EStateMachine::Idle\};}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271}{EStateMachine}}\ PreviousState\ \{EStateMachine::Idle\};}
 \DoxyCodeLine{00079\ }
 \DoxyCodeLine{00083\ \ \ \ \ UPROPERTY()}
 \DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ FTimerHandle\ InSameStateTimer;}
@@ -72,7 +72,7 @@
 \DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ FVector\ TargetLocation\{\ FVector::ZeroVector\ \};}
 \DoxyCodeLine{00115\ }
 \DoxyCodeLine{00121\ \ \ \ \ UFUNCTION()}
-\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ void\ ChangeState(EStateMachine\ NewState);}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ void\ ChangeState(\mbox{\hyperlink{_m_shooter_a_i_component_8h_a9793cf5e1ba9cf08e7f1cce8f9160271}{EStateMachine}}\ NewState);}
 \DoxyCodeLine{00123\ }
 \DoxyCodeLine{00127\ \ \ \ \ UFUNCTION()}
 \DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ StartRestFunctionality();}
@@ -88,6 +88,8 @@
 \DoxyCodeLine{00149\ }
 \DoxyCodeLine{00150\ \ \ \ \ \textcolor{comment}{//\ Called\ when\ the\ game\ starts}}
 \DoxyCodeLine{00151\ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ BeginPlay()\ override;}
-\DoxyCodeLine{00152\ \};}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ EndPlay(const\ EEndPlayReason::Type\ EndPlayReason)\ override;}
+\DoxyCodeLine{00154\ \};}
 
 \end{DoxyCode}

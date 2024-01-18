@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['initialize_0',['Initialize',['../class_a_m_shooter_patrol_zone.html#a35a180779da67aafcf891bb4ee417d54',1,'AMShooterPatrolZone']]]
+  ['endplay_0',['EndPlay',['../class_a_m_shooter_enemy.html#a5339cc641a647aea422cf7c26508281e',1,'AMShooterEnemy']]]
 ];
