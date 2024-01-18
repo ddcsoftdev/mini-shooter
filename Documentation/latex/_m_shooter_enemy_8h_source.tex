@@ -1,6 +1,6 @@
 \doxysection{MShooter\+Enemy.\+h}
-\hypertarget{_m_shooter_enemy_8h_source}{}\label{_m_shooter_enemy_8h_source}\index{MiniShooter/Enemy/MShooterEnemy.h@{MiniShooter/Enemy/MShooterEnemy.h}}
-\mbox{\hyperlink{_m_shooter_enemy_8h}{Go to the documentation of this file.}}
+\hypertarget{_m_shooter_enemy_8h_source}{}\label{_m_shooter_enemy_8h_source}\index{Source/MiniShooter/Enemy/MShooterEnemy.h@{Source/MiniShooter/Enemy/MShooterEnemy.h}}
+
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//\ Fill\ out\ your\ copyright\ notice\ in\ the\ Description\ page\ of\ Project\ Settings.}}
 \DoxyCodeLine{00002\ }
@@ -9,7 +9,7 @@
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <CoreMinimal.h>}}
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <GameFramework/Actor.h>}}
 \DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_m_shooter_enemy_interface_8h}{MShooterEnemyInterface.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}MShooterEnemyInterface.h"{}}}
 \DoxyCodeLine{00009\ }
 \DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}MShooterEnemy.generated.h"{}}}
 \DoxyCodeLine{00011\ }
@@ -35,62 +35,62 @@
 \DoxyCodeLine{00036\ \ \ \ \ \textcolor{comment}{//\ Called\ every\ frame}}
 \DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ Tick(\textcolor{keywordtype}{float}\ DeltaTime)\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00038\ }
-\DoxyCodeLine{00042\ \ \ \ \ UFUNCTION()}
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ TakeDamageAmount(\textcolor{keywordtype}{float}\ Amount)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00044\ }
-\DoxyCodeLine{00048\ \ \ \ \ UFUNCTION()}
-\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ AActor*\ GetActivePatrolZone()\ \{\ \textcolor{keywordflow}{return}\ ActivePatrolZone;\ \}}
-\DoxyCodeLine{00050\ }
-\DoxyCodeLine{00054\ \ \ \ \ UFUNCTION()}
-\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ void\ RegisterPatrolZone(AActor*\ PatrolZone);}
-\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00044\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ TakeDamageAmount(\textcolor{keywordtype}{float}\ Amount)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00052\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ AActor*\ GetActivePatrolZone()\ \{\ \textcolor{keywordflow}{return}\ ActivePatrolZone;\ \}}
+\DoxyCodeLine{00054\ }
 \DoxyCodeLine{00060\ \ \ \ \ UFUNCTION()}
-\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ UnRegisterPatrolZone(AActor*\ PatrolZone);}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ void\ RegisterPatrolZone(AActor*\ PatrolZone);}
 \DoxyCodeLine{00062\ }
-\DoxyCodeLine{00066\ \ \ \ \ UFUNCTION()}
-\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ UpdateAITargetLocation(AActor*\ PatrolPoint);}
-\DoxyCodeLine{00068\ }
-\DoxyCodeLine{00072\ \ \ \ \ UFUNCTION()}
-\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetAIBehaviour(\textcolor{keywordtype}{bool}\ bActivate);}
-\DoxyCodeLine{00074\ }
-\DoxyCodeLine{00075\ protected:}
-\DoxyCodeLine{00076\ }
-\DoxyCodeLine{00080\ \ \ \ \ UPROPERTY(EditAnywhere)}
-\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ UMShooterLifeComponent*\ LifeComponent;}
-\DoxyCodeLine{00082\ }
-\DoxyCodeLine{00086\ \ \ \ \ UPROPERTY(EditAnywhere)}
-\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ UMShooterShootingComponent*\ ShootingComponent;}
+\DoxyCodeLine{00068\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ UnRegisterPatrolZone(AActor*\ PatrolZone);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00076\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ UpdateAITargetLocation(AActor*\ PatrolPoint);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00084\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetAIBehaviour(\textcolor{keywordtype}{bool}\ bActivate);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ protected:}
 \DoxyCodeLine{00088\ }
 \DoxyCodeLine{00092\ \ \ \ \ UPROPERTY(EditAnywhere)}
-\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ UMShooterAIComponent*\ AIComponent;}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ UMShooterLifeComponent*\ LifeComponent;}
 \DoxyCodeLine{00094\ }
 \DoxyCodeLine{00098\ \ \ \ \ UPROPERTY(EditAnywhere)}
-\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ UStaticMeshComponent*\ StaticMeshComponent;}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ UMShooterShootingComponent*\ ShootingComponent;}
 \DoxyCodeLine{00100\ }
 \DoxyCodeLine{00104\ \ \ \ \ UPROPERTY(EditAnywhere)}
-\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ UBoxComponent*\ BoxCollision;}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ UMShooterAIComponent*\ AIComponent;}
 \DoxyCodeLine{00106\ }
 \DoxyCodeLine{00110\ \ \ \ \ UPROPERTY(EditAnywhere)}
-\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ UWidgetComponent*\ HealthWidget;}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ UStaticMeshComponent*\ StaticMeshComponent;}
 \DoxyCodeLine{00112\ }
-\DoxyCodeLine{00116\ \ \ \ \ UPROPERTY()}
-\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ AActor*\ ActivePatrolZone;}
+\DoxyCodeLine{00116\ \ \ \ \ UPROPERTY(EditAnywhere)}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ UBoxComponent*\ BoxCollision;}
 \DoxyCodeLine{00118\ }
-\DoxyCodeLine{00122\ \ \ \ \ UPROPERTY()}
-\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ AActor*\ ActivePatrolPoint;}
+\DoxyCodeLine{00122\ \ \ \ \ UPROPERTY(EditAnywhere)}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ UWidgetComponent*\ HealthWidget;}
 \DoxyCodeLine{00124\ }
-\DoxyCodeLine{00125\ }
-\DoxyCodeLine{00126\ \ \ \ \ \textcolor{comment}{//\ Called\ when\ the\ game\ starts\ or\ when\ spawned}}
-\DoxyCodeLine{00127\ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ BeginPlay()\ override;}
-\DoxyCodeLine{00128\ }
-\DoxyCodeLine{00134\ \ \ \ \ UFUNCTION()}
-\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ UpdateHealthBarWidget(\textcolor{keywordtype}{float}\ MaxHealth,\ \textcolor{keywordtype}{float}\ CurrentHealth)\ override;}
+\DoxyCodeLine{00128\ \ \ \ \ UPROPERTY()}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ AActor*\ ActivePatrolZone;}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00134\ \ \ \ \ UPROPERTY()}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ AActor*\ ActivePatrolPoint;}
 \DoxyCodeLine{00136\ }
-\DoxyCodeLine{00141\ \ \ \ \ UFUNCTION()}
-\DoxyCodeLine{00142\ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ SetHealthWidgetRotation()\ override;}
-\DoxyCodeLine{00143\ }
-\DoxyCodeLine{00147\ \ \ \ \ UFUNCTION()}
-\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ HandlePlayerWithinZone(\textcolor{keywordtype}{bool}\ bIsInsideZone);}
-\DoxyCodeLine{00149\ \};}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{comment}{//\ Called\ when\ the\ game\ starts\ or\ when\ spawned}}
+\DoxyCodeLine{00139\ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ BeginPlay()\ override;}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00148\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ UpdateHealthBarWidget(\textcolor{keywordtype}{float}\ MaxHealth,\ \textcolor{keywordtype}{float}\ CurrentHealth)\ override;}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00154\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ SetHealthWidgetRotation()\ override;}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00162\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ HandlePlayerWithinZone(\textcolor{keywordtype}{bool}\ bIsInsideZone);}
+\DoxyCodeLine{00164\ \};}
 
 \end{DoxyCode}

@@ -1,6 +1,6 @@
 \doxysection{MShooter\+Patrol\+Zone.\+h}
-\hypertarget{_m_shooter_patrol_zone_8h_source}{}\label{_m_shooter_patrol_zone_8h_source}\index{MiniShooter/AI/MShooterPatrolZone.h@{MiniShooter/AI/MShooterPatrolZone.h}}
-\mbox{\hyperlink{_m_shooter_patrol_zone_8h}{Go to the documentation of this file.}}
+\hypertarget{_m_shooter_patrol_zone_8h_source}{}\label{_m_shooter_patrol_zone_8h_source}\index{Source/MiniShooter/AI/MShooterPatrolZone.h@{Source/MiniShooter/AI/MShooterPatrolZone.h}}
+
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//\ Fill\ out\ your\ copyright\ notice\ in\ the\ Description\ page\ of\ Project\ Settings.}}
 \DoxyCodeLine{00002\ }
@@ -13,9 +13,9 @@
 \DoxyCodeLine{00009\ }
 \DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_a_m_shooter_patrol_point}{AMShooterPatrolPoint}};}
 \DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ \mbox{\hyperlink{_m_shooter_patrol_zone_8h_adbeaad881d266cb0d4b2858dc18d6923}{DECLARE\_MULTICAST\_DELEGATE\_TwoParams}}(FRegisterPatrolPointUsage,\ \textcolor{keyword}{class}\ AActor*,\ \textcolor{keywordtype}{bool}\ bIsBeingUsed);}
-\DoxyCodeLine{00013\ \mbox{\hyperlink{_m_shooter_patrol_zone_8h_ad11a2246576ed973eec55416c6e88894}{DECLARE\_MULTICAST\_DELEGATE\_OneParam}}(FSendPatrolPoint,\ \textcolor{keyword}{class}\ AActor*);}
-\DoxyCodeLine{00014\ \mbox{\hyperlink{_m_shooter_patrol_zone_8h_ad11a2246576ed973eec55416c6e88894}{DECLARE\_MULTICAST\_DELEGATE\_OneParam}}(FPlayerIsInsideZone,\ \textcolor{keywordtype}{bool}\ bIsInside);}
+\DoxyCodeLine{00012\ DECLARE\_MULTICAST\_DELEGATE\_TwoParams(FRegisterPatrolPointUsage,\ \textcolor{keyword}{class}\ AActor*,\ \textcolor{keywordtype}{bool}\ bIsBeingUsed);}
+\DoxyCodeLine{00013\ DECLARE\_MULTICAST\_DELEGATE\_OneParam(FSendPatrolPoint,\ \textcolor{keyword}{class}\ AActor*);}
+\DoxyCodeLine{00014\ DECLARE\_MULTICAST\_DELEGATE\_OneParam(FPlayerIsInsideZone,\ \textcolor{keywordtype}{bool}\ bIsInside);}
 \DoxyCodeLine{00015\ }
 \DoxyCodeLine{00021\ UCLASS()}
 \DoxyCodeLine{00022\ class\ MINISHOOTER\_API\ \mbox{\hyperlink{class_a_m_shooter_patrol_zone}{AMShooterPatrolZone}}\ :\ public\ AActor}
@@ -33,7 +33,7 @@
 \DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ FPlayerIsInsideZone\ \mbox{\hyperlink{class_a_m_shooter_patrol_zone_a9fb9874277359bd7e5c9159041f73b95}{PlayerIsInsideZoneDelegate}};}
 \DoxyCodeLine{00046\ }
 \DoxyCodeLine{00047\ \ \ \ \ \textcolor{comment}{//\ Called\ every\ frame}}
-\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_a_m_shooter_patrol_point_a35685e5bc5dbee4e9ff71c974f0791de}{Tick}}(\textcolor{keywordtype}{float}\ DeltaTime)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ Tick(\textcolor{keywordtype}{float}\ DeltaTime)\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00049\ }
 \DoxyCodeLine{00053\ \ \ \ \ UFUNCTION()}
 \DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ void\ TryToReturnPatrolPoint(AActor*\ PatrolPoint);}
@@ -41,56 +41,58 @@
 \DoxyCodeLine{00059\ \ \ \ \ UFUNCTION()}
 \DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ Initialize();}
 \DoxyCodeLine{00061\ }
-\DoxyCodeLine{00065\ \ \ \ \ UFUNCTION()}
-\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ CheckIfPlayerStillInZone(AActor*\ Enemy);}
-\DoxyCodeLine{00067\ }
-\DoxyCodeLine{00068\ protected:}
+\DoxyCodeLine{00067\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ CheckIfPlayerStillInZone(AActor*\ Enemy);}
 \DoxyCodeLine{00069\ }
-\DoxyCodeLine{00073\ \ \ \ \ UPROPERTY()}
-\DoxyCodeLine{00074\ \ \ \ \ TArray<AActor*>\ AvailablePatrolPoints;}
-\DoxyCodeLine{00075\ }
-\DoxyCodeLine{00079\ \ \ \ \ UPROPERTY()}
-\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ TArray<AActor*>\ ActiveEnemies;}
-\DoxyCodeLine{00081\ }
-\DoxyCodeLine{00085\ \ \ \ \ UPROPERTY()}
-\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ bIsPlayerInZone\{\ \textcolor{keyword}{false}\ \};}
-\DoxyCodeLine{00087\ }
-\DoxyCodeLine{00091\ \ \ \ \ UFUNCTION()}
-\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ AActor*\ GetAvailablePatrolPoint();}
-\DoxyCodeLine{00093\ }
-\DoxyCodeLine{00097\ \ \ \ \ UFUNCTION()}
-\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ RegisterPatrolPoint(AActor*\ PatrolPoint);}
-\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00070\ protected:}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00075\ \ \ \ \ UPROPERTY()}
+\DoxyCodeLine{00076\ \ \ \ \ TArray<AActor*>\ AvailablePatrolPoints;}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00081\ \ \ \ \ UPROPERTY()}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ TArray<AActor*>\ ActiveEnemies;}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00087\ \ \ \ \ UPROPERTY()}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ bIsPlayerInZone\{\ \textcolor{keyword}{false}\ \};}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00095\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ AActor*\ GetAvailablePatrolPoint();}
+\DoxyCodeLine{00097\ }
 \DoxyCodeLine{00103\ \ \ \ \ UFUNCTION()}
-\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ RegisterEnemy(AActor*\ Enemy);}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ RegisterPatrolPoint(AActor*\ PatrolPoint);}
 \DoxyCodeLine{00105\ }
-\DoxyCodeLine{00109\ \ \ \ \ UFUNCTION()}
-\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ UnRegisterPatrolPoint(AActor*\ PatrolPoint);}
-\DoxyCodeLine{00111\ }
-\DoxyCodeLine{00115\ \ \ \ \ UFUNCTION()}
-\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ UnRegisterEnemy(AActor*\ Enemy);}
-\DoxyCodeLine{00117\ }
-\DoxyCodeLine{00121\ \ \ \ \ UFUNCTION()}
-\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ NotifyPlayerEnteredZone(AActor*\ Enemy);}
-\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00111\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ RegisterEnemy(AActor*\ Enemy);}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00119\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ UnRegisterPatrolPoint(AActor*\ PatrolPoint);}
+\DoxyCodeLine{00121\ }
 \DoxyCodeLine{00127\ \ \ \ \ UFUNCTION()}
-\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ NotifyPlayerLeftZone(AActor*\ Enemy);}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ UnRegisterEnemy(AActor*\ Enemy);}
 \DoxyCodeLine{00129\ }
-\DoxyCodeLine{00130\ \textcolor{comment}{\ \ \ \ /***}}
-\DoxyCodeLine{00131\ \textcolor{comment}{\ \ \ \ *\ Get\ Random\ Point\ within\ Patrol\ Zone}}
-\DoxyCodeLine{00132\ \textcolor{comment}{\ \ \ \ */}}
-\DoxyCodeLine{00133\ \ \ \ \ UFUNCTION()}
-\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordtype}{void}\ SendPatrolPoint(AActor*\ EnemyToSend);}
-\DoxyCodeLine{00135\ }
-\DoxyCodeLine{00136\ \ \ \ \ \textcolor{comment}{//\ Called\ when\ the\ game\ starts\ or\ when\ spawned}}
-\DoxyCodeLine{00137\ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_a_m_shooter_patrol_point_a030d247c59007f000420075393a5bd39}{BeginPlay}}()\ override;}
-\DoxyCodeLine{00138\ }
-\DoxyCodeLine{00139\ \ \ \ \ UFUNCTION()}
-\DoxyCodeLine{00140\ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ NotifyActorBeginOverlap(AActor*\ OtherActor)\ override;}
-\DoxyCodeLine{00141\ }
-\DoxyCodeLine{00142\ \ \ \ \ UFUNCTION()}
-\DoxyCodeLine{00143\ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ NotifyActorEndOverlap(AActor*\ OtherActor)\ override;}
-\DoxyCodeLine{00144\ }
-\DoxyCodeLine{00145\ \};}
+\DoxyCodeLine{00135\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ NotifyPlayerEnteredZone(AActor*\ Enemy);}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00143\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ NotifyPlayerLeftZone(AActor*\ Enemy);}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \textcolor{comment}{\ \ \ \ /***}}
+\DoxyCodeLine{00147\ \textcolor{comment}{\ \ \ \ *\ Get\ Random\ Point\ within\ Patrol\ Zone}}
+\DoxyCodeLine{00148\ \textcolor{comment}{\ \ \ \ *}}
+\DoxyCodeLine{00149\ \textcolor{comment}{\ \ \ \ *\ @param\ EnemyToSend\ Actor\ that\ it\ sends\ Patrol\ Point\ to}}
+\DoxyCodeLine{00150\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00151\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordtype}{void}\ SendPatrolPoint(AActor*\ EnemyToSend);}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{comment}{//\ Called\ when\ the\ game\ starts\ or\ when\ spawned}}
+\DoxyCodeLine{00155\ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ BeginPlay()\ override;}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00158\ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ NotifyActorBeginOverlap(AActor*\ OtherActor)\ override;}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00161\ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ NotifyActorEndOverlap(AActor*\ OtherActor)\ override;}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \};}
 
 \end{DoxyCode}

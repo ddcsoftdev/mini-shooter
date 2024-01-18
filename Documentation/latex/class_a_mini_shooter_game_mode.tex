@@ -10,11 +10,6 @@ Inheritance diagram for AMini\+Shooter\+Game\+Mode\+:\begin{figure}[H]
 \includegraphics[height=2.000000cm]{class_a_mini_shooter_game_mode}
 \end{center}
 \end{figure}
-\doxysubsubsection*{Public Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\hyperlink{class_a_mini_shooter_game_mode_a237c54f0448a5e566e9c8c66edb63053}{AMini\+Shooter\+Game\+Mode}} ()
-\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -31,10 +26,14 @@ void \mbox{\hyperlink{class_a_mini_shooter_game_mode_a9796a86ecbcabbc91fef101c49
 \item 
 void \mbox{\hyperlink{class_a_mini_shooter_game_mode_a65fbe23fb8683aa96193c1c44805df06}{Process\+Request\+Enemy\+Delegate}} (AActor \texorpdfstring{$\ast$}{*}Requesting\+Actor)
 \item 
-virtual void \mbox{\hyperlink{class_a_mini_shooter_game_mode_a8f92a42e7c5d29e7e2515011591b85ca}{Begin\+Play}} () override
+\Hypertarget{class_a_mini_shooter_game_mode_a8f92a42e7c5d29e7e2515011591b85ca}\label{class_a_mini_shooter_game_mode_a8f92a42e7c5d29e7e2515011591b85ca} 
+virtual void {\bfseries Begin\+Play} () override
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_a_mini_shooter_game_mode_a3fba40f24d5334639fe5b65f885dee90}\label{class_a_mini_shooter_game_mode_a3fba40f24d5334639fe5b65f885dee90} 
+int32 {\bfseries Killed\+Enemies\+Count} \{ 0 \}
 \item 
 TArray$<$ AActor \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_a_mini_shooter_game_mode_a9b921e4b9111d65aa116c326b3ab9d0a}{Active\+Enemies}}
 \end{DoxyCompactItemize}
@@ -43,35 +42,34 @@ TArray$<$ AActor \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_a_mini_sh
 \doxysubsection{Detailed Description}
 Reusing Default Game\+Mode and adding custom functionality Mainly about Enemies and Aiming availability functionality 
 
-\doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{class_a_mini_shooter_game_mode_a237c54f0448a5e566e9c8c66edb63053}\label{class_a_mini_shooter_game_mode_a237c54f0448a5e566e9c8c66edb63053} 
-\index{AMiniShooterGameMode@{AMiniShooterGameMode}!AMiniShooterGameMode@{AMiniShooterGameMode}}
-\index{AMiniShooterGameMode@{AMiniShooterGameMode}!AMiniShooterGameMode@{AMiniShooterGameMode}}
-\doxysubsubsection{\texorpdfstring{AMiniShooterGameMode()}{AMiniShooterGameMode()}}
-{\footnotesize\ttfamily AMini\+Shooter\+Game\+Mode\+::\+AMini\+Shooter\+Game\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
 \doxysubsection{Member Function Documentation}
-\Hypertarget{class_a_mini_shooter_game_mode_a8f92a42e7c5d29e7e2515011591b85ca}\label{class_a_mini_shooter_game_mode_a8f92a42e7c5d29e7e2515011591b85ca} 
-\index{AMiniShooterGameMode@{AMiniShooterGameMode}!BeginPlay@{BeginPlay}}
-\index{BeginPlay@{BeginPlay}!AMiniShooterGameMode@{AMiniShooterGameMode}}
-\doxysubsubsection{\texorpdfstring{BeginPlay()}{BeginPlay()}}
-{\footnotesize\ttfamily void AMini\+Shooter\+Game\+Mode\+::\+Begin\+Play (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
-
 \Hypertarget{class_a_mini_shooter_game_mode_a65fbe23fb8683aa96193c1c44805df06}\label{class_a_mini_shooter_game_mode_a65fbe23fb8683aa96193c1c44805df06} 
 \index{AMiniShooterGameMode@{AMiniShooterGameMode}!ProcessRequestEnemyDelegate@{ProcessRequestEnemyDelegate}}
 \index{ProcessRequestEnemyDelegate@{ProcessRequestEnemyDelegate}!AMiniShooterGameMode@{AMiniShooterGameMode}}
 \doxysubsubsection{\texorpdfstring{ProcessRequestEnemyDelegate()}{ProcessRequestEnemyDelegate()}}
 {\footnotesize\ttfamily void AMini\+Shooter\+Game\+Mode\+::\+Process\+Request\+Enemy\+Delegate (\begin{DoxyParamCaption}\item[{AActor \texorpdfstring{$\ast$}{*}}]{Requesting\+Actor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
-Method that processes Request\+Enemy\+Delegate \Hypertarget{class_a_mini_shooter_game_mode_a9796a86ecbcabbc91fef101c496f0619}\label{class_a_mini_shooter_game_mode_a9796a86ecbcabbc91fef101c496f0619} 
+Method that processes Request\+Enemy\+Delegate to send the nearest enemy New enemy must not be currently targeted
+
+
+\begin{DoxyParams}{Parameters}
+{\em Requesting\+Actor} & Actor that is requesting the new Enemy \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_a_mini_shooter_game_mode_a9796a86ecbcabbc91fef101c496f0619}\label{class_a_mini_shooter_game_mode_a9796a86ecbcabbc91fef101c496f0619} 
 \index{AMiniShooterGameMode@{AMiniShooterGameMode}!RemoveDeadEnemyFromActiveEnemies@{RemoveDeadEnemyFromActiveEnemies}}
 \index{RemoveDeadEnemyFromActiveEnemies@{RemoveDeadEnemyFromActiveEnemies}!AMiniShooterGameMode@{AMiniShooterGameMode}}
 \doxysubsubsection{\texorpdfstring{RemoveDeadEnemyFromActiveEnemies()}{RemoveDeadEnemyFromActiveEnemies()}}
 {\footnotesize\ttfamily void AMini\+Shooter\+Game\+Mode\+::\+Remove\+Dead\+Enemy\+From\+Active\+Enemies (\begin{DoxyParamCaption}\item[{AActor \texorpdfstring{$\ast$}{*}}]{Dead\+Enemy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
-Remove Dead Enemy from Active Enemies \Hypertarget{class_a_mini_shooter_game_mode_a608f41b1575176b29427d2fa6bd15e4e}\label{class_a_mini_shooter_game_mode_a608f41b1575176b29427d2fa6bd15e4e} 
+Remove Dead Enemy from Active Enemies
+
+
+\begin{DoxyParams}{Parameters}
+{\em Dead\+Enemy} & Actor to remove from Enemy TArray \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_a_mini_shooter_game_mode_a608f41b1575176b29427d2fa6bd15e4e}\label{class_a_mini_shooter_game_mode_a608f41b1575176b29427d2fa6bd15e4e} 
 \index{AMiniShooterGameMode@{AMiniShooterGameMode}!ScanAllActiveEnemies@{ScanAllActiveEnemies}}
 \index{ScanAllActiveEnemies@{ScanAllActiveEnemies}!AMiniShooterGameMode@{AMiniShooterGameMode}}
 \doxysubsubsection{\texorpdfstring{ScanAllActiveEnemies()}{ScanAllActiveEnemies()}}
@@ -102,5 +100,5 @@ Delegate that Player can use to get the nearest Enemy
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Mini\+Shooter/\mbox{\hyperlink{_mini_shooter_game_mode_8h}{Mini\+Shooter\+Game\+Mode.\+h}}\item 
-Mini\+Shooter/\mbox{\hyperlink{_mini_shooter_game_mode_8cpp}{Mini\+Shooter\+Game\+Mode.\+cpp}}\end{DoxyCompactItemize}
+Source/\+Mini\+Shooter/Mini\+Shooter\+Game\+Mode.\+h\item 
+Source/\+Mini\+Shooter/Mini\+Shooter\+Game\+Mode.\+cpp\end{DoxyCompactItemize}

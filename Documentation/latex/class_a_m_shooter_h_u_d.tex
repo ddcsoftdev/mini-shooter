@@ -1,0 +1,78 @@
+\doxysection{AMShooter\+HUD Class Reference}
+\hypertarget{class_a_m_shooter_h_u_d}{}\label{class_a_m_shooter_h_u_d}\index{AMShooterHUD@{AMShooterHUD}}
+
+
+{\ttfamily \#include $<$MShooter\+HUD.\+h$>$}
+
+Inheritance diagram for AMShooter\+HUD\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_a_m_shooter_h_u_d}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+FUpdate\+Kill\+Count \mbox{\hyperlink{class_a_m_shooter_h_u_d_a9b58c976e65a3caa4ee9f05fb02f05a6}{Update\+Kill\+Count\+Delegate}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_a_m_shooter_h_u_d_ac1f70b983cf012a7344f71d5afc9e51f}\label{class_a_m_shooter_h_u_d_ac1f70b983cf012a7344f71d5afc9e51f} 
+virtual void {\bfseries Begin\+Play} () override
+\item 
+void \mbox{\hyperlink{class_a_m_shooter_h_u_d_ae6cf20e74e318fb7bb965cc933a90a97}{Update\+Kill\+Cout}} (int32 Count)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+TSubclass\+Of$<$ \mbox{\hyperlink{class_u_m_shooter_kill_count_widget}{UMShooter\+Kill\+Count\+Widget}} $>$ \mbox{\hyperlink{class_a_m_shooter_h_u_d_ab6e27737b9ddd2bc4aaed857bd4680a2}{Kill\+Count\+Widget\+Class}}
+\item 
+\mbox{\hyperlink{class_u_m_shooter_kill_count_widget}{UMShooter\+Kill\+Count\+Widget}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_a_m_shooter_h_u_d_a9789bd9b58741d1e92e91b57e4d1fd0b}{Kill\+Count\+Widget}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Custom HUD that holds all UI widgets for player 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_a_m_shooter_h_u_d_ae6cf20e74e318fb7bb965cc933a90a97}\label{class_a_m_shooter_h_u_d_ae6cf20e74e318fb7bb965cc933a90a97} 
+\index{AMShooterHUD@{AMShooterHUD}!UpdateKillCout@{UpdateKillCout}}
+\index{UpdateKillCout@{UpdateKillCout}!AMShooterHUD@{AMShooterHUD}}
+\doxysubsubsection{\texorpdfstring{UpdateKillCout()}{UpdateKillCout()}}
+{\footnotesize\ttfamily void AMShooter\+HUD\+::\+Update\+Kill\+Cout (\begin{DoxyParamCaption}\item[{int32}]{Count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Method that updates the kill count int
+
+
+\begin{DoxyParams}{Parameters}
+{\em Count} & Amount of killed enemies \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_a_m_shooter_h_u_d_a9789bd9b58741d1e92e91b57e4d1fd0b}\label{class_a_m_shooter_h_u_d_a9789bd9b58741d1e92e91b57e4d1fd0b} 
+\index{AMShooterHUD@{AMShooterHUD}!KillCountWidget@{KillCountWidget}}
+\index{KillCountWidget@{KillCountWidget}!AMShooterHUD@{AMShooterHUD}}
+\doxysubsubsection{\texorpdfstring{KillCountWidget}{KillCountWidget}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_u_m_shooter_kill_count_widget}{UMShooter\+Kill\+Count\+Widget}}\texorpdfstring{$\ast$}{*} AMShooter\+HUD\+::\+Kill\+Count\+Widget\hspace{0.3cm}{\ttfamily [protected]}}
+
+Widget for the Kill Count that is loaded at Begin\+Play if not set in editor \Hypertarget{class_a_m_shooter_h_u_d_ab6e27737b9ddd2bc4aaed857bd4680a2}\label{class_a_m_shooter_h_u_d_ab6e27737b9ddd2bc4aaed857bd4680a2} 
+\index{AMShooterHUD@{AMShooterHUD}!KillCountWidgetClass@{KillCountWidgetClass}}
+\index{KillCountWidgetClass@{KillCountWidgetClass}!AMShooterHUD@{AMShooterHUD}}
+\doxysubsubsection{\texorpdfstring{KillCountWidgetClass}{KillCountWidgetClass}}
+{\footnotesize\ttfamily TSubclass\+Of$<$\mbox{\hyperlink{class_u_m_shooter_kill_count_widget}{UMShooter\+Kill\+Count\+Widget}}$>$ AMShooter\+HUD\+::\+Kill\+Count\+Widget\+Class\hspace{0.3cm}{\ttfamily [protected]}}
+
+Widget Class that will load the Kill\+Count Widget \Hypertarget{class_a_m_shooter_h_u_d_a9b58c976e65a3caa4ee9f05fb02f05a6}\label{class_a_m_shooter_h_u_d_a9b58c976e65a3caa4ee9f05fb02f05a6} 
+\index{AMShooterHUD@{AMShooterHUD}!UpdateKillCountDelegate@{UpdateKillCountDelegate}}
+\index{UpdateKillCountDelegate@{UpdateKillCountDelegate}!AMShooterHUD@{AMShooterHUD}}
+\doxysubsubsection{\texorpdfstring{UpdateKillCountDelegate}{UpdateKillCountDelegate}}
+{\footnotesize\ttfamily FUpdate\+Kill\+Count AMShooter\+HUD\+::\+Update\+Kill\+Count\+Delegate}
+
+Update kill count delegate 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Mini\+Shooter/\+UI/MShooter\+HUD.\+h\item 
+Source/\+Mini\+Shooter/\+UI/MShooter\+HUD.\+cpp\end{DoxyCompactItemize}

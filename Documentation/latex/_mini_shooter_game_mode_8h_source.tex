@@ -1,6 +1,6 @@
 \doxysection{Mini\+Shooter\+Game\+Mode.\+h}
-\hypertarget{_mini_shooter_game_mode_8h_source}{}\label{_mini_shooter_game_mode_8h_source}\index{MiniShooter/MiniShooterGameMode.h@{MiniShooter/MiniShooterGameMode.h}}
-\mbox{\hyperlink{_mini_shooter_game_mode_8h}{Go to the documentation of this file.}}
+\hypertarget{_mini_shooter_game_mode_8h_source}{}\label{_mini_shooter_game_mode_8h_source}\index{Source/MiniShooter/MiniShooterGameMode.h@{Source/MiniShooter/MiniShooterGameMode.h}}
+
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ Epic\ Games,\ Inc.\ All\ Rights\ Reserved.}}
 \DoxyCodeLine{00002\ }
@@ -11,8 +11,8 @@
 \DoxyCodeLine{00007\ }
 \DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}MiniShooterGameMode.generated.h"{}}}
 \DoxyCodeLine{00009\ }
-\DoxyCodeLine{00010\ \mbox{\hyperlink{_mini_shooter_game_mode_8h_a945dbf0a2814311cdfd8b37f64929589}{DECLARE\_MULTICAST\_DELEGATE\_OneParam}}(FSendNearestEnemy,\ \textcolor{keyword}{class}\ AActor*);}
-\DoxyCodeLine{00011\ \mbox{\hyperlink{_mini_shooter_game_mode_8h_a945dbf0a2814311cdfd8b37f64929589}{DECLARE\_MULTICAST\_DELEGATE\_OneParam}}(FNotifyEnemyDead,\ \textcolor{keyword}{class}\ AActor*);}
+\DoxyCodeLine{00010\ DECLARE\_MULTICAST\_DELEGATE\_OneParam(FSendNearestEnemy,\ \textcolor{keyword}{class}\ AActor*);}
+\DoxyCodeLine{00011\ DECLARE\_MULTICAST\_DELEGATE\_OneParam(FNotifyEnemyDead,\ \textcolor{keyword}{class}\ AActor*);}
 \DoxyCodeLine{00012\ }
 \DoxyCodeLine{00016\ UCLASS(minimalapi)}
 \DoxyCodeLine{00017\ class\ \mbox{\hyperlink{class_a_mini_shooter_game_mode}{AMiniShooterGameMode}}\ :\ public\ AGameModeBase}
@@ -28,21 +28,25 @@
 \DoxyCodeLine{00033\ }
 \DoxyCodeLine{00034\ \textcolor{keyword}{protected}:}
 \DoxyCodeLine{00035\ }
-\DoxyCodeLine{00039\ \ \ \ \ TArray<AActor*>\ \mbox{\hyperlink{class_a_mini_shooter_game_mode_a9b921e4b9111d65aa116c326b3ab9d0a}{ActiveEnemies}};}
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00044\ \ \ \ \ UFUNCTION()}
-\DoxyCodeLine{00045\ \ \ \ \ void\ ScanAllActiveEnemies();}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00050\ \ \ \ \ UFUNCTION()}
-\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{void}\ RemoveDeadEnemyFromActiveEnemies(AActor*\ DeadEnemy);}
-\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ UPROPERTY()}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ int32\ KilledEnemiesCount\ \{\ 0\ \};}
+\DoxyCodeLine{00042\ \ \ \ \ UPROPERTY()}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ TArray<AActor*>\ ActiveEnemies;}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00048\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ ScanAllActiveEnemies();}
+\DoxyCodeLine{00050\ }
 \DoxyCodeLine{00056\ \ \ \ \ UFUNCTION()}
-\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ ProcessRequestEnemyDelegate(AActor*\ RequestingActor);}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ RemoveDeadEnemyFromActiveEnemies(AActor*\ DeadEnemy);}
 \DoxyCodeLine{00058\ }
-\DoxyCodeLine{00059\ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ BeginPlay()\ override;}
-\DoxyCodeLine{00060\ \};}
-\DoxyCodeLine{00061\ }
-\DoxyCodeLine{00062\ }
-\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00065\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ ProcessRequestEnemyDelegate(AActor*\ RequestingActor);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ BeginPlay()\ override;}
+\DoxyCodeLine{00069\ \};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ }
 
 \end{DoxyCode}

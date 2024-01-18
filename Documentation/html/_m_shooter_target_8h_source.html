@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Mini Shooter: MiniShooter/Enemy/MShooterTarget.h Source File</title>
+<title>MiniShooter: Source/MiniShooter/Enemy/MShooterTarget.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Mini Shooter
+   <div id="projectname">MiniShooter
    </div>
   </td>
  </tr>
@@ -76,21 +76,21 @@ $(function() { codefold.init(0); });
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_4ee6d81312903af5efaa59519d251794.html">MiniShooter</a></li><li class="navelem"><a class="el" href="dir_b871ba36856c553bcb790e444f8af527.html">Enemy</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_940c63d3d357068997c9b3b2b078b3ce.html">MiniShooter</a></li><li class="navelem"><a class="el" href="dir_c2f3677e9da6cc83cc5fb76426f480cc.html">Enemy</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">MShooterTarget.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="_m_shooter_target_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Fill out your copyright notice in the Description page of Project Settings.</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Fill out your copyright notice in the Description page of Project Settings.</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;CoreMinimal.h&gt;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;GameFramework/Actor.h&gt;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="_m_shooter_enemy_interface_8h.html">MShooterEnemyInterface.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;MShooterEnemyInterface.h&quot;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;MShooterTarget.generated.h&quot;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
@@ -115,50 +115,49 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="comment">// Called every frame</span></div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> Tick(<span class="keywordtype">float</span> DeltaTime) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    UFUNCTION()</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> TakeDamageAmount(<span class="keywordtype">float</span> Amount) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    UPROPERTY(EditAnywhere)</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="class_a_m_shooter_target.html#a9d86b74d834b8c5f25298907ee5ccd8e">   50</a></span>        UMShooterLifeComponent* LifeComponent;</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    UPROPERTY(EditAnywhere)</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="class_a_m_shooter_target.html#a2e45a6a0cedf8c0895f5ca6cfd3b93ff">   56</a></span>        UMShooterShootingComponent* ShootingComponent;</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    UPROPERTY(EditAnywhere)</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="class_a_m_shooter_target.html#a3398d265cb245694f148e5d50f6d5ff4">   62</a></span>        UStaticMeshComponent* StaticMeshComponent;</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    UPROPERTY(EditAnywhere)</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="class_a_m_shooter_target.html#a1752a21651dbd7e63b78623d82423a8d">   68</a></span>        UBoxComponent* BoxCollision;</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    UPROPERTY(EditAnywhere)</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="class_a_m_shooter_target.html#a42b8df9b0a6c69dc29a54e3d5e479090">   74</a></span>        UWidgetComponent* HealthWidget;</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    UPROPERTY(EditAnywhere, Category = &quot;Shooting Target Config&quot;)</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="class_a_m_shooter_target.html#a20ff9a8de42a24b52c626f27402e4c18">   80</a></span>        <span class="keywordtype">float</span> AnimationDistanceAmount{ 150.f };</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    UPROPERTY(EditAnywhere, Category = <span class="stringliteral">&quot;Shooting Target Config&quot;</span>)</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="class_a_m_shooter_target.html#ac822c483d75e510bbe990da0aa329614">   86</a></span>        float AnimationSpeed{ 3.f };</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    UPROPERTY()</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="class_a_m_shooter_target.html#ad831c6c2a716275e2cd8b27a55c02b4e">   92</a></span>    FVector StartLocation {FVector::ZeroVector};</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    UFUNCTION()</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> TakeDamageAmount(<span class="keywordtype">float</span> Amount) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    UPROPERTY(EditAnywhere)</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="class_a_m_shooter_target.html#a9d86b74d834b8c5f25298907ee5ccd8e">   52</a></span>        UMShooterLifeComponent* LifeComponent;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    UPROPERTY(EditAnywhere)</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="class_a_m_shooter_target.html#a2e45a6a0cedf8c0895f5ca6cfd3b93ff">   58</a></span>        UMShooterShootingComponent* ShootingComponent;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    UPROPERTY(EditAnywhere)</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="class_a_m_shooter_target.html#a3398d265cb245694f148e5d50f6d5ff4">   64</a></span>        UStaticMeshComponent* StaticMeshComponent;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    UPROPERTY(EditAnywhere)</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="class_a_m_shooter_target.html#a1752a21651dbd7e63b78623d82423a8d">   70</a></span>        UBoxComponent* BoxCollision;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    UPROPERTY(EditAnywhere)</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="class_a_m_shooter_target.html#a42b8df9b0a6c69dc29a54e3d5e479090">   76</a></span>        UWidgetComponent* HealthWidget;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    UPROPERTY(EditAnywhere, Category = &quot;Shooting Target Config&quot;)</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="class_a_m_shooter_target.html#a20ff9a8de42a24b52c626f27402e4c18">   82</a></span>        <span class="keywordtype">float</span> AnimationDistanceAmount{ 150.f };</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    UPROPERTY(EditAnywhere, Category = <span class="stringliteral">&quot;Shooting Target Config&quot;</span>)</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="class_a_m_shooter_target.html#ac822c483d75e510bbe990da0aa329614">   88</a></span>        float AnimationSpeed{ 3.f };</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    UPROPERTY()</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="class_a_m_shooter_target.html#a0c9219d95578273ea288d7067c00614e">   94</a></span>    FVector EndLocation {FVector::ZeroVector};</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="comment">// Called when the game starts or when spawned</span></div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> BeginPlay() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    UFUNCTION()</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        virtual <span class="keywordtype">void</span> UpdateHealthBarWidget(<span class="keywordtype">float</span> MaxHealth, <span class="keywordtype">float</span> CurrentHealth) override;</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    UFUNCTION()</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        virtual <span class="keywordtype">void</span> SetHealthWidgetRotation() override;</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    </div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    UFUNCTION()</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <span class="keywordtype">void</span> PlayTargetAnimation();</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>};</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="class_a_m_shooter_target.html#ad831c6c2a716275e2cd8b27a55c02b4e">   94</a></span>        FVector StartLocation {FVector::ZeroVector};</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    UPROPERTY()</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        FVector EndLocation {FVector::ZeroVector};</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="comment">// Called when the game starts or when spawned</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> BeginPlay() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    UFUNCTION()</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        virtual <span class="keywordtype">void</span> UpdateHealthBarWidget(<span class="keywordtype">float</span> MaxHealth, <span class="keywordtype">float</span> CurrentHealth) override;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    UFUNCTION()</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        virtual <span class="keywordtype">void</span> SetHealthWidgetRotation() override;</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    UFUNCTION()</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        <span class="keywordtype">void</span> PlayTargetAnimation();</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>};</div>
 </div>
-<div class="ttc" id="a_m_shooter_enemy_interface_8h_html"><div class="ttname"><a href="_m_shooter_enemy_interface_8h.html">MShooterEnemyInterface.h</a></div></div>
 <div class="ttc" id="aclass_a_m_shooter_target_html"><div class="ttname"><a href="class_a_m_shooter_target.html">AMShooterTarget</a></div><div class="ttdef"><b>Definition</b> MShooterTarget.h:28</div></div>
 <div class="ttc" id="aclass_i_m_shooter_enemy_basics_html"><div class="ttname"><a href="class_i_m_shooter_enemy_basics.html">IMShooterEnemyBasics</a></div><div class="ttdef"><b>Definition</b> MShooterEnemyInterface.h:22</div></div>
 </div><!-- fragment --></div><!-- contents -->

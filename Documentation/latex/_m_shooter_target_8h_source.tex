@@ -1,6 +1,6 @@
 \doxysection{MShooter\+Target.\+h}
-\hypertarget{_m_shooter_target_8h_source}{}\label{_m_shooter_target_8h_source}\index{MiniShooter/Enemy/MShooterTarget.h@{MiniShooter/Enemy/MShooterTarget.h}}
-\mbox{\hyperlink{_m_shooter_target_8h}{Go to the documentation of this file.}}
+\hypertarget{_m_shooter_target_8h_source}{}\label{_m_shooter_target_8h_source}\index{Source/MiniShooter/Enemy/MShooterTarget.h@{Source/MiniShooter/Enemy/MShooterTarget.h}}
+
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//\ Fill\ out\ your\ copyright\ notice\ in\ the\ Description\ page\ of\ Project\ Settings.}}
 \DoxyCodeLine{00002\ }
@@ -9,7 +9,7 @@
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <CoreMinimal.h>}}
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <GameFramework/Actor.h>}}
 \DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_m_shooter_enemy_interface_8h}{MShooterEnemyInterface.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}MShooterEnemyInterface.h"{}}}
 \DoxyCodeLine{00009\ }
 \DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}MShooterTarget.generated.h"{}}}
 \DoxyCodeLine{00011\ }
@@ -33,47 +33,47 @@
 \DoxyCodeLine{00035\ \ \ \ \ \textcolor{comment}{//\ Called\ every\ frame}}
 \DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ Tick(\textcolor{keywordtype}{float}\ DeltaTime)\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00037\ }
-\DoxyCodeLine{00042\ \ \ \ \ UFUNCTION()}
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ TakeDamageAmount(\textcolor{keywordtype}{float}\ Amount)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00044\ \textcolor{keyword}{protected}:}
-\DoxyCodeLine{00045\ }
-\DoxyCodeLine{00049\ \ \ \ \ UPROPERTY(EditAnywhere)}
-\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ UMShooterLifeComponent*\ LifeComponent;}
-\DoxyCodeLine{00051\ }
-\DoxyCodeLine{00055\ \ \ \ \ UPROPERTY(EditAnywhere)}
-\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ UMShooterShootingComponent*\ ShootingComponent;}
-\DoxyCodeLine{00057\ }
-\DoxyCodeLine{00061\ \ \ \ \ UPROPERTY(EditAnywhere)}
-\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ UStaticMeshComponent*\ StaticMeshComponent;}
-\DoxyCodeLine{00063\ }
-\DoxyCodeLine{00067\ \ \ \ \ UPROPERTY(EditAnywhere)}
-\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ UBoxComponent*\ BoxCollision;}
-\DoxyCodeLine{00069\ }
-\DoxyCodeLine{00073\ \ \ \ \ UPROPERTY(EditAnywhere)}
-\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ UWidgetComponent*\ HealthWidget;}
-\DoxyCodeLine{00075\ }
-\DoxyCodeLine{00079\ \ \ \ \ UPROPERTY(EditAnywhere,\ Category\ =\ "{}Shooting\ Target\ Config"{})}
-\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ AnimationDistanceAmount\{\ 150.f\ \};}
-\DoxyCodeLine{00081\ }
-\DoxyCodeLine{00085\ \ \ \ \ UPROPERTY(EditAnywhere,\ Category\ =\ \textcolor{stringliteral}{"{}Shooting\ Target\ Config"{}})}
-\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ float\ AnimationSpeed\{\ 3.f\ \};}
-\DoxyCodeLine{00087\ }
-\DoxyCodeLine{00091\ \ \ \ \ UPROPERTY()}
-\DoxyCodeLine{00092\ \ \ \ \ FVector\ StartLocation\ \{FVector::ZeroVector\};}
+\DoxyCodeLine{00044\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ TakeDamageAmount(\textcolor{keywordtype}{float}\ Amount)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00046\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00051\ \ \ \ \ UPROPERTY(EditAnywhere)}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ UMShooterLifeComponent*\ LifeComponent;}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00057\ \ \ \ \ UPROPERTY(EditAnywhere)}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ UMShooterShootingComponent*\ ShootingComponent;}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00063\ \ \ \ \ UPROPERTY(EditAnywhere)}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ UStaticMeshComponent*\ StaticMeshComponent;}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00069\ \ \ \ \ UPROPERTY(EditAnywhere)}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ UBoxComponent*\ BoxCollision;}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00075\ \ \ \ \ UPROPERTY(EditAnywhere)}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ UWidgetComponent*\ HealthWidget;}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00081\ \ \ \ \ UPROPERTY(EditAnywhere,\ Category\ =\ "{}Shooting\ Target\ Config"{})}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ AnimationDistanceAmount\{\ 150.f\ \};}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00087\ \ \ \ \ UPROPERTY(EditAnywhere,\ Category\ =\ \textcolor{stringliteral}{"{}Shooting\ Target\ Config"{}})}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ float\ AnimationSpeed\{\ 3.f\ \};}
+\DoxyCodeLine{00089\ }
 \DoxyCodeLine{00093\ \ \ \ \ UPROPERTY()}
-\DoxyCodeLine{00094\ \ \ \ \ FVector\ EndLocation\ \{FVector::ZeroVector\};}
-\DoxyCodeLine{00095\ }
-\DoxyCodeLine{00096\ \ \ \ \ \textcolor{comment}{//\ Called\ when\ the\ game\ starts\ or\ when\ spawned}}
-\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ BeginPlay()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00098\ }
-\DoxyCodeLine{00103\ \ \ \ \ UFUNCTION()}
-\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ UpdateHealthBarWidget(\textcolor{keywordtype}{float}\ MaxHealth,\ \textcolor{keywordtype}{float}\ CurrentHealth)\ override;}
-\DoxyCodeLine{00105\ }
-\DoxyCodeLine{00109\ \ \ \ \ UFUNCTION()}
-\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ SetHealthWidgetRotation()\ override;}
-\DoxyCodeLine{00111\ \ \ \ \ }
-\DoxyCodeLine{00115\ \ \ \ \ UFUNCTION()}
-\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{void}\ PlayTargetAnimation();}
-\DoxyCodeLine{00117\ \};}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ FVector\ StartLocation\ \{FVector::ZeroVector\};}
+\DoxyCodeLine{00095\ \ \ \ \ UPROPERTY()}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ FVector\ EndLocation\ \{FVector::ZeroVector\};}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{comment}{//\ Called\ when\ the\ game\ starts\ or\ when\ spawned}}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ BeginPlay()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00108\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ UpdateHealthBarWidget(\textcolor{keywordtype}{float}\ MaxHealth,\ \textcolor{keywordtype}{float}\ CurrentHealth)\ override;}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00114\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ SetHealthWidgetRotation()\ override;}
+\DoxyCodeLine{00116\ \ \ \ \ }
+\DoxyCodeLine{00120\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ PlayTargetAnimation();}
+\DoxyCodeLine{00122\ \};}
 
 \end{DoxyCode}

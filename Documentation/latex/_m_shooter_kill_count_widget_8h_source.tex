@@ -1,0 +1,34 @@
+\doxysection{MShooter\+Kill\+Count\+Widget.\+h}
+\hypertarget{_m_shooter_kill_count_widget_8h_source}{}\label{_m_shooter_kill_count_widget_8h_source}\index{Source/MiniShooter/UI/MShooterKillCountWidget.h@{Source/MiniShooter/UI/MShooterKillCountWidget.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Fill\ out\ your\ copyright\ notice\ in\ the\ Description\ page\ of\ Project\ Settings.}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <CoreMinimal.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <Blueprint/UserWidget.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <Components/TextBlock.h>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}MShooterKillCountWidget.generated.h"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00014\ UCLASS()}
+\DoxyCodeLine{00015\ class\ MINISHOOTER\_API\ \mbox{\hyperlink{class_u_m_shooter_kill_count_widget}{UMShooterKillCountWidget}}\ :\ public\ UUserWidget}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ GENERATED\_BODY()}
+\DoxyCodeLine{00018\ \ \ \ \ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ SetCount(int32\ Count);}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00031\ \ \ \ \ UPROPERTY()}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ int32\ EnemyCount\ \{\ 0\ \};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00037\ \ \ \ \ UPROPERTY(EditAnywhere,\ meta\ =\ (BindWidget))}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ UTextBlock*\ EnemyCountMessage;}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00043\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ UpdateTextBlock();}
+\DoxyCodeLine{00045\ \};}
+
+\end{DoxyCode}

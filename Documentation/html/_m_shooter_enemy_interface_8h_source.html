@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Mini Shooter: MiniShooter/Enemy/MShooterEnemyInterface.h Source File</title>
+<title>MiniShooter: Source/MiniShooter/Enemy/MShooterEnemyInterface.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Mini Shooter
+   <div id="projectname">MiniShooter
    </div>
   </td>
  </tr>
@@ -76,14 +76,14 @@ $(function() { codefold.init(0); });
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_4ee6d81312903af5efaa59519d251794.html">MiniShooter</a></li><li class="navelem"><a class="el" href="dir_b871ba36856c553bcb790e444f8af527.html">Enemy</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_940c63d3d357068997c9b3b2b078b3ce.html">MiniShooter</a></li><li class="navelem"><a class="el" href="dir_c2f3677e9da6cc83cc5fb76426f480cc.html">Enemy</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">MShooterEnemyInterface.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="_m_shooter_enemy_interface_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Fill out your copyright notice in the Description page of Project Settings.</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Fill out your copyright notice in the Description page of Project Settings.</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
@@ -107,15 +107,15 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    GENERATED_IINTERFACE_BODY()</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> TakeDamageAmount(<span class="keywordtype">float</span> Amount);</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    UFUNCTION()</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> UpdateHealthBarWidget(<span class="keywordtype">float</span> MaxHealth, <span class="keywordtype">float</span> CurrentHealth);</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    UFUNCTION()</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetHealthWidgetRotation();</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>};</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> TakeDamageAmount(<span class="keywordtype">float</span> Amount);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    UFUNCTION()</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> UpdateHealthBarWidget(<span class="keywordtype">float</span> MaxHealth, <span class="keywordtype">float</span> CurrentHealth);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    UFUNCTION()</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetHealthWidgetRotation();</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>};</div>
 </div>
 <div class="ttc" id="aclass_i_m_shooter_enemy_basics_html"><div class="ttname"><a href="class_i_m_shooter_enemy_basics.html">IMShooterEnemyBasics</a></div><div class="ttdef"><b>Definition</b> MShooterEnemyInterface.h:22</div></div>
 <div class="ttc" id="aclass_u_m_shooter_enemy_basics_html"><div class="ttname"><a href="class_u_m_shooter_enemy_basics.html">UMShooterEnemyBasics</a></div><div class="ttdef"><b>Definition</b> MShooterEnemyInterface.h:16</div></div>

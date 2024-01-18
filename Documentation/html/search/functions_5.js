@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['handleplayerwithinzone_0',['HandlePlayerWithinZone',['../class_a_m_shooter_enemy.html#a6612af866f1cc42af2e3c693ca9145aa',1,'AMShooterEnemy']]]
+  ['lookupatrate_0',['LookUpAtRate',['../class_a_mini_shooter_character.html#a7e103846abd1c6f60518028e63fca4a3',1,'AMiniShooterCharacter']]]
 ];

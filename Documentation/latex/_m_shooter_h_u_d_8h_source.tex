@@ -1,0 +1,41 @@
+\doxysection{MShooter\+HUD.\+h}
+\hypertarget{_m_shooter_h_u_d_8h_source}{}\label{_m_shooter_h_u_d_8h_source}\index{Source/MiniShooter/UI/MShooterHUD.h@{Source/MiniShooter/UI/MShooterHUD.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Fill\ out\ your\ copyright\ notice\ in\ the\ Description\ page\ of\ Project\ Settings.}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <CoreMinimal.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <GameFramework/HUD.h>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}MShooterHUD.generated.h"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_u_m_shooter_kill_count_widget}{UMShooterKillCountWidget}};}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ DECLARE\_MULTICAST\_DELEGATE\_OneParam(FUpdateKillCount,\ int32);}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00017\ UCLASS()}
+\DoxyCodeLine{00018\ class\ MINISHOOTER\_API\ \mbox{\hyperlink{class_a_m_shooter_h_u_d}{AMShooterHUD}}\ :\ public\ AHUD}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ GENERATED\_BODY()}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{class_a_m_shooter_h_u_d}{AMShooterHUD}}();}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00028\ \ \ \ \ FUpdateKillCount\ \mbox{\hyperlink{class_a_m_shooter_h_u_d_a9b58c976e65a3caa4ee9f05fb02f05a6}{UpdateKillCountDelegate}};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00034\ \ \ \ \ UPROPERTY()}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ TSubclassOf<\mbox{\hyperlink{class_u_m_shooter_kill_count_widget}{UMShooterKillCountWidget}}>\ KillCountWidgetClass;}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00040\ \ \ \ \ UPROPERTY(EditDefaultsOnly,\ Category\ =\ "{}HUD\ Config"{})}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_u_m_shooter_kill_count_widget}{UMShooterKillCountWidget}}*\ KillCountWidget;}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ BeginPlay()\ override;}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00050\ \ \ \ \ UFUNCTION(Blueprintcallable)}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ UpdateKillCout(int32\ Count);}
+\DoxyCodeLine{00052\ \};}
+
+\end{DoxyCode}

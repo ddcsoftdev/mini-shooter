@@ -1,6 +1,6 @@
 \doxysection{MShooter\+Life\+Component.\+h}
-\hypertarget{_m_shooter_life_component_8h_source}{}\label{_m_shooter_life_component_8h_source}\index{MiniShooter/Components/MShooterLifeComponent.h@{MiniShooter/Components/MShooterLifeComponent.h}}
-\mbox{\hyperlink{_m_shooter_life_component_8h}{Go to the documentation of this file.}}
+\hypertarget{_m_shooter_life_component_8h_source}{}\label{_m_shooter_life_component_8h_source}\index{Source/MiniShooter/Components/MShooterLifeComponent.h@{Source/MiniShooter/Components/MShooterLifeComponent.h}}
+
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//\ Fill\ out\ your\ copyright\ notice\ in\ the\ Description\ page\ of\ Project\ Settings.}}
 \DoxyCodeLine{00002\ }
@@ -23,22 +23,22 @@
 \DoxyCodeLine{00022\ \ \ \ \ \textcolor{comment}{//\ Called\ every\ frame}}
 \DoxyCodeLine{00023\ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ TickComponent(\textcolor{keywordtype}{float}\ DeltaTime,\ ELevelTick\ TickType,\ FActorComponentTickFunction*\ ThisTickFunction)\ override;}
 \DoxyCodeLine{00024\ }
-\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ SetHealth(\textcolor{keywordtype}{float}\ NewHealth);}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{float}\ GetHealth()\ \{\ \textcolor{keywordflow}{return}\ Health;\ \};}
-\DoxyCodeLine{00034\ }
-\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{float}\ GetMaxHealth()\ \{\ \textcolor{keywordflow}{return}\ MaxHealth;\ \};}
-\DoxyCodeLine{00039\ }
-\DoxyCodeLine{00040\ \textcolor{keyword}{protected}:}
-\DoxyCodeLine{00041\ }
-\DoxyCodeLine{00045\ \ \ \ \ UPROPERTY(EditAnywhere,\ Category\ =\ \textcolor{stringliteral}{"{}Life\ Config"{}})}
-\DoxyCodeLine{00046\ \ \ \ \ float\ MaxHealth\{\ 100.f\ \};}
-\DoxyCodeLine{00047\ }
-\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{float}\ Health\{\ 0.f\ \};}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ SetHealth(\textcolor{keywordtype}{float}\ NewHealth);}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{float}\ GetHealth()\ \{\ \textcolor{keywordflow}{return}\ Health;\ \};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{float}\ GetMaxHealth()\ \{\ \textcolor{keywordflow}{return}\ MaxHealth;\ \};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00050\ \ \ \ \ UPROPERTY(EditAnywhere,\ Category\ =\ \textcolor{stringliteral}{"{}Life\ Config"{}})}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ float\ MaxHealth\{\ 100.f\ \};}
 \DoxyCodeLine{00052\ }
-\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ KillOwner();}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{float}\ Health\{\ 0.f\ \};}
 \DoxyCodeLine{00057\ }
-\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ BeginPlay()\ \textcolor{keyword}{override};\ \ }
-\DoxyCodeLine{00059\ \};}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{void}\ KillOwner();}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ BeginPlay()\ \textcolor{keyword}{override};\ \ }
+\DoxyCodeLine{00064\ \};}
 
 \end{DoxyCode}

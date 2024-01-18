@@ -13,13 +13,12 @@ Inheritance diagram for AMShooter\+Projectile\+:\begin{figure}[H]
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_a_m_shooter_projectile_a6ea687d9dd8548895651d09703ba5c8f}{AMShooter\+Projectile}} ()
-\item 
 void \mbox{\hyperlink{class_a_m_shooter_projectile_a0efd7508499e6621e61604c44b4797a4}{Override\+Projectile\+Speed}} (float Override\+Projectile\+Speed)
 \item 
 void \mbox{\hyperlink{class_a_m_shooter_projectile_aa777b9e54f9660e2e6acd6bcc3f1882f}{Register\+Projectile\+Owner}} (AActor \texorpdfstring{$\ast$}{*}Register\+Owner)
 \item 
-virtual void \mbox{\hyperlink{class_a_m_shooter_projectile_abbfc91a728135b86eca5241c76a0007c}{Tick}} (float Delta\+Time) override
+\Hypertarget{class_a_m_shooter_projectile_abbfc91a728135b86eca5241c76a0007c}\label{class_a_m_shooter_projectile_abbfc91a728135b86eca5241c76a0007c} 
+virtual void {\bfseries Tick} (float Delta\+Time) override
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
@@ -30,9 +29,11 @@ void \mbox{\hyperlink{class_a_m_shooter_projectile_a5934ccff460af1823a76fd58260b
 \item 
 void \mbox{\hyperlink{class_a_m_shooter_projectile_a31de07ca88cd08bb99e7a3acd5d1125f}{Request\+Projectile\+Destroy}} ()
 \item 
-virtual void \mbox{\hyperlink{class_a_m_shooter_projectile_a03446c892ef1f1a7691981fdae49cfb4}{Begin\+Play}} () override
+\Hypertarget{class_a_m_shooter_projectile_a03446c892ef1f1a7691981fdae49cfb4}\label{class_a_m_shooter_projectile_a03446c892ef1f1a7691981fdae49cfb4} 
+virtual void {\bfseries Begin\+Play} () override
 \item 
-virtual void \mbox{\hyperlink{class_a_m_shooter_projectile_ad04c4889ae1b669e9eb39b814f44a139}{Notify\+Actor\+Begin\+Overlap}} (AActor \texorpdfstring{$\ast$}{*}Other\+Actor) override
+\Hypertarget{class_a_m_shooter_projectile_ad04c4889ae1b669e9eb39b814f44a139}\label{class_a_m_shooter_projectile_ad04c4889ae1b669e9eb39b814f44a139} 
+virtual void {\bfseries Notify\+Actor\+Begin\+Overlap} (AActor \texorpdfstring{$\ast$}{*}Other\+Actor) override
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
@@ -54,47 +55,47 @@ AActor \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_a_m_shooter_projectile_
 \doxysubsection{Detailed Description}
 Projectile class that is to be launched by Player and Enemies. It also handles collision and the resulting effects such as health modification. 
 
-\doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{class_a_m_shooter_projectile_a6ea687d9dd8548895651d09703ba5c8f}\label{class_a_m_shooter_projectile_a6ea687d9dd8548895651d09703ba5c8f} 
-\index{AMShooterProjectile@{AMShooterProjectile}!AMShooterProjectile@{AMShooterProjectile}}
-\index{AMShooterProjectile@{AMShooterProjectile}!AMShooterProjectile@{AMShooterProjectile}}
-\doxysubsubsection{\texorpdfstring{AMShooterProjectile()}{AMShooterProjectile()}}
-{\footnotesize\ttfamily AMShooter\+Projectile\+::\+AMShooter\+Projectile (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
 \doxysubsection{Member Function Documentation}
-\Hypertarget{class_a_m_shooter_projectile_a03446c892ef1f1a7691981fdae49cfb4}\label{class_a_m_shooter_projectile_a03446c892ef1f1a7691981fdae49cfb4} 
-\index{AMShooterProjectile@{AMShooterProjectile}!BeginPlay@{BeginPlay}}
-\index{BeginPlay@{BeginPlay}!AMShooterProjectile@{AMShooterProjectile}}
-\doxysubsubsection{\texorpdfstring{BeginPlay()}{BeginPlay()}}
-{\footnotesize\ttfamily void AMShooter\+Projectile\+::\+Begin\+Play (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
-
 \Hypertarget{class_a_m_shooter_projectile_a00819efff50e868be1e8e0bece37180a}\label{class_a_m_shooter_projectile_a00819efff50e868be1e8e0bece37180a} 
 \index{AMShooterProjectile@{AMShooterProjectile}!MoveProjectile@{MoveProjectile}}
 \index{MoveProjectile@{MoveProjectile}!AMShooterProjectile@{AMShooterProjectile}}
 \doxysubsubsection{\texorpdfstring{MoveProjectile()}{MoveProjectile()}}
 {\footnotesize\ttfamily void AMShooter\+Projectile\+::\+Move\+Projectile (\begin{DoxyParamCaption}\item[{float}]{Delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
-Moves projectile forward in a straigh line \Hypertarget{class_a_m_shooter_projectile_ad04c4889ae1b669e9eb39b814f44a139}\label{class_a_m_shooter_projectile_ad04c4889ae1b669e9eb39b814f44a139} 
-\index{AMShooterProjectile@{AMShooterProjectile}!NotifyActorBeginOverlap@{NotifyActorBeginOverlap}}
-\index{NotifyActorBeginOverlap@{NotifyActorBeginOverlap}!AMShooterProjectile@{AMShooterProjectile}}
-\doxysubsubsection{\texorpdfstring{NotifyActorBeginOverlap()}{NotifyActorBeginOverlap()}}
-{\footnotesize\ttfamily void AMShooter\+Projectile\+::\+Notify\+Actor\+Begin\+Overlap (\begin{DoxyParamCaption}\item[{AActor \texorpdfstring{$\ast$}{*}}]{Other\+Actor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+Moves projectile forward in a straight line
 
+
+\begin{DoxyParams}{Parameters}
+{\em Delta\+Time} & Value to pass a valid Delta\+Time \\
+\hline
+\end{DoxyParams}
 \Hypertarget{class_a_m_shooter_projectile_a0efd7508499e6621e61604c44b4797a4}\label{class_a_m_shooter_projectile_a0efd7508499e6621e61604c44b4797a4} 
 \index{AMShooterProjectile@{AMShooterProjectile}!OverrideProjectileSpeed@{OverrideProjectileSpeed}}
 \index{OverrideProjectileSpeed@{OverrideProjectileSpeed}!AMShooterProjectile@{AMShooterProjectile}}
 \doxysubsubsection{\texorpdfstring{OverrideProjectileSpeed()}{OverrideProjectileSpeed()}}
 {\footnotesize\ttfamily void AMShooter\+Projectile\+::\+Override\+Projectile\+Speed (\begin{DoxyParamCaption}\item[{float}]{Override\+Projectile\+Speed }\end{DoxyParamCaption})}
 
-Override projectile speed. This is an option giving to the shooting user and handled by MShooter\+Shooting\+Ccomponent. \Hypertarget{class_a_m_shooter_projectile_aa777b9e54f9660e2e6acd6bcc3f1882f}\label{class_a_m_shooter_projectile_aa777b9e54f9660e2e6acd6bcc3f1882f} 
+Override projectile speed. This is an option giving to the shooting user and handled by MShooter\+Shooting\+Ccomponent.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Override\+Projectile\+Speed} & Value to change the speed of the projectile \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_a_m_shooter_projectile_aa777b9e54f9660e2e6acd6bcc3f1882f}\label{class_a_m_shooter_projectile_aa777b9e54f9660e2e6acd6bcc3f1882f} 
 \index{AMShooterProjectile@{AMShooterProjectile}!RegisterProjectileOwner@{RegisterProjectileOwner}}
 \index{RegisterProjectileOwner@{RegisterProjectileOwner}!AMShooterProjectile@{AMShooterProjectile}}
 \doxysubsubsection{\texorpdfstring{RegisterProjectileOwner()}{RegisterProjectileOwner()}}
 {\footnotesize\ttfamily void AMShooter\+Projectile\+::\+Register\+Projectile\+Owner (\begin{DoxyParamCaption}\item[{AActor \texorpdfstring{$\ast$}{*}}]{Register\+Owner }\end{DoxyParamCaption})}
 
-Set Registered Owner \Hypertarget{class_a_m_shooter_projectile_a31de07ca88cd08bb99e7a3acd5d1125f}\label{class_a_m_shooter_projectile_a31de07ca88cd08bb99e7a3acd5d1125f} 
+Set Registered Owner
+
+
+\begin{DoxyParams}{Parameters}
+{\em Register\+Owner} & Actor to register as the Owner of the projectile \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_a_m_shooter_projectile_a31de07ca88cd08bb99e7a3acd5d1125f}\label{class_a_m_shooter_projectile_a31de07ca88cd08bb99e7a3acd5d1125f} 
 \index{AMShooterProjectile@{AMShooterProjectile}!RequestProjectileDestroy@{RequestProjectileDestroy}}
 \index{RequestProjectileDestroy@{RequestProjectileDestroy}!AMShooterProjectile@{AMShooterProjectile}}
 \doxysubsubsection{\texorpdfstring{RequestProjectileDestroy()}{RequestProjectileDestroy()}}
@@ -106,13 +107,7 @@ Starts Destroy schedule \Hypertarget{class_a_m_shooter_projectile_a5934ccff460af
 \doxysubsubsection{\texorpdfstring{StartDestroyTimer()}{StartDestroyTimer()}}
 {\footnotesize\ttfamily void AMShooter\+Projectile\+::\+Start\+Destroy\+Timer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
-Kickstarts Auto\+Destroy Timer so no map overflow \Hypertarget{class_a_m_shooter_projectile_abbfc91a728135b86eca5241c76a0007c}\label{class_a_m_shooter_projectile_abbfc91a728135b86eca5241c76a0007c} 
-\index{AMShooterProjectile@{AMShooterProjectile}!Tick@{Tick}}
-\index{Tick@{Tick}!AMShooterProjectile@{AMShooterProjectile}}
-\doxysubsubsection{\texorpdfstring{Tick()}{Tick()}}
-{\footnotesize\ttfamily void AMShooter\+Projectile\+::\+Tick (\begin{DoxyParamCaption}\item[{float}]{Delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
-
-
+Kickstarts Auto\+Destroy Timer so no map overflow 
 
 \doxysubsection{Member Data Documentation}
 \Hypertarget{class_a_m_shooter_projectile_a46aa45778fe116e1d09d7e098b36af49}\label{class_a_m_shooter_projectile_a46aa45778fe116e1d09d7e098b36af49} 
@@ -155,5 +150,5 @@ Time To Destroy after Spawning. Used to avoid uncesseary unused projectiles stac
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Mini\+Shooter/\+Projectile/\mbox{\hyperlink{_m_shooter_projectile_8h}{MShooter\+Projectile.\+h}}\item 
-Mini\+Shooter/\+Projectile/\mbox{\hyperlink{_m_shooter_projectile_8cpp}{MShooter\+Projectile.\+cpp}}\end{DoxyCompactItemize}
+Source/\+Mini\+Shooter/\+Projectile/MShooter\+Projectile.\+h\item 
+Source/\+Mini\+Shooter/\+Projectile/MShooter\+Projectile.\+cpp\end{DoxyCompactItemize}

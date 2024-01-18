@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Mini Shooter: MiniShooter/Player/MShooterCharacter.h Source File</title>
+<title>MiniShooter: Source/MiniShooter/Player/MShooterCharacter.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Mini Shooter
+   <div id="projectname">MiniShooter
    </div>
   </td>
  </tr>
@@ -76,25 +76,25 @@ $(function() { codefold.init(0); });
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_4ee6d81312903af5efaa59519d251794.html">MiniShooter</a></li><li class="navelem"><a class="el" href="dir_49aa8d07d5a33087459b77cacd704165.html">Player</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_940c63d3d357068997c9b3b2b078b3ce.html">MiniShooter</a></li><li class="navelem"><a class="el" href="dir_a03cce3226b989bcb5d3c4c5567a9798.html">Player</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">MShooterCharacter.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="_m_shooter_character_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Copyright Epic Games, Inc. All Rights Reserved.</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Copyright Epic Games, Inc. All Rights Reserved.</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="_mini_shooter_character_8h.html">../MiniShooterCharacter.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;../MiniShooterCharacter.h&quot;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;MShooterCharacter.generated.h&quot;</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">class </span>UMShooterShootingComponent;</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="_m_shooter_character_8h.html#a3e8859f8ce505781b94eb31a8c37ac03">   12</a></span><a class="code hl_function" href="_m_shooter_character_8h.html#a3e8859f8ce505781b94eb31a8c37ac03">DECLARE_MULTICAST_DELEGATE_OneParam</a>(FRequestNearestEnemy, <span class="keyword">class</span> AActor*);</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>DECLARE_MULTICAST_DELEGATE_OneParam(FRequestNearestEnemy, <span class="keyword">class</span> AActor*);</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>UCLASS(config=Game)</div>
 <div class="foldopen" id="foldopen00019" data-start="{" data-end="};">
@@ -108,41 +108,39 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="class_a_m_shooter_character.html#aea10c4062b81c1df1d25ddfdbcd273cd">   30</a></span>    FRequestNearestEnemy <a class="code hl_variable" href="class_a_m_shooter_character.html#aea10c4062b81c1df1d25ddfdbcd273cd">RequestNearestEnemyDelegate</a>;</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    UFUNCTION()</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    AActor* RequestGetAimedEnemy();</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    UFUNCTION()</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordtype">void</span> SetShootingSpeed(<span class="keywordtype">float</span> NewSpeed);</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    UFUNCTION()</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordtype">float</span> GetShootingSpeed();</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>protected:</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    UPROPERTY(EditAnywhere)</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="class_a_m_shooter_character.html#a2687d5b53c61a58f8b45b7b88b75bcc0">   58</a></span>    UMShooterShootingComponent* ShootingComponent;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    UFUNCTION()</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        AActor* RequestGetAimedEnemy();</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    UFUNCTION()</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keywordtype">void</span> SetShootingSpeed(<span class="keywordtype">float</span> NewSpeed);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    UFUNCTION()</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keywordtype">float</span> GetShootingSpeed();</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>protected:</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    UPROPERTY(EditAnywhere)</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="class_a_m_shooter_character.html#a16dd4c02210ab51709fedf9c2c86c665">   64</a></span>    FTimerHandle StopAimingTimeHandle;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="class_a_m_shooter_character.html#a2687d5b53c61a58f8b45b7b88b75bcc0">   64</a></span>        UMShooterShootingComponent* ShootingComponent;</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    UPROPERTY(EditAnywhere, Category = &quot;Character Config&quot;)</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="class_a_m_shooter_character.html#ae39d60e5ea9d770734b30763fa975925">   70</a></span>        <span class="keywordtype">float</span> TimeToAutoStopAiming{ 0.25f };</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    UPROPERTY(EditAnywhere)</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="class_a_m_shooter_character.html#a16dd4c02210ab51709fedf9c2c86c665">   70</a></span>        FTimerHandle StopAimingTimeHandle;</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    UFUNCTION()</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    void Shoot(<span class="keywordtype">bool</span> bStart);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    UPROPERTY(EditAnywhere, Category = &quot;Character Config&quot;)</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="class_a_m_shooter_character.html#ae39d60e5ea9d770734b30763fa975925">   76</a></span>        <span class="keywordtype">float</span> TimeToAutoStopAiming{ 0.25f };</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    UFUNCTION()</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordtype">void</span> Aim();</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    UFUNCTION()</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <span class="keywordtype">void</span> GetNearestEnemy(AActor* NearestEnemy);</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    virtual <span class="keywordtype">void</span> BeginPlay() override;</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>};</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    UFUNCTION()</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        void Shoot(<span class="keywordtype">bool</span> bStart);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    UFUNCTION()</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <span class="keywordtype">void</span> Aim();</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    UFUNCTION()</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <span class="keywordtype">void</span> GetNearestEnemy(AActor* NearestEnemy);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    virtual <span class="keywordtype">void</span> BeginPlay() override;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>};</div>
 </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
-<div class="ttc" id="a_m_shooter_character_8h_html_a3e8859f8ce505781b94eb31a8c37ac03"><div class="ttname"><a href="_m_shooter_character_8h.html#a3e8859f8ce505781b94eb31a8c37ac03">DECLARE_MULTICAST_DELEGATE_OneParam</a></div><div class="ttdeci">DECLARE_MULTICAST_DELEGATE_OneParam(FRequestNearestEnemy, class AActor *)</div></div>
-<div class="ttc" id="a_mini_shooter_character_8h_html"><div class="ttname"><a href="_mini_shooter_character_8h.html">MiniShooterCharacter.h</a></div></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
 <div class="ttc" id="aclass_a_m_shooter_character_html"><div class="ttname"><a href="class_a_m_shooter_character.html">AMShooterCharacter</a></div><div class="ttdef"><b>Definition</b> MShooterCharacter.h:20</div></div>
 <div class="ttc" id="aclass_a_m_shooter_character_html_aea10c4062b81c1df1d25ddfdbcd273cd"><div class="ttname"><a href="class_a_m_shooter_character.html#aea10c4062b81c1df1d25ddfdbcd273cd">AMShooterCharacter::RequestNearestEnemyDelegate</a></div><div class="ttdeci">FRequestNearestEnemy RequestNearestEnemyDelegate</div><div class="ttdef"><b>Definition</b> MShooterCharacter.h:30</div></div>
 <div class="ttc" id="aclass_a_mini_shooter_character_html"><div class="ttname"><a href="class_a_mini_shooter_character.html">AMiniShooterCharacter</a></div><div class="ttdef"><b>Definition</b> MiniShooterCharacter.h:11</div></div>

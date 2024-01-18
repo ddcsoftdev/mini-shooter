@@ -13,16 +13,16 @@ Inheritance diagram for AMShooter\+Target\+:\begin{figure}[H]
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_a_m_shooter_target_ac9ba0babbedcf5652f1caba11475cda7}{AMShooter\+Target}} ()
-\item 
-virtual void \mbox{\hyperlink{class_a_m_shooter_target_a833bcc5838d08a3780a24ba09ae87bb0}{Tick}} (float Delta\+Time) override
+\Hypertarget{class_a_m_shooter_target_a833bcc5838d08a3780a24ba09ae87bb0}\label{class_a_m_shooter_target_a833bcc5838d08a3780a24ba09ae87bb0} 
+virtual void {\bfseries Tick} (float Delta\+Time) override
 \item 
 virtual void \mbox{\hyperlink{class_a_m_shooter_target_a20b1cbaedae7160c6efc5e126ab0feac}{Take\+Damage\+Amount}} (float Amount) override
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-virtual void \mbox{\hyperlink{class_a_m_shooter_target_a86317aef633a041a10cd46ed757d17b7}{Begin\+Play}} () override
+\Hypertarget{class_a_m_shooter_target_a86317aef633a041a10cd46ed757d17b7}\label{class_a_m_shooter_target_a86317aef633a041a10cd46ed757d17b7} 
+virtual void {\bfseries Begin\+Play} () override
 \item 
 virtual void \mbox{\hyperlink{class_a_m_shooter_target_affae585bcb41a2706993a5f44e5d0d87}{Update\+Health\+Bar\+Widget}} (float Max\+Health, float Current\+Health) override
 \item 
@@ -49,29 +49,15 @@ float \mbox{\hyperlink{class_a_m_shooter_target_ac822c483d75e510bbe990da0aa32961
 \item 
 FVector \mbox{\hyperlink{class_a_m_shooter_target_ad831c6c2a716275e2cd8b27a55c02b4e}{Start\+Location}} \{FVector\+::\+Zero\+Vector\}
 \item 
-FVector \mbox{\hyperlink{class_a_m_shooter_target_a0c9219d95578273ea288d7067c00614e}{End\+Location}} \{FVector\+::\+Zero\+Vector\}
+\Hypertarget{class_a_m_shooter_target_a0c9219d95578273ea288d7067c00614e}\label{class_a_m_shooter_target_a0c9219d95578273ea288d7067c00614e} 
+FVector {\bfseries End\+Location} \{FVector\+::\+Zero\+Vector\}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Target class that simulates a Shooting Range Target It has a simple up and down animation Has same functionality as Enemy except for this class lacking AI Implements Enemy Interface 
 
-\doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{class_a_m_shooter_target_ac9ba0babbedcf5652f1caba11475cda7}\label{class_a_m_shooter_target_ac9ba0babbedcf5652f1caba11475cda7} 
-\index{AMShooterTarget@{AMShooterTarget}!AMShooterTarget@{AMShooterTarget}}
-\index{AMShooterTarget@{AMShooterTarget}!AMShooterTarget@{AMShooterTarget}}
-\doxysubsubsection{\texorpdfstring{AMShooterTarget()}{AMShooterTarget()}}
-{\footnotesize\ttfamily AMShooter\+Target\+::\+AMShooter\+Target (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
 \doxysubsection{Member Function Documentation}
-\Hypertarget{class_a_m_shooter_target_a86317aef633a041a10cd46ed757d17b7}\label{class_a_m_shooter_target_a86317aef633a041a10cd46ed757d17b7} 
-\index{AMShooterTarget@{AMShooterTarget}!BeginPlay@{BeginPlay}}
-\index{BeginPlay@{BeginPlay}!AMShooterTarget@{AMShooterTarget}}
-\doxysubsubsection{\texorpdfstring{BeginPlay()}{BeginPlay()}}
-{\footnotesize\ttfamily void AMShooter\+Target\+::\+Begin\+Play (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
-
 \Hypertarget{class_a_m_shooter_target_a9e2298656214d9975ad6b0c5bc0d858b}\label{class_a_m_shooter_target_a9e2298656214d9975ad6b0c5bc0d858b} 
 \index{AMShooterTarget@{AMShooterTarget}!PlayTargetAnimation@{PlayTargetAnimation}}
 \index{PlayTargetAnimation@{PlayTargetAnimation}!AMShooterTarget@{AMShooterTarget}}
@@ -94,15 +80,16 @@ Reimplemented from \mbox{\hyperlink{class_i_m_shooter_enemy_basics_ab847def3f0ac
 \doxysubsubsection{\texorpdfstring{TakeDamageAmount()}{TakeDamageAmount()}}
 {\footnotesize\ttfamily void AMShooter\+Target\+::\+Take\+Damage\+Amount (\begin{DoxyParamCaption}\item[{float}]{Amount }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
-Inflicts Damage Inverts Amount value to negative to subtract 
+Inflicts Damage Inverts Amount value to negative to subtract
+
+
+\begin{DoxyParams}{Parameters}
+{\em Amount} & Value that is subtracted to the Actor\textquotesingle{}s health \\
+\hline
+\end{DoxyParams}
+
 
 Reimplemented from \mbox{\hyperlink{class_i_m_shooter_enemy_basics_a568989012b5396f2a845f272c8b1ce05}{IMShooter\+Enemy\+Basics}}.
-
-\Hypertarget{class_a_m_shooter_target_a833bcc5838d08a3780a24ba09ae87bb0}\label{class_a_m_shooter_target_a833bcc5838d08a3780a24ba09ae87bb0} 
-\index{AMShooterTarget@{AMShooterTarget}!Tick@{Tick}}
-\index{Tick@{Tick}!AMShooterTarget@{AMShooterTarget}}
-\doxysubsubsection{\texorpdfstring{Tick()}{Tick()}}
-{\footnotesize\ttfamily void AMShooter\+Target\+::\+Tick (\begin{DoxyParamCaption}\item[{float}]{Delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 \Hypertarget{class_a_m_shooter_target_affae585bcb41a2706993a5f44e5d0d87}\label{class_a_m_shooter_target_affae585bcb41a2706993a5f44e5d0d87} 
 \index{AMShooterTarget@{AMShooterTarget}!UpdateHealthBarWidget@{UpdateHealthBarWidget}}
@@ -110,7 +97,16 @@ Reimplemented from \mbox{\hyperlink{class_i_m_shooter_enemy_basics_a568989012b53
 \doxysubsubsection{\texorpdfstring{UpdateHealthBarWidget()}{UpdateHealthBarWidget()}}
 {\footnotesize\ttfamily void AMShooter\+Target\+::\+Update\+Health\+Bar\+Widget (\begin{DoxyParamCaption}\item[{float}]{Max\+Health,  }\item[{float}]{Current\+Health }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
 
-Internal update health bar widget It uses Health and Max\+Health Attributes from class 
+Internal update health bar widget It uses Health and Max\+Health Attributes from class
+
+
+\begin{DoxyParams}{Parameters}
+{\em Max\+Health} & Value that represents max health of the Actor \\
+\hline
+{\em Current\+Health} & Value that represent current health of the Actor \\
+\hline
+\end{DoxyParams}
+
 
 Reimplemented from \mbox{\hyperlink{class_i_m_shooter_enemy_basics_a3426dfff365d10203be7d3c21b77b680}{IMShooter\+Enemy\+Basics}}.
 
@@ -135,13 +131,7 @@ Animation Speed \Hypertarget{class_a_m_shooter_target_a1752a21651dbd7e63b78623d8
 \doxysubsubsection{\texorpdfstring{BoxCollision}{BoxCollision}}
 {\footnotesize\ttfamily UBox\+Component\texorpdfstring{$\ast$}{*} AMShooter\+Target\+::\+Box\+Collision\hspace{0.3cm}{\ttfamily [protected]}}
 
-Decouple Collision from Mesh for flexibility \Hypertarget{class_a_m_shooter_target_a0c9219d95578273ea288d7067c00614e}\label{class_a_m_shooter_target_a0c9219d95578273ea288d7067c00614e} 
-\index{AMShooterTarget@{AMShooterTarget}!EndLocation@{EndLocation}}
-\index{EndLocation@{EndLocation}!AMShooterTarget@{AMShooterTarget}}
-\doxysubsubsection{\texorpdfstring{EndLocation}{EndLocation}}
-{\footnotesize\ttfamily FVector AMShooter\+Target\+::\+End\+Location \{FVector\+::\+Zero\+Vector\}\hspace{0.3cm}{\ttfamily [protected]}}
-
-\Hypertarget{class_a_m_shooter_target_a42b8df9b0a6c69dc29a54e3d5e479090}\label{class_a_m_shooter_target_a42b8df9b0a6c69dc29a54e3d5e479090} 
+Decouple Collision from Mesh for flexibility \Hypertarget{class_a_m_shooter_target_a42b8df9b0a6c69dc29a54e3d5e479090}\label{class_a_m_shooter_target_a42b8df9b0a6c69dc29a54e3d5e479090} 
 \index{AMShooterTarget@{AMShooterTarget}!HealthWidget@{HealthWidget}}
 \index{HealthWidget@{HealthWidget}!AMShooterTarget@{AMShooterTarget}}
 \doxysubsubsection{\texorpdfstring{HealthWidget}{HealthWidget}}
@@ -175,5 +165,5 @@ Visible Mesh for Enemy
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Mini\+Shooter/\+Enemy/\mbox{\hyperlink{_m_shooter_target_8h}{MShooter\+Target.\+h}}\item 
-Mini\+Shooter/\+Enemy/\mbox{\hyperlink{_m_shooter_target_8cpp}{MShooter\+Target.\+cpp}}\end{DoxyCompactItemize}
+Source/\+Mini\+Shooter/\+Enemy/MShooter\+Target.\+h\item 
+Source/\+Mini\+Shooter/\+Enemy/MShooter\+Target.\+cpp\end{DoxyCompactItemize}

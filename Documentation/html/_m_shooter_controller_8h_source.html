@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Mini Shooter: MiniShooter/Player/MShooterController.h Source File</title>
+<title>MiniShooter: Source/MiniShooter/Player/MShooterController.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Mini Shooter
+   <div id="projectname">MiniShooter
    </div>
   </td>
  </tr>
@@ -76,14 +76,14 @@ $(function() { codefold.init(0); });
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_4ee6d81312903af5efaa59519d251794.html">MiniShooter</a></li><li class="navelem"><a class="el" href="dir_49aa8d07d5a33087459b77cacd704165.html">Player</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_940c63d3d357068997c9b3b2b078b3ce.html">MiniShooter</a></li><li class="navelem"><a class="el" href="dir_a03cce3226b989bcb5d3c4c5567a9798.html">Player</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">MShooterController.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="_m_shooter_controller_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Fill out your copyright notice in the Description page of Project Settings.</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Fill out your copyright notice in the Description page of Project Settings.</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
@@ -94,8 +94,8 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="_m_shooter_controller_8h.html#a49616659e0d6784e0edd11790a5e0d64">   12</a></span><a class="code hl_function" href="_m_shooter_controller_8h.html#a49616659e0d6784e0edd11790a5e0d64">DECLARE_MULTICAST_DELEGATE_OneParam</a>(FSendShootRequest, <span class="keywordtype">bool</span>);</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="_m_shooter_controller_8h.html#a467cd442e80d77d09a23b135837383e7">   13</a></span><a class="code hl_function" href="_m_shooter_controller_8h.html#a467cd442e80d77d09a23b135837383e7">DECLARE_MULTICAST_DELEGATE</a>(FSendAimRequest);</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>DECLARE_MULTICAST_DELEGATE_OneParam(FSendShootRequest, <span class="keywordtype">bool</span>);</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>DECLARE_MULTICAST_DELEGATE(FSendAimRequest);</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>UCLASS()</div>
 <div class="foldopen" id="foldopen00019" data-start="{" data-end="};">
@@ -113,17 +113,15 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">protected</span>:</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    UFUNCTION()</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    void RequestShoot(<span class="keywordtype">bool</span> bStart);</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    UFUNCTION()</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordtype">void</span> RequestAim();</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    virtual <span class="keywordtype">void</span> BeginPlay() override;</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>};</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    UFUNCTION()</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        void RequestShoot(<span class="keywordtype">bool</span> bStart);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    UFUNCTION()</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keywordtype">void</span> RequestAim();</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    virtual <span class="keywordtype">void</span> BeginPlay() override;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>};</div>
 </div>
-<div class="ttc" id="a_m_shooter_controller_8h_html_a467cd442e80d77d09a23b135837383e7"><div class="ttname"><a href="_m_shooter_controller_8h.html#a467cd442e80d77d09a23b135837383e7">DECLARE_MULTICAST_DELEGATE</a></div><div class="ttdeci">DECLARE_MULTICAST_DELEGATE(FSendAimRequest)</div></div>
-<div class="ttc" id="a_m_shooter_controller_8h_html_a49616659e0d6784e0edd11790a5e0d64"><div class="ttname"><a href="_m_shooter_controller_8h.html#a49616659e0d6784e0edd11790a5e0d64">DECLARE_MULTICAST_DELEGATE_OneParam</a></div><div class="ttdeci">DECLARE_MULTICAST_DELEGATE_OneParam(FSendShootRequest, bool)</div></div>
 <div class="ttc" id="aclass_a_m_shooter_controller_html"><div class="ttname"><a href="class_a_m_shooter_controller.html">AMShooterController</a></div><div class="ttdef"><b>Definition</b> MShooterController.h:20</div></div>
 <div class="ttc" id="aclass_a_m_shooter_controller_html_a42f62b672eaec1101cf06145041a114f"><div class="ttname"><a href="class_a_m_shooter_controller.html#a42f62b672eaec1101cf06145041a114f">AMShooterController::ShootDelegate</a></div><div class="ttdeci">FSendShootRequest ShootDelegate</div><div class="ttdef"><b>Definition</b> MShooterController.h:28</div></div>
 <div class="ttc" id="aclass_a_m_shooter_controller_html_a749630ed72c7f111145a6b5d260f8451"><div class="ttname"><a href="class_a_m_shooter_controller.html#a749630ed72c7f111145a6b5d260f8451">AMShooterController::AimDelegate</a></div><div class="ttdeci">FSendAimRequest AimDelegate</div><div class="ttdef"><b>Definition</b> MShooterController.h:33</div></div>
