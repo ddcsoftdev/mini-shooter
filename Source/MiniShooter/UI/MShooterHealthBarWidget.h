@@ -28,6 +28,9 @@ public:
 
 	/**
 	* Setter to manipulate progress within progress bar
+ 	*
+  	* @param MaxHealth Value that represents the Actor's max health
+   	* @param CurrentHealth Value that represents the Actor's current health
 	*/
 	UFUNCTION()
 		void SetHealthBar(float MaxHealth, float CurrentHealth);
