@@ -38,6 +38,8 @@ public:
 	/**
 	* Inflicts Damage
 	* Inverts Amount value to negative to subtract
+ 	*
+  	* @param Amount Value that is subtracted to the Actor's health
 	*/
 	UFUNCTION()
 		virtual void TakeDamageAmount(float Amount) override;
@@ -89,9 +91,9 @@ protected:
 	* Start and End Location for Animation
 	*/
 	UPROPERTY()
-	FVector StartLocation {FVector::ZeroVector};
+		FVector StartLocation {FVector::ZeroVector};
 	UPROPERTY()
-	FVector EndLocation {FVector::ZeroVector};
+		FVector EndLocation {FVector::ZeroVector};
 
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -99,6 +101,9 @@ protected:
 	/**
 	* Internal update health bar widget
 	* It uses Health and MaxHealth Attributes from class
+ 	*
+  	* @param MaxHealth Value that represents max health of the Actor
+   	* @param CurrentHealth Value that represent current health of the Actor
 	*/
 	UFUNCTION()
 		virtual void UpdateHealthBarWidget(float MaxHealth, float CurrentHealth) override;
@@ -113,5 +118,5 @@ protected:
 	* Move Target Up and Down
 	*/
 	UFUNCTION()
-	void PlayTargetAnimation();
+		void PlayTargetAnimation();
 };
