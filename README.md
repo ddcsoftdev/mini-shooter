@@ -1,5 +1,5 @@
 # Summary:
-This project is a portoflio that showcases gameplay, UI and simple AI mechanics codded within UE engine. The ThirdPersonTemplate has been used as a baseline to start the project.
+This project is a portoflio that showcases gameplay, UI and simple AI mechanics codded within UE 5.3 engine. The ThirdPersonTemplate has been used as a baseline to start the project.
 
 It is a stripped down version of a shooter where there are enemies and moving targets which you are able to destroy by shooting at them.
 There is also some simple AI codded without the UE AI toolset, some simple UI and some specific mechanics like a platform which modifies the shooting speed.
