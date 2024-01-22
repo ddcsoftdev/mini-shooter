@@ -38,4 +38,16 @@ it is currently not set up to detect the player. It would suffice to pass the pl
 This component handles the AI for the enemy, although it can be place on any actor (it does not need to be a pawn).
 It has a simple state machine in form of an enum that currently handles Patroling, Rest and Chasing the player.
 Attacking has been set as an option but it's not currently implemented.
+<ul>
+  <li>Patrol: the actor patrols within a specific patrol zone.</li>
+  <li>Rest: every 5 seconds the actor rests for 3 seconds and then goes back to the previous state.</li>
+  <li>Chase: chases the Player as soon as he enteres the patrol zone, and stops chasing as soon as the Player leaves the zone.</li>
+</ul>
+
+# Sooting Platform:
+This platform allows to modify in real time the Player's speed while he is standing over the platform.
+
+# Moving Target:
+This target works similar to the enemies, but it does not have any AI. This actor holds a simple up and
+down animation based on a public attribute that can be changed within the editor. This animation accounts for clipping, essentially it will make sure that it never goes below the floor accounting for the mesh size.
 
