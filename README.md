@@ -44,7 +44,7 @@ Attacking has been set as an option but it's not currently implemented.
   <li>Chase: chases the Player as soon as he enteres the patrol zone, and stops chasing as soon as the Player leaves the zone.</li>
 </ul>
 
-# Sooting Platform:
+# Shooting Platform:
 This platform allows to modify in real time the Player's speed while he is standing over the platform.
 
 # Moving Target:
